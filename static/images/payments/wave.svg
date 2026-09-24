@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
+  <!-- Fond du badge Blanc / Propre -->
+  <rect width="160" height="48" rx="10" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="159" height="47" rx="9.5" stroke="#E2E8F0"/>
+  
+  <!-- Carré Cyan Signature Wave #1DC3F4 -->
+  <rect x="8" y="7" width="34" height="34" rx="7" fill="#1DC3F4"/>
+  
+  <!-- Pingouin Wave Officiel -->
+  <g transform="translate(14, 11)">
+    <!-- Pieds jaunes du pingouin -->
+    <ellipse cx="8" cy="24" rx="2.5" ry="1.2" fill="#FFB703"/>
+    <ellipse cx="14" cy="24" rx="2.5" ry="1.2" fill="#FFB703"/>
+    
+    <!-- Corps sombre du pingouin -->
+    <path d="M11 2C7 2 4.5 5.5 4.5 11C4.5 15.5 5.2 23 11 23C16.8 23 17.5 15.5 17.5 11C17.5 5.5 15 2 11 2Z" fill="#0F172A"/>
+    
+    <!-- Ailes -->
+    <path d="M4.5 10C3 13 3 17 4.5 19C5 18 5 15 5 12" fill="#0F172A"/>
+    <path d="M17.5 10C19 13 19 17 17.5 19C17 18 17 15 17 12" fill="#0F172A"/>
+
+    <!-- Ventre blanc ovale -->
+    <ellipse cx="11" cy="14.5" rx="4.5" ry="7" fill="#FFFFFF"/>
+    
+    <!-- Yeux -->
+    <circle cx="9" cy="7.5" r="1" fill="#FFFFFF"/>
+    <circle cx="13" cy="7.5" r="1" fill="#FFFFFF"/>
+    <circle cx="9.2" cy="7.5" r="0.5" fill="#0F172A"/>
+    <circle cx="12.8" cy="7.5" r="0.5" fill="#0F172A"/>
+    
+    <!-- Bec orange/jaune pointu -->
+    <path d="M10 9.2L11 11.2L12 9.2Z" fill="#FFB703"/>
+  </g>
+
+  <!-- Typographie Wave Officielle -->
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+    <!-- "wave" en bleu marine / cyan -->
+    <text x="50" y="27" font-size="18" font-weight="900" fill="#0F172A" letter-spacing="-0.5">wave</text>
+    
+    <!-- "Mobile Money" sous-titre officiel -->
+    <text x="50" y="37" font-size="8.5" font-weight="700" fill="#0284C7" letter-spacing="0.2">MOBILE MONEY</text>
+    
+    <!-- Badge Mali -->
+    <rect x="114" y="25" width="36" height="13" rx="3.5" fill="#E0F2FE"/>
+    <text x="132" y="34.5" font-size="8" font-weight="800" fill="#0369A1" text-anchor="middle" letter-spacing="0.4">ML</text>
+  </g>
+</svg>

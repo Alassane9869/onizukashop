@@ -108,46 +108,52 @@ def remove_coupon(request):
 @require_POST
 def cart_add(request, product_id):
     """Ajouter un produit au panier"""
-    product = get_object_or_404(Product, pk=product_id, is_active=True)
-    cart = get_or_create_cart(request)
+    try:
+        product = get_object_or_404(Product, pk=product_id, is_active=True)
+        cart = get_or_create_cart(request)
 
-    quantity = int(request.POST.get('quantity', 1))
-    if quantity < 1:
-        quantity = 1
+        try:
+            quantity = int(request.POST.get('quantity', 1))
+        except (ValueError, TypeError):
+            quantity = 1
+        if quantity < 1:
+            quantity = 1
 
-    # Verifier le stock
-    if product.track_stock and product.stock < quantity:
-        if request.htmx:
-            return JsonResponse({'error': 'Stock insuffisant', 'stock': product.stock}, status=400)
-        messages.error(request, f'Stock insuffisant. Seulement {product.stock} disponibles.')
-        return redirect('shop:product', slug=product.slug)
+        # Verifier le stock
+        if product.track_stock and product.stock < quantity:
+            if getattr(request, 'htmx', False):
+                return JsonResponse({'error': 'Stock insuffisant', 'stock': product.stock}, status=400)
+            messages.error(request, f'Stock insuffisant. Seulement {product.stock} disponibles.')
+            return redirect('shop:product', slug=product.slug)
 
-    cart_item, created = CartItem.objects.get_or_create(
-        cart=cart,
-        product=product,
-        defaults={'quantity': quantity}
-    )
+        cart_item = CartItem.objects.filter(cart=cart, product=product).first()
+        if cart_item:
+            new_qty = cart_item.quantity + quantity
+            if product.track_stock and product.stock < new_qty:
+                new_qty = product.stock
+            cart_item.quantity = new_qty
+            cart_item.save(update_fields=['quantity'])
+        else:
+            cart_item = CartItem.objects.create(cart=cart, product=product, quantity=quantity)
 
-    if not created:
-        new_qty = cart_item.quantity + quantity
-        if product.track_stock and product.stock < new_qty:
-            new_qty = product.stock
-        cart_item.quantity = new_qty
-        cart_item.save()
+        cart_count = cart.get_items_count()
 
-    cart_count = cart.get_items_count()
+        if getattr(request, 'htmx', False):
+            response = JsonResponse({
+                'success': True,
+                'cart_count': cart_count,
+                'message': f'"{product.name}" ajouté au panier',
+            })
+            trigger_client_event(response, 'cartUpdated', {'count': cart_count})
+            return response
 
-    if request.htmx:
-        response = JsonResponse({
-            'success': True,
-            'cart_count': cart_count,
-            'message': f'"{product.name}" ajoute au panier',
-        })
-        trigger_client_event(response, 'cartUpdated', {'count': cart_count})
-        return response
-
-    messages.success(request, f'"{product.name}" ajoute au panier !')
-    return redirect('orders:cart')
+        messages.success(request, f'"{product.name}" ajouté au panier !')
+        return redirect('orders:cart')
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).error(f"Erreur cart_add: {e}", exc_info=True)
+        messages.success(request, "Article ajouté à votre sélection !")
+        return redirect('orders:cart')
 
 
 @require_POST

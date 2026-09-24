@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
+  <!-- Fond du badge Blanc / Propre -->
+  <rect width="160" height="48" rx="10" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="159" height="47" rx="9.5" stroke="#E2E8F0"/>
+  
+  <!-- Carré Émeraude Signature Cash #059669 -->
+  <rect x="8" y="7" width="34" height="34" rx="7" fill="#059669"/>
+  
+  <!-- Icône Billets & Espèces Stylisée -->
+  <g transform="translate(13, 14)" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Billet arrière -->
+    <rect x="5" y="2" width="18" height="11" rx="2" stroke-opacity="0.6"/>
+    <!-- Billet avant -->
+    <rect x="1" y="6" width="18" height="11" rx="2" fill="#059669"/>
+    <!-- Cercle central du billet -->
+    <circle cx="10" cy="11.5" r="2.2" stroke-width="1.5"/>
+  </g>
+
+  <!-- Typographie Espèces / Cash Officielle -->
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+    <!-- "ESPÈCES" en vert profond -->
+    <text x="50" y="23" font-size="12" font-weight="900" fill="#065F46" letter-spacing="0.2">ESPÈCES</text>
+    
+    <!-- "À la Livraison" -->
+    <text x="50" y="36" font-size="9" font-weight="700" fill="#059669" letter-spacing="-0.1">À la Livraison (Bamako)</text>
+  </g>
+</svg>

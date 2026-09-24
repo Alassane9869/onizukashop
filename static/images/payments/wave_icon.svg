@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+  <rect width="36" height="36" rx="8" fill="#1DC3F4"/>
+  <!-- Pingouin Wave -->
+  <g transform="translate(7, 5)">
+    <ellipse cx="8" cy="24" rx="2.5" ry="1.2" fill="#FFB703"/>
+    <ellipse cx="14" cy="24" rx="2.5" ry="1.2" fill="#FFB703"/>
+    <path d="M11 2C7 2 4.5 5.5 4.5 11C4.5 15.5 5.2 23 11 23C16.8 23 17.5 15.5 17.5 11C17.5 5.5 15 2 11 2Z" fill="#0F172A"/>
+    <path d="M4.5 10C3 13 3 17 4.5 19C5 18 5 15 5 12" fill="#0F172A"/>
+    <path d="M17.5 10C19 13 19 17 17.5 19C17 18 17 15 17 12" fill="#0F172A"/>
+    <ellipse cx="11" cy="14.5" rx="4.5" ry="7" fill="#FFFFFF"/>
+    <circle cx="9" cy="7.5" r="1" fill="#FFFFFF"/>
+    <circle cx="13" cy="7.5" r="1" fill="#FFFFFF"/>
+    <circle cx="9.2" cy="7.5" r="0.5" fill="#0F172A"/>
+    <circle cx="12.8" cy="7.5" r="0.5" fill="#0F172A"/>
+    <path d="M10 9.2L11 11.2L12 9.2Z" fill="#FFB703"/>
+  </g>
+</svg>

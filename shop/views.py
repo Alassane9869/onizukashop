@@ -60,30 +60,49 @@ class ProductFilter(django_filters.FilterSet):
 # ---------------------------------------------------------------------------
 
 def get_or_create_cart(request):
-    """Recupere ou cree le panier pour l'utilisateur / la session."""
+    """Recupere ou cree le panier pour l'utilisateur / la session de maniere ultra-robuste."""
     if request.user.is_authenticated:
-        cart, _ = Cart.objects.get_or_create(user=request.user)
+        cart = Cart.objects.filter(user=request.user).first()
+        if not cart:
+            cart = Cart.objects.create(user=request.user)
+
         # Fusionner panier session si existant
         session_key = request.session.session_key
         if session_key:
-            try:
-                session_cart = Cart.objects.get(session_key=session_key)
-                for item in session_cart.items.all():
-                    cart_item, created = CartItem.objects.get_or_create(
-                        cart=cart, product=item.product,
-                        defaults={'quantity': item.quantity}
-                    )
-                    if not created:
+            session_carts = Cart.objects.filter(session_key=session_key).exclude(id=cart.id)
+            for sc in session_carts:
+                for item in sc.items.select_related('product').all():
+                    cart_item = CartItem.objects.filter(cart=cart, product=item.product).first()
+                    if cart_item:
                         cart_item.quantity += item.quantity
-                        cart_item.save()
-                session_cart.delete()
-            except Cart.DoesNotExist:
-                pass
-    else:
-        if not request.session.session_key:
+                        cart_item.save(update_fields=['quantity'])
+                    else:
+                        CartItem.objects.create(cart=cart, product=item.product, quantity=item.quantity)
+                sc.delete()
+        return cart
+
+    # Utilisateur anonyme
+    if not request.session.session_key:
+        try:
+            request.session.save()
+        except Exception:
+            pass
+    session_key = request.session.session_key
+
+    if not session_key:
+        try:
             request.session.create()
+        except Exception:
+            pass
         session_key = request.session.session_key
-        cart, _ = Cart.objects.get_or_create(session_key=session_key)
+
+    cart = None
+    if session_key:
+        cart = Cart.objects.filter(session_key=session_key).first()
+
+    if not cart:
+        cart = Cart.objects.create(session_key=session_key)
+
     return cart
 
 
