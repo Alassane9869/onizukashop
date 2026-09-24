@@ -1,9 +1,9 @@
-﻿[
+[
 {
   "model": "shop.category",
   "pk": 1,
   "fields": {
-    "name": "R├®frig├®rateurs & Cong├®lateurs",
+    "name": "Réfrigérateurs & Congélateurs",
     "slug": "refrigerateurs",
     "parent": null,
     "image": "",
@@ -47,7 +47,7 @@
   "model": "shop.category",
   "pk": 3,
   "fields": {
-    "name": "T├®l├®viseurs & Son",
+    "name": "Téléviseurs & Son",
     "slug": "televiseurs",
     "parent": null,
     "image": "",
@@ -69,7 +69,7 @@
   "model": "shop.category",
   "pk": 4,
   "fields": {
-    "name": "Cuisini├¿res & Fours",
+    "name": "Cuisinières & Fours",
     "slug": "cuisinieres",
     "parent": null,
     "image": "",
@@ -91,7 +91,7 @@
   "model": "shop.category",
   "pk": 5,
   "fields": {
-    "name": "Petit ├ëlectrom├®nager",
+    "name": "Petit Électroménager",
     "slug": "petit-electromenager",
     "parent": null,
     "image": "",
@@ -327,19 +327,19 @@
   "model": "shop.product",
   "pk": 1,
   "fields": {
-    "name": "R├®frig├®rateur Combin├® Samsung No Frost 385L",
+    "name": "Réfrigérateur Combiné Samsung No Frost 385L",
     "slug": "refrigerateur-combine-samsung-385l",
     "sku": "SAM-RF-385NF",
     "category": 1,
     "brand": 1,
-    "short_description": "Froid ventil├® int├®gral Multi Flow, compresseur Digital Inverter garanti 10 ans.",
-    "description": "Ce r├®frig├®rateur Samsung offre une capacit├® de 385 litres avec technologie No Frost ├®vitant le givre. ├ëconome en ├®nergie et con├ºu pour r├®sister aux variations de tension ├®lectrique fr├®quentes en Afrique de l'Ouest.",
+    "short_description": "Froid ventilé intégral Multi Flow, compresseur Digital Inverter garanti 10 ans.",
+    "description": "Ce réfrigérateur Samsung offre une capacité de 385 litres avec technologie No Frost évitant le givre. Économe en énergie et conçu pour résister aux variations de tension électrique fréquentes en Afrique de l'Ouest.",
     "specifications": {
-      "Capacit├®": "385 Litres",
-      "Technologie": "No Frost (Ventil├®)",
+      "Capacité": "385 Litres",
+      "Technologie": "No Frost (Ventilé)",
       "Compresseur": "Digital Inverter",
-      "Classe ├®nerg├®tique": "A+",
-      "Couleur": "Inox M├®tallis├®",
+      "Classe énergétique": "A+",
+      "Couleur": "Inox Métallisé",
       "Tension": "220-240V / 50Hz (Protection surtension)"
     },
     "price": "525000",
@@ -370,12 +370,12 @@
     "category": 2,
     "brand": 5,
     "short_description": "Refroidissement ultra-rapide Tropical Inverter avec traitement anti-corrosion Gold Fin.",
-    "description": "Id├®al pour le climat chaud de Bamako, le climatiseur Midea Tropicalis├® r├®siste jusqu'├á 55┬░C ext├®rieur. Sa technologie Inverter permet d'├®conomiser jusqu'├á 60% d'├®nergie ├®lectrique.",
+    "description": "Idéal pour le climat chaud de Bamako, le climatiseur Midea Tropicalisé résiste jusqu'à 55°C extérieur. Sa technologie Inverter permet d'économiser jusqu'à 60% d'énergie électrique.",
     "specifications": {
       "Puissance": "1.5 CV (12000 BTU)",
-      "Gaz r├®frig├®rant": "R32 ├ëcologique",
+      "Gaz réfrigérant": "R32 Écologique",
       "Technologie": "Tropical Inverter Quattros",
-      "Filtre": "Haute densit├® anti-poussi├¿re",
+      "Filtre": "Haute densité anti-poussière",
       "Garantie compresseur": "5 ans"
     },
     "price": "310000",
@@ -405,13 +405,13 @@
     "sku": "LG-TV-55UQ80",
     "category": 3,
     "brand": 2,
-    "short_description": "T├®l├®viseur intelligent webOS, processeur ╬▒5 Gen5 AI 4K, HDR10 Pro.",
-    "description": "Plongez dans des images 4K ├®poustouflantes avec la Smart TV LG 55\". Acc├®dez facilement ├á YouTube, Netflix, Prime Video et profitez de la t├®l├®commande magique Magic Remote incluse.",
+    "short_description": "Téléviseur intelligent webOS, processeur α5 Gen5 AI 4K, HDR10 Pro.",
+    "description": "Plongez dans des images 4K époustouflantes avec la Smart TV LG 55\". Accédez facilement à YouTube, Netflix, Prime Video et profitez de la télécommande magique Magic Remote incluse.",
     "specifications": {
-      "Taille ├®cran": "55 pouces (139 cm)",
-      "R├®solution": "4K Ultra HD (3840 x 2160)",
-      "Syst├¿me": "webOS 22",
-      "Connectivit├®": "3x HDMI 2.0, 2x USB, Wi-Fi, Bluetooth",
+      "Taille écran": "55 pouces (139 cm)",
+      "Résolution": "4K Ultra HD (3840 x 2160)",
+      "Système": "webOS 22",
+      "Connectivité": "3x HDMI 2.0, 2x USB, Wi-Fi, Bluetooth",
       "Audio": "20W Ultra Surround"
     },
     "price": "420000",
@@ -436,18 +436,18 @@
   "model": "shop.product",
   "pk": 4,
   "fields": {
-    "name": "Cuisini├¿re Beko 4 Feux Gaz avec Four ├ëlectrique 60x60",
+    "name": "Cuisinière Beko 4 Feux Gaz avec Four Électrique 60x60",
     "slug": "cuisiniere-beko-4-feux-gaz-four-electrique",
     "sku": "BEK-CS-4F60",
     "category": 4,
     "brand": 6,
-    "short_description": "Br├╗leurs haute efficacit├®, s├®curit├® thermocouple et four multifonction.",
-    "description": "Cuisinez pour toute la famille en toute s├®r├®nit├® gr├óce ├á la cuisini├¿re Beko en acier inoxydable. Br├╗leurs puissants ├á allumage int├®gr├® et four avec chaleur tournante.",
+    "short_description": "Brûleurs haute efficacité, sécurité thermocouple et four multifonction.",
+    "description": "Cuisinez pour toute la famille en toute sérénité grâce à la cuisinière Beko en acier inoxydable. Brûleurs puissants à allumage intégré et four avec chaleur tournante.",
     "specifications": {
-      "Configuration": "4 feux gaz + four combin├®",
+      "Configuration": "4 feux gaz + four combiné",
       "Dimensions": "60 x 60 x 85 cm",
-      "S├®curit├®": "Thermocouple coupe-gaz",
-      "Finition": "Inox r├®sistant aux rayures"
+      "Sécurité": "Thermocouple coupe-gaz",
+      "Finition": "Inox résistant aux rayures"
     },
     "price": "240000",
     "sale_price": null,
@@ -471,18 +471,18 @@
   "model": "shop.product",
   "pk": 5,
   "fields": {
-    "name": "Cong├®lateur Coffre Hisense 250 Litres Tropicalis├®",
+    "name": "Congélateur Coffre Hisense 250 Litres Tropicalisé",
     "slug": "congelateur-coffre-hisense-250l",
     "sku": "HIS-CC-250T",
     "category": 1,
     "brand": 3,
-    "short_description": "Super cong├®lation rapide, isolation thermique renforc├®e en cas de coupure.",
-    "description": "Conservez vos denr├®es jusqu'├á 36 heures sans ├®lectricit├® gr├óce ├á l'isolation thermique extra-├®paisse de ce cong├®lateur coffre Hisense, parfait pour un usage domestique ou commercial.",
+    "short_description": "Super congélation rapide, isolation thermique renforcée en cas de coupure.",
+    "description": "Conservez vos denrées jusqu'à 36 heures sans électricité grâce à l'isolation thermique extra-épaisse de ce congélateur coffre Hisense, parfait pour un usage domestique ou commercial.",
     "specifications": {
       "Volume": "250 Litres",
-      "Autonomie coupure": "Jusqu'├á 36h",
+      "Autonomie coupure": "Jusqu'à 36h",
       "Panier amovible": "Inclus",
-      "Serrure": "Cl├® incluse"
+      "Serrure": "Clé incluse"
     },
     "price": "225000",
     "sale_price": null,
@@ -511,13 +511,13 @@
     "sku": "TCL-TV-43S54",
     "category": 3,
     "brand": 4,
-    "short_description": "├ëcran sans bordure m├®tallique, Dolby Audio et Chromecast int├®gr├®.",
-    "description": "Une TV moderne et compacte avec Google Play Store, commande vocale Google Assistant et qualit├® d'affichage Full HD aux couleurs vives.",
+    "short_description": "Écran sans bordure métallique, Dolby Audio et Chromecast intégré.",
+    "description": "Une TV moderne et compacte avec Google Play Store, commande vocale Google Assistant et qualité d'affichage Full HD aux couleurs vives.",
     "specifications": {
-      "Taille ├®cran": "43 pouces (108 cm)",
-      "R├®solution": "Full HD 1080p",
-      "Syst├¿me": "Android TV avec Google Play",
-      "Connectivit├®": "Wi-Fi, Bluetooth, HDMI, USB"
+      "Taille écran": "43 pouces (108 cm)",
+      "Résolution": "Full HD 1080p",
+      "Système": "Android TV avec Google Play",
+      "Connectivité": "Wi-Fi, Bluetooth, HDMI, USB"
     },
     "price": "195000",
     "sale_price": null,
@@ -541,16 +541,16 @@
   "model": "shop.product",
   "pk": 7,
   "fields": {
-    "name": "R├®frig├®rateur Combin├® Samsung 385L No Frost SpaceMax",
+    "name": "Réfrigérateur Combiné Samsung 385L No Frost SpaceMax",
     "slug": "refrigerateur-combine-samsung-385l-no-frost-spacemax",
     "sku": "ONZ-0101",
     "category": 1,
     "brand": 1,
-    "short_description": "R├®frig├®rateur combin├® Samsung avec technologie SpaceMax pour un volume utile maximal sans augmenter les dimensions ext├®rieures. Moteur Digital Inverter garanti 10 ans.",
-    "description": "R├®frig├®rateur combin├® Samsung avec technologie SpaceMax pour un volume utile maximal sans augmenter les dimensions ext├®rieures. Moteur Digital Inverter garanti 10 ans. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Réfrigérateur combiné Samsung avec technologie SpaceMax pour un volume utile maximal sans augmenter les dimensions extérieures. Moteur Digital Inverter garanti 10 ans.",
+    "description": "Réfrigérateur combiné Samsung avec technologie SpaceMax pour un volume utile maximal sans augmenter les dimensions extérieures. Moteur Digital Inverter garanti 10 ans. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├® totale": "385 Litres",
-      "Technologie froid": "No Frost ventil├®",
+      "Capacité totale": "385 Litres",
+      "Technologie froid": "No Frost ventilé",
       "Compresseur": "Digital Inverter",
       "Gaz": "R600a",
       "Consommation": "Classe A+",
@@ -578,19 +578,19 @@
   "model": "shop.product",
   "pk": 8,
   "fields": {
-    "name": "R├®frig├®rateur Am├®ricain LG Side-by-Side 617L InstaView",
+    "name": "Réfrigérateur Américain LG Side-by-Side 617L InstaView",
     "slug": "refrigerateur-americain-lg-side-by-side-617l-instaview",
     "sku": "ONZ-0102",
     "category": 1,
     "brand": 2,
-    "short_description": "R├®frig├®rateur am├®ricain Side-by-Side haut de gamme avec vitre miroir teint├®e InstaView Door-in-Door et distributeur automatique d'eau fra├«che et glace pil├®e.",
-    "description": "R├®frig├®rateur am├®ricain Side-by-Side haut de gamme avec vitre miroir teint├®e InstaView Door-in-Door et distributeur automatique d'eau fra├«che et glace pil├®e. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Réfrigérateur américain Side-by-Side haut de gamme avec vitre miroir teintée InstaView Door-in-Door et distributeur automatique d'eau fraîche et glace pilée.",
+    "description": "Réfrigérateur américain Side-by-Side haut de gamme avec vitre miroir teintée InstaView Door-in-Door et distributeur automatique d'eau fraîche et glace pilée. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├® totale": "617 Litres",
+      "Capacité totale": "617 Litres",
       "Compresseur": "Smart Inverter Linear",
-      "Distributeur": "Eau filtr├®e & Gla├ºons",
-      "Filtre": "Pure N Fresh d├®sodorisant",
-      "Connectivit├®": "Wi-Fi ThinQ"
+      "Distributeur": "Eau filtrée & Glaçons",
+      "Filtre": "Pure N Fresh désodorisant",
+      "Connectivité": "Wi-Fi ThinQ"
     },
     "price": "1250000",
     "sale_price": null,
@@ -614,19 +614,19 @@
   "model": "shop.product",
   "pk": 9,
   "fields": {
-    "name": "Cong├®lateur Coffre Hisense 250 Litres Tropicalis├® Fast Freeze",
+    "name": "Congélateur Coffre Hisense 250 Litres Tropicalisé Fast Freeze",
     "slug": "congelateur-coffre-hisense-250-litres-tropicalise-fast-freeze",
     "sku": "ONZ-0103",
     "category": 1,
     "brand": 3,
-    "short_description": "Cong├®lateur horizontal grande autonomie tropicalis├® classe T, capable de conserver la fra├«cheur jusqu'├á 48h en cas de coupure de courant ├á Bamako.",
-    "description": "Cong├®lateur horizontal grande autonomie tropicalis├® classe T, capable de conserver la fra├«cheur jusqu'├á 48h en cas de coupure de courant ├á Bamako. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Congélateur horizontal grande autonomie tropicalisé classe T, capable de conserver la fraîcheur jusqu'à 48h en cas de coupure de courant à Bamako.",
+    "description": "Congélateur horizontal grande autonomie tropicalisé classe T, capable de conserver la fraîcheur jusqu'à 48h en cas de coupure de courant à Bamako. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "250 Litres",
+      "Capacité": "250 Litres",
       "Autonomie coupure": "48 heures",
       "Panier": "1 panier amovible inclus",
-      "Serrure": "Poign├®e avec cl├®",
-      "Gaz": "R600a 100% ├®cologique"
+      "Serrure": "Poignée avec clé",
+      "Gaz": "R600a 100% écologique"
     },
     "price": "225000",
     "sale_price": null,
@@ -650,18 +650,18 @@
   "model": "shop.product",
   "pk": 10,
   "fields": {
-    "name": "R├®frig├®rateur Double Battant Beko 420L HarvestFresh",
+    "name": "Réfrigérateur Double Battant Beko 420L HarvestFresh",
     "slug": "refrigerateur-double-battant-beko-420l-harvestfresh",
     "sku": "ONZ-0104",
     "category": 1,
     "brand": 6,
-    "short_description": "├ëquip├® de la technologie innovante HarvestFresh reproduisant le cycle solaire de 24h pour pr├®server les vitamines des fruits et l├®gumes.",
-    "description": "├ëquip├® de la technologie innovante HarvestFresh reproduisant le cycle solaire de 24h pour pr├®server les vitamines des fruits et l├®gumes. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Équipé de la technologie innovante HarvestFresh reproduisant le cycle solaire de 24h pour préserver les vitamines des fruits et légumes.",
+    "description": "Équipé de la technologie innovante HarvestFresh reproduisant le cycle solaire de 24h pour préserver les vitamines des fruits et légumes. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "420 Litres",
-      "Syst├¿me froid": "NeoFrost Dual Cooling",
-      "Technologie": "HarvestFresh 3 lumi├¿res",
-      "├ëclairage": "LED lat├®ral",
+      "Capacité": "420 Litres",
+      "Système froid": "NeoFrost Dual Cooling",
+      "Technologie": "HarvestFresh 3 lumières",
+      "Éclairage": "LED latéral",
       "Niveau sonore": "38 dB"
     },
     "price": "360000",
@@ -686,18 +686,18 @@
   "model": "shop.product",
   "pk": 11,
   "fields": {
-    "name": "Cong├®lateur Coffre Midea 350L Porte Vitr├®e Coulissante",
+    "name": "Congélateur Coffre Midea 350L Porte Vitrée Coulissante",
     "slug": "congelateur-coffre-midea-350l-porte-vitree-coulissante",
     "sku": "ONZ-0105",
     "category": 1,
     "brand": 5,
-    "short_description": "Cong├®lateur commercial et familial haute efficacit├® avec vitres incurv├®es coulissantes athermiques pour une visibilit├® imm├®diate du contenu.",
-    "description": "Cong├®lateur commercial et familial haute efficacit├® avec vitres incurv├®es coulissantes athermiques pour une visibilit├® imm├®diate du contenu. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Congélateur commercial et familial haute efficacité avec vitres incurvées coulissantes athermiques pour une visibilité immédiate du contenu.",
+    "description": "Congélateur commercial et familial haute efficacité avec vitres incurvées coulissantes athermiques pour une visibilité immédiate du contenu. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "350 Litres",
+      "Capacité": "350 Litres",
       "Type porte": "Double vitrage coulissant",
-      "Roulettes": "4 roulettes pivotantes 360┬░",
-      "Thermostat": "M├®canique r├®glable fa├ºade"
+      "Roulettes": "4 roulettes pivotantes 360°",
+      "Thermostat": "Mécanique réglable façade"
     },
     "price": "310000",
     "sale_price": null,
@@ -721,17 +721,17 @@
   "model": "shop.product",
   "pk": 12,
   "fields": {
-    "name": "R├®frig├®rateur Side-by-Side Haier 550L No Frost Multi-Air Flow",
+    "name": "Réfrigérateur Side-by-Side Haier 550L No Frost Multi-Air Flow",
     "slug": "refrigerateur-side-by-side-haier-550l-no-frost-multi-air-flow",
     "sku": "ONZ-0106",
     "category": 1,
     "brand": 11,
-    "short_description": "Design moderne en inox bross├® anti-traces avec double porte XXL, flux d'air multidirectionnel Multi-Air Flow et panneau de commande digital tactile.",
-    "description": "Design moderne en inox bross├® anti-traces avec double porte XXL, flux d'air multidirectionnel Multi-Air Flow et panneau de commande digital tactile. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Design moderne en inox brossé anti-traces avec double porte XXL, flux d'air multidirectionnel Multi-Air Flow et panneau de commande digital tactile.",
+    "description": "Design moderne en inox brossé anti-traces avec double porte XXL, flux d'air multidirectionnel Multi-Air Flow et panneau de commande digital tactile. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "550 Litres",
-      "Finition": "Inox bross├® anti-traces",
-      "├ëcran": "LED tactile en fa├ºade",
+      "Capacité": "550 Litres",
+      "Finition": "Inox brossé anti-traces",
+      "Écran": "LED tactile en façade",
       "Alarme": "Porte ouverte sonore",
       "Classe": "A++"
     },
@@ -757,17 +757,17 @@
   "model": "shop.product",
   "pk": 13,
   "fields": {
-    "name": "R├®frig├®rateur Une Porte Midea 170L Compact Bamako",
+    "name": "Réfrigérateur Une Porte Midea 170L Compact Bamako",
     "slug": "refrigerateur-une-porte-midea-170l-compact-bamako",
     "sku": "ONZ-0107",
     "category": 1,
     "brand": 5,
-    "short_description": "Id├®al pour c├®libataires, studios ou bureaux. Int├¿gre un compartiment cong├®lateur interne avec bac ├á l├®gumes transparent et clayettes r├®glables en verre.",
-    "description": "Id├®al pour c├®libataires, studios ou bureaux. Int├¿gre un compartiment cong├®lateur interne avec bac ├á l├®gumes transparent et clayettes r├®glables en verre. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Idéal pour célibataires, studios ou bureaux. Intègre un compartiment congélateur interne avec bac à légumes transparent et clayettes réglables en verre.",
+    "description": "Idéal pour célibataires, studios ou bureaux. Intègre un compartiment congélateur interne avec bac à légumes transparent et clayettes réglables en verre. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "170 Litres",
-      "Compartiment freezer": "Oui (gla├ºons)",
-      "Clayettes": "Verre tremp├® s├®curit",
+      "Capacité": "170 Litres",
+      "Compartiment freezer": "Oui (glaçons)",
+      "Clayettes": "Verre trempé sécurit",
       "Pieds": "Ajustables en hauteur"
     },
     "price": "145000",
@@ -792,18 +792,18 @@
   "model": "shop.product",
   "pk": 14,
   "fields": {
-    "name": "Cong├®lateur Vertical Haier 220L ├á Tiroirs Transparentes",
+    "name": "Congélateur Vertical Haier 220L à Tiroirs Transparentes",
     "slug": "congelateur-vertical-haier-220l-a-tiroirs-transparentes",
     "sku": "ONZ-0108",
     "category": 1,
     "brand": 11,
-    "short_description": "Cong├®lateur armoire vertical No Frost permettant un rangement compartiment├® facile avec ses 6 tiroirs coulissants transparents et fonction super-cong├®lation.",
-    "description": "Cong├®lateur armoire vertical No Frost permettant un rangement compartiment├® facile avec ses 6 tiroirs coulissants transparents et fonction super-cong├®lation. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Congélateur armoire vertical No Frost permettant un rangement compartimenté facile avec ses 6 tiroirs coulissants transparents et fonction super-congélation.",
+    "description": "Congélateur armoire vertical No Frost permettant un rangement compartimenté facile avec ses 6 tiroirs coulissants transparents et fonction super-congélation. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "220 Litres",
+      "Capacité": "220 Litres",
       "Nombre tiroirs": "6 compartiments",
       "Technologie": "Total No Frost",
-      "Pouvoir cong├®lation": "16 kg / 24h"
+      "Pouvoir congélation": "16 kg / 24h"
     },
     "price": "280000",
     "sale_price": null,
@@ -827,17 +827,17 @@
   "model": "shop.product",
   "pk": 15,
   "fields": {
-    "name": "R├®frig├®rateur Combin├® LG 335L Smart Inverter Linear",
+    "name": "Réfrigérateur Combiné LG 335L Smart Inverter Linear",
     "slug": "refrigerateur-combine-lg-335l-smart-inverter-linear",
     "sku": "ONZ-0109",
     "category": 1,
     "brand": 2,
-    "short_description": "Maintient une temp├®rature homog├¿ne et constante gr├óce ├á la technologie DoorCooling+ qui refroidit 35% plus rapidement qu'un syst├¿me conventionnel.",
-    "description": "Maintient une temp├®rature homog├¿ne et constante gr├óce ├á la technologie DoorCooling+ qui refroidit 35% plus rapidement qu'un syst├¿me conventionnel. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Maintient une température homogène et constante grâce à la technologie DoorCooling+ qui refroidit 35% plus rapidement qu'un système conventionnel.",
+    "description": "Maintient une température homogène et constante grâce à la technologie DoorCooling+ qui refroidit 35% plus rapidement qu'un système conventionnel. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "335 Litres",
+      "Capacité": "335 Litres",
       "Refroidissement": "DoorCooling+ & LinearCooling",
-      "Bac fra├«cheur": "Moist Balance Crisper",
+      "Bac fraîcheur": "Moist Balance Crisper",
       "Gaz": "R600a"
     },
     "price": "420000",
@@ -862,18 +862,18 @@
   "model": "shop.product",
   "pk": 16,
   "fields": {
-    "name": "Cong├®lateur Coffre Westpool 400L Tropicalis├® Grand Froid",
+    "name": "Congélateur Coffre Westpool 400L Tropicalisé Grand Froid",
     "slug": "congelateur-coffre-westpool-400l-tropicalise-grand-froid",
     "sku": "ONZ-0110",
     "category": 1,
     "brand": 15,
-    "short_description": "Con├ºu sp├®cifiquement pour les conditions climatiques extr├¬mes du Sahel. Parois ultra-├®paisses de 75 mm pour une isolation thermique maximale.",
-    "description": "Con├ºu sp├®cifiquement pour les conditions climatiques extr├¬mes du Sahel. Parois ultra-├®paisses de 75 mm pour une isolation thermique maximale. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Conçu spécifiquement pour les conditions climatiques extrêmes du Sahel. Parois ultra-épaisses de 75 mm pour une isolation thermique maximale.",
+    "description": "Conçu spécifiquement pour les conditions climatiques extrêmes du Sahel. Parois ultra-épaisses de 75 mm pour une isolation thermique maximale. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "400 Litres",
-      "Isolation": "Mousse polyur├®thane 75mm",
-      "Panier int├®rieur": "2 paniers suspendus",
-      "├ëvacuation eau": "Bouchon frontal"
+      "Capacité": "400 Litres",
+      "Isolation": "Mousse polyuréthane 75mm",
+      "Panier intérieur": "2 paniers suspendus",
+      "Évacuation eau": "Bouchon frontal"
     },
     "price": "345000",
     "sale_price": null,
@@ -897,18 +897,18 @@
   "model": "shop.product",
   "pk": 17,
   "fields": {
-    "name": "R├®frig├®rateur Combin├® Hisense 300L No Frost Silver",
+    "name": "Réfrigérateur Combiné Hisense 300L No Frost Silver",
     "slug": "refrigerateur-combine-hisense-300l-no-frost-silver",
     "sku": "ONZ-0111",
     "category": 1,
     "brand": 3,
-    "short_description": "Design moderne et fin avec finition silver premium, ├®clairage LED int├®rieur ├®clatant et poign├®es int├®gr├®es ergonomiques.",
-    "description": "Design moderne et fin avec finition silver premium, ├®clairage LED int├®rieur ├®clatant et poign├®es int├®gr├®es ergonomiques. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Design moderne et fin avec finition silver premium, éclairage LED intérieur éclatant et poignées intégrées ergonomiques.",
+    "description": "Design moderne et fin avec finition silver premium, éclairage LED intérieur éclatant et poignées intégrées ergonomiques. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "300 Litres",
-      "D├®givrage": "Automatique No Frost",
-      "Clayettes": "3 en verre tremp├®",
-      "Bac": "Contr├┤le d'humidit├®"
+      "Capacité": "300 Litres",
+      "Dégivrage": "Automatique No Frost",
+      "Clayettes": "3 en verre trempé",
+      "Bac": "Contrôle d'humidité"
     },
     "price": "295000",
     "sale_price": null,
@@ -932,17 +932,17 @@
   "model": "shop.product",
   "pk": 18,
   "fields": {
-    "name": "Mini R├®frig├®rateur de Bureau Sharp 95L Bac ├á Gla├ºons",
+    "name": "Mini Réfrigérateur de Bureau Sharp 95L Bac à Glaçons",
     "slug": "mini-refrigerateur-de-bureau-sharp-95l-bac-a-glacons",
     "sku": "ONZ-0112",
     "category": 1,
     "brand": 10,
-    "short_description": "Le compagnon id├®al pour les bureaux d'entreprise, chambres d'h├┤tel ou r├®sidences. Ultra silencieux et faible consommation ├®nerg├®tique.",
-    "description": "Le compagnon id├®al pour les bureaux d'entreprise, chambres d'h├┤tel ou r├®sidences. Ultra silencieux et faible consommation ├®nerg├®tique. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Le compagnon idéal pour les bureaux d'entreprise, chambres d'hôtel ou résidences. Ultra silencieux et faible consommation énergétique.",
+    "description": "Le compagnon idéal pour les bureaux d'entreprise, chambres d'hôtel ou résidences. Ultra silencieux et faible consommation énergétique. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "95 Litres",
+      "Capacité": "95 Litres",
       "Niveau sonore": "36 dB ultra-silencieux",
-      "Porte r├®versible": "Oui",
+      "Porte réversible": "Oui",
       "Consommation": "85 kWh/an"
     },
     "price": "115000",
@@ -967,18 +967,18 @@
   "model": "shop.product",
   "pk": 19,
   "fields": {
-    "name": "R├®frig├®rateur Am├®ricain Samsung French Door 520L Twin Cooling",
+    "name": "Réfrigérateur Américain Samsung French Door 520L Twin Cooling",
     "slug": "refrigerateur-americain-samsung-french-door-520l-twin-cooling",
     "sku": "ONZ-0113",
     "category": 1,
     "brand": 1,
-    "short_description": "Configuration portes fran├ºaises d'exception. Le syst├¿me Twin Cooling Plus g├¿re ind├®pendamment le r├®frig├®rateur et le cong├®lateur sans m├®lange d'odeurs.",
-    "description": "Configuration portes fran├ºaises d'exception. Le syst├¿me Twin Cooling Plus g├¿re ind├®pendamment le r├®frig├®rateur et le cong├®lateur sans m├®lange d'odeurs. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Configuration portes françaises d'exception. Le système Twin Cooling Plus gère indépendamment le réfrigérateur et le congélateur sans mélange d'odeurs.",
+    "description": "Configuration portes françaises d'exception. Le système Twin Cooling Plus gère indépendamment le réfrigérateur et le congélateur sans mélange d'odeurs. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "520 Litres",
-      "Circuits froid": "Double circuit ind├®pendant",
-      "Tiroir cong├®lateur": "Tiroir grande ouverture facile",
-      "Finition": "Noir mat bross├®"
+      "Capacité": "520 Litres",
+      "Circuits froid": "Double circuit indépendant",
+      "Tiroir congélateur": "Tiroir grande ouverture facile",
+      "Finition": "Noir mat brossé"
     },
     "price": "850000",
     "sale_price": "749000",
@@ -1002,18 +1002,18 @@
   "model": "shop.product",
   "pk": 20,
   "fields": {
-    "name": "Cong├®lateur Coffre Beko 205L Poign├®e avec Serrure",
+    "name": "Congélateur Coffre Beko 205L Poignée avec Serrure",
     "slug": "congelateur-coffre-beko-205l-poignee-avec-serrure",
     "sku": "ONZ-0114",
     "category": 1,
     "brand": 6,
-    "short_description": "Cong├®lateur horizontal compact tr├¿s ├®conome en ├®lectricit├®. Serrure de s├®curit├® ├á cl├® et ├®clairage int├®rieur LED lors de l'ouverture du couvercle.",
-    "description": "Cong├®lateur horizontal compact tr├¿s ├®conome en ├®lectricit├®. Serrure de s├®curit├® ├á cl├® et ├®clairage int├®rieur LED lors de l'ouverture du couvercle. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Congélateur horizontal compact très économe en électricité. Serrure de sécurité à clé et éclairage intérieur LED lors de l'ouverture du couvercle.",
+    "description": "Congélateur horizontal compact très économe en électricité. Serrure de sécurité à clé et éclairage intérieur LED lors de l'ouverture du couvercle. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "205 Litres",
-      "Autonomie sans ├®lectricit├®": "36h",
-      "S├®curit├®": "Serrure ├á cl├® int├®gr├®e",
-      "├ëclairage": "LED int├®rieur"
+      "Capacité": "205 Litres",
+      "Autonomie sans électricité": "36h",
+      "Sécurité": "Serrure à clé intégrée",
+      "Éclairage": "LED intérieur"
     },
     "price": "195000",
     "sale_price": null,
@@ -1037,16 +1037,16 @@
   "model": "shop.product",
   "pk": 21,
   "fields": {
-    "name": "R├®frig├®rateur Double Porte Midea 260L Silver HD-333FW",
+    "name": "Réfrigérateur Double Porte Midea 260L Silver HD-333FW",
     "slug": "refrigerateur-double-porte-midea-260l-silver-hd-333fw",
     "sku": "ONZ-0115",
     "category": 1,
     "brand": 5,
-    "short_description": "R├®frig├®rateur familial ├á deux portes avec cong├®lateur en partie haute. Refroidissement rapide et clayettes amovibles multi-positions.",
-    "description": "R├®frig├®rateur familial ├á deux portes avec cong├®lateur en partie haute. Refroidissement rapide et clayettes amovibles multi-positions. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Réfrigérateur familial à deux portes avec congélateur en partie haute. Refroidissement rapide et clayettes amovibles multi-positions.",
+    "description": "Réfrigérateur familial à deux portes avec congélateur en partie haute. Refroidissement rapide et clayettes amovibles multi-positions. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "260 Litres",
-      "D├®givrage": "No Frost",
+      "Capacité": "260 Litres",
+      "Dégivrage": "No Frost",
       "Porte": "Double battant haut/bas",
       "Couleur": "Silver inox"
     },
@@ -1072,16 +1072,16 @@
   "model": "shop.product",
   "pk": 22,
   "fields": {
-    "name": "Cave ├á Vin ├ëlectrique Haier 30 Bouteilles Digitale",
+    "name": "Cave à Vin Électrique Haier 30 Bouteilles Digitale",
     "slug": "cave-a-vin-electrique-haier-30-bouteilles-digitale",
     "sku": "ONZ-0116",
     "category": 1,
     "brand": 11,
-    "short_description": "Cave de conservation et de service avec clayettes en bois de h├¬tre naturel, filtre anti-UV sur porte vitr├®e et syst├¿me anti-vibration.",
-    "description": "Cave de conservation et de service avec clayettes en bois de h├¬tre naturel, filtre anti-UV sur porte vitr├®e et syst├¿me anti-vibration. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Cave de conservation et de service avec clayettes en bois de hêtre naturel, filtre anti-UV sur porte vitrée et système anti-vibration.",
+    "description": "Cave de conservation et de service avec clayettes en bois de hêtre naturel, filtre anti-UV sur porte vitrée et système anti-vibration. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "30 bouteilles de 75cl",
-      "Plage temp├®rature": "+5┬░C ├á +20┬░C",
+      "Capacité": "30 bouteilles de 75cl",
+      "Plage température": "+5°C à +20°C",
       "Porte": "Double vitrage anti-UV",
       "Clayettes": "Bois naturel"
     },
@@ -1107,17 +1107,17 @@
   "model": "shop.product",
   "pk": 23,
   "fields": {
-    "name": "R├®frig├®rateur Combin├® Beko 340L NeoFrost Dual Cooling",
+    "name": "Réfrigérateur Combiné Beko 340L NeoFrost Dual Cooling",
     "slug": "refrigerateur-combine-beko-340l-neofrost-dual-cooling",
     "sku": "ONZ-0117",
     "category": 1,
     "brand": 6,
-    "short_description": "Deux circuits de froid s├®par├®s ├®vitant le dess├¿chement des aliments dans le r├®frig├®rateur et ├®liminant tout givre dans le cong├®lateur.",
-    "description": "Deux circuits de froid s├®par├®s ├®vitant le dess├¿chement des aliments dans le r├®frig├®rateur et ├®liminant tout givre dans le cong├®lateur. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Deux circuits de froid séparés évitant le dessèchement des aliments dans le réfrigérateur et éliminant tout givre dans le congélateur.",
+    "description": "Deux circuits de froid séparés évitant le dessèchement des aliments dans le réfrigérateur et éliminant tout givre dans le congélateur. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "340 Litres",
+      "Capacité": "340 Litres",
       "Froid": "NeoFrost Total",
-      "Tiroir fra├«cheur": "0-3┬░C viande et poisson",
+      "Tiroir fraîcheur": "0-3°C viande et poisson",
       "Classe": "A+++"
     },
     "price": "375000",
@@ -1142,17 +1142,17 @@
   "model": "shop.product",
   "pk": 24,
   "fields": {
-    "name": "Cong├®lateur Coffre Hisense 150L Compact ├ëconomique",
+    "name": "Congélateur Coffre Hisense 150L Compact Économique",
     "slug": "congelateur-coffre-hisense-150l-compact-economique",
     "sku": "ONZ-0118",
     "category": 1,
     "brand": 3,
-    "short_description": "Format compact id├®al pour les petits espaces et les foyers de 2 ├á 4 personnes. Cuve en aluminium gaufr├® pour une diffusion ultra rapide du froid.",
-    "description": "Format compact id├®al pour les petits espaces et les foyers de 2 ├á 4 personnes. Cuve en aluminium gaufr├® pour une diffusion ultra rapide du froid. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Format compact idéal pour les petits espaces et les foyers de 2 à 4 personnes. Cuve en aluminium gaufré pour une diffusion ultra rapide du froid.",
+    "description": "Format compact idéal pour les petits espaces et les foyers de 2 à 4 personnes. Cuve en aluminium gaufré pour une diffusion ultra rapide du froid. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "150 Litres",
-      "Cuve int├®rieure": "Aluminium gaufr├®",
-      "Panier amovible": "1 panier m├®tallique",
+      "Capacité": "150 Litres",
+      "Cuve intérieure": "Aluminium gaufré",
+      "Panier amovible": "1 panier métallique",
       "Gaz": "R600a"
     },
     "price": "165000",
@@ -1177,18 +1177,18 @@
   "model": "shop.product",
   "pk": 25,
   "fields": {
-    "name": "R├®frig├®rateur Double Porte LG 438L Hygiene Fresh+ Inverter",
+    "name": "Réfrigérateur Double Porte LG 438L Hygiene Fresh+ Inverter",
     "slug": "refrigerateur-double-porte-lg-438l-hygiene-fresh-inverter",
     "sku": "ONZ-0119",
     "category": 1,
     "brand": 2,
-    "short_description": "Grand volume familial avec filtre purificateur Hygiene Fresh+ ├®liminant 99,99% des bact├®ries et mauvaises odeurs dans tout l'habitacle.",
-    "description": "Grand volume familial avec filtre purificateur Hygiene Fresh+ ├®liminant 99,99% des bact├®ries et mauvaises odeurs dans tout l'habitacle. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Grand volume familial avec filtre purificateur Hygiene Fresh+ éliminant 99,99% des bactéries et mauvaises odeurs dans tout l'habitacle.",
+    "description": "Grand volume familial avec filtre purificateur Hygiene Fresh+ éliminant 99,99% des bactéries et mauvaises odeurs dans tout l'habitacle. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "438 Litres",
-      "Syst├¿me filtre": "Hygiene Fresh+ 5 ├®tapes",
+      "Capacité": "438 Litres",
+      "Système filtre": "Hygiene Fresh+ 5 étapes",
       "Compresseur": "Smart Inverter",
-      "Machine ├á gla├ºons": "Twist Ice Maker"
+      "Machine à glaçons": "Twist Ice Maker"
     },
     "price": "560000",
     "sale_price": null,
@@ -1212,17 +1212,17 @@
   "model": "shop.product",
   "pk": 26,
   "fields": {
-    "name": "Cong├®lateur Coffre Midea 500L Grand Volume Professionnel",
+    "name": "Congélateur Coffre Midea 500L Grand Volume Professionnel",
     "slug": "congelateur-coffre-midea-500l-grand-volume-professionnel",
     "sku": "ONZ-0120",
     "category": 1,
     "brand": 5,
-    "short_description": "Capacit├® g├®ante de 500 litres pour restaurants, ├®piceries et grandes familles. Double poign├®e ergonomique et double panier m├®tallique robuste.",
-    "description": "Capacit├® g├®ante de 500 litres pour restaurants, ├®piceries et grandes familles. Double poign├®e ergonomique et double panier m├®tallique robuste. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Capacité géante de 500 litres pour restaurants, épiceries et grandes familles. Double poignée ergonomique et double panier métallique robuste.",
+    "description": "Capacité géante de 500 litres pour restaurants, épiceries et grandes familles. Double poignée ergonomique et double panier métallique robuste. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "500 Litres",
+      "Capacité": "500 Litres",
       "Double panier": "Inclus",
-      "Isolation renforc├®e": "Oui",
+      "Isolation renforcée": "Oui",
       "Poids": "72 kg"
     },
     "price": "450000",
@@ -1247,18 +1247,18 @@
   "model": "shop.product",
   "pk": 27,
   "fields": {
-    "name": "R├®frig├®rateur R├®tro Vintage Hisense 260L Vert ├ëmeraude",
+    "name": "Réfrigérateur Rétro Vintage Hisense 260L Vert Émeraude",
     "slug": "refrigerateur-retro-vintage-hisense-260l-vert-emeraude",
     "sku": "ONZ-0121",
     "category": 1,
     "brand": 3,
-    "short_description": "Alliez le charme du design vintage des ann├®es 50 aux performances modernes du froid ventil├® contemporain.",
-    "description": "Alliez le charme du design vintage des ann├®es 50 aux performances modernes du froid ventil├® contemporain. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Alliez le charme du design vintage des années 50 aux performances modernes du froid ventilé contemporain.",
+    "description": "Alliez le charme du design vintage des années 50 aux performances modernes du froid ventilé contemporain. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "260 Litres",
-      "Style": "R├®tro poign├®e chrom├®e",
-      "Couleur": "Vert ├ëmeraude",
-      "├ëclairage": "LED d'ambiance"
+      "Capacité": "260 Litres",
+      "Style": "Rétro poignée chromée",
+      "Couleur": "Vert Émeraude",
+      "Éclairage": "LED d'ambiance"
     },
     "price": "315000",
     "sale_price": null,
@@ -1282,18 +1282,18 @@
   "model": "shop.product",
   "pk": 28,
   "fields": {
-    "name": "R├®frig├®rateur Pose Libre Sharp 380L J-Tech Inverter Plasmacluster",
+    "name": "Réfrigérateur Pose Libre Sharp 380L J-Tech Inverter Plasmacluster",
     "slug": "refrigerateur-pose-libre-sharp-380l-j-tech-inverter-plasmacluster",
     "sku": "ONZ-0122",
     "category": 1,
     "brand": 10,
-    "short_description": "Purification de l'air par ions Plasmacluster d├®truisant les moisissures et bact├®ries dans l'habitacle. Compresseur J-Tech ├á 36 vitesses.",
-    "description": "Purification de l'air par ions Plasmacluster d├®truisant les moisissures et bact├®ries dans l'habitacle. Compresseur J-Tech ├á 36 vitesses. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Purification de l'air par ions Plasmacluster détruisant les moisissures et bactéries dans l'habitacle. Compresseur J-Tech à 36 vitesses.",
+    "description": "Purification de l'air par ions Plasmacluster détruisant les moisissures et bactéries dans l'habitacle. Compresseur J-Tech à 36 vitesses. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "380 Litres",
+      "Capacité": "380 Litres",
       "Technologie": "Plasmacluster Ion",
       "Compresseur": "J-Tech Inverter 36 paliers",
-      "├ëtag├¿res": "Verre tremp├® 100kg"
+      "Étagères": "Verre trempé 100kg"
     },
     "price": "490000",
     "sale_price": null,
@@ -1322,13 +1322,13 @@
     "sku": "ONZ-0123",
     "category": 2,
     "brand": 5,
-    "short_description": "Le split le plus populaire du Mali. Technologie Inverter ├®conomique r├®duisant la facture d'├®lectricit├® jusqu'├á 60% avec refroidissement instantan├®.",
-    "description": "Le split le plus populaire du Mali. Technologie Inverter ├®conomique r├®duisant la facture d'├®lectricit├® jusqu'├á 60% avec refroidissement instantan├®. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Le split le plus populaire du Mali. Technologie Inverter économique réduisant la facture d'électricité jusqu'à 60% avec refroidissement instantané.",
+    "description": "Le split le plus populaire du Mali. Technologie Inverter économique réduisant la facture d'électricité jusqu'à 60% avec refroidissement instantané. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1.5 CV (12 000 BTU/h)",
       "Technologie": "Full DC Inverter",
-      "Gaz r├®frig├®rant": "R410A",
-      "Surface conseill├®e": "18 ├á 25 m┬▓",
+      "Gaz réfrigérant": "R410A",
+      "Surface conseillée": "18 à 25 m²",
       "Garantie": "2 ans"
     },
     "price": "320000",
@@ -1358,13 +1358,13 @@
     "sku": "ONZ-0124",
     "category": 2,
     "brand": 2,
-    "short_description": "Double compresseur Inverter LG pour un refroidissement 40% plus rapide et 70% d'├®conomie d'├®nergie. Rev├¬tement anticorrosion Gold Fin certifi├®.",
-    "description": "Double compresseur Inverter LG pour un refroidissement 40% plus rapide et 70% d'├®conomie d'├®nergie. Rev├¬tement anticorrosion Gold Fin certifi├®. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Double compresseur Inverter LG pour un refroidissement 40% plus rapide et 70% d'économie d'énergie. Revêtement anticorrosion Gold Fin certifié.",
+    "description": "Double compresseur Inverter LG pour un refroidissement 40% plus rapide et 70% d'économie d'énergie. Revêtement anticorrosion Gold Fin certifié. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "2 CV (18 000 BTU/h)",
       "Compresseur": "Dual Inverter",
       "Protection": "Gold Fin anticorrosion",
-      "Surface": "25 ├á 38 m┬▓",
+      "Surface": "25 à 38 m²",
       "Garantie compresseur": "10 ans"
     },
     "price": "460000",
@@ -1394,13 +1394,13 @@
     "sku": "ONZ-0125",
     "category": 2,
     "brand": 1,
-    "short_description": "Fini les courants d'air d├®sagr├®ables ! La technologie WindFree diffuse l'air frais en douceur ├á travers 23 000 micro-perforations sans bruit.",
-    "description": "Fini les courants d'air d├®sagr├®ables ! La technologie WindFree diffuse l'air frais en douceur ├á travers 23 000 micro-perforations sans bruit. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Fini les courants d'air désagréables ! La technologie WindFree diffuse l'air frais en douceur à travers 23 000 micro-perforations sans bruit.",
+    "description": "Fini les courants d'air désagréables ! La technologie WindFree diffuse l'air frais en douceur à travers 23 000 micro-perforations sans bruit. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1.5 CV (12 000 BTU/h)",
       "Technologie": "WindFree Cooling",
       "Micro-trous": "23 000 orifices",
-      "Connectivit├®": "SmartThings Wi-Fi"
+      "Connectivité": "SmartThings Wi-Fi"
     },
     "price": "395000",
     "sale_price": null,
@@ -1424,18 +1424,18 @@
   "model": "shop.product",
   "pk": 32,
   "fields": {
-    "name": "Climatiseur Split Hisense 1 CV (9000 BTU) R32 ├ëco-Performance",
+    "name": "Climatiseur Split Hisense 1 CV (9000 BTU) R32 Éco-Performance",
     "slug": "climatiseur-split-hisense-1-cv-9000-btu-r32-eco-performance",
     "sku": "ONZ-0126",
     "category": 2,
     "brand": 3,
-    "short_description": "Id├®al pour chambre ├á coucher ou bureau jusqu'├á 15 m┬▓. Gaz vert R32 ultra-performant et mode sommeil silencieux 19 dB.",
-    "description": "Id├®al pour chambre ├á coucher ou bureau jusqu'├á 15 m┬▓. Gaz vert R32 ultra-performant et mode sommeil silencieux 19 dB. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Idéal pour chambre à coucher ou bureau jusqu'à 15 m². Gaz vert R32 ultra-performant et mode sommeil silencieux 19 dB.",
+    "description": "Idéal pour chambre à coucher ou bureau jusqu'à 15 m². Gaz vert R32 ultra-performant et mode sommeil silencieux 19 dB. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1 CV (9 000 BTU/h)",
-      "Gaz": "R32 ├®cologique",
+      "Gaz": "R32 écologique",
       "Niveau sonore": "19 dB ultra-silencieux",
-      "Filtre": "Filtre 4 en 1 anti-poussi├¿re"
+      "Filtre": "Filtre 4 en 1 anti-poussière"
     },
     "price": "195000",
     "sale_price": null,
@@ -1464,13 +1464,13 @@
     "sku": "ONZ-0127",
     "category": 2,
     "brand": 4,
-    "short_description": "Con├ºu pour les grands salons et salles de r├®union de 35 ├á 50 m┬▓. Refroidissement turbo en seulement 30 secondes chrono.",
-    "description": "Con├ºu pour les grands salons et salles de r├®union de 35 ├á 50 m┬▓. Refroidissement turbo en seulement 30 secondes chrono. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Conçu pour les grands salons et salles de réunion de 35 à 50 m². Refroidissement turbo en seulement 30 secondes chrono.",
+    "description": "Conçu pour les grands salons et salles de réunion de 35 à 50 m². Refroidissement turbo en seulement 30 secondes chrono. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "2.5 CV (24 000 BTU/h)",
       "Technologie": "Inverter Smart",
-      "D├®bit d'air": "1200 m┬│/h",
-      "Affichage": "LED digital masqu├®"
+      "Débit d'air": "1200 m³/h",
+      "Affichage": "LED digital masqué"
     },
     "price": "540000",
     "sale_price": null,
@@ -1499,12 +1499,12 @@
     "sku": "ONZ-0128",
     "category": 2,
     "brand": 5,
-    "short_description": "Colonne de climatisation au sol haute puissance pour grands espaces de r├®ception, halls d'accueil et salles de conf├®rence jusqu'├á 70 m┬▓.",
-    "description": "Colonne de climatisation au sol haute puissance pour grands espaces de r├®ception, halls d'accueil et salles de conf├®rence jusqu'├á 70 m┬▓. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Colonne de climatisation au sol haute puissance pour grands espaces de réception, halls d'accueil et salles de conférence jusqu'à 70 m².",
+    "description": "Colonne de climatisation au sol haute puissance pour grands espaces de réception, halls d'accueil et salles de conférence jusqu'à 70 m². Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "4 CV (36 000 BTU/h)",
       "Type": "Armoire colonne au sol",
-      "Alimentation": "Monophas├® 220V",
+      "Alimentation": "Monophasé 220V",
       "Balayage d'air": "3D multidirectionnel"
     },
     "price": "890000",
@@ -1534,13 +1534,13 @@
     "sku": "ONZ-0129",
     "category": 2,
     "brand": 14,
-    "short_description": "Aucune installation murale requise ! D├®placez la fra├«cheur d'une pi├¿ce ├á l'autre gr├óce aux roulettes int├®gr├®es et kit d'├®vacuation fen├¬tre inclus.",
-    "description": "Aucune installation murale requise ! D├®placez la fra├«cheur d'une pi├¿ce ├á l'autre gr├óce aux roulettes int├®gr├®es et kit d'├®vacuation fen├¬tre inclus. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Aucune installation murale requise ! Déplacez la fraîcheur d'une pièce à l'autre grâce aux roulettes intégrées et kit d'évacuation fenêtre inclus.",
+    "description": "Aucune installation murale requise ! Déplacez la fraîcheur d'une pièce à l'autre grâce aux roulettes intégrées et kit d'évacuation fenêtre inclus. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1.5 CV (12 000 BTU/h)",
-      "Mobilit├®": "4 roulettes renforc├®es",
-      "Fonctions": "Climatiseur, D├®shumidificateur, Ventilateur",
-      "T├®l├®commande": "Incluse"
+      "Mobilité": "4 roulettes renforcées",
+      "Fonctions": "Climatiseur, Déshumidificateur, Ventilateur",
+      "Télécommande": "Incluse"
     },
     "price": "285000",
     "sale_price": null,
@@ -1569,13 +1569,13 @@
     "sku": "ONZ-0130",
     "category": 2,
     "brand": 6,
-    "short_description": "Moteur compresseur ProSmart Inverter sans balais, ultra r├®sistant ├á la poussi├¿re et aux variations de tension ├®lectrique fr├®quentes.",
-    "description": "Moteur compresseur ProSmart Inverter sans balais, ultra r├®sistant ├á la poussi├¿re et aux variations de tension ├®lectrique fr├®quentes. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Moteur compresseur ProSmart Inverter sans balais, ultra résistant à la poussière et aux variations de tension électrique fréquentes.",
+    "description": "Moteur compresseur ProSmart Inverter sans balais, ultra résistant à la poussière et aux variations de tension électrique fréquentes. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1.5 CV (12 000 BTU/h)",
       "Moteur": "ProSmart Brushless",
       "Traitement": "Gold Guard anti-rouille",
-      "Mode": "Auto-restart apr├¿s coupure"
+      "Mode": "Auto-restart après coupure"
     },
     "price": "275000",
     "sale_price": null,
@@ -1599,18 +1599,18 @@
   "model": "shop.product",
   "pk": 37,
   "fields": {
-    "name": "Ventilateur Colonne Silencieux Midea T├®l├®commande & Minuterie",
+    "name": "Ventilateur Colonne Silencieux Midea Télécommande & Minuterie",
     "slug": "ventilateur-colonne-silencieux-midea-telecommande-minuterie",
     "sku": "ONZ-0131",
     "category": 2,
     "brand": 5,
-    "short_description": "Ventilateur tour oscillant 90 degr├®s avec 3 modes de brise (Normal, Naturel, Sommeil), minuterie 8h et affichage LED digital ├®teignable.",
-    "description": "Ventilateur tour oscillant 90 degr├®s avec 3 modes de brise (Normal, Naturel, Sommeil), minuterie 8h et affichage LED digital ├®teignable. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Ventilateur tour oscillant 90 degrés avec 3 modes de brise (Normal, Naturel, Sommeil), minuterie 8h et affichage LED digital éteignable.",
+    "description": "Ventilateur tour oscillant 90 degrés avec 3 modes de brise (Normal, Naturel, Sommeil), minuterie 8h et affichage LED digital éteignable. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Hauteur": "105 cm",
-      "Oscillation": "90┬░ grand angle",
+      "Oscillation": "90° grand angle",
       "Vitesses": "3 niveaux de souffle",
-      "T├®l├®commande": "Infrarouge longue port├®e"
+      "Télécommande": "Infrarouge longue portée"
     },
     "price": "65000",
     "sale_price": null,
@@ -1634,18 +1634,18 @@
   "model": "shop.product",
   "pk": 38,
   "fields": {
-    "name": "Ventilateur Brumisateur d'Eau Binatone 50L D├®bit Turbo",
+    "name": "Ventilateur Brumisateur d'Eau Binatone 50L Débit Turbo",
     "slug": "ventilateur-brumisateur-deau-binatone-50l-debit-turbo",
     "sku": "ONZ-0132",
     "category": 2,
     "brand": 16,
-    "short_description": "Baisse la temp├®rature ressentie de 5 ├á 8┬░C gr├óce ├á sa brumisation d'eau ultrafine et son r├®servoir g├®ant de 50 litres pour une journ├®e compl├¿te.",
-    "description": "Baisse la temp├®rature ressentie de 5 ├á 8┬░C gr├óce ├á sa brumisation d'eau ultrafine et son r├®servoir g├®ant de 50 litres pour une journ├®e compl├¿te. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Baisse la température ressentie de 5 à 8°C grâce à sa brumisation d'eau ultrafine et son réservoir géant de 50 litres pour une journée complète.",
+    "description": "Baisse la température ressentie de 5 à 8°C grâce à sa brumisation d'eau ultrafine et son réservoir géant de 50 litres pour une journée complète. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "R├®servoir d'eau": "50 Litres",
+      "Réservoir d'eau": "50 Litres",
       "Autonomie brume": "14 heures",
-      "Diam├¿tre pales": "65 cm m├®tal",
-      "Roulettes": "D├®placement tout terrain"
+      "Diamètre pales": "65 cm métal",
+      "Roulettes": "Déplacement tout terrain"
     },
     "price": "110000",
     "sale_price": null,
@@ -1674,11 +1674,11 @@
     "sku": "ONZ-0133",
     "category": 2,
     "brand": 2,
-    "short_description": "├ëquip├® du syst├¿me Volt Care r├®sistant aux chutes de tension de 135V ├á 290V sans disjoncter, id├®al pour le r├®seau ├®lectrique malien.",
-    "description": "├ëquip├® du syst├¿me Volt Care r├®sistant aux chutes de tension de 135V ├á 290V sans disjoncter, id├®al pour le r├®seau ├®lectrique malien. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Équipé du système Volt Care résistant aux chutes de tension de 135V à 290V sans disjoncter, idéal pour le réseau électrique malien.",
+    "description": "Équipé du système Volt Care résistant aux chutes de tension de 135V à 290V sans disjoncter, idéal pour le réseau électrique malien. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1 CV (9 000 BTU/h)",
-      "Stabilisateur int├®gr├®": "Volt Care 135-290V",
+      "Stabilisateur intégré": "Volt Care 135-290V",
       "Refroidissement": "Dual Inverter",
       "Garantie compresseur": "10 ans"
     },
@@ -1704,17 +1704,17 @@
   "model": "shop.product",
   "pk": 40,
   "fields": {
-    "name": "Climatiseur Mobile Beko 9000 BTU Classe A Kit Fen├¬tre",
+    "name": "Climatiseur Mobile Beko 9000 BTU Classe A Kit Fenêtre",
     "slug": "climatiseur-mobile-beko-9000-btu-classe-a-kit-fenetre",
     "sku": "ONZ-0134",
     "category": 2,
     "brand": 6,
-    "short_description": "Climatiseur monobloc pr├¬t ├á brancher avec minuterie 24h, fonction d├®shumidificateur et filtre lavable ├á l'eau.",
-    "description": "Climatiseur monobloc pr├¬t ├á brancher avec minuterie 24h, fonction d├®shumidificateur et filtre lavable ├á l'eau. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Climatiseur monobloc prêt à brancher avec minuterie 24h, fonction déshumidificateur et filtre lavable à l'eau.",
+    "description": "Climatiseur monobloc prêt à brancher avec minuterie 24h, fonction déshumidificateur et filtre lavable à l'eau. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1 CV (9 000 BTU/h)",
-      "Classe ├®nerg├®tique": "A",
-      "Capacit├® d├®shumidification": "1 Litre / heure",
+      "Classe énergétique": "A",
+      "Capacité déshumidification": "1 Litre / heure",
       "Poids": "28 kg"
     },
     "price": "230000",
@@ -1739,17 +1739,17 @@
   "model": "shop.product",
   "pk": 41,
   "fields": {
-    "name": "Armoire de Climatisation LG 5 CV (48000 BTU) Triphas├®",
+    "name": "Armoire de Climatisation LG 5 CV (48000 BTU) Triphasé",
     "slug": "armoire-de-climatisation-lg-5-cv-48000-btu-triphase",
     "sku": "ONZ-0135",
     "category": 2,
     "brand": 2,
-    "short_description": "Climatisation tertiaire pour mosqu├®es, banques, ├®glises et grandes salles de f├¬te. D├®bit d'air monumental avec port├®e de 20 m├¿tres.",
-    "description": "Climatisation tertiaire pour mosqu├®es, banques, ├®glises et grandes salles de f├¬te. D├®bit d'air monumental avec port├®e de 20 m├¿tres. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Climatisation tertiaire pour mosquées, banques, églises et grandes salles de fête. Débit d'air monumental avec portée de 20 mètres.",
+    "description": "Climatisation tertiaire pour mosquées, banques, églises et grandes salles de fête. Débit d'air monumental avec portée de 20 mètres. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "5 CV (48 000 BTU/h)",
-      "Alimentation": "Triphas├® 380V",
-      "Port├®e du flux": "20 m├¿tres lin├®aires",
+      "Alimentation": "Triphasé 380V",
+      "Portée du flux": "20 mètres linéaires",
       "Compresseur": "LG Scroll Inverter"
     },
     "price": "1450000",
@@ -1779,12 +1779,12 @@
     "sku": "ONZ-0136",
     "category": 2,
     "brand": 3,
-    "short_description": "La t├®l├®commande int├¿gre un capteur de temp├®rature I-Feel qui ajuste le climat exactement ├á l'endroit o├╣ vous vous trouvez dans la pi├¿ce.",
-    "description": "La t├®l├®commande int├¿gre un capteur de temp├®rature I-Feel qui ajuste le climat exactement ├á l'endroit o├╣ vous vous trouvez dans la pi├¿ce. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "La télécommande intègre un capteur de température I-Feel qui ajuste le climat exactement à l'endroit où vous vous trouvez dans la pièce.",
+    "description": "La télécommande intègre un capteur de température I-Feel qui ajuste le climat exactement à l'endroit où vous vous trouvez dans la pièce. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "2 CV (18 000 BTU/h)",
-      "Capteur": "I-Feel t├®l├®commande",
-      "Filtre": "Charbon actif + Cat├®chine",
+      "Capteur": "I-Feel télécommande",
+      "Filtre": "Charbon actif + Catéchine",
       "Gaz": "R32"
     },
     "price": "410000",
@@ -1814,13 +1814,13 @@
     "sku": "ONZ-0137",
     "category": 2,
     "brand": 5,
-    "short_description": "Moteur 100% cuivre sans surchauffe avec 5 pales profil├®es a├®rodynamiques pour un brassage d'air intense et silencieux.",
-    "description": "Moteur 100% cuivre sans surchauffe avec 5 pales profil├®es a├®rodynamiques pour un brassage d'air intense et silencieux. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Moteur 100% cuivre sans surchauffe avec 5 pales profilées aérodynamiques pour un brassage d'air intense et silencieux.",
+    "description": "Moteur 100% cuivre sans surchauffe avec 5 pales profilées aérodynamiques pour un brassage d'air intense et silencieux. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Diam├¿tre": "140 cm (56 pouces)",
+      "Diamètre": "140 cm (56 pouces)",
       "Nombre pales": "5 pales acier",
-      "Moteur": "100% cuivre bobin├®",
-      "Commande": "Bo├«tier mural r├®gulateur"
+      "Moteur": "100% cuivre bobiné",
+      "Commande": "Boîtier mural régulateur"
     },
     "price": "55000",
     "sale_price": null,
@@ -1849,11 +1849,11 @@
     "sku": "ONZ-0138",
     "category": 2,
     "brand": 5,
-    "short_description": "R├®volution dans l'entretien : le filtre sup├®rieur se retire en 1 seconde sans ouvrir le capot gr├óce ├á sa fixation magn├®tique.",
-    "description": "R├®volution dans l'entretien : le filtre sup├®rieur se retire en 1 seconde sans ouvrir le capot gr├óce ├á sa fixation magn├®tique. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Révolution dans l'entretien : le filtre supérieur se retire en 1 seconde sans ouvrir le capot grâce à sa fixation magnétique.",
+    "description": "Révolution dans l'entretien : le filtre supérieur se retire en 1 seconde sans ouvrir le capot grâce à sa fixation magnétique. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1.5 CV (12 000 BTU/h)",
-      "Entretien": "Filtre magn├®tique Easy Clean",
+      "Entretien": "Filtre magnétique Easy Clean",
       "Gaz": "R32",
       "Flux": "Air 3D Smart"
     },
@@ -1879,18 +1879,18 @@
   "model": "shop.product",
   "pk": 45,
   "fields": {
-    "name": "Ventilateur Industriel Sur Pied Binatone 26 Pouces M├®tal",
+    "name": "Ventilateur Industriel Sur Pied Binatone 26 Pouces Métal",
     "slug": "ventilateur-industriel-sur-pied-binatone-26-pouces-metal",
     "sku": "ONZ-0139",
     "category": 2,
     "brand": 16,
-    "short_description": "Pied lourd en fonte ultra stable avec grille de protection renforc├®e et 3 pales m├®talliques pour ateliers, terrasses et commerces.",
-    "description": "Pied lourd en fonte ultra stable avec grille de protection renforc├®e et 3 pales m├®talliques pour ateliers, terrasses et commerces. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Pied lourd en fonte ultra stable avec grille de protection renforcée et 3 pales métalliques pour ateliers, terrasses et commerces.",
+    "description": "Pied lourd en fonte ultra stable avec grille de protection renforcée et 3 pales métalliques pour ateliers, terrasses et commerces. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Diam├¿tre": "65 cm (26 pouces)",
-      "Pales": "M├®talliques aluminium",
+      "Diamètre": "65 cm (26 pouces)",
+      "Pales": "Métalliques aluminium",
       "Socle": "Fonte lourde anti-basculement",
-      "Hauteur": "R├®glable jusqu'├á 175 cm"
+      "Hauteur": "Réglable jusqu'à 175 cm"
     },
     "price": "75000",
     "sale_price": null,
@@ -1919,12 +1919,12 @@
     "sku": "ONZ-0140",
     "category": 2,
     "brand": 1,
-    "short_description": "Triple protection contre les surtensions, la corrosion des ailettes et les surcharges de compresseur pour une durabilit├® maximale ├á Bamako.",
-    "description": "Triple protection contre les surtensions, la corrosion des ailettes et les surcharges de compresseur pour une durabilit├® maximale ├á Bamako. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Triple protection contre les surtensions, la corrosion des ailettes et les surcharges de compresseur pour une durabilité maximale à Bamako.",
+    "description": "Triple protection contre les surtensions, la corrosion des ailettes et les surcharges de compresseur pour une durabilité maximale à Bamako. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "2 CV (18 000 BTU/h)",
       "Protection": "Triple Protector Plus",
-      "Compresseur": "Digital Inverter 8 p├┤les",
+      "Compresseur": "Digital Inverter 8 pôles",
       "Mode": "Fast Cooling"
     },
     "price": "510000",
@@ -1949,18 +1949,18 @@
   "model": "shop.product",
   "pk": 47,
   "fields": {
-    "name": "Climatiseur Split TCL Elite Series 1.5 CV Anti-Poussi├¿re",
+    "name": "Climatiseur Split TCL Elite Series 1.5 CV Anti-Poussière",
     "slug": "climatiseur-split-tcl-elite-series-15-cv-anti-poussiere",
     "sku": "ONZ-0141",
     "category": 2,
     "brand": 4,
-    "short_description": "Finition blanc mat minimaliste avec volet d'air ├®largi pour propulser l'air frais jusqu'├á 15 m├¿tres dans la pi├¿ce.",
-    "description": "Finition blanc mat minimaliste avec volet d'air ├®largi pour propulser l'air frais jusqu'├á 15 m├¿tres dans la pi├¿ce. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Finition blanc mat minimaliste avec volet d'air élargi pour propulser l'air frais jusqu'à 15 mètres dans la pièce.",
+    "description": "Finition blanc mat minimaliste avec volet d'air élargi pour propulser l'air frais jusqu'à 15 mètres dans la pièce. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1.5 CV (12 000 BTU/h)",
-      "Filtre": "HD lavable haute densit├®",
+      "Filtre": "HD lavable haute densité",
       "Niveau sonore": "22 dB",
-      "T├®l├®commande": "├ëcran r├®tro├®clair├®"
+      "Télécommande": "Écran rétroéclairé"
     },
     "price": "220000",
     "sale_price": null,
@@ -1984,15 +1984,15 @@
   "model": "shop.product",
   "pk": 48,
   "fields": {
-    "name": "Rafra├«chisseur d'Air ├ëvaporatif Midea 20L avec Packs Glace",
+    "name": "Rafraîchisseur d'Air Évaporatif Midea 20L avec Packs Glace",
     "slug": "rafraichisseur-dair-evaporatif-midea-20l-avec-packs-glace",
     "sku": "ONZ-0142",
     "category": 2,
     "brand": 5,
-    "short_description": "Alternative ├®cologique et ├®conomique au climatiseur, consomme seulement 60W d'├®lectricit├®. Livr├® avec 2 packs de glace r├®frig├®rante r├®utilisables.",
-    "description": "Alternative ├®cologique et ├®conomique au climatiseur, consomme seulement 60W d'├®lectricit├®. Livr├® avec 2 packs de glace r├®frig├®rante r├®utilisables. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Alternative écologique et économique au climatiseur, consomme seulement 60W d'électricité. Livré avec 2 packs de glace réfrigérante réutilisables.",
+    "description": "Alternative écologique et économique au climatiseur, consomme seulement 60W d'électricité. Livré avec 2 packs de glace réfrigérante réutilisables. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "R├®servoir": "20 Litres",
+      "Réservoir": "20 Litres",
       "Consommation": "60 Watts",
       "Filtre": "Nid d'abeille lavable",
       "Pains de glace": "2 blocs inclus"
@@ -2019,16 +2019,16 @@
   "model": "shop.product",
   "pk": 49,
   "fields": {
-    "name": "Climatiseur Split Gree Fairy Inverter 1.5 CV Wi-Fi Int├®gr├®",
+    "name": "Climatiseur Split Gree Fairy Inverter 1.5 CV Wi-Fi Intégré",
     "slug": "climatiseur-split-gree-fairy-inverter-15-cv-wi-fi-integre",
     "sku": "ONZ-0143",
     "category": 2,
     "brand": 14,
-    "short_description": "Allumez et r├®glez la climatisation depuis votre smartphone avant m├¬me d'arriver ├á la maison gr├óce ├á l'application Gree Smart.",
-    "description": "Allumez et r├®glez la climatisation depuis votre smartphone avant m├¬me d'arriver ├á la maison gr├óce ├á l'application Gree Smart. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Allumez et réglez la climatisation depuis votre smartphone avant même d'arriver à la maison grâce à l'application Gree Smart.",
+    "description": "Allumez et réglez la climatisation depuis votre smartphone avant même d'arriver à la maison grâce à l'application Gree Smart. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1.5 CV (12 000 BTU/h)",
-      "Connectivit├®": "Wi-Fi mobile iOS & Android",
+      "Connectivité": "Wi-Fi mobile iOS & Android",
       "Compresseur": "G10 Inverter",
       "Gaz": "R32"
     },
@@ -2059,14 +2059,14 @@
     "sku": "ONZ-0144",
     "category": 3,
     "brand": 2,
-    "short_description": "T├®l├®viseur 4K UHD avec processeur ╬▒5 AI Gen6 optimisant l'image et le son. T├®l├®commande Magic Remote avec pointeur gyroscopique incluse.",
-    "description": "T├®l├®viseur 4K UHD avec processeur ╬▒5 AI Gen6 optimisant l'image et le son. T├®l├®commande Magic Remote avec pointeur gyroscopique incluse. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Téléviseur 4K UHD avec processeur α5 AI Gen6 optimisant l'image et le son. Télécommande Magic Remote avec pointeur gyroscopique incluse.",
+    "description": "Téléviseur 4K UHD avec processeur α5 AI Gen6 optimisant l'image et le son. Télécommande Magic Remote avec pointeur gyroscopique incluse. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "55 pouces (139 cm)",
-      "R├®solution": "4K UHD (3840 x 2160)",
-      "Syst├¿me": "LG webOS 24 avec ThinQ AI",
+      "Résolution": "4K UHD (3840 x 2160)",
+      "Système": "LG webOS 24 avec ThinQ AI",
       "HDR": "HDR10 Pro & HLG",
-      "T├®l├®commande": "Magic Remote gyroscopique"
+      "Télécommande": "Magic Remote gyroscopique"
     },
     "price": "420000",
     "sale_price": null,
@@ -2095,11 +2095,11 @@
     "sku": "ONZ-0145",
     "category": 3,
     "brand": 1,
-    "short_description": "Couleurs cristallines et contrastes profonds sur ├®cran g├®ant de 65 pouces avec technologie PurColor et design ultra fin AirSlim sans bordures.",
-    "description": "Couleurs cristallines et contrastes profonds sur ├®cran g├®ant de 65 pouces avec technologie PurColor et design ultra fin AirSlim sans bordures. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Couleurs cristallines et contrastes profonds sur écran géant de 65 pouces avec technologie PurColor et design ultra fin AirSlim sans bordures.",
+    "description": "Couleurs cristallines et contrastes profonds sur écran géant de 65 pouces avec technologie PurColor et design ultra fin AirSlim sans bordures. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "65 pouces (165 cm)",
-      "R├®solution": "4K Ultra HD",
+      "Résolution": "4K Ultra HD",
       "Processeur": "Crystal Processor 4K",
       "Design": "AirSlim sans bordures",
       "Audio": "Q-Symphony"
@@ -2131,13 +2131,13 @@
     "sku": "ONZ-0146",
     "category": 3,
     "brand": 4,
-    "short_description": "Le meilleur compromis budget-qualit├® avec syst├¿me Android TV officiel, Chromecast int├®gr├® pour diffuser votre t├®l├®phone et commande vocale Google Assistant.",
-    "description": "Le meilleur compromis budget-qualit├® avec syst├¿me Android TV officiel, Chromecast int├®gr├® pour diffuser votre t├®l├®phone et commande vocale Google Assistant. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Le meilleur compromis budget-qualité avec système Android TV officiel, Chromecast intégré pour diffuser votre téléphone et commande vocale Google Assistant.",
+    "description": "Le meilleur compromis budget-qualité avec système Android TV officiel, Chromecast intégré pour diffuser votre téléphone et commande vocale Google Assistant. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "43 pouces (108 cm)",
-      "R├®solution": "Full HD (1920 x 1080)",
-      "Syst├¿me": "Android TV officiel",
-      "Audio": "Dolby Audio st├®r├®o",
+      "Résolution": "Full HD (1920 x 1080)",
+      "Système": "Android TV officiel",
+      "Audio": "Dolby Audio stéréo",
       "HDMI": "2 ports HDMI"
     },
     "price": "185000",
@@ -2167,14 +2167,14 @@
     "sku": "ONZ-0147",
     "category": 3,
     "brand": 3,
-    "short_description": "Qualit├® d'image saisissante avec prise en charge du format cin├®ma Dolby Vision HDR et syst├¿me d'exploitation ultra-rapide VIDAA U6.",
-    "description": "Qualit├® d'image saisissante avec prise en charge du format cin├®ma Dolby Vision HDR et syst├¿me d'exploitation ultra-rapide VIDAA U6. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Qualité d'image saisissante avec prise en charge du format cinéma Dolby Vision HDR et système d'exploitation ultra-rapide VIDAA U6.",
+    "description": "Qualité d'image saisissante avec prise en charge du format cinéma Dolby Vision HDR et système d'exploitation ultra-rapide VIDAA U6. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "50 pouces (127 cm)",
-      "R├®solution": "4K UHD",
+      "Résolution": "4K UHD",
       "HDR": "Dolby Vision & HDR10+",
-      "Syst├¿me": "VIDAA U6",
-      "Luminosit├®": "350 nits"
+      "Système": "VIDAA U6",
+      "Luminosité": "350 nits"
     },
     "price": "280000",
     "sale_price": null,
@@ -2203,8 +2203,8 @@
     "sku": "ONZ-0148",
     "category": 3,
     "brand": 1,
-    "short_description": "Technologie Quantum Dots certifi├®e 100% de volume de couleur. R├®tro├®clairage Dual LED innovant adaptant la tonalit├® de couleur au type de contenu.",
-    "description": "Technologie Quantum Dots certifi├®e 100% de volume de couleur. R├®tro├®clairage Dual LED innovant adaptant la tonalit├® de couleur au type de contenu. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Technologie Quantum Dots certifiée 100% de volume de couleur. Rétroéclairage Dual LED innovant adaptant la tonalité de couleur au type de contenu.",
+    "description": "Technologie Quantum Dots certifiée 100% de volume de couleur. Rétroéclairage Dual LED innovant adaptant la tonalité de couleur au type de contenu. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "55 pouces (139 cm)",
       "Dalle": "QLED Quantum Dot",
@@ -2239,8 +2239,8 @@
     "sku": "ONZ-0149",
     "category": 3,
     "brand": 2,
-    "short_description": "La technologie NanoCell filtre les longueurs d'onde impures pour produire des couleurs RGB pures et ├®clatantes sous tous les angles de vision.",
-    "description": "La technologie NanoCell filtre les longueurs d'onde impures pour produire des couleurs RGB pures et ├®clatantes sous tous les angles de vision. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "La technologie NanoCell filtre les longueurs d'onde impures pour produire des couleurs RGB pures et éclatantes sous tous les angles de vision.",
+    "description": "La technologie NanoCell filtre les longueurs d'onde impures pour produire des couleurs RGB pures et éclatantes sous tous les angles de vision. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "65 pouces (165 cm)",
       "Technologie": "NanoCell Real 4K",
@@ -2269,18 +2269,18 @@
   "model": "shop.product",
   "pk": 56,
   "fields": {
-    "name": "T├®l├®viseur Smart TCL 32 Pouces HD Frameless Android 11",
+    "name": "Téléviseur Smart TCL 32 Pouces HD Frameless Android 11",
     "slug": "televiseur-smart-tcl-32-pouces-hd-frameless-android-11",
     "sku": "ONZ-0150",
     "category": 3,
     "brand": 4,
-    "short_description": "Id├®al pour chambre ├á coucher ou cuisine. Cadre ultra-fin m├®tallique sans bordure, Wi-Fi int├®gr├®, YouTube, Netflix et Prime Video pr├®install├®s.",
-    "description": "Id├®al pour chambre ├á coucher ou cuisine. Cadre ultra-fin m├®tallique sans bordure, Wi-Fi int├®gr├®, YouTube, Netflix et Prime Video pr├®install├®s. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Idéal pour chambre à coucher ou cuisine. Cadre ultra-fin métallique sans bordure, Wi-Fi intégré, YouTube, Netflix et Prime Video préinstallés.",
+    "description": "Idéal pour chambre à coucher ou cuisine. Cadre ultra-fin métallique sans bordure, Wi-Fi intégré, YouTube, Netflix et Prime Video préinstallés. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "32 pouces (80 cm)",
-      "R├®solution": "HD Ready (1366 x 768)",
-      "Ch├óssis": "M├®tal sans bordures",
-      "Wi-Fi": "2.4 GHz int├®gr├®"
+      "Résolution": "HD Ready (1366 x 768)",
+      "Châssis": "Métal sans bordures",
+      "Wi-Fi": "2.4 GHz intégré"
     },
     "price": "110000",
     "sale_price": null,
@@ -2309,13 +2309,13 @@
     "sku": "ONZ-0151",
     "category": 3,
     "brand": 12,
-    "short_description": "Le l├®gendaire traitement d'image Sony avec processeur 4K HDR X1 reproduisant plus d'un milliard de couleurs fid├¿les ├á la r├®alit├®.",
-    "description": "Le l├®gendaire traitement d'image Sony avec processeur 4K HDR X1 reproduisant plus d'un milliard de couleurs fid├¿les ├á la r├®alit├®. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Le légendaire traitement d'image Sony avec processeur 4K HDR X1 reproduisant plus d'un milliard de couleurs fidèles à la réalité.",
+    "description": "Le légendaire traitement d'image Sony avec processeur 4K HDR X1 reproduisant plus d'un milliard de couleurs fidèles à la réalité. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "55 pouces (139 cm)",
       "Processeur": "Sony 4K HDR Processor X1",
       "Couleurs": "Triluminos Pro",
-      "Syst├¿me": "Google TV avec Chromecast"
+      "Système": "Google TV avec Chromecast"
     },
     "price": "690000",
     "sale_price": null,
@@ -2344,14 +2344,14 @@
     "sku": "ONZ-0152",
     "category": 3,
     "brand": 3,
-    "short_description": "Dalle Mini-LED avec des centaines de zones de r├®tro├®clairage ind├®pendantes, rafra├«chissement 144Hz pour les passionn├®s de football et de jeux vid├®o PlayStation 5.",
-    "description": "Dalle Mini-LED avec des centaines de zones de r├®tro├®clairage ind├®pendantes, rafra├«chissement 144Hz pour les passionn├®s de football et de jeux vid├®o PlayStation 5. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Dalle Mini-LED avec des centaines de zones de rétroéclairage indépendantes, rafraîchissement 144Hz pour les passionnés de football et de jeux vidéo PlayStation 5.",
+    "description": "Dalle Mini-LED avec des centaines de zones de rétroéclairage indépendantes, rafraîchissement 144Hz pour les passionnés de football et de jeux vidéo PlayStation 5. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "65 pouces (165 cm)",
       "Dalle": "Mini-LED 144Hz natif",
-      "Luminosit├® cr├¬te": "1000 nits",
+      "Luminosité crête": "1000 nits",
       "Ports": "HDMI 2.1 4K 144Hz",
-      "Audio": "Subwoofer int├®gr├® 2.1"
+      "Audio": "Subwoofer intégré 2.1"
     },
     "price": "790000",
     "sale_price": null,
@@ -2380,12 +2380,12 @@
     "sku": "ONZ-0153",
     "category": 3,
     "brand": 1,
-    "short_description": "Sublimez le son de votre t├®l├®viseur avec 410 Watts de puissance pure, basses profondes avec caisson sans fil et technologie DTS Virtual:X.",
-    "description": "Sublimez le son de votre t├®l├®viseur avec 410 Watts de puissance pure, basses profondes avec caisson sans fil et technologie DTS Virtual:X. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Sublimez le son de votre téléviseur avec 410 Watts de puissance pure, basses profondes avec caisson sans fil et technologie DTS Virtual:X.",
+    "description": "Sublimez le son de votre téléviseur avec 410 Watts de puissance pure, basses profondes avec caisson sans fil et technologie DTS Virtual:X. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance totale": "410 Watts RMS",
       "Canaux": "2.1 avec subwoofer sans fil",
-      "D├®codeurs": "DTS Virtual:X & Dolby Digital",
+      "Décodeurs": "DTS Virtual:X & Dolby Digital",
       "Connexions": "Bluetooth, Optique, HDMI ARC"
     },
     "price": "165000",
@@ -2415,13 +2415,13 @@
     "sku": "ONZ-0154",
     "category": 3,
     "brand": 2,
-    "short_description": "Haut-parleur central d├®di├® pour des dialogues de films cristallins, son haute r├®solution 24bit/96kHz et synchronisation Sound Sync LG.",
-    "description": "Haut-parleur central d├®di├® pour des dialogues de films cristallins, son haute r├®solution 24bit/96kHz et synchronisation Sound Sync LG. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Haut-parleur central dédié pour des dialogues de films cristallins, son haute résolution 24bit/96kHz et synchronisation Sound Sync LG.",
+    "description": "Haut-parleur central dédié pour des dialogues de films cristallins, son haute résolution 24bit/96kHz et synchronisation Sound Sync LG. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "420 Watts",
       "Canaux": "3.1 avec voie centrale dialogue",
-      "R├®solution audio": "Hi-Res Audio 24bit/96kHz",
-      "Entr├®es": "HDMI In/Out ARC, Optique"
+      "Résolution audio": "Hi-Res Audio 24bit/96kHz",
+      "Entrées": "HDMI In/Out ARC, Optique"
     },
     "price": "195000",
     "sale_price": null,
@@ -2450,13 +2450,13 @@
     "sku": "ONZ-0155",
     "category": 3,
     "brand": 2,
-    "short_description": "Le summum absolu de l'image t├®l├®vis├®e. Pixels auto-├®missifs offrant un contraste infini, des noirs parfaits et un temps de r├®ponse instantan├® de 0.1ms.",
-    "description": "Le summum absolu de l'image t├®l├®vis├®e. Pixels auto-├®missifs offrant un contraste infini, des noirs parfaits et un temps de r├®ponse instantan├® de 0.1ms. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Le summum absolu de l'image télévisée. Pixels auto-émissifs offrant un contraste infini, des noirs parfaits et un temps de réponse instantané de 0.1ms.",
+    "description": "Le summum absolu de l'image télévisée. Pixels auto-émissifs offrant un contraste infini, des noirs parfaits et un temps de réponse instantané de 0.1ms. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "55 pouces (139 cm)",
-      "Dalle": "OLED evo auto-├®missive",
+      "Dalle": "OLED evo auto-émissive",
       "Contraste": "Infini (noirs absolus)",
-      "Fr├®quence": "120Hz natif VRR G-Sync",
+      "Fréquence": "120Hz natif VRR G-Sync",
       "Processeur": "Alpha 9 Gen6 4K"
     },
     "price": "480000",
@@ -2481,16 +2481,16 @@
   "model": "shop.product",
   "pk": 62,
   "fields": {
-    "name": "Smart TV Samsung 75 Pouces Crystal UHD 4K ├ëcran G├®ant",
+    "name": "Smart TV Samsung 75 Pouces Crystal UHD 4K Écran Géant",
     "slug": "smart-tv-samsung-75-pouces-crystal-uhd-4k-ecran-geant",
     "sku": "ONZ-0156",
     "category": 3,
     "brand": 1,
-    "short_description": "Transformez votre salon en v├®ritable salle de cin├®ma avec cet ├®cran monumental de 190 cm de diagonale et son rendu HDR saisissant.",
-    "description": "Transformez votre salon en v├®ritable salle de cin├®ma avec cet ├®cran monumental de 190 cm de diagonale et son rendu HDR saisissant. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Transformez votre salon en véritable salle de cinéma avec cet écran monumental de 190 cm de diagonale et son rendu HDR saisissant.",
+    "description": "Transformez votre salon en véritable salle de cinéma avec cet écran monumental de 190 cm de diagonale et son rendu HDR saisissant. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "75 pouces (190 cm)",
-      "R├®solution": "4K UHD (3840 x 2160)",
+      "Résolution": "4K UHD (3840 x 2160)",
       "HDR": "HDR10+ & HLG",
       "Connectique": "3x HDMI, 2x USB, LAN, Wi-Fi 5, Bluetooth"
     },
@@ -2521,13 +2521,13 @@
     "sku": "ONZ-0157",
     "category": 3,
     "brand": 4,
-    "short_description": "Profitez de l'interface fluide de Google TV avec recommandations personnalis├®es, commande vocale 'Hey Google' et son spatial Dolby Atmos.",
-    "description": "Profitez de l'interface fluide de Google TV avec recommandations personnalis├®es, commande vocale 'Hey Google' et son spatial Dolby Atmos. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Profitez de l'interface fluide de Google TV avec recommandations personnalisées, commande vocale 'Hey Google' et son spatial Dolby Atmos.",
+    "description": "Profitez de l'interface fluide de Google TV avec recommandations personnalisées, commande vocale 'Hey Google' et son spatial Dolby Atmos. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "50 pouces (127 cm)",
-      "R├®solution": "4K UHD HDR10",
+      "Résolution": "4K UHD HDR10",
       "Audio": "Dolby Atmos",
-      "Syst├¿me": "Google TV complet",
+      "Système": "Google TV complet",
       "Bluetooth": "Bi-directionnel"
     },
     "price": "265000",
@@ -2552,18 +2552,18 @@
   "model": "shop.product",
   "pk": 64,
   "fields": {
-    "name": "Home Cin├®ma Sony 5.1 Canaux 1000W Bluetooth Surround",
+    "name": "Home Cinéma Sony 5.1 Canaux 1000W Bluetooth Surround",
     "slug": "home-cinema-sony-51-canaux-1000w-bluetooth-surround",
     "sku": "ONZ-0158",
     "category": 3,
     "brand": 12,
-    "short_description": "Syst├¿me complet 5 enceintes satellites + caisson de basse pour une immersion totale ├á 360 degr├®s digne d'une salle de projection priv├®e.",
-    "description": "Syst├¿me complet 5 enceintes satellites + caisson de basse pour une immersion totale ├á 360 degr├®s digne d'une salle de projection priv├®e. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Système complet 5 enceintes satellites + caisson de basse pour une immersion totale à 360 degrés digne d'une salle de projection privée.",
+    "description": "Système complet 5 enceintes satellites + caisson de basse pour une immersion totale à 360 degrés digne d'une salle de projection privée. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1000 Watts RMS",
-      "Canaux": "5.1 Surround r├®el",
-      "Lecteur": "Entr├®e USB & Bluetooth NFC",
-      "Amplificateur": "Num├®rique S-Master"
+      "Canaux": "5.1 Surround réel",
+      "Lecteur": "Entrée USB & Bluetooth NFC",
+      "Amplificateur": "Numérique S-Master"
     },
     "price": "240000",
     "sale_price": null,
@@ -2587,18 +2587,18 @@
   "model": "shop.product",
   "pk": 65,
   "fields": {
-    "name": "Smart TV Hisense 43 Pouces Full HD Bezel-Less Connect├®e",
+    "name": "Smart TV Hisense 43 Pouces Full HD Bezel-Less Connectée",
     "slug": "smart-tv-hisense-43-pouces-full-hd-bezel-less-connectee",
     "sku": "ONZ-0159",
     "category": 3,
     "brand": 3,
-    "short_description": "Ch├óssis noir laqu├® ultra fin avec pied central ├®l├®gant. Compatible avec toutes les applications de streaming populaires.",
-    "description": "Ch├óssis noir laqu├® ultra fin avec pied central ├®l├®gant. Compatible avec toutes les applications de streaming populaires. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Châssis noir laqué ultra fin avec pied central élégant. Compatible avec toutes les applications de streaming populaires.",
+    "description": "Châssis noir laqué ultra fin avec pied central élégant. Compatible avec toutes les applications de streaming populaires. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "43 pouces (108 cm)",
-      "R├®solution": "FHD 1080p",
-      "R├®duction bruit": "MPEG Noise Reduction",
-      "Connectivit├®": "Wi-Fi & Ethernet RJ45"
+      "Résolution": "FHD 1080p",
+      "Réduction bruit": "MPEG Noise Reduction",
+      "Connectivité": "Wi-Fi & Ethernet RJ45"
     },
     "price": "175000",
     "sale_price": null,
@@ -2627,13 +2627,13 @@
     "sku": "ONZ-0160",
     "category": 3,
     "brand": 2,
-    "short_description": "Animez vos soir├®es avec des basses telluriques, des jeux de lumi├¿re LED stroboscopiques multicolores synchronis├®s au rythme et entr├®es micro karaok├®.",
-    "description": "Animez vos soir├®es avec des basses telluriques, des jeux de lumi├¿re LED stroboscopiques multicolores synchronis├®s au rythme et entr├®es micro karaok├®. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Animez vos soirées avec des basses telluriques, des jeux de lumière LED stroboscopiques multicolores synchronisés au rythme et entrées micro karaoké.",
+    "description": "Animez vos soirées avec des basses telluriques, des jeux de lumière LED stroboscopiques multicolores synchronisés au rythme et entrées micro karaoké. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "300 Watts",
-      "Effets lumi├¿re": "Party Strobe LED personnalisable",
-      "Karaok├®": "Entr├®e micro avec annulateur de voix",
-      "Poign├®e": "Transport facile"
+      "Effets lumière": "Party Strobe LED personnalisable",
+      "Karaoké": "Entrée micro avec annulateur de voix",
+      "Poignée": "Transport facile"
     },
     "price": "185000",
     "sale_price": null,
@@ -2662,11 +2662,11 @@
     "sku": "ONZ-0161",
     "category": 3,
     "brand": 1,
-    "short_description": "├ëteinte, elle affiche les plus grands chefs-d'┼ôuvre de la peinture mondiale avec son ├®cran mat sans reflet et son cadre personnalisable effet bois.",
-    "description": "├ëteinte, elle affiche les plus grands chefs-d'┼ôuvre de la peinture mondiale avec son ├®cran mat sans reflet et son cadre personnalisable effet bois. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Éteinte, elle affiche les plus grands chefs-d'œuvre de la peinture mondiale avec son écran mat sans reflet et son cadre personnalisable effet bois.",
+    "description": "Éteinte, elle affiche les plus grands chefs-d'œuvre de la peinture mondiale avec son écran mat sans reflet et son cadre personnalisable effet bois. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "55 pouces (139 cm)",
-      "├ëcran": "Matte Display 100% anti-reflet",
+      "Écran": "Matte Display 100% anti-reflet",
       "Mode": "Art Store avec capteur de mouvement",
       "Fixation": "Support mural ultra-fin inclus"
     },
@@ -2697,13 +2697,13 @@
     "sku": "ONZ-0162",
     "category": 3,
     "brand": 4,
-    "short_description": "Le g├®ant du divertissement avec acc├®l├®rateur de jeu 120Hz DLG et barre de jeu Game Bar int├®gr├®e pour optimiser les r├®glages ├á la vol├®e.",
-    "description": "Le g├®ant du divertissement avec acc├®l├®rateur de jeu 120Hz DLG et barre de jeu Game Bar int├®gr├®e pour optimiser les r├®glages ├á la vol├®e. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Le géant du divertissement avec accélérateur de jeu 120Hz DLG et barre de jeu Game Bar intégrée pour optimiser les réglages à la volée.",
+    "description": "Le géant du divertissement avec accélérateur de jeu 120Hz DLG et barre de jeu Game Bar intégrée pour optimiser les réglages à la volée. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "75 pouces (190 cm)",
       "Dalle": "4K HDR10+ 120Hz DLG",
-      "Connectivit├®": "HDMI 2.1 eARC",
-      "Son": "ONKYO 2.1 int├®gr├®"
+      "Connectivité": "HDMI 2.1 eARC",
+      "Son": "ONKYO 2.1 intégré"
     },
     "price": "750000",
     "sale_price": null,
@@ -2727,18 +2727,18 @@
   "model": "shop.product",
   "pk": 69,
   "fields": {
-    "name": "Barre de Son Hisense HS214 108W Caisson Int├®gr├®",
+    "name": "Barre de Son Hisense HS214 108W Caisson Intégré",
     "slug": "barre-de-son-hisense-hs214-108w-caisson-integre",
     "sku": "ONZ-0163",
     "category": 3,
     "brand": 3,
-    "short_description": "Design tout-en-un compact int├®grant un caisson de basse orient├® vers le bas. Aucun fil encombrant dans le salon, connexion optique ou Bluetooth.",
-    "description": "Design tout-en-un compact int├®grant un caisson de basse orient├® vers le bas. Aucun fil encombrant dans le salon, connexion optique ou Bluetooth. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Design tout-en-un compact intégrant un caisson de basse orienté vers le bas. Aucun fil encombrant dans le salon, connexion optique ou Bluetooth.",
+    "description": "Design tout-en-un compact intégrant un caisson de basse orienté vers le bas. Aucun fil encombrant dans le salon, connexion optique ou Bluetooth. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "108 Watts",
-      "Configuration": "Tout-en-un 2.1 caisson int├®gr├®",
+      "Configuration": "Tout-en-un 2.1 caisson intégré",
       "Taille": "65 cm de largeur",
-      "Modes son": "Film, Musique, Actualit├®s"
+      "Modes son": "Film, Musique, Actualités"
     },
     "price": "75000",
     "sale_price": null,
@@ -2767,11 +2767,11 @@
     "sku": "ONZ-0164",
     "category": 3,
     "brand": 2,
-    "short_description": "La v├®ritable 4K dans un format polyvalent de 43 pouces avec technologie AI Sound qui convertit le son st├®r├®o en son ambiophonique 5.1.",
-    "description": "La v├®ritable 4K dans un format polyvalent de 43 pouces avec technologie AI Sound qui convertit le son st├®r├®o en son ambiophonique 5.1. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "La véritable 4K dans un format polyvalent de 43 pouces avec technologie AI Sound qui convertit le son stéréo en son ambiophonique 5.1.",
+    "description": "La véritable 4K dans un format polyvalent de 43 pouces avec technologie AI Sound qui convertit le son stéréo en son ambiophonique 5.1. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Diagonale": "43 pouces (108 cm)",
-      "R├®solution": "4K Ultra HD",
+      "Résolution": "4K Ultra HD",
       "Son": "AI Sound 5.1 virtuel",
       "Processeur": "Quad Core 4K"
     },
@@ -2797,17 +2797,17 @@
   "model": "shop.product",
   "pk": 71,
   "fields": {
-    "name": "Cuisini├¿re Beko 4 Feux Gaz 50x50 cm Four ├ëlectrique Tournebroche",
+    "name": "Cuisinière Beko 4 Feux Gaz 50x50 cm Four Électrique Tournebroche",
     "slug": "cuisiniere-beko-4-feux-gaz-50x50-cm-four-electrique-tournebroche",
     "sku": "ONZ-0165",
     "category": 4,
     "brand": 6,
-    "short_description": "Cuisini├¿re compacte tr├¿s robuste avec 4 br├╗leurs gaz haute performance, four ├®lectrique avec grill et tournebroche pour r├┤tir vos volailles.",
-    "description": "Cuisini├¿re compacte tr├¿s robuste avec 4 br├╗leurs gaz haute performance, four ├®lectrique avec grill et tournebroche pour r├┤tir vos volailles. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Cuisinière compacte très robuste avec 4 brûleurs gaz haute performance, four électrique avec grill et tournebroche pour rôtir vos volailles.",
+    "description": "Cuisinière compacte très robuste avec 4 brûleurs gaz haute performance, four électrique avec grill et tournebroche pour rôtir vos volailles. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "50 x 50 x 85 cm",
-      "Br├╗leurs": "4 feux gaz avec thermocouple",
-      "Four": "├ëlectrique avec grilloir et tournebroche",
+      "Brûleurs": "4 feux gaz avec thermocouple",
+      "Four": "Électrique avec grilloir et tournebroche",
       "Allumage": "Bouton d'allumage automatique"
     },
     "price": "185000",
@@ -2832,19 +2832,19 @@
   "model": "shop.product",
   "pk": 72,
   "fields": {
-    "name": "Cuisini├¿re Midea 5 Feux Gaz 90x60 cm Allumage Automatique Inox",
+    "name": "Cuisinière Midea 5 Feux Gaz 90x60 cm Allumage Automatique Inox",
     "slug": "cuisiniere-midea-5-feux-gaz-90x60-cm-allumage-automatique-inox",
     "sku": "ONZ-0166",
     "category": 4,
     "brand": 5,
-    "short_description": "Format g├®ant professionnel 90x60 cm tout inox avec br├╗leur central Triple Couronne pour faire bouillir l'eau en un temps record et grand four de 115L.",
-    "description": "Format g├®ant professionnel 90x60 cm tout inox avec br├╗leur central Triple Couronne pour faire bouillir l'eau en un temps record et grand four de 115L. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Format géant professionnel 90x60 cm tout inox avec brûleur central Triple Couronne pour faire bouillir l'eau en un temps record et grand four de 115L.",
+    "description": "Format géant professionnel 90x60 cm tout inox avec brûleur central Triple Couronne pour faire bouillir l'eau en un temps record et grand four de 115L. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "90 x 60 x 85 cm",
-      "Finition": "Inox bross├® int├®gral",
-      "Br├╗leur central": "Triple couronne WOK 3.8 kW",
+      "Finition": "Inox brossé intégral",
+      "Brûleur central": "Triple couronne WOK 3.8 kW",
       "Four": "XXL 115 Litres gaz",
-      "Grilles": "Fonte lourde ├®maill├®e"
+      "Grilles": "Fonte lourde émaillée"
     },
     "price": "380000",
     "sale_price": null,
@@ -2868,18 +2868,18 @@
   "model": "shop.product",
   "pk": 73,
   "fields": {
-    "name": "Cuisini├¿re Haier 4 Feux Gaz 60x60 cm Grilles en Fonte",
+    "name": "Cuisinière Haier 4 Feux Gaz 60x60 cm Grilles en Fonte",
     "slug": "cuisiniere-haier-4-feux-gaz-60x60-cm-grilles-en-fonte",
     "sku": "ONZ-0167",
     "category": 4,
     "brand": 11,
-    "short_description": "Stabilit├® parfaite des casseroles gr├óce aux grilles ├®paisses en fonte d'acier. Double vitrage de porte de four isolant thermo-r├®fl├®chissant.",
-    "description": "Stabilit├® parfaite des casseroles gr├óce aux grilles ├®paisses en fonte d'acier. Double vitrage de porte de four isolant thermo-r├®fl├®chissant. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Stabilité parfaite des casseroles grâce aux grilles épaisses en fonte d'acier. Double vitrage de porte de four isolant thermo-réfléchissant.",
+    "description": "Stabilité parfaite des casseroles grâce aux grilles épaisses en fonte d'acier. Double vitrage de porte de four isolant thermo-réfléchissant. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "60 x 60 x 85 cm",
-      "Mat├®riau grilles": "Fonte massive",
-      "S├®curit├®": "Syst├¿me thermocouple coupe-gaz",
-      "Four": "Chaleur tournante assist├®e"
+      "Matériau grilles": "Fonte massive",
+      "Sécurité": "Système thermocouple coupe-gaz",
+      "Four": "Chaleur tournante assistée"
     },
     "price": "240000",
     "sale_price": null,
@@ -2903,17 +2903,17 @@
   "model": "shop.product",
   "pk": 74,
   "fields": {
-    "name": "Cuisini├¿re Professionnelle Ocean 5 Feux Gaz 90x60 cm Triple Couronne",
+    "name": "Cuisinière Professionnelle Ocean 5 Feux Gaz 90x60 cm Triple Couronne",
     "slug": "cuisiniere-professionnelle-ocean-5-feux-gaz-90x60-cm-triple-couronne",
     "sku": "ONZ-0168",
     "category": 4,
     "brand": 13,
-    "short_description": "Fabrication haut de gamme pour les chefs et grandes familles bamakoises. Commandes frontales ergonomiques en m├®tal et four ventil├® g├®ant.",
-    "description": "Fabrication haut de gamme pour les chefs et grandes familles bamakoises. Commandes frontales ergonomiques en m├®tal et four ventil├® g├®ant. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Fabrication haut de gamme pour les chefs et grandes familles bamakoises. Commandes frontales ergonomiques en métal et four ventilé géant.",
+    "description": "Fabrication haut de gamme pour les chefs et grandes familles bamakoises. Commandes frontales ergonomiques en métal et four ventilé géant. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "90 x 60 x 85 cm",
-      "Fabrication": "Norme CE s├®curit├® totale",
-      "Br├╗leurs": "5 feux laiton massif",
+      "Fabrication": "Norme CE sécurité totale",
+      "Brûleurs": "5 feux laiton massif",
       "Four": "Gaz avec minuterie sonnette"
     },
     "price": "460000",
@@ -2943,8 +2943,8 @@
     "sku": "ONZ-0169",
     "category": 4,
     "brand": 6,
-    "short_description": "Four ├®lectrique encastrable 60 cm avec technologie AeroPerfect assurant une r├®partition id├®ale de l'air chaud pour une cuisson uniforme sur tous les niveaux.",
-    "description": "Four ├®lectrique encastrable 60 cm avec technologie AeroPerfect assurant une r├®partition id├®ale de l'air chaud pour une cuisson uniforme sur tous les niveaux. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Four électrique encastrable 60 cm avec technologie AeroPerfect assurant une répartition idéale de l'air chaud pour une cuisson uniforme sur tous les niveaux.",
+    "description": "Four électrique encastrable 60 cm avec technologie AeroPerfect assurant une répartition idéale de l'air chaud pour une cuisson uniforme sur tous les niveaux. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Volume": "71 Litres",
       "Programmes": "8 modes de cuisson",
@@ -2979,12 +2979,12 @@
     "sku": "ONZ-0170",
     "category": 4,
     "brand": 6,
-    "short_description": "Plaque de cuisson encastrable en inox bross├® avec allumage int├®gr├® d'une seule main aux manettes et s├®curit├® thermocouple GazStop.",
-    "description": "Plaque de cuisson encastrable en inox bross├® avec allumage int├®gr├® d'une seule main aux manettes et s├®curit├® thermocouple GazStop. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Plaque de cuisson encastrable en inox brossé avec allumage intégré d'une seule main aux manettes et sécurité thermocouple GazStop.",
+    "description": "Plaque de cuisson encastrable en inox brossé avec allumage intégré d'une seule main aux manettes et sécurité thermocouple GazStop. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Largeur": "60 cm standard",
-      "Br├╗leurs": "4 feux gaz dont 1 rapide 2.9 kW",
-      "Commandes": "Lat├®rales rotatives",
+      "Brûleurs": "4 feux gaz dont 1 rapide 2.9 kW",
+      "Commandes": "Latérales rotatives",
       "Finition": "Acier inoxydable"
     },
     "price": "135000",
@@ -3009,16 +3009,16 @@
   "model": "shop.product",
   "pk": 77,
   "fields": {
-    "name": "Cuisini├¿re Midea 4 Feux Gaz 60x60 cm Couvercle Verre Tremp├®",
+    "name": "Cuisinière Midea 4 Feux Gaz 60x60 cm Couvercle Verre Trempé",
     "slug": "cuisiniere-midea-4-feux-gaz-60x60-cm-couvercle-verre-trempe",
     "sku": "ONZ-0171",
     "category": 4,
     "brand": 5,
-    "short_description": "Finition noire et argent tr├¿s ├®l├®gante avec couvercle rabattable en verre tremp├® fum├® faisant office de cr├®dence anti-├®claboussures.",
-    "description": "Finition noire et argent tr├¿s ├®l├®gante avec couvercle rabattable en verre tremp├® fum├® faisant office de cr├®dence anti-├®claboussures. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Finition noire et argent très élégante avec couvercle rabattable en verre trempé fumé faisant office de crédence anti-éclaboussures.",
+    "description": "Finition noire et argent très élégante avec couvercle rabattable en verre trempé fumé faisant office de crédence anti-éclaboussures. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "60 x 60 x 85 cm",
-      "Couvercle": "Verre tremp├® s├®curit├®",
+      "Couvercle": "Verre trempé sécurité",
       "Four": "Gaz avec grilloir haut et bas",
       "Tiroir": "Compartiment chauffe-plat bas"
     },
@@ -3049,13 +3049,13 @@
     "sku": "ONZ-0172",
     "category": 4,
     "brand": 1,
-    "short_description": "Technologie Dual Cook permettant de cuire deux plats diff├®rents ├á des temp├®ratures et dur├®es distinctes sans m├®lange d'odeurs.",
-    "description": "Technologie Dual Cook permettant de cuire deux plats diff├®rents ├á des temp├®ratures et dur├®es distinctes sans m├®lange d'odeurs. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Technologie Dual Cook permettant de cuire deux plats différents à des températures et durées distinctes sans mélange d'odeurs.",
+    "description": "Technologie Dual Cook permettant de cuire deux plats différents à des températures et durées distinctes sans mélange d'odeurs. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Volume": "68 Litres",
-      "S├®paration": "Double cavit├® ind├®pendante",
+      "Séparation": "Double cavité indépendante",
       "Commandes": "Tactiles LED bleues",
-      "Classe": "A ├®nerg├®tique"
+      "Classe": "A énergétique"
     },
     "price": "480000",
     "sale_price": null,
@@ -3079,18 +3079,18 @@
   "model": "shop.product",
   "pk": 79,
   "fields": {
-    "name": "Cuisini├¿re Mixte Beko 3 Feux Gaz + 1 Plaque ├ëlectrique 60x60",
+    "name": "Cuisinière Mixte Beko 3 Feux Gaz + 1 Plaque Électrique 60x60",
     "slug": "cuisiniere-mixte-beko-3-feux-gaz-1-plaque-electrique-60x60",
     "sku": "ONZ-0173",
     "category": 4,
     "brand": 6,
-    "short_description": "La polyvalence absolue : cuisinez au gaz au quotidien et utilisez la plaque ├®lectrique d'appoint en cas de rupture de bouteille de gaz.",
-    "description": "La polyvalence absolue : cuisinez au gaz au quotidien et utilisez la plaque ├®lectrique d'appoint en cas de rupture de bouteille de gaz. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "La polyvalence absolue : cuisinez au gaz au quotidien et utilisez la plaque électrique d'appoint en cas de rupture de bouteille de gaz.",
+    "description": "La polyvalence absolue : cuisinez au gaz au quotidien et utilisez la plaque électrique d'appoint en cas de rupture de bouteille de gaz. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "60 x 60 x 85 cm",
-      "Configuration": "3 br├╗leurs gaz + 1 plaque ├®lectrique 1000W",
-      "Four": "├ëlectrique multifonction",
-      "Allumage": "Int├®gr├®"
+      "Configuration": "3 brûleurs gaz + 1 plaque électrique 1000W",
+      "Four": "Électrique multifonction",
+      "Allumage": "Intégré"
     },
     "price": "265000",
     "sale_price": null,
@@ -3114,18 +3114,18 @@
   "model": "shop.product",
   "pk": 80,
   "fields": {
-    "name": "Plaque ├á Induction Encastrable TCL 4 Foyers Booster Tactile",
+    "name": "Plaque à Induction Encastrable TCL 4 Foyers Booster Tactile",
     "slug": "plaque-a-induction-encastrable-tcl-4-foyers-booster-tactile",
     "sku": "ONZ-0174",
     "category": 4,
     "brand": 4,
-    "short_description": "Surface lisse en vitroc├®ramique noire ultra facile ├á nettoyer d'un coup d'├®ponge. D├®tection automatique des casseroles et fonction Booster instantan├®.",
-    "description": "Surface lisse en vitroc├®ramique noire ultra facile ├á nettoyer d'un coup d'├®ponge. D├®tection automatique des casseroles et fonction Booster instantan├®. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Surface lisse en vitrocéramique noire ultra facile à nettoyer d'un coup d'éponge. Détection automatique des casseroles et fonction Booster instantané.",
+    "description": "Surface lisse en vitrocéramique noire ultra facile à nettoyer d'un coup d'éponge. Détection automatique des casseroles et fonction Booster instantané. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Largeur": "60 cm",
-      "Foyers": "4 zones induction ind├®pendantes",
+      "Foyers": "4 zones induction indépendantes",
       "Commandes": "Slider tactile sensitif",
-      "S├®curit├®": "Anti-d├®bordement et enfants"
+      "Sécurité": "Anti-débordement et enfants"
     },
     "price": "220000",
     "sale_price": null,
@@ -3149,18 +3149,18 @@
   "model": "shop.product",
   "pk": 81,
   "fields": {
-    "name": "Cuisini├¿re Haier 5 Feux Gaz 90x60 cm Double Chaleur Inox",
+    "name": "Cuisinière Haier 5 Feux Gaz 90x60 cm Double Chaleur Inox",
     "slug": "cuisiniere-haier-5-feux-gaz-90x60-cm-double-chaleur-inox",
     "sku": "ONZ-0175",
     "category": 4,
     "brand": 11,
-    "short_description": "Robuste ch├óssis renforc├® tout inox avec grand br├╗leur central pour faitouts et marmites de taille familiale.",
-    "description": "Robuste ch├óssis renforc├® tout inox avec grand br├╗leur central pour faitouts et marmites de taille familiale. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Robuste châssis renforcé tout inox avec grand brûleur central pour faitouts et marmites de taille familiale.",
+    "description": "Robuste châssis renforcé tout inox avec grand brûleur central pour faitouts et marmites de taille familiale. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "90 x 60 cm",
-      "Br├╗leurs": "5 br├╗leurs haute puissance",
-      "Four": "Double br├╗leur haut et bas",
-      "Pieds": "Inox r├®glables"
+      "Brûleurs": "5 brûleurs haute puissance",
+      "Four": "Double brûleur haut et bas",
+      "Pieds": "Inox réglables"
     },
     "price": "410000",
     "sale_price": null,
@@ -3189,10 +3189,10 @@
     "sku": "ONZ-0176",
     "category": 4,
     "brand": 6,
-    "short_description": "S'int├¿gre parfaitement dans une niche de cuisine ├®quip├®e de 60 cm avec son cadre d'encastrement inox fourni. Puissance 900W + Grill 1000W.",
-    "description": "S'int├¿gre parfaitement dans une niche de cuisine ├®quip├®e de 60 cm avec son cadre d'encastrement inox fourni. Puissance 900W + Grill 1000W. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "S'intègre parfaitement dans une niche de cuisine équipée de 60 cm avec son cadre d'encastrement inox fourni. Puissance 900W + Grill 1000W.",
+    "description": "S'intègre parfaitement dans une niche de cuisine équipée de 60 cm avec son cadre d'encastrement inox fourni. Puissance 900W + Grill 1000W. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "25 Litres",
+      "Capacité": "25 Litres",
       "Puissance micro-ondes": "900W",
       "Puissance grill": "1000W quartz",
       "Plateau": "Tournant 31.5 cm verre"
@@ -3219,18 +3219,18 @@
   "model": "shop.product",
   "pk": 83,
   "fields": {
-    "name": "Cuisini├¿re Beko 4 Feux Gaz ├ëconomique 50x50 cm Blanc Laqu├®",
+    "name": "Cuisinière Beko 4 Feux Gaz Économique 50x50 cm Blanc Laqué",
     "slug": "cuisiniere-beko-4-feux-gaz-economique-50x50-cm-blanc-laque",
     "sku": "ONZ-0177",
     "category": 4,
     "brand": 6,
-    "short_description": "Cuisini├¿re d'entr├®e de gamme fiable et simple avec four ├á gaz spacieux et ├®mail facile ├á nettoyer.",
-    "description": "Cuisini├¿re d'entr├®e de gamme fiable et simple avec four ├á gaz spacieux et ├®mail facile ├á nettoyer. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Cuisinière d'entrée de gamme fiable et simple avec four à gaz spacieux et émail facile à nettoyer.",
+    "description": "Cuisinière d'entrée de gamme fiable et simple avec four à gaz spacieux et émail facile à nettoyer. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "50 x 50 cm",
-      "Finition": "Blanc laqu├® haute r├®sistance",
-      "Four": "Four ├á gaz avec s├®curit├®",
-      "Accessoires": "1 grille + 1 l├¿chefrite"
+      "Finition": "Blanc laqué haute résistance",
+      "Four": "Four à gaz avec sécurité",
+      "Accessoires": "1 grille + 1 lèchefrite"
     },
     "price": "145000",
     "sale_price": null,
@@ -3254,17 +3254,17 @@
   "model": "shop.product",
   "pk": 84,
   "fields": {
-    "name": "Cuisini├¿re Midea 4 Feux Gaz + 2 Plaques ├ëlectriques 90x60",
+    "name": "Cuisinière Midea 4 Feux Gaz + 2 Plaques Électriques 90x60",
     "slug": "cuisiniere-midea-4-feux-gaz-2-plaques-electriques-90x60",
     "sku": "ONZ-0178",
     "category": 4,
     "brand": 5,
-    "short_description": "Table de cuisson g├®ante combinant 4 br├╗leurs ├á gaz et 2 plaques ├®lectriques en fonte chauffantes pour une libert├® totale de cuisson.",
-    "description": "Table de cuisson g├®ante combinant 4 br├╗leurs ├á gaz et 2 plaques ├®lectriques en fonte chauffantes pour une libert├® totale de cuisson. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Table de cuisson géante combinant 4 brûleurs à gaz et 2 plaques électriques en fonte chauffantes pour une liberté totale de cuisson.",
+    "description": "Table de cuisson géante combinant 4 brûleurs à gaz et 2 plaques électriques en fonte chauffantes pour une liberté totale de cuisson. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "90 x 60 cm",
-      "Feux": "4 gaz + 2 ├®lectriques",
-      "Four": "Four ├®lectrique ├á convection forc├®e",
+      "Feux": "4 gaz + 2 électriques",
+      "Four": "Four électrique à convection forcée",
       "Tournebroche": "Double broche"
     },
     "price": "425000",
@@ -3289,18 +3289,18 @@
   "model": "shop.product",
   "pk": 85,
   "fields": {
-    "name": "Plaque Vitroc├®ramique Encastrable Beko 4 Foyers Verre Noir",
+    "name": "Plaque Vitrocéramique Encastrable Beko 4 Foyers Verre Noir",
     "slug": "plaque-vitroceramique-encastrable-beko-4-foyers-verre-noir",
     "sku": "ONZ-0179",
     "category": 4,
     "brand": 6,
-    "short_description": "Compatible avec tous les types de casseroles traditionnelles (inox, cuivre, aluminium, fonte). T├®moins de chaleur r├®siduelle pour ├®viter toute br├╗lure.",
-    "description": "Compatible avec tous les types de casseroles traditionnelles (inox, cuivre, aluminium, fonte). T├®moins de chaleur r├®siduelle pour ├®viter toute br├╗lure. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Compatible avec tous les types de casseroles traditionnelles (inox, cuivre, aluminium, fonte). Témoins de chaleur résiduelle pour éviter toute brûlure.",
+    "description": "Compatible avec tous les types de casseroles traditionnelles (inox, cuivre, aluminium, fonte). Témoins de chaleur résiduelle pour éviter toute brûlure. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Largeur": "60 cm",
       "Foyers": "4 foyers radiants Hi-Light",
-      "S├®curit├®": "T├®moin de chaleur r├®siduelle H",
-      "Surface": "Verre vitroc├®ramique Schott Ceran"
+      "Sécurité": "Témoin de chaleur résiduelle H",
+      "Surface": "Verre vitrocéramique Schott Ceran"
     },
     "price": "175000",
     "sale_price": null,
@@ -3329,13 +3329,13 @@
     "sku": "ONZ-0180",
     "category": 4,
     "brand": 5,
-    "short_description": "Facile ├á encastrer et ├á utiliser avec ses 3 boutons manuels rotatifs : s├®lection de mode, minuterie m├®canique et r├®glage de temp├®rature jusqu'├á 250┬░C.",
-    "description": "Facile ├á encastrer et ├á utiliser avec ses 3 boutons manuels rotatifs : s├®lection de mode, minuterie m├®canique et r├®glage de temp├®rature jusqu'├á 250┬░C. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Facile à encastrer et à utiliser avec ses 3 boutons manuels rotatifs : sélection de mode, minuterie mécanique et réglage de température jusqu'à 250°C.",
+    "description": "Facile à encastrer et à utiliser avec ses 3 boutons manuels rotatifs : sélection de mode, minuterie mécanique et réglage de température jusqu'à 250°C. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "70 Litres",
-      "Modes": "Convection, Vo├╗te, Sole, Grilloir",
-      "Minuterie": "120 minutes avec arr├¬t automatique",
-      "Porte": "D├®montable pour nettoyage"
+      "Capacité": "70 Litres",
+      "Modes": "Convection, Voûte, Sole, Grilloir",
+      "Minuterie": "120 minutes avec arrêt automatique",
+      "Porte": "Démontable pour nettoyage"
     },
     "price": "235000",
     "sale_price": null,
@@ -3359,18 +3359,18 @@
   "model": "shop.product",
   "pk": 87,
   "fields": {
-    "name": "Cuisini├¿re Ocean 4 Feux Gaz 60x60 cm S├®curit├® Thermocouple",
+    "name": "Cuisinière Ocean 4 Feux Gaz 60x60 cm Sécurité Thermocouple",
     "slug": "cuisiniere-ocean-4-feux-gaz-60x60-cm-securite-thermocouple",
     "sku": "ONZ-0181",
     "category": 4,
     "brand": 13,
-    "short_description": "Conception robuste italienne en acier inoxydable avec allumage ├®lectrique sous les boutons et couvercle en verre tremp├®.",
-    "description": "Conception robuste italienne en acier inoxydable avec allumage ├®lectrique sous les boutons et couvercle en verre tremp├®. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Conception robuste italienne en acier inoxydable avec allumage électrique sous les boutons et couvercle en verre trempé.",
+    "description": "Conception robuste italienne en acier inoxydable avec allumage électrique sous les boutons et couvercle en verre trempé. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "60 x 60 cm",
-      "Br├╗leurs": "Defendi haute performance",
-      "Four": "Gaz avec ├®clairage int├®rieur",
-      "Parois": "├ëmaill├®es lisses faciles d'entretien"
+      "Brûleurs": "Defendi haute performance",
+      "Four": "Gaz avec éclairage intérieur",
+      "Parois": "Émaillées lisses faciles d'entretien"
     },
     "price": "270000",
     "sale_price": null,
@@ -3394,16 +3394,16 @@
   "model": "shop.product",
   "pk": 88,
   "fields": {
-    "name": "Plaque de Cuisson Gaz sur Verre Beko 4 Feux Noir Tremp├®",
+    "name": "Plaque de Cuisson Gaz sur Verre Beko 4 Feux Noir Trempé",
     "slug": "plaque-de-cuisson-gaz-sur-verre-beko-4-feux-noir-trempe",
     "sku": "ONZ-0182",
     "category": 4,
     "brand": 6,
-    "short_description": "L'├®l├®gance du verre noir tremp├® mari├®e ├á la puissance de la cuisson au gaz. Grilles individuelles en fonte pour un style ultra moderne.",
-    "description": "L'├®l├®gance du verre noir tremp├® mari├®e ├á la puissance de la cuisson au gaz. Grilles individuelles en fonte pour un style ultra moderne. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "L'élégance du verre noir trempé mariée à la puissance de la cuisson au gaz. Grilles individuelles en fonte pour un style ultra moderne.",
+    "description": "L'élégance du verre noir trempé mariée à la puissance de la cuisson au gaz. Grilles individuelles en fonte pour un style ultra moderne. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "60 cm encastrable",
-      "Mat├®riau plateau": "Verre tremp├® s├®curit├® 8mm",
+      "Matériau plateau": "Verre trempé sécurité 8mm",
       "Grilles": "Individuelles fonte noire",
       "Allumage": "1 main manette"
     },
@@ -3429,18 +3429,18 @@
   "model": "shop.product",
   "pk": 89,
   "fields": {
-    "name": "Four ├ëlectrique Pose Libre Moulinex 39L Chaleur Tournante 2000W",
+    "name": "Four Électrique Pose Libre Moulinex 39L Chaleur Tournante 2000W",
     "slug": "four-electrique-pose-libre-moulinex-39l-chaleur-tournante-2000w",
     "sku": "ONZ-0183",
     "category": 4,
     "brand": 8,
-    "short_description": "Four compact posable sur plan de travail avec capacit├® g├®n├®reuse de 39L pour r├┤tir, dorer et cuire vos g├óteaux avec chaleur tournante.",
-    "description": "Four compact posable sur plan de travail avec capacit├® g├®n├®reuse de 39L pour r├┤tir, dorer et cuire vos g├óteaux avec chaleur tournante. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Four compact posable sur plan de travail avec capacité généreuse de 39L pour rôtir, dorer et cuire vos gâteaux avec chaleur tournante.",
+    "description": "Four compact posable sur plan de travail avec capacité généreuse de 39L pour rôtir, dorer et cuire vos gâteaux avec chaleur tournante. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Volume": "39 Litres",
       "Puissance": "2000 Watts",
-      "Thermostat": "100┬░C ├á 240┬░C",
-      "Modes": "6 modes de cuisson dont d├®cong├®lation"
+      "Thermostat": "100°C à 240°C",
+      "Modes": "6 modes de cuisson dont décongélation"
     },
     "price": "110000",
     "sale_price": null,
@@ -3464,17 +3464,17 @@
   "model": "shop.product",
   "pk": 90,
   "fields": {
-    "name": "Cuisini├¿re Beko 5 Feux Gaz 90x60 cm Grande Capacit├® 112L",
+    "name": "Cuisinière Beko 5 Feux Gaz 90x60 cm Grande Capacité 112L",
     "slug": "cuisiniere-beko-5-feux-gaz-90x60-cm-grande-capacite-112l",
     "sku": "ONZ-0184",
     "category": 4,
     "brand": 6,
-    "short_description": "Le mod├¿le familial par excellence avec table de cuisson spacieuse, porte ├á fermeture douce SoftClose et tiroir coulissant de rangement.",
-    "description": "Le mod├¿le familial par excellence avec table de cuisson spacieuse, porte ├á fermeture douce SoftClose et tiroir coulissant de rangement. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Le modèle familial par excellence avec table de cuisson spacieuse, porte à fermeture douce SoftClose et tiroir coulissant de rangement.",
+    "description": "Le modèle familial par excellence avec table de cuisson spacieuse, porte à fermeture douce SoftClose et tiroir coulissant de rangement. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Dimensions": "90 x 60 cm",
       "Volume four": "112 Litres",
-      "Br├╗leur Wok": "Double couronne 3.6 kW",
+      "Brûleur Wok": "Double couronne 3.6 kW",
       "Fermeture porte": "SoftClose amortie"
     },
     "price": "410000",
@@ -3504,12 +3504,12 @@
     "sku": "ONZ-0185",
     "category": 5,
     "brand": 7,
-    "short_description": "Cuisinez croustillant avec jusqu'├á 90% de mati├¿res grasses en moins gr├óce ├á la technologie exclusive RapidAir cr├®ant un tourbillon d'air chaud.",
-    "description": "Cuisinez croustillant avec jusqu'├á 90% de mati├¿res grasses en moins gr├óce ├á la technologie exclusive RapidAir cr├®ant un tourbillon d'air chaud. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Cuisinez croustillant avec jusqu'à 90% de matières grasses en moins grâce à la technologie exclusive RapidAir créant un tourbillon d'air chaud.",
+    "description": "Cuisinez croustillant avec jusqu'à 90% de matières grasses en moins grâce à la technologie exclusive RapidAir créant un tourbillon d'air chaud. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "6.2 Litres (1.2 kg de frites)",
+      "Capacité": "6.2 Litres (1.2 kg de frites)",
       "Puissance": "2000 Watts",
-      "Programmes": "7 pr├®r├®glages ├®cran tactile",
+      "Programmes": "7 préréglages écran tactile",
       "Nettoyage": "Panier QuickClean lavable au lave-vaisselle"
     },
     "price": "135000",
@@ -3539,13 +3539,13 @@
     "sku": "ONZ-0186",
     "category": 5,
     "brand": 2,
-    "short_description": "Contr├┤le pr├®cis de la temp├®rature avec la technologie Smart Inverter pour r├®chauffer, d├®congeler et cuire uniform├®ment sans dess├®cher les aliments.",
-    "description": "Contr├┤le pr├®cis de la temp├®rature avec la technologie Smart Inverter pour r├®chauffer, d├®congeler et cuire uniform├®ment sans dess├®cher les aliments. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Contrôle précis de la température avec la technologie Smart Inverter pour réchauffer, décongeler et cuire uniformément sans dessécher les aliments.",
+    "description": "Contrôle précis de la température avec la technologie Smart Inverter pour réchauffer, décongeler et cuire uniformément sans dessécher les aliments. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "25 Litres",
+      "Capacité": "25 Litres",
       "Puissance": "1000 Watts Inverter",
-      "Rev├¬tement int├®rieur": "Anti-bact├®rien EasyClean 99.99%",
-      "Fa├ºade": "Verre tremp├® effet miroir"
+      "Revêtement intérieur": "Anti-bactérien EasyClean 99.99%",
+      "Façade": "Verre trempé effet miroir"
     },
     "price": "165000",
     "sale_price": null,
@@ -3574,13 +3574,13 @@
     "sku": "ONZ-0187",
     "category": 5,
     "brand": 8,
-    "short_description": "Id├®al pour smoothies, jus de bissap, p├óte d'arachide et glace pil├®e gr├óce ├á ses 4 lames en inox Powelix et son bol en verre thermor├®sistant.",
-    "description": "Id├®al pour smoothies, jus de bissap, p├óte d'arachide et glace pil├®e gr├óce ├á ses 4 lames en inox Powelix et son bol en verre thermor├®sistant. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Idéal pour smoothies, jus de bissap, pâte d'arachide et glace pilée grâce à ses 4 lames en inox Powelix et son bol en verre thermorésistant.",
+    "description": "Idéal pour smoothies, jus de bissap, pâte d'arachide et glace pilée grâce à ses 4 lames en inox Powelix et son bol en verre thermorésistant. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "600 Watts",
-      "Capacit├® bol": "1.75 Litre verre gradu├®",
+      "Capacité bol": "1.75 Litre verre gradué",
       "Lames": "4 lames Powelix amovibles",
-      "Syst├¿me": "Air Cooling anti-surchauffe"
+      "Système": "Air Cooling anti-surchauffe"
     },
     "price": "45000",
     "sale_price": null,
@@ -3609,13 +3609,13 @@
     "sku": "ONZ-0188",
     "category": 5,
     "brand": 8,
-    "short_description": "Le robot tout-en-un indispensable : hachez, r├ópez, tranchez, p├®trissez, fouettez et mixez vos pr├®parations en quelques secondes.",
-    "description": "Le robot tout-en-un indispensable : hachez, r├ópez, tranchez, p├®trissez, fouettez et mixez vos pr├®parations en quelques secondes. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Le robot tout-en-un indispensable : hachez, râpez, tranchez, pétrissez, fouettez et mixez vos préparations en quelques secondes.",
+    "description": "Le robot tout-en-un indispensable : hachez, râpez, tranchez, pétrissez, fouettez et mixez vos préparations en quelques secondes. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1000 Watts",
       "Bol principal": "3 Litres",
       "Bol blender": "2 Litres",
-      "Accessoires": "Disques inox r├®versibles, p├®trin, ├®mulsionneur"
+      "Accessoires": "Disques inox réversibles, pétrin, émulsionneur"
     },
     "price": "125000",
     "sale_price": null,
@@ -3639,16 +3639,16 @@
   "model": "shop.product",
   "pk": 95,
   "fields": {
-    "name": "Fontaine Distributeur d'Eau Midea Chaud/Froid Compartiment R├®frig├®r├®",
+    "name": "Fontaine Distributeur d'Eau Midea Chaud/Froid Compartiment Réfrigéré",
     "slug": "fontaine-distributeur-deau-midea-chaudfroid-compartiment-refrigere",
     "sku": "ONZ-0189",
     "category": 5,
     "brand": 5,
-    "short_description": "Distributeur sur pied d'eau chaude instantan├®e pour le th├®/caf├® et eau glac├®e rafra├«chissante, avec mini-r├®frig├®rateur de 20L en partie basse.",
-    "description": "Distributeur sur pied d'eau chaude instantan├®e pour le th├®/caf├® et eau glac├®e rafra├«chissante, avec mini-r├®frig├®rateur de 20L en partie basse. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Distributeur sur pied d'eau chaude instantanée pour le thé/café et eau glacée rafraîchissante, avec mini-réfrigérateur de 20L en partie basse.",
+    "description": "Distributeur sur pied d'eau chaude instantanée pour le thé/café et eau glacée rafraîchissante, avec mini-réfrigérateur de 20L en partie basse. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Distribution": "Eau froide (5-10┬░C) & Eau chaude (85-95┬░C)",
-      "R├®servoir eau": "Inox chirurgical antibact├®rien",
+      "Distribution": "Eau froide (5-10°C) & Eau chaude (85-95°C)",
+      "Réservoir eau": "Inox chirurgical antibactérien",
       "Compartiment bas": "Mini frigo 20 Litres"
     },
     "price": "115000",
@@ -3673,18 +3673,18 @@
   "model": "shop.product",
   "pk": 96,
   "fields": {
-    "name": "Centrale Vapeur Philips PerfectCare Compact 2400W Sans R├®glage",
+    "name": "Centrale Vapeur Philips PerfectCare Compact 2400W Sans Réglage",
     "slug": "centrale-vapeur-philips-perfectcare-compact-2400w-sans-reglage",
     "sku": "ONZ-0190",
     "category": 5,
     "brand": 7,
-    "short_description": "Repassez tous les tissus du jean ├á la soie sans jamais br├╗ler aucun v├¬tement gr├óce ├á la technologie sans r├®glage OptimalTEMP.",
-    "description": "Repassez tous les tissus du jean ├á la soie sans jamais br├╗ler aucun v├¬tement gr├óce ├á la technologie sans r├®glage OptimalTEMP. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Repassez tous les tissus du jean à la soie sans jamais brûler aucun vêtement grâce à la technologie sans réglage OptimalTEMP.",
+    "description": "Repassez tous les tissus du jean à la soie sans jamais brûler aucun vêtement grâce à la technologie sans réglage OptimalTEMP. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Pression vapeur": "6.5 bars de pression pompe",
-      "D├®bit vapeur": "Effet pressing 400g/min",
+      "Débit vapeur": "Effet pressing 400g/min",
       "Semelle": "SteamGlide Plus ultra-glisse",
-      "R├®servoir": "1.5L amovible"
+      "Réservoir": "1.5L amovible"
     },
     "price": "155000",
     "sale_price": null,
@@ -3708,18 +3708,18 @@
   "model": "shop.product",
   "pk": 97,
   "fields": {
-    "name": "Four Micro-Ondes Samsung 23L Quick Defrost C├®ramique ├ëmail",
+    "name": "Four Micro-Ondes Samsung 23L Quick Defrost Céramique Émail",
     "slug": "four-micro-ondes-samsung-23l-quick-defrost-ceramique-email",
     "sku": "ONZ-0191",
     "category": 5,
     "brand": 1,
-    "short_description": "Cavit├® int├®rieure en ├®mail c├®ramique inrayable et antibact├®rien garanti 10 ans. Syst├¿me de d├®cong├®lation rapide Quick Defrost.",
-    "description": "Cavit├® int├®rieure en ├®mail c├®ramique inrayable et antibact├®rien garanti 10 ans. Syst├¿me de d├®cong├®lation rapide Quick Defrost. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Cavité intérieure en émail céramique inrayable et antibactérien garanti 10 ans. Système de décongélation rapide Quick Defrost.",
+    "description": "Cavité intérieure en émail céramique inrayable et antibactérien garanti 10 ans. Système de décongélation rapide Quick Defrost. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "23 Litres",
+      "Capacité": "23 Litres",
       "Puissance": "800 Watts",
-      "Rev├¬tement": "C├®ramique ├®mail anti-rayures",
-      "Mode": "D├®sodorisation automatique"
+      "Revêtement": "Céramique émail anti-rayures",
+      "Mode": "Désodorisation automatique"
     },
     "price": "120000",
     "sale_price": null,
@@ -3748,13 +3748,13 @@
     "sku": "ONZ-0192",
     "category": 5,
     "brand": 9,
-    "short_description": "Combine une friteuse sans huile et une grille en fonte d'aluminium pour un grillage parfait des viandes et brochettes sans fum├®e.",
-    "description": "Combine une friteuse sans huile et une grille en fonte d'aluminium pour un grillage parfait des viandes et brochettes sans fum├®e. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Combine une friteuse sans huile et une grille en fonte d'aluminium pour un grillage parfait des viandes et brochettes sans fumée.",
+    "description": "Combine une friteuse sans huile et une grille en fonte d'aluminium pour un grillage parfait des viandes et brochettes sans fumée. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "6.5 Litres (jusqu'├á 8 personnes)",
-      "Grille": "Fonte d'aluminium stri├®e",
+      "Capacité": "6.5 Litres (jusqu'à 8 personnes)",
+      "Grille": "Fonte d'aluminium striée",
       "Technologie": "Extra Crisp croustillant",
-      "Programmes": "8 recettes pr├®programm├®es"
+      "Programmes": "8 recettes préprogrammées"
     },
     "price": "145000",
     "sale_price": null,
@@ -3778,18 +3778,18 @@
   "model": "shop.product",
   "pk": 99,
   "fields": {
-    "name": "Bouilloire ├ëlectrique Inox Tefal 1.7L Sans Fil 2400W",
+    "name": "Bouilloire Électrique Inox Tefal 1.7L Sans Fil 2400W",
     "slug": "bouilloire-electrique-inox-tefal-17l-sans-fil-2400w",
     "sku": "ONZ-0193",
     "category": 5,
     "brand": 9,
-    "short_description": "Fait bouillir l'eau en moins de 2 minutes chrono avec corps en inox bross├® hygi├®nique, socle pivotant ├á 360 degr├®s et filtre anticalcaire amovible.",
-    "description": "Fait bouillir l'eau en moins de 2 minutes chrono avec corps en inox bross├® hygi├®nique, socle pivotant ├á 360 degr├®s et filtre anticalcaire amovible. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Fait bouillir l'eau en moins de 2 minutes chrono avec corps en inox brossé hygiénique, socle pivotant à 360 degrés et filtre anticalcaire amovible.",
+    "description": "Fait bouillir l'eau en moins de 2 minutes chrono avec corps en inox brossé hygiénique, socle pivotant à 360 degrés et filtre anticalcaire amovible. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "1.7 Litre",
-      "Puissance": "2400 Watts ├®bullition rapide",
-      "Corps": "Acier inoxydable bross├®",
-      "S├®curit├®": "Arr├¬t automatique ├á ├®bullition"
+      "Capacité": "1.7 Litre",
+      "Puissance": "2400 Watts ébullition rapide",
+      "Corps": "Acier inoxydable brossé",
+      "Sécurité": "Arrêt automatique à ébullition"
     },
     "price": "28000",
     "sale_price": null,
@@ -3813,18 +3813,18 @@
   "model": "shop.product",
   "pk": 100,
   "fields": {
-    "name": "Cafeti├¿re Expresso Broyeur ├á Grains Philips S├®rie 2200",
+    "name": "Cafetière Expresso Broyeur à Grains Philips Série 2200",
     "slug": "cafetiere-expresso-broyeur-a-grains-philips-serie-2200",
     "sku": "ONZ-0194",
     "category": 5,
     "brand": 7,
-    "short_description": "D├®gustez un caf├® d'exception ├á base de grains fra├«chement moulus avec broyeur 100% c├®ramique et buse vapeur pour mousse de lait onctueuse.",
-    "description": "D├®gustez un caf├® d'exception ├á base de grains fra├«chement moulus avec broyeur 100% c├®ramique et buse vapeur pour mousse de lait onctueuse. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Dégustez un café d'exception à base de grains fraîchement moulus avec broyeur 100% céramique et buse vapeur pour mousse de lait onctueuse.",
+    "description": "Dégustez un café d'exception à base de grains fraîchement moulus avec broyeur 100% céramique et buse vapeur pour mousse de lait onctueuse. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Broyeur": "100% c├®ramique 12 r├®glages",
+      "Broyeur": "100% céramique 12 réglages",
       "Pression pompe": "15 bars italiens",
       "Mousseur de lait": "Buse vapeur classique",
-      "├ëcran": "Tactile intuitif"
+      "Écran": "Tactile intuitif"
     },
     "price": "385000",
     "sale_price": null,
@@ -3848,18 +3848,18 @@
   "model": "shop.product",
   "pk": 101,
   "fields": {
-    "name": "Fer ├á Repasser ├á Vapeur Tefal Ultragliss Plus 2800W Anti-Calcaire",
+    "name": "Fer à Repasser à Vapeur Tefal Ultragliss Plus 2800W Anti-Calcaire",
     "slug": "fer-a-repasser-a-vapeur-tefal-ultragliss-plus-2800w-anti-calcaire",
     "sku": "ONZ-0195",
     "category": 5,
     "brand": 9,
-    "short_description": "Semelle Durilium Airglide num├®ro 1 en glisse par Tefal avec collecteur de calcaire amovible pour une puissance vapeur durable dans le temps.",
-    "description": "Semelle Durilium Airglide num├®ro 1 en glisse par Tefal avec collecteur de calcaire amovible pour une puissance vapeur durable dans le temps. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Semelle Durilium Airglide numéro 1 en glisse par Tefal avec collecteur de calcaire amovible pour une puissance vapeur durable dans le temps.",
+    "description": "Semelle Durilium Airglide numéro 1 en glisse par Tefal avec collecteur de calcaire amovible pour une puissance vapeur durable dans le temps. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "2800 Watts",
       "Effet pressing": "260 g/minute",
       "Semelle": "Durilium Airglide anti-rayures",
-      "R├®servoir": "270 ml avec ouverture XL"
+      "Réservoir": "270 ml avec ouverture XL"
     },
     "price": "42000",
     "sale_price": null,
@@ -3889,11 +3889,11 @@
     "category": 5,
     "brand": 8,
     "short_description": "Cuit et mixe automatiquement vos soupes, sauces, coulis et compotes en 30 minutes sans surveillance, tout en servant de blender froid standard.",
-    "description": "Cuit et mixe automatiquement vos soupes, sauces, coulis et compotes en 30 minutes sans surveillance, tout en servant de blender froid standard. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "description": "Cuit et mixe automatiquement vos soupes, sauces, coulis et compotes en 30 minutes sans surveillance, tout en servant de blender froid standard. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1100 Watts",
       "Bol": "Inox thermique 2 Litres",
-      "Programmes": "Velout├®, Moulin├®, Vapeur, Glace pil├®e",
+      "Programmes": "Velouté, Mouliné, Vapeur, Glace pilée",
       "Maintien chaud": "40 minutes automatique"
     },
     "price": "85000",
@@ -3923,12 +3923,12 @@
     "sku": "ONZ-0197",
     "category": 5,
     "brand": 10,
-    "short_description": "Simple, efficace et ultra durable avec 2 molettes rotatives de r├®glage de puissance et minuterie 35 minutes.",
-    "description": "Simple, efficace et ultra durable avec 2 molettes rotatives de r├®glage de puissance et minuterie 35 minutes. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Simple, efficace et ultra durable avec 2 molettes rotatives de réglage de puissance et minuterie 35 minutes.",
+    "description": "Simple, efficace et ultra durable avec 2 molettes rotatives de réglage de puissance et minuterie 35 minutes. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "20 Litres",
+      "Capacité": "20 Litres",
       "Puissance": "800 Watts",
-      "Niveaux de puissance": "5 r├®glages",
+      "Niveaux de puissance": "5 réglages",
       "Plateau tournant": "25.5 cm verre"
     },
     "price": "75000",
@@ -3958,12 +3958,12 @@
     "sku": "ONZ-0198",
     "category": 5,
     "brand": 8,
-    "short_description": "Pied mixeur en inox r├®sistant ├á la chaleur avec variateur r├®tro├®clair├® 20 vitesses, fouet ballon, mini-hachoir 500ml et verre doseur 800ml.",
-    "description": "Pied mixeur en inox r├®sistant ├á la chaleur avec variateur r├®tro├®clair├® 20 vitesses, fouet ballon, mini-hachoir 500ml et verre doseur 800ml. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Pied mixeur en inox résistant à la chaleur avec variateur rétroéclairé 20 vitesses, fouet ballon, mini-hachoir 500ml et verre doseur 800ml.",
+    "description": "Pied mixeur en inox résistant à la chaleur avec variateur rétroéclairé 20 vitesses, fouet ballon, mini-hachoir 500ml et verre doseur 800ml. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "1000 Watts moteur haute performance",
       "Vitesses": "20 vitesses + mode Turbo",
-      "Pied": "Inox anti-├®claboussures",
+      "Pied": "Inox anti-éclaboussures",
       "Accessoires": "4 accessoires inclus"
     },
     "price": "52000",
@@ -3993,13 +3993,13 @@
     "sku": "ONZ-0199",
     "category": 5,
     "brand": 5,
-    "short_description": "Format de table gain de place id├®al pour comptoirs de cuisine ou bureaux avec distribution d'eau fra├«che et temp├®r├®e.",
-    "description": "Format de table gain de place id├®al pour comptoirs de cuisine ou bureaux avec distribution d'eau fra├«che et temp├®r├®e. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Format de table gain de place idéal pour comptoirs de cuisine ou bureaux avec distribution d'eau fraîche et tempérée.",
+    "description": "Format de table gain de place idéal pour comptoirs de cuisine ou bureaux avec distribution d'eau fraîche et tempérée. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Type": "Pose sur table / plan de travail",
-      "Eau": "Fra├«che & Ambiante",
-      "S├®curit├® enfant": "Robinet s├®curis├®",
-      "Compatibilit├®": "Bonbonnes 10L ├á 19L"
+      "Eau": "Fraîche & Ambiante",
+      "Sécurité enfant": "Robinet sécurisé",
+      "Compatibilité": "Bonbonnes 10L à 19L"
     },
     "price": "78000",
     "sale_price": null,
@@ -4028,12 +4028,12 @@
     "sku": "ONZ-0200",
     "category": 5,
     "brand": 8,
-    "short_description": "Friteuse ├á air chaud compacte pour 2 ├á 3 personnes avec thermostat r├®glable jusqu'├á 200┬░C et minuterie 60 minutes avec arr├¬t automatique.",
-    "description": "Friteuse ├á air chaud compacte pour 2 ├á 3 personnes avec thermostat r├®glable jusqu'├á 200┬░C et minuterie 60 minutes avec arr├¬t automatique. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Friteuse à air chaud compacte pour 2 à 3 personnes avec thermostat réglable jusqu'à 200°C et minuterie 60 minutes avec arrêt automatique.",
+    "description": "Friteuse à air chaud compacte pour 2 à 3 personnes avec thermostat réglable jusqu'à 200°C et minuterie 60 minutes avec arrêt automatique. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "3.5 Litres",
+      "Capacité": "3.5 Litres",
       "Puissance": "1400 Watts",
-      "Rev├¬tement": "Antiadh├®sif sans PFOA",
+      "Revêtement": "Antiadhésif sans PFOA",
       "Format": "Gain de place compact"
     },
     "price": "72000",
@@ -4058,17 +4058,17 @@
   "model": "shop.product",
   "pk": 107,
   "fields": {
-    "name": "Grille-Pain 2 Fentes Inox Philips Daily Collection R├®chauffe-Viennoiserie",
+    "name": "Grille-Pain 2 Fentes Inox Philips Daily Collection Réchauffe-Viennoiserie",
     "slug": "grille-pain-2-fentes-inox-philips-daily-collection-rechauffe-viennoiserie",
     "sku": "ONZ-0201",
     "category": 5,
     "brand": 7,
-    "short_description": "Grille uniform├®ment le pain gr├óce ├á ses fentes ├á largeur variable avec 8 niveaux de dorage et grille int├®gr├®e pour r├®chauffer croissants et petits pains.",
-    "description": "Grille uniform├®ment le pain gr├óce ├á ses fentes ├á largeur variable avec 8 niveaux de dorage et grille int├®gr├®e pour r├®chauffer croissants et petits pains. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Grille uniformément le pain grâce à ses fentes à largeur variable avec 8 niveaux de dorage et grille intégrée pour réchauffer croissants et petits pains.",
+    "description": "Grille uniformément le pain grâce à ses fentes à largeur variable avec 8 niveaux de dorage et grille intégrée pour réchauffer croissants et petits pains. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Fentes": "2 fentes larges ├á centrage automatique",
-      "Niveaux": "8 r├®glages de dorage",
-      "Fonctions": "D├®cong├®lation et R├®chauffage",
+      "Fentes": "2 fentes larges à centrage automatique",
+      "Niveaux": "8 réglages de dorage",
+      "Fonctions": "Décongélation et Réchauffage",
       "Tiroir": "Ramasse-miettes amovible"
     },
     "price": "26000",
@@ -4093,17 +4093,17 @@
   "model": "shop.product",
   "pk": 108,
   "fields": {
-    "name": "Machine ├á Caf├® Filtre Tefal Subito 1.25L 15 Tasses Maintien au Chaud",
+    "name": "Machine à Café Filtre Tefal Subito 1.25L 15 Tasses Maintien au Chaud",
     "slug": "machine-a-cafe-filtre-tefal-subito-125l-15-tasses-maintien-au-chaud",
     "sku": "ONZ-0202",
     "category": 5,
     "brand": 9,
-    "short_description": "Verseuse en verre gradu├®e avec porte-filtre pivotant et plaque chauffante maintenant votre caf├® bien chaud pendant 30 minutes.",
-    "description": "Verseuse en verre gradu├®e avec porte-filtre pivotant et plaque chauffante maintenant votre caf├® bien chaud pendant 30 minutes. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Verseuse en verre graduée avec porte-filtre pivotant et plaque chauffante maintenant votre café bien chaud pendant 30 minutes.",
+    "description": "Verseuse en verre graduée avec porte-filtre pivotant et plaque chauffante maintenant votre café bien chaud pendant 30 minutes. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Capacit├®": "1.25 Litre (10 ├á 15 tasses)",
+      "Capacité": "1.25 Litre (10 à 15 tasses)",
       "Puissance": "1000 Watts",
-      "Syst├¿me": "Anti-gouttes pour servir en cours d'infusion",
+      "Système": "Anti-gouttes pour servir en cours d'infusion",
       "Filtre": "Porte-filtre amovible"
     },
     "price": "35000",
@@ -4128,17 +4128,17 @@
   "model": "shop.product",
   "pk": 109,
   "fields": {
-    "name": "Batteur ├ëlectrique Moulinex Prep'Mix 450W Fouets & Crochets Inox",
+    "name": "Batteur Électrique Moulinex Prep'Mix 450W Fouets & Crochets Inox",
     "slug": "batteur-electrique-moulinex-prepmix-450w-fouets-crochets-inox",
     "sku": "ONZ-0203",
     "category": 5,
     "brand": 8,
-    "short_description": "Montez facilement des blancs en neige fermes et p├®trissez les p├ótes lourdes gr├óce ├á son moteur 450W et ses accessoires en acier inoxydable lavables au lave-vaisselle.",
-    "description": "Montez facilement des blancs en neige fermes et p├®trissez les p├ótes lourdes gr├óce ├á son moteur 450W et ses accessoires en acier inoxydable lavables au lave-vaisselle. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Montez facilement des blancs en neige fermes et pétrissez les pâtes lourdes grâce à son moteur 450W et ses accessoires en acier inoxydable lavables au lave-vaisselle.",
+    "description": "Montez facilement des blancs en neige fermes et pétrissez les pâtes lourdes grâce à son moteur 450W et ses accessoires en acier inoxydable lavables au lave-vaisselle. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "450 Watts",
       "Vitesses": "5 vitesses + fonction Turbo",
-      "Accessoires": "2 fouets inox + 2 crochets p├®trisseurs inox"
+      "Accessoires": "2 fouets inox + 2 crochets pétrisseurs inox"
     },
     "price": "29000",
     "sale_price": null,
@@ -4162,18 +4162,18 @@
   "model": "shop.product",
   "pk": 110,
   "fields": {
-    "name": "Fer ├á Repasser Vapeur Philips 3000 Series 2400W C├®ramique",
+    "name": "Fer à Repasser Vapeur Philips 3000 Series 2400W Céramique",
     "slug": "fer-a-repasser-vapeur-philips-3000-series-2400w-ceramique",
     "sku": "ONZ-0204",
     "category": 5,
     "brand": 7,
-    "short_description": "Chauffe ultra rapide en 30 secondes avec semelle en c├®ramique anti-adh├®sive et pointe Triple Pr├®cision pour contourner les boutons et cols de chemises.",
-    "description": "Chauffe ultra rapide en 30 secondes avec semelle en c├®ramique anti-adh├®sive et pointe Triple Pr├®cision pour contourner les boutons et cols de chemises. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Chauffe ultra rapide en 30 secondes avec semelle en céramique anti-adhésive et pointe Triple Précision pour contourner les boutons et cols de chemises.",
+    "description": "Chauffe ultra rapide en 30 secondes avec semelle en céramique anti-adhésive et pointe Triple Précision pour contourner les boutons et cols de chemises. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
       "Puissance": "2400 Watts",
       "Vapeur continue": "40 g/min",
       "Effet pressing": "180 g",
-      "Pointe": "Triple pr├®cision"
+      "Pointe": "Triple précision"
     },
     "price": "38000",
     "sale_price": null,
@@ -4197,18 +4197,18 @@
   "model": "shop.product",
   "pk": 111,
   "fields": {
-    "name": "Hachoir ├á Viande ├ëlectrique Moulinex HV8 2000W 2.6kg/min",
+    "name": "Hachoir à Viande Électrique Moulinex HV8 2000W 2.6kg/min",
     "slug": "hachoir-a-viande-electrique-moulinex-hv8-2000w-26kgmin",
     "sku": "ONZ-0205",
     "category": 5,
     "brand": 8,
-    "short_description": "Hachez jusqu'├á 2.6 kg de viande par minute pour vos saucisses, boulettes, kebb├®s et farces avec lames et grilles en acier inoxydable haute qualit├®.",
-    "description": "Hachez jusqu'├á 2.6 kg de viande par minute pour vos saucisses, boulettes, kebb├®s et farces avec lames et grilles en acier inoxydable haute qualit├®. Garantie certifi├®e distributeur officiel ├á Bamako avec service apr├¿s-vente d├®di├® et pi├¿ces de rechange d'origine disponibles.",
+    "short_description": "Hachez jusqu'à 2.6 kg de viande par minute pour vos saucisses, boulettes, kebbés et farces avec lames et grilles en acier inoxydable haute qualité.",
+    "description": "Hachez jusqu'à 2.6 kg de viande par minute pour vos saucisses, boulettes, kebbés et farces avec lames et grilles en acier inoxydable haute qualité. Garantie certifiée distributeur officiel à Bamako avec service après-vente dédié et pièces de rechange d'origine disponibles.",
     "specifications": {
-      "Puissance moteur": "2000 Watts bloqu├®",
+      "Puissance moteur": "2000 Watts bloqué",
       "Rendement": "2.6 kg de viande par minute",
       "Grilles": "3 grilles inox (fin, moyen, gros)",
-      "Fonction": "Marche arri├¿re anti-bourrage"
+      "Fonction": "Marche arrière anti-bourrage"
     },
     "price": "95000",
     "sale_price": null,
@@ -4234,7 +4234,7 @@
   "fields": {
     "product": 109,
     "image": "products/studio_food_processor.jpg",
-    "alt_text": "Batteur ├ëlectrique Moulinex Prep'Mix 450W Fouets & Crochets Inox",
+    "alt_text": "Batteur Électrique Moulinex Prep'Mix 450W Fouets & Crochets Inox",
     "is_primary": true,
     "order": 0
   }
@@ -4245,7 +4245,7 @@
   "fields": {
     "product": 108,
     "image": "products/studio_espresso_coffee.jpg",
-    "alt_text": "Machine ├á Caf├® Filtre Tefal Subito 1.25L 15 Tasses Maintien au Chaud",
+    "alt_text": "Machine à Café Filtre Tefal Subito 1.25L 15 Tasses Maintien au Chaud",
     "is_primary": true,
     "order": 0
   }
@@ -4256,7 +4256,7 @@
   "fields": {
     "product": 107,
     "image": "products/studio_espresso_coffee.jpg",
-    "alt_text": "Grille-Pain 2 Fentes Inox Philips Daily Collection R├®chauffe-Viennoiserie",
+    "alt_text": "Grille-Pain 2 Fentes Inox Philips Daily Collection Réchauffe-Viennoiserie",
     "is_primary": true,
     "order": 0
   }
@@ -4289,7 +4289,7 @@
   "fields": {
     "product": 101,
     "image": "products/studio_food_processor.jpg",
-    "alt_text": "Fer ├á Repasser ├á Vapeur Tefal Ultragliss Plus 2800W Anti-Calcaire",
+    "alt_text": "Fer à Repasser à Vapeur Tefal Ultragliss Plus 2800W Anti-Calcaire",
     "is_primary": true,
     "order": 0
   }
@@ -4300,7 +4300,7 @@
   "fields": {
     "product": 99,
     "image": "products/studio_espresso_coffee.jpg",
-    "alt_text": "Bouilloire ├ëlectrique Inox Tefal 1.7L Sans Fil 2400W",
+    "alt_text": "Bouilloire Électrique Inox Tefal 1.7L Sans Fil 2400W",
     "is_primary": true,
     "order": 0
   }
@@ -4322,7 +4322,7 @@
   "fields": {
     "product": 97,
     "image": "products/studio_microwave_inverter.jpg",
-    "alt_text": "Four Micro-Ondes Samsung 23L Quick Defrost C├®ramique ├ëmail",
+    "alt_text": "Four Micro-Ondes Samsung 23L Quick Defrost Céramique Émail",
     "is_primary": true,
     "order": 0
   }
@@ -4333,7 +4333,7 @@
   "fields": {
     "product": 96,
     "image": "products/studio_food_processor.jpg",
-    "alt_text": "Centrale Vapeur Philips PerfectCare Compact 2400W Sans R├®glage",
+    "alt_text": "Centrale Vapeur Philips PerfectCare Compact 2400W Sans Réglage",
     "is_primary": true,
     "order": 0
   }
@@ -4355,7 +4355,7 @@
   "fields": {
     "product": 90,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Beko 5 Feux Gaz 90x60 cm Grande Capacit├® 112L",
+    "alt_text": "Cuisinière Beko 5 Feux Gaz 90x60 cm Grande Capacité 112L",
     "is_primary": true,
     "order": 0
   }
@@ -4366,7 +4366,7 @@
   "fields": {
     "product": 89,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Four ├ëlectrique Pose Libre Moulinex 39L Chaleur Tournante 2000W",
+    "alt_text": "Four Électrique Pose Libre Moulinex 39L Chaleur Tournante 2000W",
     "is_primary": true,
     "order": 0
   }
@@ -4377,7 +4377,7 @@
   "fields": {
     "product": 88,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Plaque de Cuisson Gaz sur Verre Beko 4 Feux Noir Tremp├®",
+    "alt_text": "Plaque de Cuisson Gaz sur Verre Beko 4 Feux Noir Trempé",
     "is_primary": true,
     "order": 0
   }
@@ -4388,7 +4388,7 @@
   "fields": {
     "product": 87,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Ocean 4 Feux Gaz 60x60 cm S├®curit├® Thermocouple",
+    "alt_text": "Cuisinière Ocean 4 Feux Gaz 60x60 cm Sécurité Thermocouple",
     "is_primary": true,
     "order": 0
   }
@@ -4410,7 +4410,7 @@
   "fields": {
     "product": 85,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Plaque Vitroc├®ramique Encastrable Beko 4 Foyers Verre Noir",
+    "alt_text": "Plaque Vitrocéramique Encastrable Beko 4 Foyers Verre Noir",
     "is_primary": true,
     "order": 0
   }
@@ -4421,7 +4421,7 @@
   "fields": {
     "product": 84,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Midea 4 Feux Gaz + 2 Plaques ├ëlectriques 90x60",
+    "alt_text": "Cuisinière Midea 4 Feux Gaz + 2 Plaques Électriques 90x60",
     "is_primary": true,
     "order": 0
   }
@@ -4432,7 +4432,7 @@
   "fields": {
     "product": 83,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Beko 4 Feux Gaz ├ëconomique 50x50 cm Blanc Laqu├®",
+    "alt_text": "Cuisinière Beko 4 Feux Gaz Économique 50x50 cm Blanc Laqué",
     "is_primary": true,
     "order": 0
   }
@@ -4454,7 +4454,7 @@
   "fields": {
     "product": 81,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Haier 5 Feux Gaz 90x60 cm Double Chaleur Inox",
+    "alt_text": "Cuisinière Haier 5 Feux Gaz 90x60 cm Double Chaleur Inox",
     "is_primary": true,
     "order": 0
   }
@@ -4465,7 +4465,7 @@
   "fields": {
     "product": 80,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Plaque ├á Induction Encastrable TCL 4 Foyers Booster Tactile",
+    "alt_text": "Plaque à Induction Encastrable TCL 4 Foyers Booster Tactile",
     "is_primary": true,
     "order": 0
   }
@@ -4476,7 +4476,7 @@
   "fields": {
     "product": 79,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Mixte Beko 3 Feux Gaz + 1 Plaque ├ëlectrique 60x60",
+    "alt_text": "Cuisinière Mixte Beko 3 Feux Gaz + 1 Plaque Électrique 60x60",
     "is_primary": true,
     "order": 0
   }
@@ -4498,7 +4498,7 @@
   "fields": {
     "product": 77,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Midea 4 Feux Gaz 60x60 cm Couvercle Verre Tremp├®",
+    "alt_text": "Cuisinière Midea 4 Feux Gaz 60x60 cm Couvercle Verre Trempé",
     "is_primary": true,
     "order": 0
   }
@@ -4531,7 +4531,7 @@
   "fields": {
     "product": 74,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Professionnelle Ocean 5 Feux Gaz 90x60 cm Triple Couronne",
+    "alt_text": "Cuisinière Professionnelle Ocean 5 Feux Gaz 90x60 cm Triple Couronne",
     "is_primary": true,
     "order": 0
   }
@@ -4542,7 +4542,7 @@
   "fields": {
     "product": 73,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Haier 4 Feux Gaz 60x60 cm Grilles en Fonte",
+    "alt_text": "Cuisinière Haier 4 Feux Gaz 60x60 cm Grilles en Fonte",
     "is_primary": true,
     "order": 0
   }
@@ -4553,7 +4553,7 @@
   "fields": {
     "product": 72,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Midea 5 Feux Gaz 90x60 cm Allumage Automatique Inox",
+    "alt_text": "Cuisinière Midea 5 Feux Gaz 90x60 cm Allumage Automatique Inox",
     "is_primary": true,
     "order": 0
   }
@@ -4564,7 +4564,7 @@
   "fields": {
     "product": 71,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Beko 4 Feux Gaz 50x50 cm Four ├ëlectrique Tournebroche",
+    "alt_text": "Cuisinière Beko 4 Feux Gaz 50x50 cm Four Électrique Tournebroche",
     "is_primary": true,
     "order": 0
   }
@@ -4586,7 +4586,7 @@
   "fields": {
     "product": 69,
     "image": "products/tv_ultra_4k_oled.jpg",
-    "alt_text": "Barre de Son Hisense HS214 108W Caisson Int├®gr├®",
+    "alt_text": "Barre de Son Hisense HS214 108W Caisson Intégré",
     "is_primary": true,
     "order": 0
   }
@@ -4619,7 +4619,7 @@
   "fields": {
     "product": 65,
     "image": "products/tv_ultra_4k_oled.jpg",
-    "alt_text": "Smart TV Hisense 43 Pouces Full HD Bezel-Less Connect├®e",
+    "alt_text": "Smart TV Hisense 43 Pouces Full HD Bezel-Less Connectée",
     "is_primary": true,
     "order": 0
   }
@@ -4630,7 +4630,7 @@
   "fields": {
     "product": 64,
     "image": "products/tv_ultra_4k_oled.jpg",
-    "alt_text": "Home Cin├®ma Sony 5.1 Canaux 1000W Bluetooth Surround",
+    "alt_text": "Home Cinéma Sony 5.1 Canaux 1000W Bluetooth Surround",
     "is_primary": true,
     "order": 0
   }
@@ -4696,7 +4696,7 @@
   "fields": {
     "product": 56,
     "image": "products/tv_ultra_4k_oled.jpg",
-    "alt_text": "T├®l├®viseur Smart TCL 32 Pouces HD Frameless Android 11",
+    "alt_text": "Téléviseur Smart TCL 32 Pouces HD Frameless Android 11",
     "is_primary": true,
     "order": 0
   }
@@ -4751,7 +4751,7 @@
   "fields": {
     "product": 49,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Climatiseur Split Gree Fairy Inverter 1.5 CV Wi-Fi Int├®gr├®",
+    "alt_text": "Climatiseur Split Gree Fairy Inverter 1.5 CV Wi-Fi Intégré",
     "is_primary": true,
     "order": 0
   }
@@ -4762,7 +4762,7 @@
   "fields": {
     "product": 48,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Rafra├«chisseur d'Air ├ëvaporatif Midea 20L avec Packs Glace",
+    "alt_text": "Rafraîchisseur d'Air Évaporatif Midea 20L avec Packs Glace",
     "is_primary": true,
     "order": 0
   }
@@ -4773,7 +4773,7 @@
   "fields": {
     "product": 47,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Climatiseur Split TCL Elite Series 1.5 CV Anti-Poussi├¿re",
+    "alt_text": "Climatiseur Split TCL Elite Series 1.5 CV Anti-Poussière",
     "is_primary": true,
     "order": 0
   }
@@ -4784,7 +4784,7 @@
   "fields": {
     "product": 45,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Ventilateur Industriel Sur Pied Binatone 26 Pouces M├®tal",
+    "alt_text": "Ventilateur Industriel Sur Pied Binatone 26 Pouces Métal",
     "is_primary": true,
     "order": 0
   }
@@ -4828,7 +4828,7 @@
   "fields": {
     "product": 41,
     "image": "products/ac_lg_dual_1.jpg",
-    "alt_text": "Armoire de Climatisation LG 5 CV (48000 BTU) Triphas├®",
+    "alt_text": "Armoire de Climatisation LG 5 CV (48000 BTU) Triphasé",
     "is_primary": true,
     "order": 0
   }
@@ -4839,7 +4839,7 @@
   "fields": {
     "product": 40,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Climatiseur Mobile Beko 9000 BTU Classe A Kit Fen├¬tre",
+    "alt_text": "Climatiseur Mobile Beko 9000 BTU Classe A Kit Fenêtre",
     "is_primary": true,
     "order": 0
   }
@@ -4861,7 +4861,7 @@
   "fields": {
     "product": 38,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Ventilateur Brumisateur d'Eau Binatone 50L D├®bit Turbo",
+    "alt_text": "Ventilateur Brumisateur d'Eau Binatone 50L Débit Turbo",
     "is_primary": true,
     "order": 0
   }
@@ -4872,7 +4872,7 @@
   "fields": {
     "product": 37,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Ventilateur Colonne Silencieux Midea T├®l├®commande & Minuterie",
+    "alt_text": "Ventilateur Colonne Silencieux Midea Télécommande & Minuterie",
     "is_primary": true,
     "order": 0
   }
@@ -4927,7 +4927,7 @@
   "fields": {
     "product": 32,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Climatiseur Split Hisense 1 CV (9000 BTU) R32 ├ëco-Performance",
+    "alt_text": "Climatiseur Split Hisense 1 CV (9000 BTU) R32 Éco-Performance",
     "is_primary": true,
     "order": 0
   }
@@ -4960,7 +4960,7 @@
   "fields": {
     "product": 28,
     "image": "products/samsung_bespoke_french_door.png",
-    "alt_text": "R├®frig├®rateur Pose Libre Sharp 380L J-Tech Inverter Plasmacluster",
+    "alt_text": "Réfrigérateur Pose Libre Sharp 380L J-Tech Inverter Plasmacluster",
     "is_primary": true,
     "order": 0
   }
@@ -4971,7 +4971,7 @@
   "fields": {
     "product": 26,
     "image": "products/hisense_combi_fridge.png",
-    "alt_text": "Cong├®lateur Coffre Midea 500L Grand Volume Professionnel",
+    "alt_text": "Congélateur Coffre Midea 500L Grand Volume Professionnel",
     "is_primary": true,
     "order": 0
   }
@@ -4982,7 +4982,7 @@
   "fields": {
     "product": 25,
     "image": "products/fridge_samsung_rf24.jpg",
-    "alt_text": "R├®frig├®rateur Double Porte LG 438L Hygiene Fresh+ Inverter",
+    "alt_text": "Réfrigérateur Double Porte LG 438L Hygiene Fresh+ Inverter",
     "is_primary": true,
     "order": 0
   }
@@ -4993,7 +4993,7 @@
   "fields": {
     "product": 23,
     "image": "products/hisense_multidoor_fridge.jpg",
-    "alt_text": "R├®frig├®rateur Combin├® Beko 340L NeoFrost Dual Cooling",
+    "alt_text": "Réfrigérateur Combiné Beko 340L NeoFrost Dual Cooling",
     "is_primary": true,
     "order": 0
   }
@@ -5004,7 +5004,7 @@
   "fields": {
     "product": 22,
     "image": "products/samsung_flagship_fridge.jpg",
-    "alt_text": "Cave ├á Vin ├ëlectrique Haier 30 Bouteilles Digitale",
+    "alt_text": "Cave à Vin Électrique Haier 30 Bouteilles Digitale",
     "is_primary": true,
     "order": 0
   }
@@ -5015,7 +5015,7 @@
   "fields": {
     "product": 21,
     "image": "products/samsung_official_french_door.png",
-    "alt_text": "R├®frig├®rateur Double Porte Midea 260L Silver HD-333FW",
+    "alt_text": "Réfrigérateur Double Porte Midea 260L Silver HD-333FW",
     "is_primary": true,
     "order": 0
   }
@@ -5026,7 +5026,7 @@
   "fields": {
     "product": 20,
     "image": "products/samsung_flagship_fridge.jpg",
-    "alt_text": "Cong├®lateur Coffre Beko 205L Poign├®e avec Serrure",
+    "alt_text": "Congélateur Coffre Beko 205L Poignée avec Serrure",
     "is_primary": true,
     "order": 0
   }
@@ -5037,7 +5037,7 @@
   "fields": {
     "product": 18,
     "image": "products/midea_flagship_ac.jpg",
-    "alt_text": "Mini R├®frig├®rateur de Bureau Sharp 95L Bac ├á Gla├ºons",
+    "alt_text": "Mini Réfrigérateur de Bureau Sharp 95L Bac à Glaçons",
     "is_primary": true,
     "order": 0
   }
@@ -5048,7 +5048,7 @@
   "fields": {
     "product": 16,
     "image": "products/fridge_hisense_ifa.jpg",
-    "alt_text": "Cong├®lateur Coffre Westpool 400L Tropicalis├® Grand Froid",
+    "alt_text": "Congélateur Coffre Westpool 400L Tropicalisé Grand Froid",
     "is_primary": true,
     "order": 0
   }
@@ -5059,7 +5059,7 @@
   "fields": {
     "product": 15,
     "image": "products/fridge_samsung_rf24.jpg",
-    "alt_text": "R├®frig├®rateur Combin├® LG 335L Smart Inverter Linear",
+    "alt_text": "Réfrigérateur Combiné LG 335L Smart Inverter Linear",
     "is_primary": true,
     "order": 0
   }
@@ -5070,7 +5070,7 @@
   "fields": {
     "product": 14,
     "image": "products/samsung_bespoke_french_door.png",
-    "alt_text": "Cong├®lateur Vertical Haier 220L ├á Tiroirs Transparentes",
+    "alt_text": "Congélateur Vertical Haier 220L à Tiroirs Transparentes",
     "is_primary": true,
     "order": 0
   }
@@ -5081,7 +5081,7 @@
   "fields": {
     "product": 13,
     "image": "products/hisense_combi_fridge.png",
-    "alt_text": "R├®frig├®rateur Une Porte Midea 170L Compact Bamako",
+    "alt_text": "Réfrigérateur Une Porte Midea 170L Compact Bamako",
     "is_primary": true,
     "order": 0
   }
@@ -5092,7 +5092,7 @@
   "fields": {
     "product": 12,
     "image": "products/hisense_multidoor_fridge.jpg",
-    "alt_text": "R├®frig├®rateur Side-by-Side Haier 550L No Frost Multi-Air Flow",
+    "alt_text": "Réfrigérateur Side-by-Side Haier 550L No Frost Multi-Air Flow",
     "is_primary": true,
     "order": 0
   }
@@ -5103,7 +5103,7 @@
   "fields": {
     "product": 11,
     "image": "products/samsung_official_french_door.png",
-    "alt_text": "Cong├®lateur Coffre Midea 350L Porte Vitr├®e Coulissante",
+    "alt_text": "Congélateur Coffre Midea 350L Porte Vitrée Coulissante",
     "is_primary": true,
     "order": 0
   }
@@ -5114,7 +5114,7 @@
   "fields": {
     "product": 10,
     "image": "products/samsung_flagship_fridge.jpg",
-    "alt_text": "R├®frig├®rateur Double Battant Beko 420L HarvestFresh",
+    "alt_text": "Réfrigérateur Double Battant Beko 420L HarvestFresh",
     "is_primary": true,
     "order": 0
   }
@@ -5125,7 +5125,7 @@
   "fields": {
     "product": 8,
     "image": "products/fridge_samsung_rf24.jpg",
-    "alt_text": "R├®frig├®rateur Am├®ricain LG Side-by-Side 617L InstaView",
+    "alt_text": "Réfrigérateur Américain LG Side-by-Side 617L InstaView",
     "is_primary": true,
     "order": 0
   }
@@ -5147,7 +5147,7 @@
   "fields": {
     "product": 4,
     "image": "products/stove_modern_gas_range.jpg",
-    "alt_text": "Cuisini├¿re Beko 4 Feux Gaz avec Four ├ëlectrique 60x60",
+    "alt_text": "Cuisinière Beko 4 Feux Gaz avec Four Électrique 60x60",
     "is_primary": true,
     "order": 0
   }
@@ -5180,7 +5180,7 @@
   "fields": {
     "product": 19,
     "image": "products/samsung_bespoke_french_door.png",
-    "alt_text": "R├®frig├®rateur Am├®ricain Samsung French Door 520L Twin Cooling - Photo officielle Samsung",
+    "alt_text": "Réfrigérateur Américain Samsung French Door 520L Twin Cooling - Photo officielle Samsung",
     "is_primary": true,
     "order": 0
   }
@@ -5224,7 +5224,7 @@
   "fields": {
     "product": 1,
     "image": "products/samsung_qled_tv.png",
-    "alt_text": "R├®frig├®rateur Combin├® Samsung No Frost 385L - Photo officielle Samsung",
+    "alt_text": "Réfrigérateur Combiné Samsung No Frost 385L - Photo officielle Samsung",
     "is_primary": true,
     "order": 0
   }
@@ -5246,7 +5246,7 @@
   "fields": {
     "product": 7,
     "image": "products/samsung_qled_tv.png",
-    "alt_text": "R├®frig├®rateur Combin├® Samsung 385L No Frost SpaceMax - Photo officielle Samsung",
+    "alt_text": "Réfrigérateur Combiné Samsung 385L No Frost SpaceMax - Photo officielle Samsung",
     "is_primary": true,
     "order": 0
   }
@@ -5279,7 +5279,7 @@
   "fields": {
     "product": 62,
     "image": "products/samsung_qled_tv.png",
-    "alt_text": "Smart TV Samsung 75 Pouces Crystal UHD 4K ├ëcran G├®ant - Photo officielle Samsung",
+    "alt_text": "Smart TV Samsung 75 Pouces Crystal UHD 4K Écran Géant - Photo officielle Samsung",
     "is_primary": true,
     "order": 0
   }
@@ -5290,7 +5290,7 @@
   "fields": {
     "product": 100,
     "image": "products/philips_series_2200_espresso.png",
-    "alt_text": "Cafeti├¿re Expresso Broyeur ├á Grains Philips S├®rie 2200 - Photo officielle Philips",
+    "alt_text": "Cafetière Expresso Broyeur à Grains Philips Série 2200 - Photo officielle Philips",
     "is_primary": true,
     "order": 0
   }
@@ -5312,7 +5312,7 @@
   "fields": {
     "product": 110,
     "image": "products/philips_series_2200_alt.png",
-    "alt_text": "Fer ├á Repasser Vapeur Philips 3000 Series 2400W C├®ramique - Photo officielle Philips",
+    "alt_text": "Fer à Repasser Vapeur Philips 3000 Series 2400W Céramique - Photo officielle Philips",
     "is_primary": true,
     "order": 0
   }
@@ -5345,7 +5345,7 @@
   "fields": {
     "product": 111,
     "image": "products/moulinex_doubleforce_robot.jpg",
-    "alt_text": "Hachoir ├á Viande ├ëlectrique Moulinex HV8 2000W 2.6kg/min - Photo officielle Moulinex",
+    "alt_text": "Hachoir à Viande Électrique Moulinex HV8 2000W 2.6kg/min - Photo officielle Moulinex",
     "is_primary": true,
     "order": 0
   }
@@ -5378,7 +5378,7 @@
   "fields": {
     "product": 5,
     "image": "products/hisense_multidoor_fridge.jpg",
-    "alt_text": "Cong├®lateur Coffre Hisense 250 Litres Tropicalis├® - Photo officielle Hisense",
+    "alt_text": "Congélateur Coffre Hisense 250 Litres Tropicalisé - Photo officielle Hisense",
     "is_primary": true,
     "order": 0
   }
@@ -5389,7 +5389,7 @@
   "fields": {
     "product": 9,
     "image": "products/hisense_multidoor_fridge.jpg",
-    "alt_text": "Cong├®lateur Coffre Hisense 250 Litres Tropicalis├® Fast Freeze - Photo officielle Hisense",
+    "alt_text": "Congélateur Coffre Hisense 250 Litres Tropicalisé Fast Freeze - Photo officielle Hisense",
     "is_primary": true,
     "order": 0
   }
@@ -5400,7 +5400,7 @@
   "fields": {
     "product": 24,
     "image": "products/hisense_multidoor_fridge.jpg",
-    "alt_text": "Cong├®lateur Coffre Hisense 150L Compact ├ëconomique - Photo officielle Hisense",
+    "alt_text": "Congélateur Coffre Hisense 150L Compact Économique - Photo officielle Hisense",
     "is_primary": true,
     "order": 0
   }
@@ -5411,7 +5411,7 @@
   "fields": {
     "product": 27,
     "image": "products/hisense_multidoor_fridge.jpg",
-    "alt_text": "R├®frig├®rateur R├®tro Vintage Hisense 260L Vert ├ëmeraude - Photo officielle Hisense",
+    "alt_text": "Réfrigérateur Rétro Vintage Hisense 260L Vert Émeraude - Photo officielle Hisense",
     "is_primary": true,
     "order": 0
   }
@@ -5422,7 +5422,7 @@
   "fields": {
     "product": 17,
     "image": "products/hisense_combi_fridge.png",
-    "alt_text": "R├®frig├®rateur Combin├® Hisense 300L No Frost Silver - Photo officielle Hisense",
+    "alt_text": "Réfrigérateur Combiné Hisense 300L No Frost Silver - Photo officielle Hisense",
     "is_primary": true,
     "order": 0
   }
@@ -5444,7 +5444,7 @@
   "fields": {
     "product": 95,
     "image": "products/midea_water_dispenser.webp",
-    "alt_text": "Fontaine Distributeur d'Eau Midea Chaud/Froid Compartiment R├®frig├®r├® - Photo officielle Midea",
+    "alt_text": "Fontaine Distributeur d'Eau Midea Chaud/Froid Compartiment Réfrigéré - Photo officielle Midea",
     "is_primary": true,
     "order": 0
   }
