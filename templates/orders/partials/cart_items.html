@@ -1,93 +1,103 @@
 {% load humanize %}
-<!-- Partial Panier Flagship : Rechargeable via HTMX -->
-<div class="space-y-4">
+<!-- Liste des Articles du Panier : 100% Mobile-First & Desktop Fluid -->
+<div class="space-y-3 sm:space-y-4">
   {% for item in items %}
-  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:shadow-sm transition">
+  <div class="flex gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-slate-50/70 hover:bg-white border border-slate-200/80 transition-all duration-200 relative group">
     
-    <!-- Image & Détails -->
-    <div class="flex items-center gap-4 flex-1 min-w-0">
-      <a href="{{ item.product.get_absolute_url }}" class="w-20 h-20 rounded-2xl bg-white border border-slate-200/80 p-2 flex items-center justify-center shrink-0">
-        {% if item.product.primary_image %}
-        <img src="{{ item.product.primary_image.image.url }}" alt="{{ item.product.name }}" class="max-w-full max-h-full object-contain">
-        {% else %}
-        <span class="material-icons-round text-3xl text-slate-300">devices</span>
-        {% endif %}
-      </a>
+    <!-- 1. Vignette Photo Produit -->
+    <a href="{{ item.product.get_absolute_url }}" class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl bg-white border border-slate-200/80 p-1.5 flex items-center justify-center shrink-0">
+      {% if item.product.primary_image %}
+      <img 
+        src="{{ item.product.primary_image.image.url }}" 
+        alt="{{ item.product.name }}" 
+        class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+      >
+      {% else %}
+      <svg class="w-8 h-8 text-slate-300 stroke-[1.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="4" y="4" width="16" height="16" rx="2" />
+      </svg>
+      {% endif %}
+    </a>
 
-      <div class="min-w-0">
-        {% if item.product.brand %}
-        <p class="text-[11px] font-heading font-black text-brand-600 uppercase tracking-wider mb-0.5">{{ item.product.brand.name }}</p>
-        {% endif %}
-        <a href="{{ item.product.get_absolute_url }}" class="block">
-          <h3 class="font-heading font-bold text-sm text-slate-900 hover:text-brand-600 transition truncate">
-            {{ item.product.name }}
-          </h3>
-        </a>
-        <p class="text-xs text-slate-400 font-mono mt-0.5">Réf: {{ item.product.sku }}</p>
-        <p class="text-xs font-semibold text-slate-700 mt-1">
-          Prix unitaire : <strong class="text-slate-900">{{ item.product.get_formatted_price }}</strong>
+    <!-- 2. Informations & Contrôles Quantité/Prix -->
+    <div class="flex-1 min-w-0 flex flex-col justify-between">
+      
+      <div>
+        <div class="flex items-start justify-between gap-2">
+          <div class="min-w-0 pr-1">
+            {% if item.product.brand %}
+            <p class="text-[10px] sm:text-xs font-black text-amber-600 uppercase tracking-wider mb-0.5 truncate">
+              {{ item.product.brand.name }}
+            </p>
+            {% endif %}
+            <a href="{{ item.product.get_absolute_url }}" class="block">
+              <h3 class="font-bold text-xs sm:text-sm text-slate-900 hover:text-amber-600 transition line-clamp-2 leading-snug" title="{{ item.product.name }}">
+                {{ item.product.name }}
+              </h3>
+            </a>
+          </div>
+
+          <!-- Bouton Supprimer discret en croix -->
+          <form method="post" action="{% url 'orders:cart_remove' item.pk %}" class="shrink-0">
+            {% csrf_token %}
+            <button 
+              type="submit" 
+              class="w-7 h-7 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 flex items-center justify-center transition cursor-pointer"
+              title="Retirer cet appareil"
+              aria-label="Retirer {{ item.product.name }}"
+            >
+              <svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Prix Unitaire -->
+        <p class="text-[11px] sm:text-xs text-slate-500 mt-1">
+          <span class="font-bold text-slate-800">{{ item.product.current_price|floatformat:0|intcomma }} FCFA</span>
+          <span class="text-[10px] text-slate-400">/ unité</span>
         </p>
       </div>
-    </div>
 
-    <!-- Sélecteur de Quantité & Total Ligne -->
-    <div class="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-200">
-      
-      <!-- Boutons + / - avec HTMX -->
-      <form 
-        method="post" 
-        action="{% url 'orders:cart_update' item.pk %}"
-        hx-post="{% url 'orders:cart_update' item.pk %}"
-        hx-target="#cart-items"
-        hx-swap="innerHTML"
-        class="flex items-center border border-slate-200 rounded-xl bg-white p-0.5 shadow-sm"
-      >
-        {% csrf_token %}
-        <button 
-          type="submit" 
-          name="quantity" 
-          value="{{ item.quantity|add:'-1' }}"
-          class="w-8 h-8 rounded-lg hover:bg-slate-100 text-slate-600 font-bold text-sm flex items-center justify-center transition"
-        >
-          -
-        </button>
-        <span class="w-8 text-center text-xs font-bold text-slate-900 font-mono">
-          {{ item.quantity }}
-        </span>
-        <button 
-          type="submit" 
-          name="quantity" 
-          value="{{ item.quantity|add:'1' }}"
-          class="w-8 h-8 rounded-lg hover:bg-slate-100 text-slate-600 font-bold text-sm flex items-center justify-center transition"
-        >
-          +
-        </button>
-      </form>
-
-      <!-- Sous-total de la ligne -->
-      <div class="text-right">
-        <p class="font-heading font-black text-base text-slate-900 font-mono">
-          {{ item.get_formatted_subtotal }}
-        </p>
+      <!-- 3. Barre Inférieure : Quantité + Sous-total net -->
+      <div class="flex items-center justify-between gap-2 mt-2.5 pt-2 border-t border-slate-200/70">
         
-        <!-- Bouton Supprimer -->
-        <form 
-          method="post" 
-          action="{% url 'orders:cart_remove' item.pk %}"
-          hx-post="{% url 'orders:cart_remove' item.pk %}"
-          hx-target="#cart-items"
-          hx-swap="innerHTML"
-          class="inline-block mt-0.5"
-        >
+        <!-- Sélecteur Quantité avec boutons tactiles ergonomiques -->
+        <form method="post" action="{% url 'orders:cart_update' item.pk %}" class="flex items-center border border-slate-200 rounded-xl bg-white shadow-2xs">
           {% csrf_token %}
           <button 
             type="submit" 
-            class="text-[11px] font-semibold text-rose-500 hover:text-rose-700 transition flex items-center gap-1"
+            name="quantity" 
+            value="{{ item.quantity|add:'-1' }}"
+            class="w-7 h-7 sm:w-8 sm:h-8 hover:bg-slate-100 active:bg-slate-200 text-slate-700 font-bold text-sm flex items-center justify-center transition active:scale-95 cursor-pointer rounded-l-xl"
+            aria-label="Diminuer la quantité"
           >
-            <span class="material-icons-round text-xs">delete</span>
-            <span>Retirer</span>
+            -
+          </button>
+          <span class="w-7 sm:w-8 text-center text-xs font-bold text-slate-900 font-mono select-none">
+            {{ item.quantity }}
+          </span>
+          <button 
+            type="submit" 
+            name="quantity" 
+            value="{{ item.quantity|add:'1' }}"
+            class="w-7 h-7 sm:w-8 sm:h-8 hover:bg-slate-100 active:bg-slate-200 text-slate-700 font-bold text-sm flex items-center justify-center transition active:scale-95 cursor-pointer rounded-r-xl"
+            aria-label="Augmenter la quantité"
+          >
+            +
           </button>
         </form>
+
+        <!-- Sous-total de la ligne -->
+        <div class="text-right">
+          <span class="font-mono font-black text-sm sm:text-base text-slate-950 whitespace-nowrap">
+            {{ item.get_subtotal|floatformat:0|intcomma }}
+          </span>
+          <span class="text-[10px] font-sans font-bold text-amber-600 ml-0.5">FCFA</span>
+        </div>
+
       </div>
 
     </div>

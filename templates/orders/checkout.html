@@ -20,13 +20,24 @@
         <p class="text-xs text-neutral-500 mt-1">Adresse de livraison à Bamako et sélection du moyen de paiement</p>
       </div>
 
-      <!-- Stepper visuel Orange & Blanc -->
-      <div class="flex items-center gap-2 text-xs font-bold">
+      <!-- Stepper visuel Desktop -->
+      <div class="hidden md:flex items-center gap-2 text-xs font-bold shrink-0">
         <a href="{% url 'orders:cart' %}" class="px-3.5 py-1.5 rounded-full bg-neutral-100 text-neutral-600 hover:text-amber-500 transition">1. Panier</a>
         <span class="text-neutral-300">→</span>
         <span class="px-3.5 py-1.5 rounded-full bg-amber-500 text-white shadow-xs">2. Livraison & Paiement</span>
         <span class="text-neutral-300">→</span>
         <span class="px-3.5 py-1.5 rounded-full bg-neutral-100 text-neutral-400">3. Confirmation</span>
+      </div>
+
+      <!-- Badge Étape Mobile -->
+      <div class="md:hidden flex items-center justify-between">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-900 text-xs font-bold border border-amber-500/20">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          Étape 2/3 • Livraison & Paiement
+        </span>
+        <a href="{% url 'orders:cart' %}" class="text-xs font-bold text-amber-600 hover:underline">
+          ← Retour Panier
+        </a>
       </div>
     </div>
   </div>
