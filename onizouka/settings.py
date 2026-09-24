@@ -22,19 +22,32 @@ else:
 SECRET_KEY = config('SECRET_KEY', default='dev-secret-key-onizouka-changez-en-prod-2026')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-raw_hosts = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,testserver')
+raw_hosts = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,testserver,onizouka.danayaplus.com')
 ALLOWED_HOSTS = [h.strip() for h in raw_hosts.split(',') if h.strip()]
-if DEBUG:
-    for h in ['localhost', '127.0.0.1', 'testserver', '[::1]']:
-        if h not in ALLOWED_HOSTS:
-            ALLOWED_HOSTS.append(h)
+for h in ['localhost', '127.0.0.1', 'testserver', '[::1]', 'onizouka.danayaplus.com']:
+    if h not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(h)
 
 raw_origins = config('CSRF_TRUSTED_ORIGINS', default='')
 if raw_origins:
     CSRF_TRUSTED_ORIGINS = [o.strip() for o in raw_origins.split(',') if o.strip()]
 else:
-    CSRF_TRUSTED_ORIGINS = [f"https://{h}" for h in ALLOWED_HOSTS if h not in ['localhost', '127.0.0.1', 'testserver', '[::1]']]
-    CSRF_TRUSTED_ORIGINS += [f"http://{h}" for h in ALLOWED_HOSTS if h not in ['localhost', '127.0.0.1', 'testserver', '[::1]']]
+    CSRF_TRUSTED_ORIGINS = []
+
+for origin in [
+    'https://onizouka.danayaplus.com',
+    'http://onizouka.danayaplus.com',
+    'https://*.danayaplus.com',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+]:
+    if origin not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(origin)
+
+# Support Reverse Proxy SSL (o2switch / Nginx / Passenger)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
 
 
 INSTALLED_APPS = [
