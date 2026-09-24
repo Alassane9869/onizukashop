@@ -56,9 +56,9 @@
         {% for item in items %}
         <div class="flex gap-3">
           {% if item.product and item.product.primary_image %}
-          <img src="{{ item.product.primary_image.thumbnail.url }}"
+          <img src="{{ item.product.primary_image.image.url }}"
                alt="{{ item.product_name }}"
-               class="w-14 h-14 object-cover rounded-xl shrink-0">
+               class="w-14 h-14 object-contain rounded-xl shrink-0">
           {% else %}
           <div class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
             <span class="material-icons-round text-gray-300">devices</span>

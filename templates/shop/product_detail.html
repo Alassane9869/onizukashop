@@ -79,7 +79,7 @@
         <!-- Image du produit -->
         {% if product.primary_image %}
         <img 
-          :src="activeImg || '{{ product.primary_image.large.url|default:product.primary_image.image.url }}'"
+          :src="activeImg || '{{ product.primary_image.image.url }}'"
           alt="{{ product.name }}"
           class="max-w-full max-h-full object-contain"
         >
@@ -121,11 +121,11 @@
         {% for img in product.images.all %}
         <button 
           type="button"
-          @click="activeImg = '{{ img.large.url }}'"
+          @click="activeImg = '{{ img.image.url }}'"
           class="w-16 h-16 rounded-xl border p-1 bg-white transition shrink-0"
-          :class="activeImg === '{{ img.large.url }}' ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-neutral-200 hover:border-neutral-400'"
+          :class="activeImg === '{{ img.image.url }}' ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-neutral-200 hover:border-neutral-400'"
         >
-          <img src="{{ img.thumbnail.url }}" alt="{{ product.name }}" class="w-full h-full object-contain">
+          <img src="{{ img.image.url }}" alt="{{ product.name }}" class="w-full h-full object-contain">
         </button>
         {% endfor %}
       </div>
@@ -559,7 +559,7 @@
           <!-- Carte Produit Récapitulative -->
           <div class="flex items-center gap-3.5 p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
             {% if product.primary_image %}
-            <img src="{{ product.primary_image.thumbnail.url|default:product.primary_image.image.url }}" alt="{{ product.name }}" class="w-16 h-16 rounded-xl object-contain bg-white p-1 border border-slate-100 shrink-0">
+            <img src="{{ product.primary_image.image.url }}" alt="{{ product.name }}" class="w-16 h-16 rounded-xl object-contain bg-white p-1 border border-slate-100 shrink-0">
             {% endif %}
             <div class="min-w-0 flex-1">
               <h4 class="font-bold text-xs sm:text-sm text-slate-900 truncate">{{ product.name }}</h4>
