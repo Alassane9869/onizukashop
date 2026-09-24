@@ -32,7 +32,7 @@ try:
             """
         )
         return [
-            TableInfo(row[0], row[1])
+            TableInfo(row[0], row[1], None)
             for row in cursor.fetchall()
             if row[0] not in self.ignored_tables
         ]
