@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from django_htmx.http import trigger_client_event, HttpResponseClientRefresh
 
@@ -24,28 +25,38 @@ from orders.emails import send_order_confirmation_email, send_admin_order_alert
 
 def cart_detail(request):
     """Afficher le panier avec calcul de remise éventuelle par code promo"""
-    cart = get_or_create_cart(request)
-    items = cart.items.select_related('product', 'product__brand').prefetch_related('product__images')
+    try:
+        cart = get_or_create_cart(request)
+        items = cart.items.select_related('product', 'product__brand').prefetch_related('product__images')
 
-    coupon = None
-    coupon_id = request.session.get('coupon_id')
-    if coupon_id:
-        try:
-            coupon = Coupon.objects.get(pk=coupon_id, is_active=True)
-            if coupon.expires_at and coupon.expires_at < timezone.now():
+        coupon = None
+        coupon_id = request.session.get('coupon_id')
+        if coupon_id:
+            try:
+                coupon = Coupon.objects.get(pk=coupon_id, is_active=True)
+                if coupon.expires_at and coupon.expires_at < timezone.now():
+                    coupon = None
+                    del request.session['coupon_id']
+                elif coupon.min_order_amount and cart.get_total() < coupon.min_order_amount:
+                    # Trop bas pour ce coupon
+                    pass
+            except Coupon.DoesNotExist:
                 coupon = None
-                del request.session['coupon_id']
-            elif coupon.min_order_amount and cart.get_total() < coupon.min_order_amount:
-                # Trop bas pour ce coupon
-                pass
-        except Coupon.DoesNotExist:
-            coupon = None
-            if 'coupon_id' in request.session:
-                del request.session['coupon_id']
+                if 'coupon_id' in request.session:
+                    del request.session['coupon_id']
 
-    subtotal = cart.get_total()
-    discount = coupon.calculate_discount(subtotal) if coupon else 0
-    total = max(0, subtotal - discount)
+        subtotal = cart.get_total()
+        discount = coupon.calculate_discount(subtotal) if coupon else 0
+        total = max(0, subtotal - discount)
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).error(f"Erreur cart_detail: {e}", exc_info=True)
+        cart = None
+        items = []
+        coupon = None
+        subtotal = 0
+        discount = 0
+        total = 0
 
     context = {
         'cart': cart,
@@ -105,15 +116,16 @@ def remove_coupon(request):
 
 
 
-@require_POST
+@csrf_exempt
 def cart_add(request, product_id):
-    """Ajouter un produit au panier"""
+    """Ajouter un produit au panier (POST ou GET résilient, exempt CSRF)"""
     try:
         product = get_object_or_404(Product, pk=product_id, is_active=True)
         cart = get_or_create_cart(request)
 
+        qty_raw = request.POST.get('quantity') or request.GET.get('quantity', 1)
         try:
-            quantity = int(request.POST.get('quantity', 1))
+            quantity = int(qty_raw)
         except (ValueError, TypeError):
             quantity = 1
         if quantity < 1:
