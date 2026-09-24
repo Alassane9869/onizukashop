@@ -193,8 +193,6 @@
         <form 
           method="post" 
           action="{% url 'orders:cart_add' product.pk %}"
-          hx-post="{% url 'orders:cart_add' product.pk %}"
-          hx-swap="none"
           class="space-y-3 pt-1"
         >
           {% csrf_token %}
@@ -741,8 +739,6 @@
     <form 
       method="post" 
       action="{% url 'orders:cart_add' product.pk %}"
-      hx-post="{% url 'orders:cart_add' product.pk %}"
-      hx-swap="none"
       class="shrink-0"
     >
       {% csrf_token %}

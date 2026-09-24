@@ -70,7 +70,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.gzip.GZipMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -112,7 +111,7 @@ if DB_ENGINE == 'django.db.backends.sqlite3':
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / config('DB_NAME', default='db.sqlite3'),
-            'CONN_MAX_AGE': config('DB_CONN_MAX_AGE', default=300, cast=int),
+            'CONN_MAX_AGE': config('DB_CONN_MAX_AGE', default=0, cast=int),
         }
     }
 else:
@@ -124,7 +123,7 @@ else:
             'PASSWORD': config('DB_PASSWORD', default=''),
             'HOST': config('DB_HOST', default=''),
             'PORT': config('DB_PORT', default=''),
-            'CONN_MAX_AGE': config('DB_CONN_MAX_AGE', default=300, cast=int),
+            'CONN_MAX_AGE': config('DB_CONN_MAX_AGE', default=0, cast=int),
         }
     }
 

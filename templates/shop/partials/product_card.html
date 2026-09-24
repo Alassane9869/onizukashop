@@ -120,8 +120,6 @@
     <form 
       method="post" 
       action="{% url 'orders:cart_add' product.pk %}"
-      hx-post="{% url 'orders:cart_add' product.pk %}"
-      hx-swap="none"
       class="w-full mt-auto"
     >
       {% csrf_token %}
