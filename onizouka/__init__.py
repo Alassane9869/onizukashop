@@ -36,6 +36,12 @@ try:
             for row in cursor.fetchall()
             if row[0] not in self.ignored_tables
         ]
+    from django.db.backends.postgresql.base import DatabaseWrapper as PGDatabaseWrapper
+    PGDatabaseWrapper.data_types['AutoField'] = 'serial'
+    PGDatabaseWrapper.data_types['BigAutoField'] = 'bigserial'
+    PGDatabaseWrapper.data_types['SmallAutoField'] = 'smallserial'
+    PGDatabaseWrapper.data_types_suffix = {}
+
     DatabaseIntrospection.get_table_list = _patched_get_table_list
 except Exception:
     pass
