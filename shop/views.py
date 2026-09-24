@@ -64,19 +64,33 @@ def get_or_create_cart(request):
     if hasattr(request, 'user') and request.user.is_authenticated:
         cart, _ = Cart.objects.get_or_create(user=request.user)
 
-        # Fusionner panier session si existant
+        # Fusionner panier session (via cart_id stocke en session ou session_key)
+        session_cart_id = request.session.get('cart_id') if hasattr(request, 'session') else None
+        session_carts = []
+
+        if session_cart_id:
+            c = Cart.objects.filter(id=session_cart_id).exclude(id=cart.id).first()
+            if c and c not in session_carts:
+                session_carts.append(c)
+
         if hasattr(request, 'session') and request.session.session_key:
-            session_carts = Cart.objects.filter(session_key=request.session.session_key).exclude(id=cart.id)
-            for sc in session_carts:
-                for item in sc.items.select_related('product').all():
-                    cart_item, created = CartItem.objects.get_or_create(
-                        cart=cart, product=item.product,
-                        defaults={'quantity': item.quantity}
-                    )
-                    if not created:
-                        cart_item.quantity += item.quantity
-                        cart_item.save(update_fields=['quantity'])
-                sc.delete()
+            for sc in Cart.objects.filter(session_key=request.session.session_key).exclude(id=cart.id):
+                if sc not in session_carts:
+                    session_carts.append(sc)
+
+        for sc in session_carts:
+            for item in sc.items.select_related('product').all():
+                cart_item, created = CartItem.objects.get_or_create(
+                    cart=cart, product=item.product,
+                    defaults={'quantity': item.quantity}
+                )
+                if not created:
+                    cart_item.quantity += item.quantity
+                    cart_item.save(update_fields=['quantity'])
+            sc.delete()
+
+        if hasattr(request, 'session'):
+            request.session['cart_id'] = cart.id
         return cart
 
     # Utilisateur anonyme
@@ -89,23 +103,20 @@ def get_or_create_cart(request):
                 pass
         session_key = request.session.session_key
 
-    if not session_key:
-        if hasattr(request, 'session'):
-            session_key = request.session.get('cart_token')
-            if not session_key:
-                import uuid
-                session_key = uuid.uuid4().hex[:32]
-                try:
-                    request.session['cart_token'] = session_key
-                    request.session.save()
-                except Exception:
-                    pass
+    # Verifier si un cart_id valide existe deja en session
+    cart = None
+    if hasattr(request, 'session'):
+        session_cart_id = request.session.get('cart_id')
+        if session_cart_id:
+            cart = Cart.objects.filter(id=session_cart_id, user__isnull=True).first()
+
+    if not cart and session_key:
+        cart = Cart.objects.filter(session_key=session_key).first()
+
+    if not cart:
         if not session_key:
             import uuid
             session_key = uuid.uuid4().hex[:32]
-
-    cart = Cart.objects.filter(session_key=session_key).first()
-    if not cart:
         try:
             cart, _ = Cart.objects.get_or_create(session_key=session_key)
         except Exception:
@@ -114,7 +125,11 @@ def get_or_create_cart(request):
                 import uuid
                 cart = Cart.objects.create(session_key=uuid.uuid4().hex[:32])
 
+    if hasattr(request, 'session'):
+        request.session['cart_id'] = cart.id
+
     return cart
+
 
 
 

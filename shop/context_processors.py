@@ -10,19 +10,24 @@ def cart_count(request):
     """Nombre d'articles dans le panier (header)"""
     count = 0
     try:
-        if request.user.is_authenticated:
+        if hasattr(request, 'user') and request.user.is_authenticated:
             cart = Cart.objects.filter(user=request.user).first()
         else:
-            session_key = request.session.session_key
-            if session_key:
-                cart = Cart.objects.filter(session_key=session_key).first()
-            else:
-                cart = None
+            cart = None
+            if hasattr(request, 'session'):
+                session_cart_id = request.session.get('cart_id')
+                if session_cart_id:
+                    cart = Cart.objects.filter(id=session_cart_id).first()
+            if not cart:
+                session_key = getattr(request.session, 'session_key', None)
+                if session_key:
+                    cart = Cart.objects.filter(session_key=session_key).first()
         if cart:
             count = cart.get_items_count()
     except Exception:
         count = 0
     return {'cart_count': count}
+
 
 
 from django.core.cache import cache
