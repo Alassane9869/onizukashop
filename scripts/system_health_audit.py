@@ -120,8 +120,12 @@ def audit_configuration():
             log_pass("Systeme de Cache", f"Fonctionnel (Latence : {latency:.2f}ms)")
         else:
             log_warn("Systeme de Cache", "Cache inactif ou Redis injoignable (Repli automatique actif)")
-    except Exception as e:
-        log_warn("Systeme de Cache", f"Cache indisponible ou degrade ({e})")
+    # SMTP Emails
+    if settings.EMAIL_HOST_USER and settings.EMAIL_HOST:
+        log_pass("Configuration Email SMTP", f"{settings.EMAIL_HOST}:{settings.EMAIL_PORT} (SSL: {settings.EMAIL_USE_SSL}) | Compte: {settings.EMAIL_HOST_USER}")
+    else:
+        log_warn("Configuration Email SMTP", "Identifiants non renseignés")
+
 
 
 
