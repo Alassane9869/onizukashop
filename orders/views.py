@@ -131,12 +131,20 @@ def cart_add(request, product_id):
         if quantity < 1:
             quantity = 1
 
+        is_ajax = (
+            getattr(request, 'htmx', False) or 
+            request.headers.get('x-requested-with') == 'XMLHttpRequest' or 
+            'application/json' in request.headers.get('accept', '') or
+            request.POST.get('format') == 'json'
+        )
+
         # Verifier le stock
         if product.track_stock and product.stock < quantity:
-            if getattr(request, 'htmx', False):
-                return JsonResponse({'error': 'Stock insuffisant', 'stock': product.stock}, status=400)
+            if is_ajax:
+                return JsonResponse({'success': False, 'error': f'Stock insuffisant ({product.stock} dispo)'}, status=400)
             messages.error(request, f'Stock insuffisant. Seulement {product.stock} disponibles.')
-            return redirect('shop:product', slug=product.slug)
+            referer = request.META.get('HTTP_REFERER')
+            return redirect(referer if referer else 'shop:product', slug=product.slug)
 
         cart_item = CartItem.objects.filter(cart=cart, product=product).first()
         if cart_item:
@@ -150,27 +158,38 @@ def cart_add(request, product_id):
 
         cart_count = cart.get_items_count()
 
-        if getattr(request, 'htmx', False):
+        if is_ajax:
             response = JsonResponse({
                 'success': True,
                 'cart_count': cart_count,
-                'message': f'"{product.name}" ajouté au panier',
+                'product_name': product.name,
+                'message': f'"{product.name}" ajouté au panier !',
             })
             trigger_client_event(response, 'cartUpdated', {
                 'count': cart_count,
-                'message': f'"{product.name}" ajouté au panier',
+                'message': f'"{product.name}" ajouté au panier !',
             })
             return response
 
         messages.success(request, f'"{product.name}" ajouté au panier !')
+        next_url = request.POST.get('next') or request.GET.get('next') or request.META.get('HTTP_REFERER')
+        if next_url and '/panier/ajouter/' not in next_url:
+            return redirect(next_url)
         return redirect('orders:cart')
     except Exception as e:
         import logging
         logging.getLogger(__name__).error(f"Erreur cart_add: {e}", exc_info=True)
-        if getattr(request, 'htmx', False):
-            response = JsonResponse({'success': False, 'message': "Erreur lors de l'ajout au panier"}, status=400)
-            return response
+        is_ajax = (
+            getattr(request, 'htmx', False) or 
+            request.headers.get('x-requested-with') == 'XMLHttpRequest' or 
+            'application/json' in request.headers.get('accept', '')
+        )
+        if is_ajax:
+            return JsonResponse({'success': False, 'message': "Erreur lors de l'ajout au panier"}, status=400)
         messages.error(request, "Impossible d'ajouter cet article au panier.")
+        referer = request.META.get('HTTP_REFERER')
+        if referer and '/panier/ajouter/' not in referer:
+            return redirect(referer)
         return redirect('orders:cart')
 
 

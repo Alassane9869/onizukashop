@@ -1,4 +1,4 @@
-{% load humanize %}
+99{% load humanize %}
 <!-- Carte Produit Ultra-Premium Calibre Apple Store -->
 <div class="group bg-white rounded-2xl sm:rounded-3xl border border-black/[0.06] p-2.5 sm:p-3.5 flex flex-col justify-between relative shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(234,179,8,0.15)] hover:border-amber-300 transition-all duration-300">
 
@@ -115,24 +115,78 @@
       {% endif %}
     </div>
 
-    <!-- Bouton Acheter Calibré Ergonomie Mobile & Desktop -->
+    <!-- Bouton Acheter Calibré Ergonomie Mobile & Desktop (Ajout Instantané sans rechargement) -->
     {% if product.is_in_stock %}
     <form 
       method="post" 
       action="{% url 'orders:cart_add' product.pk %}"
       class="w-full mt-auto"
+      x-data="{ adding: false, added: false }"
+      @submit.prevent="
+        if (adding) return;
+        adding = true;
+        fetch($el.action, {
+          method: 'POST',
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json',
+            'X-CSRFToken': $el.querySelector('[name=csrfmiddlewaretoken]')?.value || ''
+          },
+          body: new FormData($el)
+        })
+        .then(r => r.json())
+        .then(data => {
+          adding = false;
+          if (data.success) {
+            added = true;
+            document.dispatchEvent(new CustomEvent('cartUpdated', { 
+              detail: { count: data.cart_count, message: data.message } 
+            }));
+            setTimeout(() => { added = false; }, 2000);
+          } else {
+            alert(data.error || 'Impossible d\'ajouter au panier');
+          }
+        })
+        .catch(() => {
+          adding = false;
+          $el.submit();
+        });
+      "
     >
       {% csrf_token %}
       <input type="hidden" name="quantity" value="1">
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
       <button 
         type="submit" 
-        class="w-full h-9 sm:h-10 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-white font-extrabold text-xs sm:text-sm transition-all duration-200 active:scale-[0.98] shadow-sm flex items-center justify-center gap-1.5 cursor-pointer select-none"
+        :disabled="adding"
+        class="w-full h-9 sm:h-10 rounded-xl font-extrabold text-xs sm:text-sm transition-all duration-300 active:scale-[0.98] shadow-sm flex items-center justify-center gap-1.5 cursor-pointer select-none"
+        :class="added ? 'bg-emerald-600 text-white shadow-emerald-500/20' : (adding ? 'bg-amber-600 text-white cursor-wait opacity-90' : 'bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-white shadow-amber-500/15')"
         aria-label="Ajouter {{ product.name }} au panier"
       >
-        <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
-        </svg>
-        <span>Ajouter <span class="hidden sm:inline">au panier</span></span>
+        <!-- État Initial -->
+        <span x-show="!adding && !added" class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+          </svg>
+          <span>Ajouter <span class="hidden sm:inline">au panier</span></span>
+        </span>
+
+        <!-- État Chargement -->
+        <span x-show="adding" x-cloak class="flex items-center gap-1.5" style="display: none;">
+          <svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span>Ajout...</span>
+        </span>
+
+        <!-- État Succès Confirmé -->
+        <span x-show="added" x-cloak class="flex items-center gap-1.5 font-black" style="display: none;">
+          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+          <span>Ajouté !</span>
+        </span>
       </button>
     </form>
     {% else %}
