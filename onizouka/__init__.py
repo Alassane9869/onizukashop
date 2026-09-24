@@ -8,10 +8,35 @@ try:
 except ImportError:
     pass
 
-# Contournement de la vérification stricte de version PostgreSQL (o2switch PostgreSQL 9.6)
+# Rétrocompatibilité PostgreSQL 9.6 pour cPanel o2switch (relispartition + version check)
 try:
     from django.db.backends.base.base import BaseDatabaseWrapper
     BaseDatabaseWrapper.check_database_version_supported = lambda self: None
+
+    from django.db.backends.postgresql.introspection import DatabaseIntrospection, TableInfo
+    def _patched_get_table_list(self, cursor):
+        cursor.execute(
+            """
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relkind = 'm' THEN 'm'
+                    WHEN c.relkind = 'v' THEN 'v'
+                    ELSE 't'
+                END
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v', 'm')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+            """
+        )
+        return [
+            TableInfo(row[0], row[1])
+            for row in cursor.fetchall()
+            if row[0] not in self.ignored_tables
+        ]
+    DatabaseIntrospection.get_table_list = _patched_get_table_list
 except Exception:
     pass
 
