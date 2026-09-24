@@ -120,8 +120,8 @@ else:
             'NAME': config('DB_NAME', default='onizouka_db'),
             'USER': config('DB_USER', default=''),
             'PASSWORD': config('DB_PASSWORD', default=''),
-            'HOST': config('DB_HOST', default='localhost'),
-            'PORT': config('DB_PORT', default='5432'),
+            'HOST': config('DB_HOST', default=''),
+            'PORT': config('DB_PORT', default=''),
         }
     }
 
