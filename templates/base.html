@@ -55,35 +55,45 @@
 </head>
 <body class="bg-white text-neutral-900 font-sans antialiased selection:bg-amber-400 selection:text-neutral-900 pb-24 lg:pb-0" x-data="{ searchModal: false, searchInput: '' }" :class="{ 'overflow-hidden': searchModal }">
 
-  <!-- ===== BANDEAU SUPÉRIEUR DIRECTION & BOUTIQUE (CHARTE JAUNE AMBRE & VERRE DÉPOLI) ===== -->
-  <div class="bg-gradient-to-r from-amber-50 via-amber-100/50 to-yellow-50 text-slate-800 text-[11px] sm:text-xs py-1.5 px-3 sm:px-6 font-medium border-b border-amber-200/70 select-none backdrop-blur-md">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <div class="flex items-center gap-2 sm:gap-3 truncate">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-200/60 text-amber-900 text-[10px] font-bold border border-amber-300/80 shrink-0 shadow-2xs">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+  <!-- ===== BANDEAU SUPÉRIEUR HAUTE JOAILLERIE TECH (OBSIDIAN NOIR & TOUCHES OR IMPÉRIAL) ===== -->
+  <div class="bg-[#0b0d11] text-slate-300 text-[11px] sm:text-xs py-2 px-3 sm:px-6 font-medium border-b border-white/[0.08] select-none shadow-xs">
+    <div class="max-w-7xl mx-auto flex justify-between items-center gap-3">
+      
+      <!-- Côté Gauche : Statut Boutique & Engagements Clés -->
+      <div class="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold border border-emerald-500/25 shrink-0 shadow-2xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>Boutique Ouverte 7j/7</span>
         </span>
-        <span class="truncate hidden md:inline text-slate-700 text-xs font-medium">
-          Grand Marché (Dabanani, Bamako) <span class="text-amber-500 font-bold">&bull;</span> Livraison express 24h <span class="text-amber-500 font-bold">&bull;</span> Garantie 12 à 24 mois
+        <span class="truncate hidden md:inline text-slate-300 text-xs font-medium">
+          Grand Marché (Dabanani, Bamako) <span class="text-amber-400 font-bold mx-1">&bull;</span> Livraison express 24h au Mali <span class="text-amber-400 font-bold mx-1">&bull;</span> Garantie constructeur 12 à 24 mois
         </span>
-        <span class="truncate md:hidden text-slate-700 text-[11px] font-medium">
-          Grand Marché (Dabanani) &bull; Livraison 24h Bamako
+        <span class="truncate md:hidden text-slate-300 text-[11px] font-medium">
+          Grand Marché (Dabanani) &bull; Livraison 24h
         </span>
       </div>
-      <div class="flex items-center gap-2.5 sm:gap-3.5 shrink-0 text-xs">
-        <span class="hidden sm:inline text-slate-600 text-[11px] font-medium">Grand Marché, Bamako</span>
-        <span class="hidden sm:inline text-amber-300 font-bold">&bull;</span>
-        <span class="hidden sm:inline text-amber-950 font-mono text-[10px] font-bold bg-amber-200/70 px-2 py-0.5 rounded-full border border-amber-300/80">
-          Monnaie : FCFA (XOF)
+
+      <!-- Côté Droit : Devises & Contact Direct VIP WhatsApp -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0 text-xs">
+        <span class="hidden sm:inline-flex items-center gap-1 text-amber-400/90 font-mono text-[10px] font-semibold bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/20">
+          <span class="w-1 h-1 rounded-full bg-amber-400"></span>
+          <span>FCFA (XOF)</span>
         </span>
-        <span class="hidden sm:inline text-amber-300 font-bold">&bull;</span>
-        <a href="https://wa.me/{{ shop_settings.whatsapp_raw|default:'22392673799' }}" target="_blank" rel="noopener" class="text-slate-900 hover:text-emerald-700 transition font-bold flex items-center gap-1.5 bg-white/90 hover:bg-white px-2.5 py-0.5 rounded-full border border-amber-200/90 shadow-2xs group">
-          <svg class="w-3.5 h-3.5 fill-emerald-600 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+        
+        <a 
+          href="https://wa.me/{{ shop_settings.whatsapp_raw|default:'22392673799' }}?text=Bonjour%20Onizouka%20Shop,%20je%20souhaite%20des%20renseignements%20sur%20un%20produit" 
+          target="_blank" 
+          rel="noopener" 
+          class="inline-flex items-center gap-1.5 bg-emerald-500/15 hover:bg-emerald-600 text-emerald-300 hover:text-white px-2.5 sm:px-3 py-1 rounded-full border border-emerald-500/30 hover:border-emerald-500 transition-all duration-200 shadow-2xs group"
+          title="Commander ou demander un conseil direct sur WhatsApp"
+        >
+          <svg class="w-3.5 h-3.5 fill-current text-emerald-400 group-hover:text-white transition-colors" viewBox="0 0 24 24">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.45 1.054 1.325 1.833.687.612 1.267.801 1.447.888.181.087.289.073.397-.051.108-.124.462-.538.585-.722.123-.184.246-.153.411-.092.166.061 1.052.496 1.233.587.181.091.303.136.347.212.043.076.043.439-.101.844z"/>
           </svg>
-          <span class="font-mono text-emerald-800 font-extrabold text-[11px]">{{ shop_settings.phone_whatsapp|default:'+223 92 67 37 99' }}</span>
+          <span class="font-mono font-bold text-[11px] tracking-tight">{{ shop_settings.phone_whatsapp|default:'+223 92 67 37 99' }}</span>
         </a>
       </div>
+
     </div>
   </div>
 
