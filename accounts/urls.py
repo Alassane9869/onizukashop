@@ -14,4 +14,6 @@ urlpatterns = [
     path('adresses/<int:pk>/defaut/', views.address_set_default, name='address_set_default'),
     path('commandes/', views.order_list, name='order_list'),
     path('redirection/', views.login_redirect, name='login_redirect'),
+    path('verifier-email/', views.verify_email, name='verify_email'),
 ]
+

@@ -1,0 +1,15 @@
+ONIZOUKA SHOP - VÉRIFICATION DE VOTRE COMPTE
+
+Bienvenue sur Onizouka Shop !
+Pour valider votre adresse email et sécuriser votre compte, veuillez utiliser le code PIN suivant :
+
+VOTRE CODE : {{ code }}
+
+Ce code est strictement confidentiel et reste valable pendant 10 minutes.
+Ne le partagez avec personne. Aucun employé d'Onizouka Shop ne vous le demandera.
+
+---
+ONIZOUKA SHOP MALI
+Grand Marché de Bamako, Dabanani, Bamako
+Téléphone & WhatsApp officiel : +223 92 67 37 99
+https://onizouka.danayaplus.com

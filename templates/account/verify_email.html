@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Vérification par Code PIN • Onizouka Shop{% endblock %}
+
+{% block content %}
+<div class="min-h-[75vh] flex items-center justify-center px-4 py-8 sm:py-16">
+  
+  <div class="w-full max-w-md">
+
+    <!-- Carte Signature Onizouka Shop -->
+    <div class="bg-white rounded-3xl border border-neutral-100 p-6 sm:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.06)] relative overflow-hidden">
+      
+      <!-- Liseré supérieur or signature -->
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600"></div>
+
+      <!-- Icône de Sécurité & En-tête -->
+      <div class="text-center mb-6 sm:mb-8">
+        <div class="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200/60 text-amber-600 flex items-center justify-center mx-auto mb-4 shadow-xs">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+
+        <h1 class="text-2xl font-black text-neutral-900 tracking-tight">
+          Vérification de Sécurité
+        </h1>
+        <p class="text-xs text-neutral-500 mt-1.5 leading-relaxed">
+          Nous venons d'envoyer un code PIN à 6 chiffres à l'adresse :<br>
+          <span class="font-bold text-neutral-900 bg-neutral-100 px-2.5 py-0.5 rounded-full inline-block mt-1">{{ masked_email }}</span>
+        </p>
+      </div>
+
+      <!-- Messages Flash -->
+      {% if messages %}
+      <div class="mb-5 space-y-2">
+        {% for message in messages %}
+        <div class="p-3.5 rounded-2xl text-xs font-semibold flex items-center gap-2 {% if message.tags == 'error' %}bg-rose-50 text-rose-700 border border-rose-100{% elif message.tags == 'warning' %}bg-amber-50 text-amber-800 border border-amber-200{% else %}bg-emerald-50 text-emerald-800 border border-emerald-100{% endif %}">
+          <span>{{ message }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Formulaire de Saisie du Code OTP -->
+      <form method="POST" action="{% url 'accounts:verify_email' %}" class="space-y-6">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="verify">
+
+        <div>
+          <label for="otp-code" class="block text-xs font-bold text-neutral-700 uppercase tracking-wider text-center mb-2">
+            Entrez votre Code PIN (6 chiffres)
+          </label>
+          
+          <div class="relative">
+            <input 
+              type="text" 
+              name="code" 
+              id="otp-code"
+              maxlength="6"
+              pattern="[0-9]{6}"
+              inputmode="numeric"
+              autocomplete="one-time-code"
+              required
+              autofocus
+              placeholder="••••••"
+              class="w-full text-center text-3xl font-mono font-black tracking-[12px] py-4 px-4 rounded-2xl bg-neutral-50 border-2 border-neutral-200 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-amber-500/10 text-neutral-900 placeholder:text-neutral-300 placeholder:tracking-[8px] transition"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6)"
+            />
+          </div>
+          <p class="text-[11px] text-neutral-400 text-center mt-2">
+            ⏱ Valable 10 minutes • Consultez aussi votre dossier spam
+          </p>
+        </div>
+
+        <!-- Bouton Confirmer -->
+        <button 
+          type="submit" 
+          class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-extrabold text-sm shadow-[0_4px_16px_rgba(245,158,11,0.25)] hover:shadow-[0_6px_20px_rgba(245,158,11,0.35)] transition-all duration-200 flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span>Confirmer mon Compte</span>
+        </button>
+      </form>
+
+      <!-- Section Renvoyer le Code -->
+      <div 
+        class="mt-6 pt-6 border-t border-neutral-100 text-center"
+        x-data="{ 
+          cooldown: 60,
+          timer: null,
+          init() {
+            this.timer = setInterval(() => {
+              if (this.cooldown > 0) this.cooldown--;
+            }, 1000);
+          }
+        }"
+      >
+        <p class="text-xs text-neutral-500 mb-2">Vous n'avez pas reçu l'email ?</p>
+        
+        <form method="POST" action="{% url 'accounts:verify_email' %}">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="resend">
+          
+          <button 
+            type="submit"
+            :disabled="cooldown > 0"
+            :class="cooldown > 0 ? 'text-neutral-400 cursor-not-allowed' : 'text-amber-600 hover:text-amber-700 font-bold hover:underline cursor-pointer'"
+            class="text-xs font-semibold transition"
+          >
+            <span x-show="cooldown > 0">
+              Renvoyer un nouveau code (<span x-text="cooldown"></span>s)
+            </span>
+            <span x-show="cooldown === 0" style="display: none;">
+              📩 Renvoyer un nouveau code PIN
+            </span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Reassurance & Aide -->
+    <div class="text-center mt-6 text-xs text-neutral-400">
+      Besoin d'aide ? Contactez notre support WhatsApp au 
+      <a href="https://wa.me/22392673799" class="text-amber-500 font-semibold hover:underline">+223 92 67 37 99</a>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}
