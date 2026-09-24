@@ -29,6 +29,14 @@ if DEBUG:
         if h not in ALLOWED_HOSTS:
             ALLOWED_HOSTS.append(h)
 
+raw_origins = config('CSRF_TRUSTED_ORIGINS', default='')
+if raw_origins:
+    CSRF_TRUSTED_ORIGINS = [o.strip() for o in raw_origins.split(',') if o.strip()]
+else:
+    CSRF_TRUSTED_ORIGINS = [f"https://{h}" for h in ALLOWED_HOSTS if h not in ['localhost', '127.0.0.1', 'testserver', '[::1]']]
+    CSRF_TRUSTED_ORIGINS += [f"http://{h}" for h in ALLOWED_HOSTS if h not in ['localhost', '127.0.0.1', 'testserver', '[::1]']]
+
+
 INSTALLED_APPS = [
     'unfold',
     'unfold.contrib.filters',
