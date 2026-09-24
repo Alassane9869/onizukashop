@@ -262,3 +262,19 @@ body {
   mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
 }
+
+/* ============================================================
+   TYPOGRAPHIE & TITRES PRODUITS (AUCUNE COUPURE HORIZONTALE)
+   ============================================================ */
+.product-card-title {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.35 !important;
+  height: 2.7em !important;
+  word-break: break-word;
+}
+
