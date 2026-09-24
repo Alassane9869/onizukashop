@@ -1,0 +1,375 @@
+{% extends "backoffice/base.html" %}
+{% load humanize %}
+
+{% block title %}Catalogue & Prix - Direction Onizouka ERP{% endblock %}
+
+{% block content %}
+<div class="space-y-3.5" x-data="{ showImportModal: false }">
+
+    <!-- HEADER DE PAGE COMPACT -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+        <div>
+            <h1 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight font-heading">
+                Catalogue & Prix des Produits
+            </h1>
+            <p class="text-xs text-slate-500 mt-0.5">
+                Tarification officielle en FCFA, gestion des stocks et visibilité en vitrine
+            </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs text-slate-500 font-mono hidden md:inline-block mr-1">
+                {% if search_query or selected_category or selected_brand or selected_stock %}
+                    <strong class="text-slate-800">{{ total_filtered_count }}</strong> / {{ total_products_count }} réf.
+                {% else %}
+                    <strong class="text-slate-800">{{ total_products_count }}</strong> références
+                {% endif %}
+            </span>
+            
+            <!-- Export CSV -->
+            <a href="{% url 'backoffice:export_products_csv' %}" class="inline-flex items-center gap-1.5 px-3 py-2 bg-white/85 backdrop-blur-md hover:bg-white text-slate-700 border border-slate-200/80 text-xs font-bold rounded-xl shadow-xs transition active:scale-95" title="Télécharger tout le catalogue en CSV / Excel">
+                <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                <span>Exporter CSV</span>
+            </a>
+
+            <!-- Import CSV -->
+            <button @click="showImportModal = true" type="button" class="inline-flex items-center gap-1.5 px-3 py-2 bg-amber-500/15 backdrop-blur-md hover:bg-amber-500/25 text-amber-900 border border-amber-300 text-xs font-bold rounded-xl shadow-xs transition active:scale-95 cursor-pointer">
+                <svg class="w-3.5 h-3.5 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                </svg>
+                <span>Importer CSV</span>
+            </button>
+
+            <!-- Ajouter un produit -->
+            <a href="{% url 'backoffice:product_create' %}" class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-bold rounded-xl shadow-xs transition active:scale-95">
+                <svg class="w-3.5 h-3.5 text-slate-950 stroke-[2.2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                <span>Ajouter un produit</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- BARRE DE RECHERCHE ET FILTRES EFFET GLACE -->
+    <div class="bg-white/90 backdrop-blur-xl p-3 sm:p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+        <form method="GET" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2 text-xs">
+            <!-- Recherche textuelle -->
+            <div class="lg:col-span-2 relative">
+                <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" name="q" value="{{ search_query }}" 
+                       placeholder="Nom, SKU (ONZ-...) ou marque..."
+                       class="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 outline-none text-xs bg-white transition shadow-2xs">
+            </div>
+
+            <!-- Filtre Catégorie -->
+            <div>
+                <select name="category" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-400 outline-none text-xs bg-white shadow-2xs">
+                    <option value="">Toutes catégories</option>
+                    {% for cat in categories %}
+                    <option value="{{ cat.slug }}" {% if selected_category == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Filtre Marque -->
+            <div>
+                <select name="brand" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-400 outline-none text-xs bg-white shadow-2xs">
+                    <option value="">Toutes marques</option>
+                    {% for b in brands %}
+                    <option value="{{ b.id }}" {% if selected_brand == b.id|stringformat:"s" %}selected{% endif %}>{{ b.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Filtre Stock -->
+            <div>
+                <select name="stock" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-400 outline-none text-xs bg-white shadow-2xs">
+                    <option value="" {% if not selected_stock %}selected{% endif %}>Tous les stocks</option>
+                    <option value="low" {% if selected_stock == 'low' %}selected{% endif %}>Stock faible</option>
+                    <option value="out" {% if selected_stock == 'out' %}selected{% endif %}>En rupture</option>
+                </select>
+            </div>
+
+            <!-- Boutons Actions -->
+            <div class="flex items-center gap-1.5">
+                <button type="submit" class="flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-bold rounded-xl transition active:scale-95 shadow-xs cursor-pointer text-center">
+                    Filtrer
+                </button>
+                {% if search_query or selected_category or selected_brand or selected_stock %}
+                <a href="{% url 'backoffice:products' %}" class="px-3 py-2 bg-white hover:bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl border border-slate-200 transition flex items-center justify-center" title="Effacer les filtres">
+                    <svg class="w-3.5 h-3.5 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <!-- TABLEAU DES PRODUITS HAUTE DENSITÉ EFFET GLACE -->
+    <div class="bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        
+        <!-- TABLE DESKTOP -->
+        <div class="hidden md:block overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="border-b border-slate-200 bg-slate-50/80 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+                        <th class="py-2.5 px-3">Produit</th>
+                        <th class="py-2.5 px-3">Catégorie</th>
+                        <th class="py-2.5 px-3">Marque</th>
+                        <th class="py-2.5 px-3">Prix de Vente</th>
+                        <th class="py-2.5 px-3">Stock Dispo</th>
+                        <th class="py-2.5 px-3">Visibilité</th>
+                        <th class="py-2.5 px-3 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for product in products %}
+                    <tr class="hover:bg-slate-50/70 transition">
+                        <td class="py-2 px-3">
+                            <div class="flex items-center gap-2.5">
+                                {% with primary=product.images.all|first %}
+                                {% if primary %}
+                                <img src="{{ primary.image.url }}" 
+                                     alt="{{ product.name }}" 
+                                     class="w-9 h-9 object-contain rounded border border-slate-200 flex-shrink-0 bg-white p-0.5">
+                                {% else %}
+                                <div class="w-9 h-9 rounded bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                                </div>
+                                {% endif %}
+                                {% endwith %}
+                                <div class="min-w-0">
+                                    <a href="{% url 'backoffice:product_edit' product.id %}" class="font-medium text-slate-900 truncate max-w-xs block hover:text-amber-600 transition" title="{{ product.name }}">
+                                        {{ product.name }}
+                                    </a>
+                                    <div class="text-[10px] text-slate-400 font-mono">SKU: {{ product.sku }}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-2 px-3 text-[11px] text-slate-600">
+                            {{ product.category.name }}
+                        </td>
+                        <td class="py-2 px-3 text-[11px] font-medium text-slate-700">
+                            {{ product.brand.name|default:"-" }}
+                        </td>
+                        <td class="py-2 px-3 whitespace-nowrap tabular-nums">
+                            <span class="font-semibold text-slate-900">
+                                {{ product.current_price|floatformat:0|intcomma }}
+                            </span>
+                            <span class="text-[10px] text-slate-400">FCFA</span>
+                            {% if product.sale_price %}
+                            <span class="text-[10px] text-slate-400 line-through block">
+                                {{ product.price|floatformat:0|intcomma }}
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td class="py-2 px-3 whitespace-nowrap font-mono text-[11px]">
+                            {% if product.stock == 0 %}
+                            <span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-semibold bg-rose-50 text-rose-700 border border-rose-200">
+                                0 (Rupture)
+                            </span>
+                            {% elif product.stock <= product.min_stock %}
+                            <span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+                                {{ product.stock }} (Stock bas)
+                            </span>
+                            {% else %}
+                            <span class="text-slate-700 font-medium">
+                                {{ product.stock }} unités
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td class="py-2 px-3 whitespace-nowrap">
+                            {% include "backoffice/partials/product_active_toggle.html" with product=product %}
+                        </td>
+                        <td class="py-2 px-3 text-right whitespace-nowrap space-x-1">
+                            <a href="{% url 'backoffice:product_edit' product.id %}" class="px-2 py-1 rounded text-[11px] font-medium text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 transition inline-block shadow-2xs">
+                                Modifier
+                            </a>
+                            <a href="{% url 'shop:product' product.slug %}" target="_blank" title="Voir en boutique" class="px-1.5 py-1 rounded text-[11px] text-slate-400 hover:text-slate-700 border border-transparent hover:border-slate-200 transition inline-block">
+                                ↗
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="py-10 text-center text-xs text-slate-400">
+                            Aucun produit ne correspond à vos critères de recherche.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- LISTE MOBILE EFFET GLACE -->
+        <div class="md:hidden divide-y divide-slate-100 text-xs">
+            {% for product in products %}
+            <div class="p-3.5 space-y-2 hover:bg-amber-50/20 transition">
+                <div class="flex items-center justify-between gap-2">
+                    <span class="font-bold text-slate-900 truncate flex-1">{{ product.name }}</span>
+                    <span class="font-mono text-slate-900 font-bold whitespace-nowrap">{{ product.current_price|floatformat:0|intcomma }} FCFA</span>
+                </div>
+                <div class="flex items-center justify-between text-[11px] text-slate-500">
+                    <span class="truncate max-w-[180px]">{{ product.category.name }} · {{ product.brand.name }}</span>
+                    <span class="font-semibold {% if product.stock == 0 %}text-rose-600{% elif product.stock <= product.min_stock %}text-amber-600{% else %}text-emerald-700{% endif %}">
+                        Stock: {{ product.stock }}
+                    </span>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                    <span class="font-mono text-[10px] text-slate-400">SKU: {{ product.sku }}</span>
+                    <a href="{% url 'backoffice:product_edit' product.id %}" class="px-3 py-1 rounded-lg text-[11px] font-bold bg-amber-500/15 text-amber-900 border border-amber-300 transition active:scale-95">
+                        Modifier
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- PAGINATION DENSE EFFET GLACE -->
+        {% if products.has_other_pages %}
+        <div class="px-4 py-3 border-t border-slate-200/80 bg-slate-50/60 flex items-center justify-between text-xs text-slate-500">
+            <div>
+                Page {{ products.number }} sur {{ products.paginator.num_pages }}
+            </div>
+            <div class="flex items-center gap-1.5">
+                {% if products.has_previous %}
+                <a href="?page={{ products.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_brand %}&brand={{ selected_brand }}{% endif %}{% if selected_stock %}&stock={{ selected_stock }}{% endif %}" class="px-3 py-1 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 font-medium">Précédent</a>
+                {% endif %}
+                {% if products.has_next %}
+                <a href="?page={{ products.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_brand %}&brand={{ selected_brand }}{% endif %}{% if selected_stock %}&stock={{ selected_stock }}{% endif %}" class="px-3 py-1 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 font-medium">Suivant</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <!-- MODAL IMPORT PRODUITS CSV -->
+    <div x-show="showImportModal" 
+         x-cloak
+         class="fixed inset-0 z-50 overflow-y-auto" 
+         aria-labelledby="modal-title" 
+         role="dialog" 
+         aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Backdrop -->
+            <div x-show="showImportModal"
+                 x-transition:enter="ease-out duration-300"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
+                 x-transition:leave="ease-in duration-200"
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0"
+                 class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity" 
+                 @click="showImportModal = false"
+                 aria-hidden="true"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Modal Panel -->
+            <div x-show="showImportModal"
+                 x-transition:enter="ease-out duration-300"
+                 x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                 x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                 x-transition:leave="ease-in duration-200"
+                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                 class="inline-block align-bottom bg-white rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-slate-200">
+                
+                <form action="{% url 'backoffice:import_products_csv' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="bg-white px-5 pt-5 pb-4">
+                        <div class="flex items-start justify-between pb-3 border-b border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 font-heading">
+                                        Import en Masse de Produits
+                                    </h3>
+                                    <p class="text-xs text-slate-500">
+                                        Fichier CSV ou feuille de calcul Excel
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="button" @click="showImportModal = false" class="text-slate-400 hover:text-slate-600 transition">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Guide et téléchargement modèle -->
+                        <div class="mt-4 space-y-3">
+                            <div class="p-3 bg-amber-50/60 rounded-lg border border-amber-200 text-xs text-amber-900 space-y-1.5">
+                                <p class="font-semibold text-amber-950 flex items-center gap-1.5">
+                                    <svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                                    </svg>
+                                    <span>Instructions d'importation :</span>
+                                </p>
+                                <ul class="list-disc pl-5 space-y-1 text-slate-700 text-[11px]">
+                                    <li><strong>Mise à jour automatique :</strong> Si la référence <code>SKU</code> existe déjà, ses prix et stocks sont mis à jour. Sinon, le produit est créé.</li>
+                                    <li><strong>Catégories & Marques :</strong> Sont créées automatiquement si elles ne figurent pas encore dans le système.</li>
+                                    <li><strong>Prix FCFA :</strong> Indiquez des chiffres entiers sans virgule (ex: <code>450000</code>).</li>
+                                </ul>
+                                <div class="pt-1">
+                                    <a href="{% url 'backoffice:product_template_csv' %}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-800 hover:text-amber-950 underline underline-offset-2">
+                                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                        </svg>
+                                        <span>Télécharger le modèle CSV officiel prêt à l'emploi</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Sélecteur de fichier -->
+                            <div>
+                                <label class="block text-xs font-medium text-slate-700 mb-1.5">
+                                    Sélectionnez votre fichier CSV (.csv)
+                                </label>
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-slate-300 border-dashed rounded-lg hover:border-amber-400 transition bg-slate-50/50">
+                                    <div class="space-y-1 text-center">
+                                        <svg class="mx-auto h-8 w-8 text-slate-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="text-xs text-slate-600">
+                                            <label for="csv_file" class="relative cursor-pointer font-medium text-amber-700 hover:text-amber-800">
+                                                <span>Choisir un fichier</span>
+                                                <input id="csv_file" name="csv_file" type="file" accept=".csv,text/csv" required class="sr-only" @change="$el.closest('form').querySelector('#file-chosen-name').textContent = $el.files[0]?.name || ''">
+                                            </label>
+                                            <span class="pl-1">depuis votre ordinateur</span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-400">CSV délimité par point-virgule ou virgule (UTF-8)</p>
+                                        <p id="file-chosen-name" class="text-xs font-semibold text-slate-800 mt-2 min-h-[16px]"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 px-5 py-3 border-t border-slate-100 flex items-center justify-end gap-2.5">
+                        <button type="button" @click="showImportModal = false" class="px-3.5 py-1.5 rounded-md border border-slate-300 text-xs font-medium text-slate-700 hover:bg-slate-100 transition">
+                            Annuler
+                        </button>
+                        <button type="submit" class="px-4 py-1.5 rounded-md bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold shadow-xs transition inline-flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg>
+                            <span>Lancer l'importation</span>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

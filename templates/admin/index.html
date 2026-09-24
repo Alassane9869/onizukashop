@@ -1,0 +1,90 @@
+{% extends 'admin/base.html' %}
+{% load i18n static humanize %}
+
+{% block title %}Django Root IT | {{ site_title|default:'Onizouka Shop' }}{% endblock %}
+
+{% block branding %}
+    {% include "unfold/helpers/site_branding.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="space-y-6 font-sans pb-16">
+
+    <!-- 1. Bannière Développeur Root IT -->
+    <div class="border border-base-200 dark:border-base-800 bg-white dark:bg-base-900 rounded-xl p-4 sm:p-5 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                        <span>Console Technique Superuser IT</span>
+                    </span>
+                    <span class="text-xs text-base-500 font-mono font-bold">{{ request.user.username }}</span>
+                </div>
+                <h1 class="text-xl sm:text-2xl font-black text-base-900 dark:text-base-100 tracking-tight">
+                    Administration Django Root
+                </h1>
+                <p class="text-xs text-base-500 mt-0.5">
+                    Contrôle technique direct de la base de données, des modèles et des tables du système.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="/gestion/" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white text-xs font-bold transition shadow-sm">
+                    <span class="material-symbols-outlined text-sm">dashboard</span>
+                    <span>Portail Direction (/gestion/)</span>
+                </a>
+                <a href="/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-base-300 dark:border-base-700 hover:bg-base-100 dark:hover:bg-base-800 text-base-700 dark:text-base-300 text-xs font-bold transition">
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    <span>Boutique</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Indicateurs Clés Principaux -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div class="border border-base-200 dark:border-base-800 bg-white dark:bg-base-900 rounded-xl p-4 shadow-sm flex flex-col justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-base-500">CA Payé</span>
+            <div class="my-2">
+                <span class="text-lg sm:text-2xl font-black text-primary-600 font-mono">{{ kpi_total_revenue|default:"0 FCFA" }}</span>
+            </div>
+            <span class="text-[11px] text-emerald-600 font-bold">{{ kpi_delivered_orders|default:"0" }} commandes livrées</span>
+        </div>
+
+        <div class="border border-base-200 dark:border-base-800 bg-white dark:bg-base-900 rounded-xl p-4 shadow-sm flex flex-col justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-base-500">Commandes en attente</span>
+            <div class="my-2">
+                <span class="text-lg sm:text-2xl font-black text-amber-600 font-mono">{{ kpi_pending_orders|default:"0" }}</span>
+            </div>
+            <a href="/admin/orders/order/?status__exact=pending" class="text-[11px] text-primary-600 hover:underline font-bold">À expédier Bamako →</a>
+        </div>
+
+        <div class="border border-base-200 dark:border-base-800 bg-white dark:bg-base-900 rounded-xl p-4 shadow-sm flex flex-col justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-base-500">Alertes Stock (≤ 5)</span>
+            <div class="my-2">
+                <span class="text-lg sm:text-2xl font-black text-rose-600 font-mono">{{ kpi_low_stock_count|default:"0" }}</span>
+            </div>
+            <a href="/admin/shop/product/?stock__lte=5" class="text-[11px] text-rose-600 hover:underline font-bold">Gérer le stock →</a>
+        </div>
+
+        <div class="border border-base-200 dark:border-base-800 bg-white dark:bg-base-900 rounded-xl p-4 shadow-sm flex flex-col justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-base-500">Catalogue Produits</span>
+            <div class="my-2">
+                <span class="text-lg sm:text-2xl font-black text-base-900 dark:text-base-100 font-mono">{{ kpi_total_products|default:"0" }}</span>
+            </div>
+            <a href="/admin/shop/product/" class="text-[11px] text-primary-600 hover:underline font-bold">Catalogue complet →</a>
+        </div>
+    </div>
+
+    <!-- 3. Modèles & Tables de la Base de Données (App List Unfold Authentique) -->
+    <div class="flex flex-col lg:flex-row lg:gap-8">
+        <div class="grow">
+            {% include "unfold/helpers/app_list_default.html" %}
+        </div>
+
+        {% include "unfold/helpers/history.html" %}
+    </div>
+
+</div>
+{% endblock %}

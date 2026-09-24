@@ -1,0 +1,6 @@
+{# Partial HTMX : bouton toggle actif/inactif — rendu par product_toggle_active_htmx #}
+<button hx-post="{% url 'backoffice:product_toggle_active' product.id %}"
+        hx-swap="outerHTML"
+        class="px-2.5 py-1 text-xs font-semibold rounded-full border transition cursor-pointer {% if product.is_active %}bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100{% else %}bg-slate-100 text-slate-500 border-slate-200 hover:bg-slate-200{% endif %}">
+    {% if product.is_active %}Actif{% else %}Inactif{% endif %}
+</button>

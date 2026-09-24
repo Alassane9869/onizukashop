@@ -1,0 +1,457 @@
+{% extends "backoffice/base.html" %}
+
+{% block title %}Utilisateurs & Équipe - Direction Onizouka ERP{% endblock %}
+
+{% block content %}
+<div class="space-y-3.5" x-data="{ 
+    createModalOpen: false, 
+    editModalOpen: false, 
+    editUser: { id: '', username: '', first_name: '', last_name: '', email: '', phone: '', role: 'client' },
+    openEditModal(id, username, first_name, last_name, email, phone, role) {
+        this.editUser = { id: id, username: username, first_name: first_name, last_name: last_name, email: email, phone: phone, role: role };
+        this.editModalOpen = true;
+    }
+}">
+
+    <!-- EN-TÊTE DE PAGE COMPACT & LUMINEUX APPLE -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200/80">
+        <div>
+            <div class="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
+                <a href="{% url 'backoffice:dashboard' %}" class="hover:text-slate-800">Tableau de bord</a>
+                <span>/</span>
+                <span class="text-slate-800 font-medium">Équipe & Utilisateurs</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <h1 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight font-heading">
+                    Équipe & Accès Système
+                </h1>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300 tabular-nums">
+                    {{ total_count }} compte{{ total_count|pluralize }}
+                </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">
+                Comptes administrateurs, gestionnaires et clients enregistrés · Bamako
+            </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <button 
+                type="button" 
+                @click="createModalOpen = true"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-bold rounded-xl shadow-xs transition active:scale-95 cursor-pointer"
+            >
+                <svg class="w-4 h-4 text-slate-950 stroke-[2.2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                <span>Nouveau compte</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ONGLETS PAR RÔLE & RECHERCHE EFFET GLACE SANS STYLE SOMBRE -->
+    <div class="bg-white/90 backdrop-blur-xl p-3 sm:p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        
+        <!-- Tabs par rôle -->
+        <div class="flex items-center gap-1.5 text-xs overflow-x-auto no-scrollbar">
+            <a href="?role=all{% if search_query %}&q={{ search_query }}{% endif %}" 
+               class="px-3.5 py-2 rounded-xl font-bold whitespace-nowrap transition active:scale-95 {% if role_filter == 'all' %}bg-amber-500 text-slate-950 shadow-xs{% else %}bg-white/80 border border-slate-200/80 text-slate-600 hover:bg-white hover:text-slate-900{% endif %}">
+                Tous ({{ total_count }})
+            </a>
+            <a href="?role=staff{% if search_query %}&q={{ search_query }}{% endif %}" 
+               class="px-3.5 py-2 rounded-xl font-bold whitespace-nowrap transition flex items-center gap-1.5 active:scale-95 {% if role_filter == 'staff' %}bg-amber-500 text-slate-950 shadow-xs{% else %}bg-white/80 border border-slate-200/80 text-slate-600 hover:bg-white hover:text-slate-900{% endif %}">
+                <span>Direction & Équipe</span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold border border-amber-200/60 tabular-nums">{{ staff_count }}</span>
+            </a>
+            <a href="?role=clients{% if search_query %}&q={{ search_query }}{% endif %}" 
+               class="px-3.5 py-2 rounded-xl font-bold whitespace-nowrap transition flex items-center gap-1.5 active:scale-95 {% if role_filter == 'clients' %}bg-amber-500 text-slate-950 shadow-xs{% else %}bg-white/80 border border-slate-200/80 text-slate-600 hover:bg-white hover:text-slate-900{% endif %}">
+                <span>Clients</span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold border border-slate-200 tabular-nums">{{ clients_count }}</span>
+            </a>
+        </div>
+
+        <!-- Recherche -->
+        <form method="GET" class="flex gap-2 text-xs">
+            {% if role_filter != 'all' %}<input type="hidden" name="role" value="{{ role_filter }}">{% endif %}
+            <div class="relative flex-1 sm:w-60">
+                <svg class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" name="q" value="{{ search_query }}" placeholder="Rechercher par nom, email..." 
+                       class="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-1 focus:ring-amber-400 focus:border-amber-400 outline-none bg-white transition shadow-2xs">
+            </div>
+            <button type="submit" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-bold rounded-xl transition active:scale-95 shadow-xs cursor-pointer">
+                Filtrer
+            </button>
+        </form>
+    </div>
+
+    <!-- LISTE DES UTILISATEURS EFFET GLACE & ULTRA-RESPONSIVE -->
+    <div class="bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        
+        <!-- 1. VUE MOBILE CARTOUCHES APPLE (PAS DE DÉBORDEMENT) -->
+        <div class="block md:hidden divide-y divide-slate-100 p-2 space-y-2">
+            {% for u in users %}
+            <div class="p-3 bg-white/95 rounded-xl border border-slate-200/70 shadow-2xs space-y-2.5">
+                <div class="flex items-start justify-between gap-2.5">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center shrink-0 {% if u.is_superuser %}bg-amber-500 text-slate-950 shadow-2xs{% elif u.is_staff %}bg-amber-100 text-amber-900 border border-amber-300{% else %}bg-slate-100 text-slate-700 border border-slate-200{% endif %}">
+                            {{ u.username|slice:":2"|upper }}
+                        </div>
+                        <div class="min-w-0">
+                            <div class="font-bold text-slate-900 text-xs truncate">
+                                {{ u.get_full_name|default:u.username }}
+                            </div>
+                            <div class="text-[10px] text-slate-400 font-mono mt-0.5">
+                                @{{ u.username }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Badge Rôle -->
+                    <div>
+                        {% if u.is_superuser %}
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                            Superadmin IT
+                        </span>
+                        {% elif u.is_staff %}
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200">
+                            Gestionnaire
+                        </span>
+                        {% else %}
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-100 text-slate-700">
+                            Client
+                        </span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Contact & Statut -->
+                <div class="text-[11px] text-slate-500 flex items-center justify-between">
+                    <span class="truncate">{{ u.email|default:"Sans email" }}</span>
+                    {% if u.is_active %}
+                    <span class="inline-flex items-center gap-1 font-bold text-emerald-700">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Actif
+                    </span>
+                    {% else %}
+                    <span class="inline-flex items-center gap-1 font-bold text-rose-600">
+                        <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>Suspendu
+                    </span>
+                    {% endif %}
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center justify-end gap-1.5 pt-2 border-t border-slate-100/80">
+                    {% if not u.is_staff and not u.is_superuser %}
+                    <a href="{% url 'backoffice:client_detail' u.id %}" 
+                       class="px-2.5 py-1 rounded-xl text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 transition">
+                        Fiche Client →
+                    </a>
+                    {% endif %}
+
+                    {% if request.user.is_superuser or not u.is_superuser %}
+                    <button type="button" 
+                            @click="openEditModal('{{ u.id }}', '{{ u.username|escapejs }}', '{{ u.first_name|escapejs }}', '{{ u.last_name|escapejs }}', '{{ u.email|escapejs }}', '{{ u.profile.phone|default:''|escapejs }}', '{% if u.is_superuser %}direction{% elif u.is_staff %}gestionnaire{% else %}client{% endif %}')"
+                            class="px-2.5 py-1 rounded-xl text-xs font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 border border-amber-300 transition active:scale-95 cursor-pointer">
+                        Modifier rôle
+                    </button>
+                    {% endif %}
+
+                    {% if u.id != request.user.id %}
+                    <form method="POST" action="{% url 'backoffice:user_toggle_status' u.id %}" class="inline">
+                        {% csrf_token %}
+                        <button type="submit" 
+                                onclick="return confirm('Confirmer le changement de statut ?')"
+                                class="px-2.5 py-1 rounded-xl text-xs font-bold transition active:scale-95 cursor-pointer {% if u.is_active %}border border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100{% else %}border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100{% endif %}">
+                            {% if u.is_active %}Suspendre{% else %}Activer{% endif %}
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <div class="py-8 text-center text-slate-400 text-xs">Aucun utilisateur trouvé.</div>
+            {% endfor %}
+        </div>
+
+        <!-- 2. VUE TABLETTE & DESKTOP TABLEAU -->
+        <div class="hidden md:block overflow-x-auto no-scrollbar">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-slate-50/80 border-b border-slate-200/80 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                        <th class="py-2.5 px-3.5">Utilisateur</th>
+                        <th class="py-2.5 px-3.5">Rôle & Permissions</th>
+                        <th class="py-2.5 px-3.5">Contact</th>
+                        <th class="py-2.5 px-3.5">Statut Accès</th>
+                        <th class="py-2.5 px-3.5 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for u in users %}
+                    <tr class="hover:bg-amber-50/30 transition">
+                        
+                        <!-- Utilisateur -->
+                        <td class="py-2 px-3.5">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl flex items-center justify-center font-bold text-[10px] shrink-0 {% if u.is_superuser %}bg-amber-500 text-slate-950 font-black shadow-2xs{% elif u.is_staff %}bg-amber-100 text-amber-900 border border-amber-300{% else %}bg-slate-100 text-slate-700 border border-slate-200{% endif %}">
+                                    {{ u.username|slice:":2"|upper }}
+                                </div>
+                                <div>
+                                    <div class="font-bold text-slate-900">
+                                        {{ u.get_full_name|default:u.username }}
+                                    </div>
+                                    <div class="text-[10px] text-slate-400 font-mono">@{{ u.username }} &bull; Inscrit le {{ u.date_joined|date:"d/m/Y" }}</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <!-- Rôle -->
+                        <td class="py-2 px-3.5 whitespace-nowrap">
+                            {% if u.is_superuser %}
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                Superadmin IT
+                            </span>
+                            {% elif u.is_staff %}
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                Direction & Gestion
+                            </span>
+                            {% else %}
+                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-100 text-slate-700 border border-slate-200">
+                                Client Acheteur
+                            </span>
+                            {% endif %}
+                        </td>
+
+                        <!-- Contact -->
+                        <td class="py-2 px-3.5 text-slate-600">
+                            <div>{{ u.email|default:"-" }}</div>
+                            {% if u.profile.phone %}
+                            <div class="font-mono text-[11px] text-slate-700 font-semibold">{{ u.profile.phone }}</div>
+                            {% endif %}
+                        </td>
+
+                        <!-- Statut -->
+                        <td class="py-2 px-3.5 whitespace-nowrap">
+                            {% if u.is_active %}
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Actif
+                            </span>
+                            {% else %}
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-rose-600">
+                                <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                                Suspendu
+                            </span>
+                            {% endif %}
+                        </td>
+
+                        <!-- Actions -->
+                        <td class="py-2 px-3.5 text-right whitespace-nowrap">
+                            <div class="flex items-center justify-end gap-1.5">
+                                {% if not u.is_staff and not u.is_superuser %}
+                                <a href="{% url 'backoffice:client_detail' u.id %}" 
+                                   class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold bg-amber-500/15 hover:bg-amber-500 text-amber-900 hover:text-slate-950 border border-amber-300 transition active:scale-95 shadow-2xs">
+                                    Fiche →
+                                </a>
+                                {% endif %}
+
+                                {% if request.user.is_superuser or not u.is_superuser %}
+                                <button type="button"
+                                        @click="openEditModal('{{ u.id }}', '{{ u.username|escapejs }}', '{{ u.first_name|escapejs }}', '{{ u.last_name|escapejs }}', '{{ u.email|escapejs }}', '{{ u.profile.phone|default:''|escapejs }}', '{% if u.is_superuser %}direction{% elif u.is_staff %}gestionnaire{% else %}client{% endif %}')"
+                                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 hover:bg-amber-50/50 transition active:scale-95 shadow-2xs cursor-pointer"
+                                        title="Modifier le rôle et accès">
+                                    <svg class="w-3 h-3 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                    <span>Rôle</span>
+                                </button>
+                                {% endif %}
+
+                                {% if u.id != request.user.id %}
+                                <form method="POST" action="{% url 'backoffice:user_toggle_status' u.id %}" class="inline">
+                                    {% csrf_token %}
+                                    <button type="submit" 
+                                            onclick="return confirm('Confirmer le changement de statut pour cet utilisateur ?')"
+                                            class="inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-bold transition active:scale-95 cursor-pointer {% if u.is_active %}border border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100{% else %}border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100{% endif %}">
+                                        {% if u.is_active %}Suspendre{% else %}Activer{% endif %}
+                                    </button>
+                                </form>
+                                {% endif %}
+                            </div>
+                        </td>
+
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="py-8 text-center text-slate-400 text-xs">
+                            Aucun utilisateur ne correspond à ce filtre.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PAGINATION EFFET GLACE -->
+        {% if users.has_other_pages %}
+        <div class="px-4 py-3 border-t border-slate-200/80 bg-slate-50/60 flex items-center justify-between text-xs text-slate-500">
+            <div>Page {{ users.number }} sur {{ users.paginator.num_pages }}</div>
+            <div class="flex items-center gap-1.5">
+                {% if users.has_previous %}
+                <a href="?page={{ users.previous_page_number }}&role={{ role_filter }}&q={{ search_query }}" class="px-3 py-1 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 font-medium">Précédent</a>
+                {% endif %}
+                {% if users.has_next %}
+                <a href="?page={{ users.next_page_number }}&role={{ role_filter }}&q={{ search_query }}" class="px-3 py-1 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 font-medium">Suivant</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <!-- MODAL DE CRÉATION D'UTILISATEUR EFFET GLACE APPLE -->
+    <div 
+        x-show="createModalOpen" 
+        x-cloak 
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md"
+        @keydown.escape.window="createModalOpen = false"
+    >
+        <div 
+            class="bg-white/95 backdrop-blur-2xl rounded-2xl border border-slate-200/80 shadow-2xl max-w-lg w-full p-5 space-y-4"
+            @click.away="createModalOpen = false"
+        >
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <h3 class="text-sm font-bold text-slate-900 font-heading">Créer un Nouveau Compte</h3>
+                </div>
+                <button type="button" @click="createModalOpen = false" class="text-slate-400 hover:text-slate-700 p-1.5 rounded-full hover:bg-slate-100 transition">✕</button>
+            </div>
+
+            <form method="POST" action="{% url 'backoffice:user_create' %}" class="space-y-3 text-xs">
+                {% csrf_token %}
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1 text-[11px]">Prénom</label>
+                        {{ create_form.first_name }}
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1 text-[11px]">Nom de famille</label>
+                        {{ create_form.last_name }}
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1 text-[11px]">Identifiant de connexion <span class="text-rose-500">*</span></label>
+                        {{ create_form.username }}
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1 text-[11px]">Téléphone Mali</label>
+                        {{ create_form.phone }}
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1 text-[11px]">Adresse Email <span class="text-rose-500">*</span></label>
+                    {{ create_form.email }}
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1 text-[11px]">Niveau d'accès & Rôle <span class="text-rose-500">*</span></label>
+                    {{ create_form.role }}
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1 text-[11px]">Mot de passe temporaire <span class="text-rose-500">*</span></label>
+                    {{ create_form.password }}
+                </div>
+
+                <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+                    <button type="button" @click="createModalOpen = false" class="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition">
+                        Annuler
+                    </button>
+                    <button type="submit" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-bold rounded-xl transition active:scale-95 shadow-xs cursor-pointer">
+                        Créer le compte
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE MODIFICATION DU RÔLE UTILISATEUR EFFET GLACE APPLE -->
+    <div 
+        x-show="editModalOpen" 
+        x-cloak 
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md"
+        @keydown.escape.window="editModalOpen = false"
+    >
+        <div 
+            class="bg-white/95 backdrop-blur-2xl rounded-2xl border border-slate-200/80 shadow-2xl max-w-lg w-full p-5 space-y-4"
+            @click.away="editModalOpen = false"
+        >
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <h3 class="text-sm font-bold text-slate-900 font-heading">
+                        Modifier le Rôle & Accès de <span class="text-amber-600 font-mono" x-text="'@' + editUser.username"></span>
+                    </h3>
+                </div>
+                <button type="button" @click="editModalOpen = false" class="text-slate-400 hover:text-slate-700 p-1.5 rounded-full hover:bg-slate-100 transition cursor-pointer">✕</button>
+            </div>
+
+            <form method="POST" :action="'/gestion/utilisateurs/' + editUser.id + '/modifier-role/'" class="space-y-3 text-xs">
+                {% csrf_token %}
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1 text-[11px]">Prénom</label>
+                        <input type="text" name="first_name" x-model="editUser.first_name" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1 text-[11px]">Nom de famille</label>
+                        <input type="text" name="last_name" x-model="editUser.last_name" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1 text-[11px]">Adresse Email <span class="text-rose-500">*</span></label>
+                        <input type="email" name="email" required x-model="editUser.email" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1 text-[11px]">Téléphone Mali</label>
+                        <input type="text" name="phone" x-model="editUser.phone" placeholder="+223 ..." class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs font-mono">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1 text-[11px]">Rôle & Niveau d'Accès <span class="text-rose-500">*</span></label>
+                    <select name="role" x-model="editUser.role" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs bg-white font-medium">
+                        <option value="client">Client Acheteur Standard (Accès Boutique uniquement)</option>
+                        <option value="gestionnaire">Gestionnaire Direction (Accès Backoffice ERP /gestion/)</option>
+                        {% if request.user.is_superuser %}
+                        <option value="direction">Super-Administrateur Technique IT (Contrôle Total)</option>
+                        {% endif %}
+                    </select>
+                    <p class="text-[10px] text-slate-400 mt-1">
+                        Un « Gestionnaire Direction » a accès au tableau de bord, aux commandes, stocks, clients et prix.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+                    <button type="button" @click="editModalOpen = false" class="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition cursor-pointer">
+                        Annuler
+                    </button>
+                    <button type="submit" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-bold rounded-xl transition active:scale-95 shadow-xs cursor-pointer">
+                        Enregistrer le rôle
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

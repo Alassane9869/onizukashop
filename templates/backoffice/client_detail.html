@@ -1,0 +1,173 @@
+{% extends "backoffice/base.html" %}
+{% load humanize %}
+
+{% block title %}{{ client.get_full_name|default:client.username }} - Fiche Client Onizouka ERP{% endblock %}
+
+{% block content %}
+<div class="space-y-3.5">
+
+    <!-- BREADCRUMB & ENTÊTE LUMINEUX APPLE -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200/80">
+        <div>
+            <div class="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
+                <a href="{% url 'backoffice:dashboard' %}" class="hover:text-slate-800">Tableau de bord</a>
+                <span>/</span>
+                <a href="{% url 'backoffice:clients' %}" class="hover:text-slate-800">Clients</a>
+                <span>/</span>
+                <span class="text-slate-800 font-medium font-mono">{{ client.username }}</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-900 border border-amber-300 font-bold flex items-center justify-center text-sm shadow-xs">
+                    {{ client.username|slice:":2"|upper }}
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight font-heading leading-tight">
+                        {{ client.get_full_name|default:client.username }}
+                    </h1>
+                    <p class="text-xs text-slate-500 mt-0.5">
+                        Inscrit le {{ client.date_joined|date:"d/m/Y" }} &bull; Identifiant : <span class="font-mono text-slate-700 font-medium">@{{ client.username }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <a href="{% url 'backoffice:clients' %}" class="inline-flex items-center px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200/80 text-slate-700 text-xs font-semibold rounded-xl transition shadow-2xs">
+                ← Retour au répertoire
+            </a>
+        </div>
+    </div>
+
+    <!-- 2 CARTES STATISTIQUES CLIENT EFFET GLACE -->
+    <div class="grid grid-cols-2 gap-2 sm:gap-3.5">
+        <div class="bg-white/85 backdrop-blur-xl p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+            <div class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Encaissé</div>
+            <div class="text-lg sm:text-2xl font-black text-slate-900 mt-1 tabular-nums font-heading">
+                {{ total_spent|floatformat:0|intcomma }} <span class="text-xs font-normal text-slate-500">FCFA</span>
+            </div>
+            <div class="text-[10px] text-slate-400 mt-0.5 hidden sm:block">volume d'achats cumulé</div>
+        </div>
+
+        <div class="bg-white/85 backdrop-blur-xl p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+            <div class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400">Commandes Traitées</div>
+            <div class="text-lg sm:text-2xl font-black text-slate-900 mt-1 tabular-nums font-heading">
+                {{ orders_count }}
+            </div>
+            <div class="text-[10px] text-slate-400 mt-0.5 hidden sm:block">commandes enregistrées</div>
+        </div>
+    </div>
+
+    <!-- DISPOSITION 2 COLONNES -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3.5">
+
+        <!-- Colonne Gauche (2/3) : Historique des commandes de ce client -->
+        <div class="lg:col-span-2 space-y-3.5">
+            <div class="bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+                <div class="p-3 sm:p-4 border-b border-slate-200/80 bg-slate-50/50 flex items-center justify-between">
+                    <span class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                        Historique des Commandes ({{ orders.count }})
+                    </span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    {% for order in orders %}
+                    <div class="p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 hover:bg-amber-50/20 transition text-xs">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                                <a href="{% url 'backoffice:order_detail' order.id %}" class="font-mono font-bold text-slate-900 hover:text-amber-600 transition">
+                                    #{{ order.order_number }}
+                                </a>
+                                {% include "backoffice/partials/order_status_badge.html" with order=order %}
+                            </div>
+                            <div class="text-[11px] text-slate-500">
+                                {{ order.created_at|date:"d/m/Y à H:i" }} &bull; {{ order.get_payment_method_display }}
+                            </div>
+                            <div class="text-[11px] text-slate-600">
+                                Destination : <strong class="text-slate-800">{{ order.delivery_district|default:"Bamako" }}</strong> &bull; Tél: {{ order.delivery_phone }}
+                            </div>
+                        </div>
+
+                        <div class="flex sm:flex-col items-center sm:items-end justify-between gap-1.5 pt-1 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+                            <div class="font-black text-slate-900 text-sm tabular-nums font-heading">
+                                {{ order.total|floatformat:0|intcomma }} <span class="text-xs font-normal text-slate-400">FCFA</span>
+                            </div>
+                            <a href="{% url 'backoffice:order_detail' order.id %}" 
+                               class="inline-flex items-center px-2.5 py-1 rounded-xl text-[11px] font-bold bg-amber-500/15 hover:bg-amber-500 text-amber-900 hover:text-slate-950 border border-amber-300 transition active:scale-95 shadow-2xs">
+                                Voir commande →
+                            </a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="p-8 text-center text-slate-400 text-xs">
+                        Ce client n'a pas encore passé de commande.
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Colonne Droite (1/3) : Carnet d'adresses Bamako & Contact -->
+        <div class="space-y-3.5">
+
+            <!-- Coordonnées Client -->
+            <div class="bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200/80 shadow-xs p-4 space-y-3">
+                <span class="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    Coordonnées Client
+                </span>
+
+                <div class="text-xs space-y-2.5">
+                    <div>
+                        <span class="text-slate-400 font-bold text-[10px] uppercase block">Email</span>
+                        <div class="font-medium text-slate-800 mt-0.5">{{ client.email|default:"Non renseigné" }}</div>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-bold text-[10px] uppercase block">Téléphone</span>
+                        {% if client.profile.phone %}
+                        <div class="font-mono mt-0.5">
+                            <a href="tel:{{ client.profile.phone }}" class="font-bold text-amber-700 hover:text-amber-800 text-sm">
+                                {{ client.profile.phone }}
+                            </a>
+                        </div>
+                        {% else %}
+                        <div class="text-slate-400 italic mt-0.5">Non renseigné</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adresses à Bamako -->
+            <div class="bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200/80 shadow-xs p-4 space-y-3">
+                <span class="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    Adresses Bamako ({{ addresses.count }})
+                </span>
+
+                <div class="space-y-2">
+                    {% for addr in addresses %}
+                    <div class="p-3 rounded-xl border border-slate-200/80 bg-slate-50/60 text-xs space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-slate-900">{{ addr.full_name }}</span>
+                            {% if addr.is_default %}
+                            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">Défaut</span>
+                            {% endif %}
+                        </div>
+                        <div class="text-slate-600 font-mono text-[11px] font-medium">{{ addr.phone }}</div>
+                        <div class="text-slate-600">{{ addr.district|default:"Bamako" }} - {{ addr.city }}</div>
+                        <div class="text-slate-800 pt-1 border-t border-slate-200/60 text-[11px] leading-relaxed">{{ addr.address_line }}</div>
+                    </div>
+                    {% empty %}
+                    <div class="text-xs text-slate-400 py-2 italic text-center">
+                        Aucune adresse enregistrée dans le profil.
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

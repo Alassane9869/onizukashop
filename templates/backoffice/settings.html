@@ -1,0 +1,249 @@
+{% extends "backoffice/base.html" %}
+
+{% block title %}Paramètres & Entreprise - Direction Onizouka{% endblock %}
+
+{% block content %}
+<div class="space-y-4 max-w-5xl">
+
+    <!-- EN-TÊTE COMPACT EFFET GLACE APPLE -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200/80">
+        <div>
+            <div class="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
+                <a href="{% url 'backoffice:dashboard' %}" class="hover:text-amber-600 transition">Tableau de bord</a>
+                <span>/</span>
+                <span class="text-slate-700 font-medium">Paramètres & Société</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <h1 class="text-base sm:text-xl font-extrabold text-slate-900 tracking-tight font-heading leading-tight">
+                    Paramètres de l'entreprise & boutique
+                </h1>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                    Actif
+                </span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">
+                Identité légale, frais de livraison à Bamako, comptes Orange Money & Wave, seuils de stock.
+            </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <span class="text-[11px] text-slate-400 font-mono">Dernière maj : {{ settings.updated_at|date:"d/m/Y H:i" }}</span>
+        </div>
+    </div>
+
+    <!-- FORMULAIRE DE PARAMÉTRAGE -->
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+
+        {% if form.errors %}
+        <div class="p-3.5 rounded-2xl bg-rose-50/90 border border-rose-200 text-rose-800 text-xs space-y-1 shadow-xs">
+            <div class="font-bold flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span>
+                Veuillez vérifier les informations ci-dessous :
+            </div>
+            {% for field, errors in form.errors.items %}
+                <div class="pl-3"><strong>{{ field }}</strong>: {{ errors|join:", " }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- 1. IDENTITÉ & COORDONNÉES OFFICIELLES (BAMAKO) -->
+        <div class="bg-white/90 backdrop-blur-xl p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3.5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <h2 class="text-sm font-bold text-slate-900 font-heading">
+                        1. Identité légale & Boutique Grand Marché de Bamako
+                    </h2>
+                </div>
+                <span class="text-[11px] font-medium text-slate-400 hidden sm:inline">Mentionné sur factures et reçus</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Nom Commercial de la Boutique
+                    </label>
+                    {{ form.site_name }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Raison Sociale Légale (SARL)
+                    </label>
+                    {{ form.company_name }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Numéro NIF (Fiscalité Mali)
+                    </label>
+                    {{ form.nif }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Numéro RCCM (Registre du Commerce)
+                    </label>
+                    {{ form.rccm }}
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Adresse physique de la boutique centrale (Grand Marché, Bamako)
+                </label>
+                {{ form.address }}
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Téléphone Service Client
+                    </label>
+                    {{ form.phone_contact }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        WhatsApp Commercial
+                    </label>
+                    {{ form.phone_whatsapp }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Email Officiel Client
+                    </label>
+                    {{ form.email_contact }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Email Alertes Direction
+                    </label>
+                    {{ form.email_orders }}
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. PARAMÈTRES COMMERCIAUX & LIVRAISON BAMAKO -->
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                <div class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <h2 class="text-xs font-semibold text-slate-800 uppercase tracking-wider">
+                        2. Tarifs de Livraison & Logistique Bamako
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Frais de livraison forfaitaires (FCFA)
+                    </label>
+                    {{ form.default_delivery_fee }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Seuil livraison gratuite (FCFA)
+                    </label>
+                    {{ form.free_delivery_threshold }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Délai moyen affiché aux clients
+                    </label>
+                    {{ form.delivery_delay_text }}
+                </div>
+            </div>
+
+            <div class="pt-1 text-xs">
+                <label class="flex items-center gap-2 cursor-pointer">
+                    {{ form.store_pickup_active }}
+                    <span class="font-medium text-slate-800">Autoriser le retrait gratuit en magasin (Click & Collect en 15 min au Grand Marché de Bamako)</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- 3. CANAUX DE PAIEMENT SÉCURISÉS (ORANGE MONEY & WAVE) -->
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                <div class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <h2 class="text-xs font-semibold text-slate-800 uppercase tracking-wider">
+                        3. Paramètres des Canaux de Paiement Mobile (Mali)
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Numéro / Code Marchand Orange Money Mali
+                    </label>
+                    {{ form.orange_money_number }}
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Numéro Wave Mobile Money
+                    </label>
+                    {{ form.wave_number }}
+                </div>
+            </div>
+
+            <div class="pt-1 text-xs">
+                <label class="flex items-center gap-2 cursor-pointer">
+                    {{ form.cash_on_delivery_active }}
+                    <span class="font-medium text-slate-800">Activer le paiement en espèces (Cash) à la livraison après contrôle du colis</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- 4. RÈGLES DE GESTION DES STOCKS & NOTIFICATIONS -->
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-xs space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                <div class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <h2 class="text-xs font-semibold text-slate-800 uppercase tracking-wider">
+                        4. Stocks & Notifications Automatisées
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Seuil d'alerte de stock critique par défaut (unités)
+                    </label>
+                    {{ form.default_min_stock_alert }}
+                </div>
+                <div class="flex flex-col justify-end">
+                    <label class="flex items-center gap-2 cursor-pointer text-xs mb-2">
+                        {{ form.block_order_on_out_of_stock }}
+                        <span class="font-medium text-slate-800">Bloquer l'ajout au panier si l'article est en rupture de stock</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pt-1 space-y-2 text-xs border-t border-slate-100">
+                <label class="flex items-center gap-2 cursor-pointer">
+                    {{ form.email_notifications_active }}
+                    <span class="font-medium text-slate-800">Envoyer les emails de confirmation et de suivi de livraison aux acheteurs</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                    {{ form.whatsapp_notifications_active }}
+                    <span class="font-medium text-slate-800">Activer le bouton de prise de contact rapide WhatsApp sur la boutique</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- BOUTON D'ENREGISTREMENT PRINCIPAL -->
+        <div class="flex items-center justify-end gap-3 pt-2">
+            <button type="submit" class="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs rounded-xl shadow-xs transition active:scale-95 cursor-pointer flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-slate-950 stroke-[2.2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>Enregistrer les paramètres</span>
+            </button>
+        </div>
+
+    </form>
+
+</div>
+{% endblock %}

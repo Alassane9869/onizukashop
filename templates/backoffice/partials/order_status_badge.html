@@ -1,0 +1,27 @@
+{% load humanize %}
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium
+    {% if order.status == 'pending' %}
+        bg-amber-50 text-amber-800 border border-amber-200/60
+    {% elif order.status == 'confirmed' %}
+        bg-sky-50 text-sky-800 border border-sky-200/60
+    {% elif order.status == 'processing' %}
+        bg-blue-50 text-blue-800 border border-blue-200/60
+    {% elif order.status == 'shipped' %}
+        bg-indigo-50 text-indigo-800 border border-indigo-200/60
+    {% elif order.status == 'delivered' %}
+        bg-emerald-50 text-emerald-800 border border-emerald-200/60
+    {% elif order.status == 'cancelled' %}
+        bg-slate-100 text-slate-600 border border-slate-200
+    {% else %}
+        bg-slate-50 text-slate-700 border border-slate-200
+    {% endif %}">
+    <span class="w-1.5 h-1.5 rounded-full 
+        {% if order.status == 'pending' %}bg-amber-500
+        {% elif order.status == 'confirmed' %}bg-sky-500
+        {% elif order.status == 'processing' %}bg-blue-500
+        {% elif order.status == 'shipped' %}bg-indigo-500
+        {% elif order.status == 'delivered' %}bg-emerald-500
+        {% elif order.status == 'cancelled' %}bg-slate-400
+        {% else %}bg-slate-400{% endif %}"></span>
+    {{ order.get_status_display }}
+</span>

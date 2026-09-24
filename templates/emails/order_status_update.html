@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise à jour Commande #{{ order.order_number }} - Onizouka Shop</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b; -webkit-font-smoothing: antialiased;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; padding: 30px 10px;">
+        <tr>
+            <td align="center">
+                <!-- Conteneur Principal -->
+                <table role="presentation" width="100%" style="max-width: 620px; background-color: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);" cellspacing="0" cellpadding="0">
+                    
+                    <!-- En-tête -->
+                    <tr>
+                        <td style="background-color: #0f172a; padding: 24px 32px; text-align: left; border-bottom: 3px solid #f59e0b;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                        <div style="font-size: 20px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; text-transform: uppercase;">
+                                            ONIZOUKA <span style="color: #f59e0b;">SHOP</span>
+                                        </div>
+                                        <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 3px;">
+                                            Suivi de Commande en Direct
+                                        </div>
+                                    </td>
+                                    <td align="right">
+                                        <span style="display: inline-block; background-color: #1e293b; color: #fbbf24; border: 1px solid #d97706; padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; font-family: monospace;">
+                                            #{{ order.order_number }}
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Corps -->
+                    <tr>
+                        <td style="padding: 32px;">
+                            <div style="margin-bottom: 24px;">
+                                <h1 style="font-size: 19px; font-weight: 700; color: #0f172a; margin: 0 0 8px 0;">
+                                    Bonjour {{ order.delivery_name }},
+                                </h1>
+                                <p style="font-size: 14px; color: #475569; line-height: 1.5; margin: 0;">
+                                    Le statut de votre commande <strong>#{{ order.order_number }}</strong> a évolué :
+                                </p>
+                            </div>
+
+                            <!-- Statut Box -->
+                            {% if order.status == 'delivered' %}
+                            <div style="background-color: #f8fafc; border: 2px solid #10b981; border-radius: 8px; padding: 20px; text-align: center; margin-bottom: 28px;">
+                            {% elif order.status == 'cancelled' %}
+                            <div style="background-color: #f8fafc; border: 2px solid #ef4444; border-radius: 8px; padding: 20px; text-align: center; margin-bottom: 28px;">
+                            {% else %}
+                            <div style="background-color: #f8fafc; border: 2px solid #f59e0b; border-radius: 8px; padding: 20px; text-align: center; margin-bottom: 28px;">
+                            {% endif %}
+                                <div style="font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 700; letter-spacing: 1px;">
+                                    Nouveau Statut
+                                </div>
+                                <div style="font-size: 20px; font-weight: 800; color: #0f172a; margin-top: 6px; text-transform: uppercase;">
+                                    {{ order.get_status_display }}
+                                </div>
+                                <div style="font-size: 13px; color: #475569; margin-top: 8px;">
+                                    {% if order.status == 'processing' %}
+                                    Votre matériel est actuellement inspecté et préparé dans notre entrepôt central de Bamako.
+                                    {% elif order.status == 'shipped' %}
+                                    Votre colis est pris en charge par notre équipe de livraison pour expédition à votre adresse.
+                                    {% elif order.status == 'delivered' %}
+                                    Votre commande a été livrée avec succès. Nous vous remercions pour votre confiance !
+                                    {% elif order.status == 'cancelled' %}
+                                    Cette commande a été annulée. Contactez le service client pour tout complément d'information.
+                                    {% else %}
+                                    Votre commande est bien prise en compte et fait l'objet d'un suivi attentif.
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Récapitulatif Rapide -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 24px;">
+                                <tr>
+                                    <td style="padding: 14px 16px;">
+                                        <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600;">Montant Total</div>
+                                        <div style="font-size: 15px; color: #0f172a; font-weight: 800; font-family: monospace; margin-top: 2px;">{{ order.total|floatformat:0 }} FCFA</div>
+                                    </td>
+                                    <td style="padding: 14px 16px;">
+                                        <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600;">Lieu de Livraison</div>
+                                        <div style="font-size: 13px; color: #0f172a; font-weight: 600; margin-top: 2px;">{{ order.delivery_city }} - {{ order.delivery_district|default:"Bamako" }}</div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Support -->
+                            <div style="font-size: 12px; color: #64748b; line-height: 1.5; border-top: 1px solid #e2e8f0; padding-top: 16px;">
+                                Une question sur votre livraison ? Contactez notre flotte au <strong>{{ settings.contact_phone|default:"+223 92 67 37 99" }}</strong> ou par email à <strong>{{ settings.contact_email|default:"contact@onizoukashop.com" }}</strong>.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Pied de page -->
+                    <tr>
+                        <td style="background-color: #f1f5f9; padding: 20px 32px; text-align: center; border-top: 1px solid #e2e8f0; font-size: 11px; color: #64748b;">
+                            {{ settings.site_name|default:"Onizouka Shop" }} &bull; Grand Marché de Bamako, République du Mali
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Mentions Légales - ONIZOUKA SHOP Mali{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+    <!-- En-tête -->
+    <div class="border-b border-neutral-200 pb-6 mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200/80 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span>Informations Légales & Réglementaires</span>
+        </div>
+        <h1 class="font-display text-2xl sm:text-4xl font-black text-neutral-900 tracking-tight">
+            Mentions Légales
+        </h1>
+        <p class="text-xs sm:text-sm text-neutral-500 mt-2">
+            Informations relatives à la société éditrice du site web <strong class="text-neutral-800">onizoukashop.com</strong>.
+        </p>
+    </div>
+
+    <!-- Contenu -->
+    <div class="bg-white rounded-3xl border border-neutral-200/90 p-6 sm:p-10 shadow-xs space-y-8 text-neutral-700 text-xs sm:text-sm leading-relaxed">
+
+        <!-- Société éditrice -->
+        <section class="space-y-3">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">1</span>
+                <span>Identification de la Société</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 text-xs">
+                <div>
+                    <span class="text-neutral-400 font-semibold uppercase text-[10px] block">Raison Sociale</span>
+                    <strong class="text-neutral-900 text-sm">ONIZOUKA SHOP SARL</strong>
+                </div>
+                <div>
+                    <span class="text-neutral-400 font-semibold uppercase text-[10px] block">Activités Commerciales</span>
+                    <span class="text-neutral-800">Distribution, vente et installation d'appareils électroménagers et électroniques</span>
+                </div>
+                <div>
+                    <span class="text-neutral-400 font-semibold uppercase text-[10px] block">Siège Social & Boutique</span>
+                    <span class="text-neutral-800">Grand Marché de Bamako, Dabanani, Bamako, République du Mali</span>
+                </div>
+                <div>
+                    <span class="text-neutral-400 font-semibold uppercase text-[10px] block">Service Clientèle</span>
+                    <span class="text-neutral-800 font-mono font-bold">{{ shop_settings.phone_contact|default:"+223 92 67 37 99" }} &bull; contact@onizoukashop.com</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direction & Responsabilité éditoriale -->
+        <section class="space-y-2">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">2</span>
+                <span>Direction de la Publication</span>
+            </h2>
+            <p>
+                <strong>Directeur de la publication :</strong> La Direction Générale de la société ONIZOUKA SHOP SARL.
+            </p>
+            <p>
+                <strong>Contact Rédaction & Support :</strong> <a href="mailto:direction@onizoukashop.com" class="text-amber-700 underline font-semibold">direction@onizoukashop.com</a>
+            </p>
+        </section>
+
+        <!-- Propriété intellectuelle -->
+        <section class="space-y-2">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">3</span>
+                <span>Propriété Intellectuelle & Marques Agréées</span>
+            </h2>
+            <p>
+                L'ensemble des éléments graphiques, photographies de mise en situation, chartes, textes et architectures de la plateforme sont protégés au titre des droits de propriété intellectuelle.
+            </p>
+            <p>
+                Les marques et logos de constructeurs tiers (Samsung, LG, Hisense, Midea, Beko, TCL, Philips, Moulinex, etc.) cités sur le site demeurent la propriété exclusive de leurs détenteurs respectifs et sont utilisés dans le strict cadre de la distribution de produits originaux certifiés.
+            </p>
+        </section>
+
+        <!-- Hébergement & Infrastructure -->
+        <section class="space-y-2">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">4</span>
+                <span>Hébergement & Disponibilité Technique</span>
+            </h2>
+            <p>
+                Le site est hébergé sur des infrastructures cloud haute disponibilité avec supervision technique permanente pour assurer la continuité des transactions 24h/24 et 7j/7.
+            </p>
+        </section>
+
+    </div>
+
+</div>
+{% endblock %}

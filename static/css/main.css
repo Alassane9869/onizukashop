@@ -1,0 +1,264 @@
+/*
+ * ONIZOUKA SHOP - CSS Flagship Ultra-Premium
+ * Design System de classe mondiale inspiré des flagships Apple, Samsung & Dyson
+ * Polices : Outfit (titres) + Inter (corps)
+ * Accent : Jaune Premium & Or Haute Énergie #eab308 / #f59e0b / #ca8a04
+ * Dark & Obsidian : #070a13 / #0f172a / #1e293b
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================
+   RESET & BASE TYPOGRAPHY
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.font-heading {
+  font-family: 'Outfit', -apple-system, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* Scrollbar personnalisée ultra-fine */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============================================================
+   EFFETS DE SURFACE & GLASSMORPHISM
+   ============================================================ */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(241, 245, 249, 0.9);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* ============================================================
+   OMBRES & BRILLANCES FLAGSHIP JAUNE PREMIUM
+   ============================================================ */
+.shadow-flagship {
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+}
+
+.shadow-flagship-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.shadow-flagship-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(234, 179, 8, 0.22), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+}
+
+.shadow-glow-yellow, .shadow-glow-amber-500 {
+  box-shadow: 0 0 35px -5px rgba(234, 179, 8, 0.40);
+}
+
+.shadow-glow-yellow-sm, .shadow-glow-yellow-sm {
+  box-shadow: 0 4px 20px -2px rgba(234, 179, 8, 0.30);
+}
+
+/* Gradient borders */
+.gradient-border-yellow, .gradient-border-amber-500 {
+  position: relative;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+.gradient-border-yellow::after, .gradient-border-yellow::after {
+  content: '';
+  position: absolute;
+  top: -1px; bottom: -1px; left: -1px; right: -1px;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.6), rgba(234, 179, 8, 0.08));
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* ============================================================
+   MICRO-ANIMATIONS
+   ============================================================ */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.05); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes slideDownIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-slide-down {
+  animation: slideDownIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ============================================================
+   BADGES & CHIPS PARTICULIERS
+   ============================================================ */
+.badge-discount {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 2px 8px -1px rgba(220, 38, 38, 0.4);
+}
+
+.badge-inverter {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  box-shadow: 0 2px 8px -1px rgba(14, 165, 233, 0.3);
+}
+
+.badge-warranty {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 2px 8px -1px rgba(16, 185, 129, 0.3);
+}
+
+/* ============================================================
+   LIGNES & MOTIFS SUBTILS
+   ============================================================ */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.25) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.font-display {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* ============================================================
+   IOS IPHONE ERGONOMIE MOBILE & SAFE AREAS
+   ============================================================ */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Barre de navigation iOS avec Safe Area iPhone (Authentique Dock Apple) */
+.ios-nav-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: max(env(safe-area-inset-bottom), 8px);
+  padding-top: 5px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 -8px 24px rgba(0, 0, 0, 0.03);
+}
+
+.ios-touch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), color 0.12s ease;
+}
+
+.ios-touch-item:active {
+  transform: scale(0.88);
+}
+
+/* ============================================================
+   DÉFILEMENT INFINI DES MARQUES (MARQUEE ULTRA-FLUIDE)
+   ============================================================ */
+@keyframes brandsMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.brands-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: brandsMarquee 35s linear infinite;
+  will-change: transform;
+}
+
+.brands-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-fade-mask {
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}

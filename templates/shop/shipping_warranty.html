@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Livraison, Retrait & Garantie Constructeur - ONIZOUKA SHOP Mali{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+    <!-- En-tête -->
+    <div class="border-b border-neutral-200 pb-6 mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200/80 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span>Guide Logistique & Protection Client</span>
+        </div>
+        <h1 class="font-display text-2xl sm:text-4xl font-black text-neutral-900 tracking-tight">
+            Politique de Livraison, Retrait Express & Garantie
+        </h1>
+        <p class="text-xs sm:text-sm text-neutral-500 mt-2">
+            Tout savoir sur l'acheminement de vos colis à Bamako et la prise en charge sous garantie de vos équipements neufs.
+        </p>
+    </div>
+
+    <!-- Contenu -->
+    <div class="bg-white rounded-3xl border border-neutral-200/90 p-6 sm:p-10 shadow-xs space-y-8 text-neutral-700 text-xs sm:text-sm leading-relaxed">
+
+        <!-- 1. Modalités de Livraison -->
+        <section class="space-y-3">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">1</span>
+                <span>Livraison Express à Domicile ou au Bureau (Bamako)</span>
+            </h2>
+            <p>
+                ONIZOUKA SHOP dispose de sa propre flotte de livreurs et manutentionnaires formés pour le transport d'appareils volumineux et sensibles (réfrigérateurs américains, grands écrans TV OLED, climatiseurs, cuisinières).
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div class="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/80">
+                    <span class="text-amber-800 font-bold text-xs block mb-1">Délai Rapide 24h</span>
+                    <p class="text-[11px] text-neutral-500">Livraison sous 24 heures ouvrées à compter de la confirmation téléphonique de votre commande.</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/80">
+                    <span class="text-amber-800 font-bold text-xs block mb-1">Toutes les Communes</span>
+                    <p class="text-[11px] text-neutral-500">Communes I, II, III, IV, V et VI de Bamako + périphérie (Kati, Sénou, Kalaban-Coro).</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/80">
+                    <span class="text-amber-800 font-bold text-xs block mb-1">Contrôle avant Paiement</span>
+                    <p class="text-[11px] text-neutral-500">Déballage et vérification de conformité en présence du livreur avant tout règlement.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Retrait Magasin Grand Marché -->
+        <section class="space-y-3">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">2</span>
+                <span>Retrait Gratuit en Magasin en 15 Minutes (Grand Marché de Bamako)</span>
+            </h2>
+            <p>
+                Pour les clients souhaitant récupérer directement leur équipement sans attendre la tournée des livreurs, le retrait est <strong>totalement gratuit</strong> à notre boutique du Grand Marché :
+            </p>
+            <div class="p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-bold text-neutral-900 text-xs sm:text-sm">Boutique Officielle ONIZOUKA SHOP</h4>
+                    <p class="text-xs text-neutral-500 mt-0.5">Grand Marché de Bamako, Dabanani &bull; Ouvert 7j/7 de 08h30 à 20h30</p>
+                </div>
+                <span class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-800 font-bold text-xs shrink-0 text-center">
+                    Disponible en 15 min
+                </span>
+            </div>
+        </section>
+
+        <!-- 3. Garantie Constructeur -->
+        <section class="space-y-3">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">3</span>
+                <span>Garantie Constructeur Officielle de 12 à 24 Mois</span>
+            </h2>
+            <p>
+                Chaque article commercialisé est un <strong>produit d'origine certifié</strong> issu directement des réseaux officiels des constructeurs (Samsung, LG, Hisense, Midea, Beko, TCL, etc.).
+            </p>
+            <ul class="list-disc list-inside space-y-1.5 pl-2">
+                <li><strong>Gros Électroménager</strong> (Réfrigérateurs, Congélateurs, Climatiseurs, Cuisinières) : <strong>Garantie 24 Mois</strong> (avec compresseurs garantis jusqu'à 10 ans selon constructeur).</li>
+                <li><strong>Téléviseurs & Image</strong> (Smart TV 4K, Écrans OLED, Barres de Son) : <strong>Garantie 12 à 24 Mois</strong>.</li>
+                <li><strong>Petit Électroménager & Robots</strong> : <strong>Garantie 12 Mois</strong>.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Atelier SAV Bamako -->
+        <section class="space-y-3">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">4</span>
+                <span>Service Après-Vente (SAV) & Intervention à Domicile</span>
+            </h2>
+            <p>
+                En cas de dysfonctionnement technique durant la période de garantie :
+            </p>
+            <ol class="list-decimal list-inside space-y-1.5 pl-2">
+                <li>Contactez notre permanence SAV au <strong class="text-neutral-900 font-mono">{{ shop_settings.phone_contact|default:"+223 92 67 37 99" }}</strong> ou via WhatsApp en précisant votre numéro de facture.</li>
+                <li>Pour les appareils lourds (climatiseurs, réfrigérateurs installés), un technicien agréé se déplace directement à votre domicile à Bamako pour diagnostic et réparation.</li>
+                <li>Si l'appareil présente un vice de fabrication non réparable sous 48 heures, un remplacement pur et simple par un modèle neuf est effectué conformément à la garantie légale.</li>
+            </ol>
+        </section>
+
+    </div>
+
+</div>
+{% endblock %}

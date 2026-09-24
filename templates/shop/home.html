@@ -1,0 +1,798 @@
+{% extends 'base.html' %}
+{% load static humanize %}
+
+{% block content %}
+
+<div class="space-y-6 sm:space-y-12 lg:space-y-16 pb-16">
+
+  <!-- ========================================================================= -->
+  <!-- 1. HERO BILLBOARD MULTI-PRODUITS INTERACTIF (CALIBRE SAMSUNG / APPLE)     -->
+  <!-- ========================================================================= -->
+  <section 
+    x-data="{ 
+      activeSlide: 0,
+      timer: null,
+      slides: [
+        {
+          tag: 'FLAGSHIP FROID 2026 • BAMAKO',
+          title: 'Le Froid Absolu, Même par 48°C à l\'Ombre',
+          subtitle: 'Samsung French Door No Frost. Compresseur Digital Inverter garanti 10 ans. Maintien du froid jusqu\'à 14h en cas de coupure EDM.',
+          ctaText: 'Explorer les réfrigérateurs',
+          ctaLink: '{% url 'shop:category' 'refrigerateurs' %}',
+          secondaryText: 'Conseiller WhatsApp Froid',
+          secondaryLink: 'https://wa.me/{{ shop_settings.whatsapp_raw|default:'22392673799' }}?text=Bonjour,%20je%20souhaite%20des%20infos%20sur%20les%20réfrigérateurs',
+          image: '/media/products/samsung_flagship_fridge.jpg',
+          price: '790 000 FCFA',
+          badge: 'Garantie 10 Ans Compresseur'
+        },
+        {
+          tag: 'CLIMATISATION T3 CANICULE • ÉCONOMIE EDM',
+          title: 'Fraîcheur Turbo, -60% sur Facture EDM',
+          subtitle: 'Climatiseurs Midea & LG Inverter certifiés T3. Fonctionne parfaitement sous 52°C extérieur sans faire disjoncter votre compteur ISAGO.',
+          ctaText: 'Voir les climatiseurs',
+          ctaLink: '{% url 'shop:category' 'climatisation' %}',
+          secondaryText: 'Demander un devis pose',
+          secondaryLink: 'https://wa.me/{{ shop_settings.whatsapp_raw|default:'22392673799' }}?text=Bonjour,%20je%20souhaite%20un%20devis%20climatiseur',
+          image: '/media/products/midea_flagship_ac.jpg',
+          price: '265 000 FCFA',
+          badge: 'Pose & Câblage Offerts'
+        },
+        {
+          tag: 'CINÉMA 4K & SPORT • MATCHS DE LA CAN',
+          title: 'Le Stade & le Cinéma dans Votre Salon',
+          subtitle: 'Smart TV LG OLED & Samsung 4K UHD. Dalles lumineuses 120Hz avec support mural ultra-fin offert et installation soignée à Bamako.',
+          ctaText: 'Découvrir les écrans 4K',
+          ctaLink: '{% url 'shop:category' 'televiseurs' %}',
+          secondaryText: 'Démonstration en boutique',
+          secondaryLink: '{% url 'shop:contact' %}',
+          image: '/media/products/tv_lg_smart.png',
+          price: '540 000 FCFA',
+          badge: 'Support Mural Inclus'
+        }
+      ],
+      init() {
+        this.startTimer();
+      },
+      startTimer() {
+        this.timer = setInterval(() => {
+          this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+        }, 6500);
+      },
+      stopTimer() {
+        if (this.timer) clearInterval(this.timer);
+      },
+      setSlide(index) {
+        this.activeSlide = index;
+        this.stopTimer();
+        this.startTimer();
+      }
+    }"
+    @mouseenter="stopTimer()"
+    @mouseleave="startTimer()"
+    class="max-w-7xl mx-auto px-3.5 sm:px-6"
+  >
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6">
+      
+      <!-- Grande Bannière Principale avec Groupe d'Appareils en Arrière-Plan (8 colonnes sur Desktop) -->
+      <div class="lg:col-span-8 rounded-3xl bg-neutral-950 text-white p-5 sm:p-10 lg:p-12 relative overflow-hidden flex flex-col justify-between min-h-[340px] sm:min-h-[480px] border border-neutral-800 shadow-xl group">
+        
+        <!-- GROUPE D'IMAGES D'APPAREILS ÉLECTROMÉNAGERS EN ARRIÈRE-PLAN -->
+        <img 
+          src="{% static 'images/hero_banner_appliances.jpg' %}" 
+          alt="Collection Électroménager Haut de Gamme Bamako" 
+          class="absolute inset-0 w-full h-full object-cover object-center sm:object-right group-hover:scale-105 transition-transform duration-700 pointer-events-none opacity-85"
+        >
+
+        <!-- Dégradé protecteur directionnel pour assurer un contraste et une lisibilité parfaits du texte -->
+        <div class="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/85 to-transparent pointer-events-none z-1"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-transparent to-neutral-950/30 pointer-events-none z-1"></div>
+
+        <!-- Halos lumineux amber-500 subtils de marque -->
+        <div class="absolute -top-20 -left-20 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none z-2"></div>
+
+        <!-- En-tête de la bannière dynamique -->
+        <div class="relative z-10 space-y-2.5 sm:space-y-3 max-w-lg">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider backdrop-blur-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+            <span x-text="slides[activeSlide].tag"></span>
+          </div>
+
+          <h1 class="font-display text-xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight transition-all duration-300">
+            <span x-text="slides[activeSlide].title"></span>
+          </h1>
+
+          <p class="text-xs sm:text-sm text-neutral-200 leading-relaxed font-normal transition-all duration-300 line-clamp-2 sm:line-clamp-none" x-text="slides[activeSlide].subtitle"></p>
+        </div>
+
+        <!-- Actions & Puces de Changement de Slide -->
+        <div class="relative z-10 pt-4 sm:pt-6 space-y-4 sm:space-y-6">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+            <a 
+              :href="slides[activeSlide].ctaLink" 
+              class="px-5 sm:px-6 py-2.5 sm:py-3.5 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs sm:text-sm shadow-md transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+            >
+              <span x-text="slides[activeSlide].ctaText"></span>
+              <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+            <a 
+              :href="slides[activeSlide].secondaryLink" 
+              target="_blank"
+              rel="noopener"
+              class="hidden sm:inline-flex px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 backdrop-blur-xs transition justify-center"
+              x-text="slides[activeSlide].secondaryText"
+            ></a>
+          </div>
+
+          <!-- Puces / Tabs de navigation discrètes et interactives -->
+          <div class="flex items-center gap-1.5 sm:gap-2 pt-2 border-t border-white/10 overflow-x-auto no-scrollbar">
+            <template x-for="(slide, index) in slides" :key="index">
+              <button 
+                type="button" 
+                @click="setSlide(index)"
+                class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition-all backdrop-blur-xs shrink-0 select-none whitespace-nowrap"
+                :class="activeSlide === index ? 'bg-white text-neutral-900 shadow-sm' : 'bg-white/10 text-neutral-300 hover:text-white hover:bg-white/20'"
+              >
+                <span class="w-1.5 h-1.5 rounded-full shrink-0" :class="activeSlide === index ? 'bg-amber-500' : 'bg-neutral-400'"></span>
+                <span x-text="'0' + (index + 1) + '. ' + (index === 0 ? 'Froid' : index === 1 ? 'Climatisation' : 'Smart TV')"></span>
+              </button>
+            </template>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2 Bannières Secondaires : Côte à côte sur Mobile (1 rangée), Verticales équilibrées sur PC (4 colonnes) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-col lg:col-span-4 gap-3 sm:gap-4 lg:gap-5 justify-between">
+        
+        <!-- Encart 1 : Climatisation T3 Inverter (Disposition Horizontale Harmonieuse) -->
+        <a 
+          href="{% url 'shop:category' 'climatisation' %}" 
+          class="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white via-neutral-50 to-amber-50/40 p-4 sm:p-5 border border-neutral-200/90 hover:border-amber-400 hover:shadow-md transition-all duration-300 flex items-center justify-between group overflow-hidden shadow-2xs flex-1"
+        >
+          <!-- Contenu texte à gauche -->
+          <div class="relative z-10 max-w-[58%] space-y-1">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-800 text-[10px] font-bold uppercase tracking-wider border border-amber-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              Canicule T3
+            </span>
+            <h3 class="font-display text-sm sm:text-base lg:text-lg font-black text-neutral-900 group-hover:text-amber-600 transition-colors leading-tight">
+              Climatiseurs Inverter
+            </h3>
+            <p class="text-[11px] text-neutral-500 line-clamp-1">-60% sur facture EDM</p>
+            <div class="pt-1">
+              <span class="inline-flex items-center gap-1 text-[11px] sm:text-xs font-black text-amber-600 group-hover:text-amber-700">
+                <span>Dès 185 000 FCFA</span>
+                <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Visuel produit à droite avec halo chaleureux -->
+          <div class="relative w-[42%] h-24 sm:h-28 flex items-center justify-center">
+            <div class="absolute inset-0 bg-amber-400/15 rounded-full blur-xl scale-75 group-hover:scale-110 transition-transform"></div>
+            <img 
+              src="/media/products/samsung_windfree_ac.png" 
+              alt="Climatiseur Inverter Samsung WindFree" 
+              class="relative z-10 max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-500"
+            >
+          </div>
+        </a>
+
+        <!-- Encart 2 : Téléviseurs 4K & OLED (Disposition Horizontale Harmonieuse) -->
+        <a 
+          href="{% url 'shop:category' 'televiseurs' %}" 
+          class="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white via-neutral-50 to-amber-50/40 p-4 sm:p-5 border border-neutral-200/90 hover:border-amber-400 hover:shadow-md transition-all duration-300 flex items-center justify-between group overflow-hidden shadow-2xs flex-1"
+        >
+          <!-- Contenu texte à gauche -->
+          <div class="relative z-10 max-w-[58%] space-y-1">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-800 text-[10px] font-bold uppercase tracking-wider border border-amber-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              Cinéma 4K
+            </span>
+            <h3 class="font-display text-sm sm:text-base lg:text-lg font-black text-neutral-900 group-hover:text-amber-600 transition-colors leading-tight">
+              Smart TV UHD & OLED
+            </h3>
+            <p class="text-[11px] text-neutral-500 line-clamp-1">Support mural offert</p>
+            <div class="pt-1">
+              <span class="inline-flex items-center gap-1 text-[11px] sm:text-xs font-black text-amber-600 group-hover:text-amber-700">
+                <span>Dès 135 000 FCFA</span>
+                <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Visuel produit à droite avec halo chaleureux -->
+          <div class="relative w-[42%] h-24 sm:h-28 flex items-center justify-center">
+            <div class="absolute inset-0 bg-amber-400/15 rounded-full blur-xl scale-75 group-hover:scale-110 transition-transform"></div>
+            <img 
+              src="/media/products/samsung_qled_tv.png" 
+              alt="Smart TV Samsung 4K QLED" 
+              class="relative z-10 max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-500"
+            >
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. NAVIGATION RAPIDE PAR RAYONS (SWIPE HORIZONTAL MOBILE / GRILLE PC)     -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-3.5 sm:px-6">
+    <div class="flex sm:grid sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-4 overflow-x-auto sm:overflow-visible no-scrollbar pb-1 -mx-3.5 px-3.5 sm:mx-0 sm:px-0">
+      
+      <!-- Rayon 1 : Réfrigérateurs -->
+      <a 
+        href="{% url 'shop:category' 'refrigerateurs' %}" 
+        class="group p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-between w-28 sm:w-auto shrink-0 sm:shrink select-none shadow-2xs"
+      >
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-50 group-hover:bg-amber-50/70 flex items-center justify-center p-2 mb-2 transition-all duration-300 group-hover:scale-105 border border-slate-100">
+          <img src="/media/products/samsung_flagship_fridge.jpg" alt="Réfrigérateurs" class="max-h-full object-contain">
+        </div>
+        <span class="font-display text-xs sm:text-sm font-black text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-1">
+          Réfrigérateurs
+        </span>
+        <span class="text-[9px] sm:text-[10px] font-semibold text-slate-500 bg-slate-100 group-hover:bg-amber-100 group-hover:text-amber-800 px-2 py-0.5 rounded-full transition-colors mt-1">No Frost</span>
+      </a>
+
+      <!-- Rayon 2 : Climatiseurs -->
+      <a 
+        href="{% url 'shop:category' 'climatisation' %}" 
+        class="group p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-between w-28 sm:w-auto shrink-0 sm:shrink select-none shadow-2xs"
+      >
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-50 group-hover:bg-amber-50/70 flex items-center justify-center p-2 mb-2 transition-all duration-300 group-hover:scale-105 border border-slate-100">
+          <img src="/media/products/midea_flagship_ac.jpg" alt="Climatiseurs" class="max-h-full object-contain">
+        </div>
+        <span class="font-display text-xs sm:text-sm font-black text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-1">
+          Climatiseurs
+        </span>
+        <span class="text-[9px] sm:text-[10px] font-semibold text-slate-500 bg-slate-100 group-hover:bg-amber-100 group-hover:text-amber-800 px-2 py-0.5 rounded-full transition-colors mt-1">Inverter T3</span>
+      </a>
+
+      <!-- Rayon 3 : Téléviseurs -->
+      <a 
+        href="{% url 'shop:category' 'televiseurs' %}" 
+        class="group p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-between w-28 sm:w-auto shrink-0 sm:shrink select-none shadow-2xs"
+      >
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-50 group-hover:bg-amber-50/70 flex items-center justify-center p-2 mb-2 transition-all duration-300 group-hover:scale-105 border border-slate-100">
+          <img src="/media/products/tv_lg_smart.png" alt="Téléviseurs" class="max-h-full object-contain">
+        </div>
+        <span class="font-display text-xs sm:text-sm font-black text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-1">
+          Smart TV
+        </span>
+        <span class="text-[9px] sm:text-[10px] font-semibold text-slate-500 bg-slate-100 group-hover:bg-amber-100 group-hover:text-amber-800 px-2 py-0.5 rounded-full transition-colors mt-1">4K UHD</span>
+      </a>
+
+      <!-- Rayon 4 : Cuisinières -->
+      <a 
+        href="{% url 'shop:category' 'cuisinieres' %}" 
+        class="group p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-between w-28 sm:w-auto shrink-0 sm:shrink select-none shadow-2xs"
+      >
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-50 group-hover:bg-amber-50/70 flex items-center justify-center p-2 mb-2 transition-all duration-300 group-hover:scale-105 border border-slate-100">
+          <img src="/media/products/stove_modern_gas_range.jpg" alt="Cuisinières" class="max-h-full object-contain">
+        </div>
+        <span class="font-display text-xs sm:text-sm font-black text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-1">
+          Cuisinières
+        </span>
+        <span class="text-[9px] sm:text-[10px] font-semibold text-slate-500 bg-slate-100 group-hover:bg-amber-100 group-hover:text-amber-800 px-2 py-0.5 rounded-full transition-colors mt-1">Fours Gaz</span>
+      </a>
+
+      <!-- Rayon 5 : Petit Électroménager -->
+      <a 
+        href="{% url 'shop:category' 'petit-electromenager' %}" 
+        class="group p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-between w-28 sm:w-auto shrink-0 sm:shrink select-none shadow-2xs"
+      >
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-50 group-hover:bg-amber-50/70 flex items-center justify-center p-2 mb-2 transition-all duration-300 group-hover:scale-105 border border-slate-100">
+          <img src="/media/products/philips_series_2200_espresso.png" alt="Expresso & Robots" class="max-h-full object-contain">
+        </div>
+        <span class="font-display text-xs sm:text-sm font-black text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-1">
+          Café & Robots
+        </span>
+        <span class="text-[9px] sm:text-[10px] font-semibold text-slate-500 bg-slate-100 group-hover:bg-amber-100 group-hover:text-amber-800 px-2 py-0.5 rounded-full transition-colors mt-1">Robots Cuisine</span>
+      </a>
+
+      <!-- Rayon 6 : Tout le Catalogue -->
+      <a 
+        href="{% url 'shop:catalog' %}" 
+        class="group p-3 sm:p-4 rounded-2xl bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100/60 border border-amber-300/80 hover:border-amber-500 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-between w-28 sm:w-auto shrink-0 sm:shrink select-none shadow-2xs"
+      >
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-amber-400 group-hover:bg-amber-500 text-slate-950 flex items-center justify-center p-2 mb-2 shadow-xs transition-all duration-300 group-hover:scale-105">
+          <svg class="w-7 h-7 sm:w-8 sm:h-8 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+          </svg>
+        </div>
+        <span class="font-display text-xs sm:text-sm font-black text-slate-950 group-hover:text-amber-800 transition-colors line-clamp-1">
+          Tous Rayons
+        </span>
+        <span class="text-[9px] sm:text-[10px] font-bold text-amber-900 bg-amber-200/70 group-hover:bg-amber-300 px-2 py-0.5 rounded-full transition-colors mt-1">100+ Modèles</span>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. BANDEAU DES MARQUES OFFICIELLES AGRÉÉES (DÉFILEMENT FLUIDE & ÉPURÉ)    -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+    <style>
+      @keyframes marqueeCleanScroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      @-webkit-keyframes marqueeCleanScroll {
+        0% { -webkit-transform: translateX(0); }
+        100% { -webkit-transform: translateX(-50%); }
+      }
+      .marquee-clean-track {
+        display: flex !important;
+        width: max-content !important;
+        animation: marqueeCleanScroll 26s linear infinite !important;
+        -webkit-animation: marqueeCleanScroll 26s linear infinite !important;
+        will-change: transform;
+      }
+      .marquee-clean-track:hover {
+        animation-play-state: paused !important;
+        -webkit-animation-play-state: paused !important;
+      }
+      .marquee-clean-mask {
+        mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
+      }
+    </style>
+
+    <div class="bg-white rounded-2xl border border-slate-200/90 shadow-xs px-4 sm:px-5 py-2.5 sm:py-3 flex items-center gap-3 sm:gap-4 overflow-hidden">
+      
+      <!-- Label Fixe Agréé avec Badge Officiel -->
+      <div class="flex items-center gap-2 shrink-0 pr-4 sm:pr-5 border-r border-slate-200 select-none">
+        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+        <span class="font-display text-xs font-black text-slate-900 tracking-wider uppercase">
+          Marques Officielles
+        </span>
+      </div>
+
+      <!-- Marquee Défilant Continu (Typographie Haute Définition, Orange au Survol) -->
+      <div class="overflow-hidden flex-1 w-full relative pl-2 sm:pl-4 marquee-clean-mask">
+        <div class="marquee-clean-track flex items-center gap-6 sm:gap-8 py-0.5">
+          
+          <!-- Boucle 1 des Marques -->
+          <span class="w-2 h-2 rounded-full bg-amber-400 shrink-0 select-none"></span>
+          {% for b in brands %}
+          <a 
+            href="{% url 'shop:search' %}?q={{ b.name }}" 
+            class="font-display text-xs sm:text-sm font-extrabold tracking-wider text-slate-700 hover:text-amber-600 transition-colors duration-200 whitespace-nowrap uppercase select-none shrink-0 px-2 py-0.5 rounded-md hover:bg-amber-50"
+            title="{{ b.name }} - Garantie officielle Bamako"
+          >
+            {{ b.name }}
+          </a>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0 select-none"></span>
+          {% empty %}
+          <span class="font-display text-xs sm:text-sm font-black tracking-widest text-neutral-500 uppercase shrink-0">SAMSUNG</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0"></span>
+          <span class="font-display text-xs sm:text-sm font-black tracking-widest text-neutral-500 uppercase shrink-0">LG ELECTRONICS</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0"></span>
+          <span class="font-display text-xs sm:text-sm font-black tracking-widest text-neutral-500 uppercase shrink-0">MIDEA</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0"></span>
+          <span class="font-display text-xs sm:text-sm font-black tracking-widest text-neutral-500 uppercase shrink-0">HISENSE</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0"></span>
+          <span class="font-display text-xs sm:text-sm font-black tracking-widest text-neutral-500 uppercase shrink-0">BEKO</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0"></span>
+          <span class="font-display text-xs sm:text-sm font-black tracking-widest text-neutral-500 uppercase shrink-0">HAIER</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0"></span>
+          <span class="font-display text-xs sm:text-sm font-black tracking-widest text-neutral-500 uppercase shrink-0">PHILIPS</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0"></span>
+          <span class="font-display text-xs sm:text-sm font-black tracking-widest text-neutral-500 uppercase shrink-0">MOULINEX</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0"></span>
+          {% endfor %}
+
+          <!-- Boucle 2 (Duplicata identique pour défilement infini sans à-coup) -->
+          <span class="w-2 h-2 rounded-full bg-amber-400 shrink-0 select-none"></span>
+          {% for b in brands %}
+          <a 
+            href="{% url 'shop:search' %}?q={{ b.name }}" 
+            class="font-display text-xs sm:text-sm font-extrabold tracking-wider text-slate-700 hover:text-amber-600 transition-colors duration-200 whitespace-nowrap uppercase select-none shrink-0 px-2 py-0.5 rounded-md hover:bg-amber-50"
+            title="{{ b.name }} - Garantie officielle Bamako"
+          >
+            {{ b.name }}
+          </a>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 shrink-0 select-none"></span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 4. VENTES FLASH AVEC COMPTE À REBOURS ÉPURÉ                               -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="rounded-3xl bg-neutral-50 sm:bg-white border border-neutral-200/80 p-2.5 sm:p-6 lg:p-8 shadow-xs">
+      
+      <!-- Bandeau En-tête Ventes Flash Stylé -->
+      <div class="rounded-2xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-500 text-white p-3.5 sm:p-6 mb-3 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-white animate-ping shrink-0"></span>
+          <div>
+            <h2 class="font-display text-base sm:text-2xl font-black text-white tracking-tight leading-tight">
+              Ventes Flash de la Semaine
+            </h2>
+            <p class="text-[11px] sm:text-xs text-amber-100 hidden sm:block">Tarifs remisés disponibles immédiatement en stock à Bamako</p>
+          </div>
+        </div>
+
+        <!-- Compte à rebours vectoriel compact -->
+        <div class="flex items-center gap-1.5 self-start sm:self-auto">
+          <span class="text-[10px] sm:text-xs font-bold text-amber-100 uppercase tracking-wider mr-0.5">Fin dans :</span>
+          <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black">02j</div>
+          <span class="font-bold text-xs">:</span>
+          <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black">14h</div>
+          <span class="font-bold text-xs">:</span>
+          <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black">45m</div>
+        </div>
+      </div>
+
+      <!-- Grille Produits Ventes Flash -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
+        {% for product in sale_products|default:featured_products|slice:":4" %}
+          {% include 'shop/partials/product_card.html' with product=product %}
+        {% empty %}
+          {% for product in featured_products|slice:":4" %}
+            {% include 'shop/partials/product_card.html' with product=product %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 5. SÉLECTION VEDETTE : LES MEILLEURES VENTES DU MOMENT                     -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 uppercase tracking-wider mb-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Plébiscités par nos clients</span>
+        </div>
+        <h2 class="font-display text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight">
+          Nos Meilleures Ventes à Bamako
+        </h2>
+      </div>
+
+      <a 
+        href="{% url 'shop:catalog' %}" 
+        class="inline-flex items-center gap-1 text-xs font-bold text-amber-600 hover:text-amber-700 hover:underline"
+      >
+        <span>Tout voir (100+) →</span>
+      </a>
+    </div>
+
+    <!-- Grille 4 colonnes Desktop / 2 colonnes Mobile -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+      {% for product in featured_products|slice:":8" %}
+        {% include 'shop/partials/product_card.html' with product=product %}
+      {% empty %}
+        <div class="col-span-full py-12 text-center text-neutral-400">
+          Chargement du catalogue...
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 6. SPOTLIGHT CLIMATISATION CANICULE & INVERTER (FORMAT FNAC / DARTY)      -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+      
+      <!-- Carte Promo Gauche : Pack Anti-Canicule T3 (4 colonnes) - Thème Blanc & Orange Lumineux -->
+      <div class="lg:col-span-4 rounded-3xl bg-gradient-to-br from-amber-50/80 via-white to-amber-50/40 text-neutral-900 p-5 sm:p-7 flex flex-col justify-between border border-amber-200/90 shadow-xs relative overflow-hidden">
+        <div class="space-y-3 relative z-10">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            <span>Spécial Saison Chaude</span>
+          </span>
+          <h3 class="font-display text-xl sm:text-2xl font-black text-neutral-950 leading-tight">
+            Packs Climatisation Inverter T3
+          </h3>
+          <p class="text-xs text-neutral-600 leading-relaxed">
+            Économisez jusqu'à <strong>35 000 FCFA par mois</strong> sur votre facture EDM grâce à la technologie Inverter. Câblage et pose certifiés par nos techniciens à Bamako.
+          </p>
+
+          <ul class="text-xs text-neutral-700 space-y-2 pt-1 font-medium">
+            <li class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-3 h-3 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <span>Résiste jusqu'à 52°C extérieur</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-3 h-3 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <span>Protection surtension Volt Control</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <svg class="w-3 h-3 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <span>Garantie 2 ans avec facture officielle</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-5 relative z-10">
+          <a 
+            href="{% url 'shop:category' 'climatisation' %}" 
+            class="block w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-white font-bold text-xs text-center shadow-xs transition"
+          >
+            Découvrir tous les climatiseurs →
+          </a>
+        </div>
+      </div>
+
+      <!-- Grille Produits Climatisation Droite (8 colonnes, 4 produits = 2x2 parfait sur mobile) -->
+      <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2.5 sm:gap-4 items-stretch">
+        {% for product in climatiseurs %}
+          {% include 'shop/partials/product_card.html' with product=product %}
+        {% empty %}
+          {% for product in featured_products|slice:":4" %}
+            {% include 'shop/partials/product_card.html' with product=product %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 7. NOUVEAUX ARRIVAGES EN BOUTIQUE                                         -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 uppercase tracking-wider mb-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Derniers Arrivages 2026</span>
+        </div>
+        <h2 class="font-display text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight">
+          Nouveautés Constructeurs Récemment Arrivées
+        </h2>
+      </div>
+
+      <a 
+        href="{% url 'shop:catalog' %}?tri=nouveautes" 
+        class="inline-flex items-center gap-1 text-xs font-bold text-amber-600 hover:text-amber-700 hover:underline"
+      >
+        <span>Tous les arrivages →</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+      {% for product in new_products|slice:":4" %}
+        {% include 'shop/partials/product_card.html' with product=product %}
+      {% empty %}
+        {% for product in featured_products|slice:":4" %}
+          {% include 'shop/partials/product_card.html' with product=product %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 8. BANDEAU DEVIS EXPRESS WHATSAPP POUR PARTICULIERS & PROS                -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="rounded-3xl bg-neutral-900 text-white border border-neutral-800 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden">
+      <!-- Glow doré d'arrière plan -->
+      <div class="absolute -right-16 -top-16 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/25">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.45 1.054 1.325 1.833.687.612 1.267.801 1.447.888.181.087.289.073.397-.051.108-.124.462-.538.585-.722.123-.184.246-.153.411-.092.166.061 1.052.496 1.233.587.181.091.303.136.347.212.043.076.043.439-.101.844z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-display text-base sm:text-lg font-bold text-white">
+            Vous équipez une villa, un bureau ou un appartement ?
+          </h3>
+          <p class="text-xs text-neutral-400 mt-0.5">
+            Obtenez un devis gratuit avec remise groupée et installation clé en main par nos techniciens à Bamako.
+          </p>
+        </div>
+      </div>
+
+      <a 
+        href="https://wa.me/{{ shop_settings.whatsapp_raw|default:'22392673799' }}?text=Bonjour%20Onizouka%20Shop,%20je%20souhaite%20un%20devis%20pour%20équiper%20mon%20logement" 
+        target="_blank" 
+        rel="noopener"
+        class="px-6 py-3.5 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition flex items-center gap-2 shrink-0 relative z-10"
+      >
+        <span>Demander un devis rapide WhatsApp</span>
+        <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 9. BOUTIQUE & SHOWROOM EXPÉRIENTIEL HAMDALLAYE ACI 2000 (SPECTACULAIRE)   -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-800 bg-neutral-950">
+      
+      <!-- IMAGE DE FOND RÉELLE DES PRODUITS (RÉFRIGÉRATEURS, TV OLED 4K, CLIMATISEURS, ÉLECTROMÉNAGER) -->
+      <img 
+        src="{% static 'images/hero_banner_appliances.jpg' %}" 
+        alt="Électronique et Électroménager Onizouka Shop Bamako" 
+        class="absolute inset-0 w-full h-full object-cover object-right lg:object-[88%_center] transition-transform duration-700"
+      >
+
+      <!-- DÉGRADÉS POUR UNE LISIBILITÉ PARFAITE À GAUCHE TOUT EN LAISSANT LES PRODUITS VISIBLES À DROITE -->
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/90 to-neutral-950/25 lg:from-neutral-950 lg:via-neutral-950/85 lg:to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/95 via-transparent to-neutral-950/30"></div>
+      
+      <!-- HALO DORÉ PRESTIGE DISCRET -->
+      <div class="absolute -top-20 -left-20 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- BADGES FLOTTANTS DES PRODUITS EXPOSÉS SUR LA DROITE -->
+      <div class="hidden lg:flex flex-col gap-2 absolute top-8 right-8 z-10 items-end">
+        <span class="px-3.5 py-1.5 rounded-full bg-neutral-950/80 backdrop-blur-md border border-neutral-700/80 text-[11px] font-semibold text-white shadow-xl flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span>Réfrigérateurs Multi-Portes</span>
+        </span>
+        <span class="px-3.5 py-1.5 rounded-full bg-neutral-950/80 backdrop-blur-md border border-neutral-700/80 text-[11px] font-semibold text-white shadow-xl flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span>Smart TV 4K & OLED</span>
+        </span>
+        <span class="px-3.5 py-1.5 rounded-full bg-neutral-950/80 backdrop-blur-md border border-neutral-700/80 text-[11px] font-semibold text-white shadow-xl flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span>Climatiseurs Inverter</span>
+        </span>
+      </div>
+
+      <!-- CONTENU AU PREMIER PLAN -->
+      <div class="relative z-10 p-6 sm:p-10 lg:p-12">
+        <div class="max-w-2xl space-y-5">
+          
+          <!-- Badge d'exception -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 text-amber-300 text-xs font-bold border border-amber-400/30 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Boutique Officielle & Magasin Central · Bamako</span>
+          </div>
+
+          <!-- Titre Majeur -->
+          <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.15]">
+            Venez tester vos appareils au <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">Grand Marché de Bamako</span>
+          </h2>
+
+          <!-- Description Immersive -->
+          <p class="text-xs sm:text-sm lg:text-base text-neutral-300 leading-relaxed font-normal">
+            Plus de 1 000 références en exposition directe. Mesurez les volumes réels, écoutez le silence des climatiseurs Inverter et testez la qualité d'image de nos écrans 4K/8K avant d'acheter.
+          </p>
+
+          <!-- 2 Cartes Verre Fumé & Or (Glassmorphism Haut de Gamme) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            
+            <div class="p-4 rounded-2xl bg-neutral-900/75 hover:bg-neutral-900/90 border border-neutral-700/80 backdrop-blur-md transition-colors flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/30 mt-0.5">
+                <svg class="w-4.5 h-4.5 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-white tracking-wide">Adresse Directe</h4>
+                <p class="text-[11px] text-neutral-300 mt-0.5">Grand Marché de Bamako, Dabanani</p>
+                <span class="inline-block mt-1 text-[10px] font-semibold text-amber-400">Accès facile & déchargement rapide</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-neutral-900/75 hover:bg-neutral-900/90 border border-neutral-700/80 backdrop-blur-md transition-colors flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/30 mt-0.5">
+                <svg class="w-4.5 h-4.5 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-white tracking-wide">Ouvert 7j/7</h4>
+                <p class="text-[11px] text-neutral-300 mt-0.5">De 08h30 à 20h30 sans interruption</p>
+                <span class="inline-block mt-1 text-[10px] font-semibold text-amber-400">Retrait en boutique en 15 min</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Boutons d'Action (SANS AUCUN VERT - HARMONIE OR & NOIR PRESTIGE) -->
+          <div class="flex flex-wrap items-center gap-3 pt-3">
+            <a 
+              href="{% url 'shop:contact' %}" 
+              class="px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-amber-500/25 transition duration-200 flex items-center gap-2"
+            >
+              <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+              </svg>
+              <span>Plan d'accès & Itinéraire</span>
+            </a>
+
+            <a 
+              href="https://wa.me/{{ shop_settings.whatsapp_raw|default:'22392673799' }}" 
+              target="_blank" 
+              rel="noopener" 
+              class="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/25 backdrop-blur-md transition flex items-center gap-2.5 shadow-md"
+            >
+              <svg class="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.45 1.054 1.325 1.833.687.612 1.267.801 1.447.888.181.087.289.073.397-.051.108-.124.462-.538.585-.722.123-.184.246-.153.411-.092.166.061 1.052.496 1.233.587.181.091.303.136.347.212.043.076.043.439-.101.844z"/></svg>
+              <span>Contacter sur WhatsApp ({{ shop_settings.phone_whatsapp|default:'+223 92 67 37 99' }})</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 10. LES 4 PILIERS DE RÉASSURANCE HAUT DE GAMME (ORANGE & BLANC)           -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <div class="flex items-center gap-3 p-4 rounded-2xl bg-white border border-neutral-200/80 shadow-xs">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25h1.5a1.5 1.5 0 011.5 1.5v3"/></svg>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold text-neutral-900">Livraison 24h Bamako</h3>
+          <p class="text-[11px] text-neutral-500">À domicile ou au bureau</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 p-4 rounded-2xl bg-white border border-neutral-200/80 shadow-xs">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold text-neutral-900">Garantie 12-24 Mois</h3>
+          <p class="text-[11px] text-neutral-500">Certificat officiel constructeur</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 p-4 rounded-2xl bg-white border border-neutral-200/80 shadow-xs">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6H2.25m0 0v10.5m0-10.5h19.5m0 0v10.5m0 0a.75.75 0 01-.75.75H21m-18.75 0h18.75"/></svg>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold text-neutral-900">Paiement à la Livraison</h3>
+          <p class="text-[11px] text-neutral-500">Orange Money, Wave ou Cash</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 p-4 rounded-2xl bg-white border border-neutral-200/80 shadow-xs">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.07a4.5 4.5 0 004.486-6.32l-3.27 3.27"/></svg>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold text-neutral-900">SAV & Atelier Agréé</h3>
+          <p class="text-[11px] text-neutral-500">Techniciens certifiés à Bamako</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}

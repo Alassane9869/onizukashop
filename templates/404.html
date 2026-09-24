@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Page non trouvée (Erreur 404) - Onizouka Shop Grand Marché{% endblock %}
+
+{% block content %}
+<div class="min-h-[65vh] flex items-center justify-center px-4 py-16">
+  <div class="max-w-lg w-full text-center space-y-6">
+    
+    <!-- Badge Erreur 404 -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-xs font-bold uppercase tracking-wider">
+      <svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+      <span>Erreur 404 &bull; Page introuvable</span>
+    </div>
+
+    <!-- Titre Impactant -->
+    <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight font-display">
+      Oups ! Cet appareil ou cette page n'existe plus.
+    </h1>
+
+    <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-md mx-auto">
+      L'article recherché a peut-être été déplacé, vendu ou l'adresse saisie est incorrecte. Notre équipe du Grand Marché reste à votre entière disposition pour vous guider.
+    </p>
+
+    <!-- Raccourcis et Actions -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+      <a 
+        href="{% url 'shop:catalog' %}" 
+        class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm transition shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
+      >
+        <svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+        <span>Explorer tout le catalogue</span>
+      </a>
+
+      <a 
+        href="https://wa.me/{{ shop_settings.whatsapp_raw|default:'22392673799' }}?text={{ 'Bonjour Onizouka Shop, je cherchais un produit spécifique sur votre site mais la page est introuvable.'|urlencode }}" 
+        target="_blank" 
+        rel="noopener"
+        class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition shadow-sm flex items-center justify-center gap-2"
+      >
+        <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.45 1.054 1.325 1.833.687.612 1.267.801 1.447.888.181.087.289.073.397-.051.108-.124.462-.538.585-.722.123-.184.246-.153.411-.092.166.061 1.052.496 1.233.587.181.091.303.136.347.212.043.076.043.439-.101.844z"/></svg>
+        <span>Demander sur WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- Adresse Showroom -->
+    <div class="pt-6 border-t border-slate-200/70 text-xs text-slate-500 flex items-center justify-center gap-1.5">
+      <svg class="w-3.5 h-3.5 stroke-[2] text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+      <span>Boutique : Grand Marché de Bamako, Dabanani</span>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

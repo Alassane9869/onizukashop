@@ -1,0 +1,63 @@
+{% if products %}
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+     id="product-grid">
+  {% for product in products %}
+  {% include 'shop/partials/product_card.html' with product=product %}
+  {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if products.has_other_pages %}
+<div class="flex justify-center items-center gap-2 mt-8">
+  {% if products.has_previous %}
+  <a href="?page={{ products.previous_page_number }}&{{ request.GET.urlencode }}"
+     class="flex items-center gap-1 px-4 py-2 rounded-xl border border-gray-200
+            text-sm font-medium text-gray-600 hover:bg-gray-50 transition">
+    <span class="material-icons-round text-sm">chevron_left</span>
+    Precedent
+  </a>
+  {% endif %}
+
+  <div class="flex items-center gap-1">
+    {% for num in products.paginator.page_range %}
+    {% if products.number == num %}
+    <span class="w-9 h-9 bg-amber-500 text-white text-sm font-bold rounded-xl flex items-center justify-center">
+      {{ num }}
+    </span>
+    {% elif num > products.number|add:'-3' and num < products.number|add:'3' %}
+    <a href="?page={{ num }}&{{ request.GET.urlencode }}"
+       class="w-9 h-9 border border-gray-200 text-gray-600 text-sm rounded-xl
+              flex items-center justify-center hover:bg-gray-50 transition">
+      {{ num }}
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if products.has_next %}
+  <a href="?page={{ products.next_page_number }}&{{ request.GET.urlencode }}"
+     class="flex items-center gap-1 px-4 py-2 rounded-xl border border-gray-200
+            text-sm font-medium text-gray-600 hover:bg-gray-50 transition">
+    Suivant
+    <span class="material-icons-round text-sm">chevron_right</span>
+  </a>
+  {% endif %}
+</div>
+{% endif %}
+
+{% else %}
+<!-- Etat vide -->
+<div class="text-center py-16">
+  <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+    <span class="material-icons-round text-4xl text-gray-300">search_off</span>
+  </div>
+  <h3 class="font-heading font-semibold text-xl text-gray-700 mb-2">Aucun produit trouve</h3>
+  <p class="text-gray-500 text-sm mb-6">Essayez de modifier vos filtres de recherche.</p>
+  <a href="{% url 'shop:catalog' %}"
+     class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 hover:bg-amber-600
+            text-white font-medium rounded-xl transition">
+    <span class="material-icons-round text-sm">refresh</span>
+    Reinitialiser les filtres
+  </a>
+</div>
+{% endif %}

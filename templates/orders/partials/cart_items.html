@@ -1,0 +1,97 @@
+{% load humanize %}
+<!-- Partial Panier Flagship : Rechargeable via HTMX -->
+<div class="space-y-4">
+  {% for item in items %}
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:shadow-sm transition">
+    
+    <!-- Image & Détails -->
+    <div class="flex items-center gap-4 flex-1 min-w-0">
+      <a href="{{ item.product.get_absolute_url }}" class="w-20 h-20 rounded-2xl bg-white border border-slate-200/80 p-2 flex items-center justify-center shrink-0">
+        {% if item.product.primary_image %}
+        <img src="{{ item.product.primary_image.thumbnail.url }}" alt="{{ item.product.name }}" class="max-w-full max-h-full object-contain">
+        {% else %}
+        <span class="material-icons-round text-3xl text-slate-300">devices</span>
+        {% endif %}
+      </a>
+
+      <div class="min-w-0">
+        {% if item.product.brand %}
+        <p class="text-[11px] font-heading font-black text-brand-600 uppercase tracking-wider mb-0.5">{{ item.product.brand.name }}</p>
+        {% endif %}
+        <a href="{{ item.product.get_absolute_url }}" class="block">
+          <h3 class="font-heading font-bold text-sm text-slate-900 hover:text-brand-600 transition truncate">
+            {{ item.product.name }}
+          </h3>
+        </a>
+        <p class="text-xs text-slate-400 font-mono mt-0.5">Réf: {{ item.product.sku }}</p>
+        <p class="text-xs font-semibold text-slate-700 mt-1">
+          Prix unitaire : <strong class="text-slate-900">{{ item.product.get_formatted_price }}</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Sélecteur de Quantité & Total Ligne -->
+    <div class="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-200">
+      
+      <!-- Boutons + / - avec HTMX -->
+      <form 
+        method="post" 
+        action="{% url 'orders:cart_update' item.pk %}"
+        hx-post="{% url 'orders:cart_update' item.pk %}"
+        hx-target="#cart-items"
+        hx-swap="innerHTML"
+        class="flex items-center border border-slate-200 rounded-xl bg-white p-0.5 shadow-sm"
+      >
+        {% csrf_token %}
+        <button 
+          type="submit" 
+          name="quantity" 
+          value="{{ item.quantity|add:'-1' }}"
+          class="w-8 h-8 rounded-lg hover:bg-slate-100 text-slate-600 font-bold text-sm flex items-center justify-center transition"
+        >
+          -
+        </button>
+        <span class="w-8 text-center text-xs font-bold text-slate-900 font-mono">
+          {{ item.quantity }}
+        </span>
+        <button 
+          type="submit" 
+          name="quantity" 
+          value="{{ item.quantity|add:'1' }}"
+          class="w-8 h-8 rounded-lg hover:bg-slate-100 text-slate-600 font-bold text-sm flex items-center justify-center transition"
+        >
+          +
+        </button>
+      </form>
+
+      <!-- Sous-total de la ligne -->
+      <div class="text-right">
+        <p class="font-heading font-black text-base text-slate-900 font-mono">
+          {{ item.get_formatted_subtotal }}
+        </p>
+        
+        <!-- Bouton Supprimer -->
+        <form 
+          method="post" 
+          action="{% url 'orders:cart_remove' item.pk %}"
+          hx-post="{% url 'orders:cart_remove' item.pk %}"
+          hx-target="#cart-items"
+          hx-swap="innerHTML"
+          class="inline-block mt-0.5"
+        >
+          {% csrf_token %}
+          <button 
+            type="submit" 
+            class="text-[11px] font-semibold text-rose-500 hover:text-rose-700 transition flex items-center gap-1"
+          >
+            <span class="material-icons-round text-xs">delete</span>
+            <span>Retirer</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+  {% endfor %}
+</div>

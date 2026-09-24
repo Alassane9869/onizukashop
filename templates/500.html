@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Erreur Technique (500) - Onizouka Shop Grand Marché{% endblock %}
+
+{% block content %}
+<div class="min-h-[65vh] flex items-center justify-center px-4 py-16">
+  <div class="max-w-lg w-full text-center space-y-6">
+    
+    <!-- Badge Erreur 500 -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-600 text-xs font-bold uppercase tracking-wider">
+      <svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+      <span>Erreur Serveur &bull; Incident Technique</span>
+    </div>
+
+    <!-- Titre -->
+    <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight font-display">
+      Une interruption momentanée est survenue.
+    </h1>
+
+    <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-md mx-auto">
+      Nos équipes techniques ont été notifiées. Rassurez-vous, toutes vos transactions et paniers sont en parfaite sécurité.
+    </p>
+
+    <!-- Raccourcis et Actions -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+      <a 
+        href="{% url 'shop:home' %}" 
+        class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm transition shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
+      >
+        <svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+        <span>Retour à l'accueil</span>
+      </a>
+
+      <a 
+        href="https://wa.me/{{ shop_settings.whatsapp_raw|default:'22392673799' }}?text={{ 'Bonjour Onizouka Shop, je rencontre un blocage sur votre site pour valider ma commande.'|urlencode }}" 
+        target="_blank" 
+        rel="noopener"
+        class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition shadow-sm flex items-center justify-center gap-2"
+      >
+        <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.45 1.054 1.325 1.833.687.612 1.267.801 1.447.888.181.087.289.073.397-.051.108-.124.462-.538.585-.722.123-.184.246-.153.411-.092.166.061 1.052.496 1.233.587.181.091.303.136.347.212.043.076.043.439-.101.844z"/></svg>
+        <span>Assistance WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- Adresse Boutique -->
+    <div class="pt-6 border-t border-slate-200/70 text-xs text-slate-500 flex items-center justify-center gap-1.5">
+      <svg class="w-3.5 h-3.5 stroke-[2] text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+      <span>Boutique Officielle : Grand Marché de Bamako, Dabanani</span>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

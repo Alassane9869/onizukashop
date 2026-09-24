@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Politique de Confidentialité - ONIZOUKA SHOP Mali{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+    <!-- En-tête -->
+    <div class="border-b border-neutral-200 pb-6 mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200/80 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span>Confidentialité & Protection des Données</span>
+        </div>
+        <h1 class="font-display text-2xl sm:text-4xl font-black text-neutral-900 tracking-tight">
+            Politique de Confidentialité & Données Personnelles
+        </h1>
+        <p class="text-xs sm:text-sm text-neutral-500 mt-2">
+            Chez <strong class="text-neutral-800">ONIZOUKA SHOP</strong>, le respect de votre vie privée et la sécurité de vos informations de contact et de paiement sont au cœur de nos engagements.
+        </p>
+    </div>
+
+    <!-- Contenu -->
+    <div class="bg-white rounded-3xl border border-neutral-200/90 p-6 sm:p-10 shadow-xs space-y-8 text-neutral-700 text-xs sm:text-sm leading-relaxed">
+
+        <section class="space-y-2">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">1</span>
+                <span>Données Collectées</span>
+            </h2>
+            <p>
+                Nous collectons uniquement les informations strictement nécessaires à la bonne exécution de vos commandes et livraisons à Bamako :
+            </p>
+            <ul class="list-disc list-inside space-y-1 pl-2">
+                <li><strong>Identité</strong> : Nom, prénom ou raison sociale de votre entreprise.</li>
+                <li><strong>Coordonnées</strong> : Numéro de téléphone direct (utilisé pour les notifications de livraison et WhatsApp), adresse email.</li>
+                <li><strong>Localisation de livraison</strong> : Commune de Bamako, quartier précis, repères géographiques et indications d'accès pour les livreurs.</li>
+                <li><strong>Historique d'achat</strong> : Articles commandés, factures générées, bons de garantie constructeur.</li>
+            </ul>
+        </section>
+
+        <section class="space-y-2">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">2</span>
+                <span>Finalité des Traitements</span>
+            </h2>
+            <p>Vos données sont exclusivement utilisées pour :</p>
+            <ul class="list-disc list-inside space-y-1 pl-2">
+                <li>Le traitement, la préparation et la livraison de vos colis d'électroménager.</li>
+                <li>L'émission de vos factures officielles et le suivi de vos garanties constructeur 12 à 24 mois.</li>
+                <li>La communication par SMS ou WhatsApp relative à l'avancement de votre commande.</li>
+                <li>La prise en charge par notre service après-vente (SAV) en cas d'intervention technique.</li>
+            </ul>
+        </section>
+
+        <section class="space-y-2">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">3</span>
+                <span>Confidentialité Absolue & Non-Cession</span>
+            </h2>
+            <p>
+                <strong>ONIZOUKA SHOP ne vend, ne loue et ne cède JAMAIS vos données personnelles à des tiers.</strong>
+            </p>
+            <p>
+                Vos informations ne sont partagées qu'avec les membres habilités de notre équipe logistique (livreurs Onizouka) pour assurer le déchargement de vos équipements à votre domicile ou bureau.
+            </p>
+        </section>
+
+        <section class="space-y-2">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">4</span>
+                <span>Sécurité des Paiements</span>
+            </h2>
+            <p>
+                ONIZOUKA SHOP n'enregistre aucune donnée bancaire confidentielle sur ses serveurs. Les transactions via <strong>Orange Money</strong> et <strong>Wave</strong> sont traitées directement via les protocoles chiffrés et sécurisés des opérateurs agréés en République du Mali.
+            </p>
+        </section>
+
+        <section class="space-y-2">
+            <h2 class="font-display text-base sm:text-lg font-bold text-neutral-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center">5</span>
+                <span>Vos Droits de Modification et de Suppression</span>
+            </h2>
+            <p>
+                Conformément à la réglementation malienne et aux normes de protection de la vie privée, vous disposez d'un droit permanent d'accès, de rectification et de suppression de vos données personnelles.
+            </p>
+            <p>
+                Vous pouvez modifier directement vos informations depuis votre espace <a href="{% url 'accounts:profile_edit' %}" class="font-bold text-amber-700 underline">Mon Profil</a> ou en contactant notre délégué aux données à <strong class="text-neutral-900">direction@onizoukashop.com</strong>.
+            </p>
+        </section>
+
+    </div>
+
+</div>
+{% endblock %}
