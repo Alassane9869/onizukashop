@@ -273,10 +273,11 @@ def audit_http_endpoints_internal():
 
         t0 = time.time()
         try:
+            # secure=True pour simuler HTTPS et ne pas declencher SECURE_SSL_REDIRECT
             if method == 'POST':
-                resp = client.post(url, data or {})
+                resp = client.post(url, data or {}, secure=True)
             else:
-                resp = client.get(url)
+                resp = client.get(url, secure=True)
             duration = (time.time() - t0) * 1000
 
             valid = resp.status_code == expected_status if isinstance(expected_status, int) else resp.status_code in expected_status
@@ -304,10 +305,11 @@ def audit_remote_endpoints(base_url):
         ("Panier (GET)", f"{base_url}/panier/"),
         ("Ajouter au Panier (GET/POST)", f"{base_url}/panier/ajouter/{product_id}/"),
         ("Contact", f"{base_url}/contact/"),
-        ("FAQ", f"{base_url}/faq/"),
+        ("Livraison & Garantie", f"{base_url}/livraison-garantie/"),
         ("Mentions Legales", f"{base_url}/mentions-legales/"),
         ("Portail Gestion", f"{base_url}/gestion/"),
     ]
+
 
     for label, full_url in urls:
         t0 = time.time()
