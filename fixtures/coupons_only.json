@@ -1,0 +1,47 @@
+﻿[
+{
+  "model": "orders.coupon",
+  "pk": 1,
+  "fields": {
+    "code": "BIENVENUE10",
+    "discount_type": "percent",
+    "discount_value": "10",
+    "min_order_amount": "50000",
+    "max_uses": 100,
+    "current_uses": 0,
+    "is_active": true,
+    "expires_at": null,
+    "created_at": "2026-09-22T18:07:22.764Z"
+  }
+},
+{
+  "model": "orders.coupon",
+  "pk": 2,
+  "fields": {
+    "code": "ONIZOUKA5000",
+    "discount_type": "fixed",
+    "discount_value": "5000",
+    "min_order_amount": "100000",
+    "max_uses": 50,
+    "current_uses": 0,
+    "is_active": true,
+    "expires_at": null,
+    "created_at": "2026-09-22T18:07:22.768Z"
+  }
+},
+{
+  "model": "orders.coupon",
+  "pk": 3,
+  "fields": {
+    "code": "PROMO15K",
+    "discount_type": "fixed",
+    "discount_value": "15000",
+    "min_order_amount": "100000",
+    "max_uses": null,
+    "current_uses": 0,
+    "is_active": true,
+    "expires_at": null,
+    "created_at": "2026-09-24T14:11:48.337Z"
+  }
+}
+]
