@@ -22,11 +22,9 @@ else:
 SECRET_KEY = config('SECRET_KEY', default='dev-secret-key-onizouka-changez-en-prod-2026')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-raw_hosts = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,testserver,onizouka.danayaplus.com')
-ALLOWED_HOSTS = [h.strip() for h in raw_hosts.split(',') if h.strip()]
-for h in ['localhost', '127.0.0.1', 'testserver', '[::1]', 'onizouka.danayaplus.com']:
-    if h not in ALLOWED_HOSTS:
-        ALLOWED_HOSTS.append(h)
+raw_hosts = config('ALLOWED_HOSTS', default='*')
+ALLOWED_HOSTS = ['*']
+
 
 raw_origins = config('CSRF_TRUSTED_ORIGINS', default='')
 if raw_origins:
@@ -155,7 +153,8 @@ if REDIS_URL:
             'TIMEOUT': 300,
         }
     }
-    SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+    # Utiliser cached_db pour garantir la persistance BDD même si Redis est indisponible
+    SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
     SESSION_CACHE_ALIAS = 'default'
 else:
     CACHES = {
@@ -165,6 +164,7 @@ else:
         }
     }
     SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 

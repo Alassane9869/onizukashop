@@ -60,64 +60,62 @@ class ProductFilter(django_filters.FilterSet):
 # ---------------------------------------------------------------------------
 
 def get_or_create_cart(request):
-    """Recupere ou cree le panier pour l'utilisateur / la session de maniere ultra-robuste."""
-    if request.user.is_authenticated:
-        cart = Cart.objects.filter(user=request.user).first()
-        if not cart:
-            cart = Cart.objects.create(user=request.user)
+    """Recupere ou cree le panier pour l'utilisateur / la session de maniere ultra-robuste et atomique."""
+    if hasattr(request, 'user') and request.user.is_authenticated:
+        cart, _ = Cart.objects.get_or_create(user=request.user)
 
         # Fusionner panier session si existant
-        session_key = request.session.session_key
-        if session_key:
-            session_carts = Cart.objects.filter(session_key=session_key).exclude(id=cart.id)
+        if hasattr(request, 'session') and request.session.session_key:
+            session_carts = Cart.objects.filter(session_key=request.session.session_key).exclude(id=cart.id)
             for sc in session_carts:
                 for item in sc.items.select_related('product').all():
-                    cart_item = CartItem.objects.filter(cart=cart, product=item.product).first()
-                    if cart_item:
+                    cart_item, created = CartItem.objects.get_or_create(
+                        cart=cart, product=item.product,
+                        defaults={'quantity': item.quantity}
+                    )
+                    if not created:
                         cart_item.quantity += item.quantity
                         cart_item.save(update_fields=['quantity'])
-                    else:
-                        CartItem.objects.create(cart=cart, product=item.product, quantity=item.quantity)
                 sc.delete()
         return cart
 
     # Utilisateur anonyme
-    if not request.session.session_key:
-        try:
-            request.session.create()
-        except Exception:
+    session_key = None
+    if hasattr(request, 'session'):
+        if not request.session.session_key:
             try:
                 request.session.save()
             except Exception:
                 pass
+        session_key = request.session.session_key
 
-    session_key = request.session.session_key
     if not session_key:
-        try:
-            request.session['session_init'] = True
-            request.session.save()
-            session_key = request.session.session_key
-        except Exception:
-            pass
-
-    request.session.modified = True
-
-    cart = None
-    if session_key:
-        cart = Cart.objects.filter(session_key=session_key).first()
-
-    if not cart:
+        if hasattr(request, 'session'):
+            session_key = request.session.get('cart_token')
+            if not session_key:
+                import uuid
+                session_key = uuid.uuid4().hex[:32]
+                try:
+                    request.session['cart_token'] = session_key
+                    request.session.save()
+                except Exception:
+                    pass
         if not session_key:
             import uuid
-            session_key = f"anon_{uuid.uuid4().hex[:30]}"
-            try:
-                request.session['anon_key'] = session_key
-                request.session.save()
-            except Exception:
-                pass
-        cart = Cart.objects.create(session_key=session_key)
+            session_key = uuid.uuid4().hex[:32]
+
+    cart = Cart.objects.filter(session_key=session_key).first()
+    if not cart:
+        try:
+            cart, _ = Cart.objects.get_or_create(session_key=session_key)
+        except Exception:
+            cart = Cart.objects.filter(session_key=session_key).first()
+            if not cart:
+                import uuid
+                cart = Cart.objects.create(session_key=uuid.uuid4().hex[:32])
 
     return cart
+
 
 
 # ---------------------------------------------------------------------------
