@@ -144,7 +144,10 @@ def cart_add(request, product_id):
                 'cart_count': cart_count,
                 'message': f'"{product.name}" ajouté au panier',
             })
-            trigger_client_event(response, 'cartUpdated', {'count': cart_count})
+            trigger_client_event(response, 'cartUpdated', {
+                'count': cart_count,
+                'message': f'"{product.name}" ajouté au panier',
+            })
             return response
 
         messages.success(request, f'"{product.name}" ajouté au panier !')
@@ -152,7 +155,10 @@ def cart_add(request, product_id):
     except Exception as e:
         import logging
         logging.getLogger(__name__).error(f"Erreur cart_add: {e}", exc_info=True)
-        messages.success(request, "Article ajouté à votre sélection !")
+        if getattr(request, 'htmx', False):
+            response = JsonResponse({'success': False, 'message': "Erreur lors de l'ajout au panier"}, status=400)
+            return response
+        messages.error(request, "Impossible d'ajouter cet article au panier.")
         return redirect('orders:cart')
 
 

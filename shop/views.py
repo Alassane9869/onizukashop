@@ -84,23 +84,37 @@ def get_or_create_cart(request):
     # Utilisateur anonyme
     if not request.session.session_key:
         try:
-            request.session.save()
-        except Exception:
-            pass
-    session_key = request.session.session_key
-
-    if not session_key:
-        try:
             request.session.create()
         except Exception:
+            try:
+                request.session.save()
+            except Exception:
+                pass
+
+    session_key = request.session.session_key
+    if not session_key:
+        try:
+            request.session['session_init'] = True
+            request.session.save()
+            session_key = request.session.session_key
+        except Exception:
             pass
-        session_key = request.session.session_key
+
+    request.session.modified = True
 
     cart = None
     if session_key:
         cart = Cart.objects.filter(session_key=session_key).first()
 
     if not cart:
+        if not session_key:
+            import uuid
+            session_key = f"anon_{uuid.uuid4().hex[:30]}"
+            try:
+                request.session['anon_key'] = session_key
+                request.session.save()
+            except Exception:
+                pass
         cart = Cart.objects.create(session_key=session_key)
 
     return cart
