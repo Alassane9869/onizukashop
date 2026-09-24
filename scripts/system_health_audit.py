@@ -118,11 +118,12 @@ def audit_configuration():
         latency = (time.time() - t0) * 1000
         if val == 'ok_123':
             log_pass("Systeme de Cache", f"Fonctionnel (Latence : {latency:.2f}ms)")
-        else:
-            log_warn("Systeme de Cache", "Cache inactif ou Redis injoignable (Repli automatique actif)")
+    except Exception as e:
+        log_warn("Systeme de Cache", f"Cache indisponible ({e})")
+
     # SMTP Emails
-    if settings.EMAIL_HOST_USER and settings.EMAIL_HOST:
-        log_pass("Configuration Email SMTP", f"{settings.EMAIL_HOST}:{settings.EMAIL_PORT} (SSL: {settings.EMAIL_USE_SSL}) | Compte: {settings.EMAIL_HOST_USER}")
+    if getattr(settings, 'EMAIL_HOST_USER', None) and getattr(settings, 'EMAIL_HOST', None):
+        log_pass("Configuration Email SMTP", f"{settings.EMAIL_HOST}:{settings.EMAIL_PORT} (SSL: {getattr(settings, 'EMAIL_USE_SSL', False)}) | Compte: {settings.EMAIL_HOST_USER}")
     else:
         log_warn("Configuration Email SMTP", "Identifiants non renseignés")
 
