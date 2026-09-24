@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - export APP_PATH=/home/vuxe8870/repositories/onizukashop
+    - export VENV=/home/vuxe8870/virtualenv/repositories/onizukashop/3.12/bin
+    - cd $APP_PATH
+    - /bin/cp -n .env.production .env 2>/dev/null || true
+    - $VENV/pip install --upgrade pip
+    - $VENV/pip install -r requirements.txt
+    - $VENV/python manage.py migrate --noinput
+    - $VENV/python manage.py collectstatic --noinput
+    - /bin/mkdir -p tmp
+    - /bin/touch tmp/restart.txt
