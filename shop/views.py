@@ -139,7 +139,7 @@ def get_or_create_cart(request):
 
 def home(request):
     # Accueil : Sélection stricte des appareils disponibles en stock
-    in_stock_q = models.Q(is_active=True, status='active') & (models.Q(track_stock=False) | models.Q(stock__gt=0))
+    in_stock_q = Q(is_active=True, status='active') & (Q(track_stock=False) | Q(stock__gt=0))
 
     featured_products = list(Product.objects.filter(
         in_stock_q, is_featured=True
