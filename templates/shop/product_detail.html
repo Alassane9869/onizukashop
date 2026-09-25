@@ -116,6 +116,7 @@
           :src="activeImg || '{{ product.primary_image.image.url }}'"
           alt="{{ product.name }}"
           class="max-w-full max-h-full object-contain"
+          decoding="async"
         >
         {% else %}
         <div class="w-full h-full flex flex-col items-center justify-center text-neutral-400">
@@ -159,7 +160,7 @@
           class="w-16 h-16 rounded-xl border p-1 bg-white transition shrink-0"
           :class="activeImg === '{{ img.image.url }}' ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-neutral-200 hover:border-neutral-400'"
         >
-          <img src="{{ img.image.url }}" alt="{{ product.name }}" class="w-full h-full object-contain">
+          <img src="{{ img.image.url }}" alt="{{ product.name }}" class="w-full h-full object-contain" loading="lazy" decoding="async">
         </button>
         {% endfor %}
       </div>

@@ -42,7 +42,7 @@
 
   <!-- CSS Pro -->
   {% load static %}
-  <link rel="stylesheet" href="{% static 'css/main.css' %}?v=20260923.3">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}?v=20260925.1">
 
   <!-- HTMX & Alpine.js -->
   <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
@@ -1216,7 +1216,49 @@
       </svg>
     </button>
   </div>
-  {% endif %}
+  <!-- MOTEUR DE FLUIDITÉ & NAVIGATION INSTANTANÉE (0ms Latency sur Mobile & Bas Débit) -->
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "source": "list",
+        "where": { "and": [{ "href_matches": "/*" }] },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+  <script>
+    /* Préchargement instantané au touchstart (150ms avant le clic) pour mobiles modestes */
+    (function() {
+      if (!('fetch' in window)) return;
+      var prefetched = new Set();
+      function prefetchRoute(href) {
+        if (!href || prefetched.has(href)) return;
+        if (href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('tel:') || href.startsWith('mailto:') || href.indexOf('wa.me') !== -1 || href.indexOf('logout') !== -1 || href.indexOf('supprimer') !== -1) return;
+        try {
+          var targetUrl = new URL(href, window.location.href);
+          if (targetUrl.origin !== window.location.origin) return;
+          prefetched.add(href);
+          var link = document.createElement('link');
+          link.rel = 'prefetch';
+          link.href = href;
+          link.as = 'document';
+          document.head.appendChild(link);
+        } catch(e) {}
+      }
+
+      document.addEventListener('touchstart', function(e) {
+        var a = e.target.closest('a');
+        if (a && a.href) prefetchRoute(a.getAttribute('href') || a.href);
+      }, { passive: true });
+
+      document.addEventListener('mouseover', function(e) {
+        var a = e.target.closest('a');
+        if (a && a.href) prefetchRoute(a.getAttribute('href') || a.href);
+      }, { passive: true });
+    })();
+  </script>
 
   {% block extra_scripts %}{% endblock %}
 </body>
