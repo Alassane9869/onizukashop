@@ -144,7 +144,14 @@
                                     <a href="{% url 'backoffice:product_edit' product.id %}" class="font-medium text-slate-900 truncate max-w-xs block hover:text-amber-600 transition" title="{{ product.name }}">
                                         {{ product.name }}
                                     </a>
-                                    <div class="text-[10px] text-slate-400 font-mono">SKU: {{ product.sku }}</div>
+                                    <div class="text-[10px] text-slate-400 font-mono flex items-center gap-1.5 flex-wrap">
+                                        <span>SKU: {{ product.sku }}</span>
+                                        {% if product.is_featured %}
+                                        <span class="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-extrabold bg-amber-100 text-amber-900 border border-amber-300">
+                                            ⭐ Meilleure Vente (Accueil)
+                                        </span>
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                         </td>
@@ -218,7 +225,14 @@
                     </span>
                 </div>
                 <div class="flex items-center justify-between pt-1">
-                    <span class="font-mono text-[10px] text-slate-400">SKU: {{ product.sku }}</span>
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="font-mono text-[10px] text-slate-400">SKU: {{ product.sku }}</span>
+                        {% if product.is_featured %}
+                        <span class="inline-flex items-center px-1.5 py-0.2 rounded text-[9px] font-extrabold bg-amber-100 text-amber-900 border border-amber-300">
+                            ⭐ Meilleure Vente
+                        </span>
+                        {% endif %}
+                    </div>
                     <a href="{% url 'backoffice:product_edit' product.id %}" class="px-3 py-1 rounded-lg text-[11px] font-bold bg-amber-500/15 text-amber-900 border border-amber-300 transition active:scale-95">
                         Modifier
                     </a>

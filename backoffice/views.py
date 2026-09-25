@@ -306,6 +306,10 @@ def products_view(request):
         products_qs = products_qs.filter(track_stock=True, stock__lte=F('min_stock'), stock__gt=0)
     elif stock_status == 'out':
         products_qs = products_qs.filter(track_stock=True, stock=0)
+    
+    featured_filter = request.GET.get('featured', '')
+    if featured_filter == '1':
+        products_qs = products_qs.filter(is_featured=True)
 
     categories = Category.objects.filter(is_active=True).order_by('name')
     brands = Brand.objects.filter(is_active=True).order_by('name')
@@ -324,6 +328,7 @@ def products_view(request):
         'selected_category': category_slug,
         'selected_brand': brand_id,
         'selected_stock': stock_status,
+        'selected_featured': featured_filter,
         'search_query': search_query,
         'total_filtered_count': total_filtered_count,
         'total_products_count': total_products_count,
