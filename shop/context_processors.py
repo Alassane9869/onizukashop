@@ -58,3 +58,16 @@ def shop_settings(request):
     except Exception:
         settings_obj = None
     return {'shop_settings': settings_obj}
+
+
+def wishlist_data(request):
+    """IDs des produits favoris et total pour l'utilisateur connecté"""
+    ids = set()
+    count = 0
+    try:
+        if hasattr(request, 'user') and request.user.is_authenticated:
+            ids = set(request.user.wishlist_items.values_list('product_id', flat=True))
+            count = len(ids)
+    except Exception:
+        pass
+    return {'user_wishlist_ids': ids, 'wishlist_count': count}

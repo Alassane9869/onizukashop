@@ -121,6 +121,7 @@ TEMPLATES = [
                 'shop.context_processors.cart_count',
                 'shop.context_processors.categories_menu',
                 'shop.context_processors.shop_settings',
+                'shop.context_processors.wishlist_data',
             ],
         },
     },

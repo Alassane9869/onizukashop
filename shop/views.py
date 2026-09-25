@@ -550,10 +550,24 @@ def add_review(request, slug):
     return redirect(f"{product.get_absolute_url()}#avis")
 
 
-@login_required
 def wishlist_toggle(request, product_id):
-    """Ajouter ou retirer un produit des favoris du client"""
+    """Ajouter ou retirer un produit des favoris du client sans rechargement de page"""
     from .models import Wishlist
+    from django.urls import reverse
+
+    is_ajax = request.headers.get('x-requested-with') == 'XMLHttpRequest' or request.GET.get('format') == 'json' or request.method == 'POST'
+
+    if not request.user.is_authenticated:
+        if is_ajax:
+            return JsonResponse({
+                'success': False,
+                'login_required': True,
+                'login_url': reverse('accounts:login') + f'?next={request.META.get("HTTP_REFERER", "/")}',
+                'message': 'Connectez-vous pour enregistrer vos favoris.'
+            })
+        messages.info(request, "Veuillez vous connecter pour enregistrer vos favoris.")
+        return redirect('accounts:login')
+
     product = get_object_or_404(Product, pk=product_id, is_active=True)
     fav = Wishlist.objects.filter(user=request.user, product=product).first()
 
@@ -568,7 +582,7 @@ def wishlist_toggle(request, product_id):
 
     total_favs = Wishlist.objects.filter(user=request.user).count()
 
-    if request.headers.get('x-requested-with') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+    if is_ajax:
         return JsonResponse({
             'success': True,
             'is_favorited': is_favorited,
