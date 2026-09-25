@@ -138,18 +138,28 @@ def get_or_create_cart(request):
 # ---------------------------------------------------------------------------
 
 def home(request):
-    """Page d'accueil : produits vedettes, nouveautes, categories"""
-    featured_products = Product.objects.filter(
-        is_active=True, is_featured=True, status='active'
-    ).select_related('brand', 'category').prefetch_related('images')[:8]
+    # Accueil : Sélection stricte des appareils disponibles en stock
+    in_stock_q = models.Q(is_active=True, status='active') & (models.Q(track_stock=False) | models.Q(stock__gt=0))
 
-    new_products = Product.objects.filter(
-        is_active=True, is_new=True, status='active'
-    ).select_related('brand', 'category').prefetch_related('images').order_by('-created_at')[:8]
+    featured_products = list(Product.objects.filter(
+        in_stock_q, is_featured=True
+    ).select_related('brand', 'category').prefetch_related('images')[:8])
 
-    sale_products = Product.objects.filter(
-        is_active=True, sale_price__isnull=False, status='active'
-    ).select_related('brand', 'category').prefetch_related('images')[:8]
+    new_products = list(Product.objects.filter(
+        in_stock_q, is_new=True
+    ).select_related('brand', 'category').prefetch_related('images').order_by('-created_at')[:8])
+
+    sale_products = list(Product.objects.filter(
+        in_stock_q, sale_price__isnull=False
+    ).select_related('brand', 'category').prefetch_related('images')[:8])
+
+    # Équilibrage visuel : garantir 4 cartes pleines dans la grille Ventes Flash
+    if len(sale_products) < 4:
+        seen_ids = {p.id for p in sale_products}
+        fillers = Product.objects.filter(
+            in_stock_q
+        ).exclude(id__in=seen_ids).select_related('brand', 'category').prefetch_related('images')[:4 - len(sale_products)]
+        sale_products.extend(list(fillers))
 
     root_categories = Category.objects.filter(
         parent__isnull=True, is_active=True

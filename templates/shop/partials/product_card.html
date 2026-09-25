@@ -43,11 +43,11 @@
       {% endif %}
     </a>
 
-    <!-- Badge Rupture si hors stock -->
+    <!-- Badge Épuisé si hors stock -->
     {% if not product.is_in_stock %}
     <div class="absolute inset-0 bg-white/75 backdrop-blur-xs flex items-center justify-center">
       <span class="px-2.5 py-1 bg-neutral-900 text-white text-[10px] font-bold rounded-lg shadow-sm">
-        Rupture
+        Épuisé
       </span>
     </div>
     {% endif %}
@@ -73,9 +73,9 @@
       <!-- Reassurance Stock Bamako & Avis Étoiles -->
       <div class="flex items-center justify-between mt-2 text-xs">
         <div class="flex items-center gap-1.5 truncate">
-          <span class="w-2 h-2 rounded-full {% if product.is_in_stock %}bg-emerald-500 ring-2 ring-emerald-500/20{% else %}bg-neutral-300{% endif %} shrink-0"></span>
-          <span class="truncate font-bold {% if product.is_in_stock %}text-emerald-700{% else %}text-neutral-500{% endif %}">
-            {% if product.is_in_stock %}En stock{% else %}Sur commande{% endif %}
+          <span class="w-2 h-2 rounded-full {% if product.is_in_stock %}bg-emerald-500 ring-2 ring-emerald-500/20{% else %}bg-rose-500{% endif %} shrink-0"></span>
+          <span class="truncate font-bold {% if product.is_in_stock %}text-emerald-700{% else %}text-rose-600{% endif %}">
+            {% if product.is_in_stock %}En stock{% else %}Épuisé{% endif %}
           </span>
         </div>
         <div class="flex items-center gap-1 font-bold text-slate-700 shrink-0">
