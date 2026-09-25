@@ -153,13 +153,25 @@ def home(request):
         in_stock_q, sale_price__isnull=False
     ).select_related('brand', 'category').prefetch_related('images')[:8])
 
-    # Équilibrage visuel : garantir 4 cartes pleines dans la grille Ventes Flash
-    if len(sale_products) < 4:
-        seen_ids = {p.id for p in sale_products}
-        fillers = Product.objects.filter(
-            in_stock_q
-        ).exclude(id__in=seen_ids).select_related('brand', 'category').prefetch_related('images')[:4 - len(sale_products)]
-        sale_products.extend(list(fillers))
+    # Équilibrage visuel parfait (multiples de 4 sans aucun espace vide)
+    def balance_grid(items, max_target=8):
+        count = len(items)
+        if count <= 4:
+            target = 4
+        else:
+            target = max_target
+        if count < target:
+            needed = target - count
+            seen = {p.id for p in items}
+            extras = list(Product.objects.filter(
+                in_stock_q
+            ).exclude(id__in=seen).select_related('brand', 'category').prefetch_related('images')[:needed])
+            items.extend(extras)
+        return items[:target]
+
+    sale_products = balance_grid(sale_products, 4)
+    featured_products = balance_grid(featured_products, 8)
+    new_products = balance_grid(new_products, 4)
 
     root_categories = Category.objects.filter(
         parent__isnull=True, is_active=True

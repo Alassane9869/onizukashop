@@ -18,7 +18,7 @@
 html {
   scroll-behavior: smooth;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
   width: 100%;
 }
@@ -33,7 +33,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8fafc;
   color: #0f172a;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
   width: 100%;
   position: relative;
@@ -341,5 +341,14 @@ header.sticky,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* 6. Fixation Sticky Ultra-Robuste de la Barre de Filtres du Catalogue */
+.catalog-sticky-sidebar {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 7rem !important;
+  align-self: flex-start !important;
+  z-index: 20 !important;
 }
 
