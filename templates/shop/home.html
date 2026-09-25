@@ -406,6 +406,7 @@
   </section>
 
 
+  {% if shop_settings.flash_sale_active|default:True %}
   <!-- ========================================================================= -->
   <!-- 4. VENTES FLASH AVEC COMPTE À REBOURS ÉPURÉ                               -->
   <!-- ========================================================================= -->
@@ -418,20 +419,70 @@
           <span class="w-2.5 h-2.5 rounded-full bg-white animate-ping shrink-0"></span>
           <div>
             <h2 class="font-display text-base sm:text-2xl font-black text-white tracking-tight leading-tight">
-              Ventes Flash de la Semaine
+              {{ shop_settings.flash_sale_title|default:"Ventes Flash de la Semaine" }}
             </h2>
-            <p class="text-[11px] sm:text-xs text-amber-100 hidden sm:block">Tarifs remisés disponibles immédiatement en stock à Bamako</p>
+            <p class="text-[11px] sm:text-xs text-amber-100 hidden sm:block">
+              {{ shop_settings.flash_sale_subtitle|default:"Tarifs remisés disponibles immédiatement en stock à Bamako" }}
+            </p>
           </div>
         </div>
 
-        <!-- Compte à rebours vectoriel compact -->
-        <div class="flex items-center gap-1.5 self-start sm:self-auto">
-          <span class="text-[10px] sm:text-xs font-bold text-amber-100 uppercase tracking-wider mr-0.5">Fin dans :</span>
-          <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black">02j</div>
-          <span class="font-bold text-xs">:</span>
-          <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black">14h</div>
-          <span class="font-bold text-xs">:</span>
-          <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black">45m</div>
+        <!-- Compte à rebours vectoriel dynamique en temps réel -->
+        <div 
+          x-data="{
+            targetDate: new Date('{{ shop_settings.flash_sale_end_iso }}').getTime(),
+            days: '00',
+            hours: '00',
+            minutes: '00',
+            seconds: '00',
+            expired: false,
+            updateTimer() {
+              const now = new Date().getTime();
+              const diff = this.targetDate - now;
+              if (diff <= 0) {
+                this.expired = true;
+                this.days = '00';
+                this.hours = '00';
+                this.minutes = '00';
+                this.seconds = '00';
+                return;
+              }
+              this.expired = false;
+              const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+              const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+              const s = Math.floor((diff % (1000 * 60)) / 1000);
+              this.days = String(d).padStart(2, '0');
+              this.hours = String(h).padStart(2, '0');
+              this.minutes = String(m).padStart(2, '0');
+              this.seconds = String(s).padStart(2, '0');
+            },
+            init() {
+              this.updateTimer();
+              setInterval(() => { this.updateTimer() }, 1000);
+            }
+          }"
+          class="flex items-center gap-1.5 self-start sm:self-auto select-none"
+        >
+          <span class="text-[10px] sm:text-xs font-bold text-amber-100 uppercase tracking-wider mr-0.5" x-text="expired ? 'Offre expirée :' : 'Fin dans :'">Fin dans :</span>
+          
+          <template x-if="!expired">
+            <div class="flex items-center gap-1.5">
+              <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black" x-text="days + 'j'">02j</div>
+              <span class="font-bold text-xs">:</span>
+              <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black" x-text="hours + 'h'">14h</div>
+              <span class="font-bold text-xs">:</span>
+              <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black" x-text="minutes + 'm'">45m</div>
+              <span class="font-bold text-xs hidden sm:inline">:</span>
+              <div class="px-2 py-0.5 sm:py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-display text-xs sm:text-sm font-black hidden sm:inline-block" x-text="seconds + 's'">00s</div>
+            </div>
+          </template>
+
+          <template x-if="expired">
+            <div class="px-2.5 py-1 rounded-lg bg-white/20 backdrop-blur-xs text-white font-bold text-xs">
+              Bientôt de retour
+            </div>
+          </template>
         </div>
       </div>
 
@@ -448,6 +499,7 @@
 
     </div>
   </section>
+  {% endif %}
 
 
   <!-- ========================================================================= -->

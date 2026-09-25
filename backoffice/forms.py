@@ -138,7 +138,8 @@ class ShopSettingForm(forms.ModelForm):
             'currency', 'default_delivery_fee', 'free_delivery_threshold', 'delivery_delay_text', 'store_pickup_active',
             'orange_money_number', 'wave_number', 'cash_on_delivery_active',
             'default_min_stock_alert', 'block_order_on_out_of_stock',
-            'email_notifications_active', 'whatsapp_notifications_active'
+            'email_notifications_active', 'whatsapp_notifications_active',
+            'flash_sale_active', 'flash_sale_title', 'flash_sale_subtitle', 'flash_sale_end_date'
         ]
         widgets = {
             'site_name': forms.TextInput(attrs={'class': 'w-full px-3 py-1.5 rounded-md border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs text-slate-800 transition'}),
@@ -162,6 +163,16 @@ class ShopSettingForm(forms.ModelForm):
             'block_order_on_out_of_stock': forms.CheckboxInput(attrs={'class': 'w-4 h-4 text-amber-500 rounded border-slate-300 focus:ring-amber-500'}),
             'email_notifications_active': forms.CheckboxInput(attrs={'class': 'w-4 h-4 text-amber-500 rounded border-slate-300 focus:ring-amber-500'}),
             'whatsapp_notifications_active': forms.CheckboxInput(attrs={'class': 'w-4 h-4 text-amber-500 rounded border-slate-300 focus:ring-amber-500'}),
+            'flash_sale_active': forms.CheckboxInput(attrs={'class': 'w-4 h-4 text-amber-500 rounded border-slate-300 focus:ring-amber-500'}),
+            'flash_sale_title': forms.TextInput(attrs={'class': 'w-full px-3 py-1.5 rounded-md border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs text-slate-800 transition'}),
+            'flash_sale_subtitle': forms.TextInput(attrs={'class': 'w-full px-3 py-1.5 rounded-md border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs text-slate-800 transition'}),
+            'flash_sale_end_date': forms.DateTimeInput(
+                format='%Y-%m-%dT%H:%M',
+                attrs={
+                    'type': 'datetime-local',
+                    'class': 'w-full px-3 py-1.5 rounded-md border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs font-mono text-slate-800 transition'
+                }
+            ),
         }
 
 

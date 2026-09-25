@@ -603,6 +603,11 @@ def settings_view(request):
         form = ShopSettingForm(request.POST, instance=settings_obj)
         if form.is_valid():
             form.save()
+            try:
+                from django.core.cache import cache
+                cache.delete('shop_settings_cached')
+            except Exception:
+                pass
             messages.success(request, "Les paramètres de la boutique et de l'entreprise ont été enregistrés avec succès.")
             return redirect('backoffice:settings')
         else:

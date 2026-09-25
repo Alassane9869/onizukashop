@@ -52,6 +52,12 @@ class ShopSetting(models.Model):
     email_notifications_active = models.BooleanField("Envoyer les emails automatiques aux clients", default=True)
     whatsapp_notifications_active = models.BooleanField("Activer les alertes rapides WhatsApp", default=True)
 
+    # Campagnes Commerciales & Ventes Flash (Page d'accueil)
+    flash_sale_active = models.BooleanField("Activer la section Ventes Flash sur l'accueil", default=True)
+    flash_sale_title = models.CharField("Titre de la Vente Flash", max_length=150, default="Ventes Flash de la Semaine")
+    flash_sale_subtitle = models.CharField("Sous-titre descriptif", max_length=255, default="Tarifs remisés disponibles immédiatement en stock à Bamako")
+    flash_sale_end_date = models.DateTimeField("Date et heure de fin du compte à rebours", null=True, blank=True)
+
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -81,3 +87,15 @@ class ShopSetting(models.Model):
     @property
     def phone(self):
         return self.phone_contact or '+223 92 67 37 99'
+
+    @property
+    def flash_sale_end_iso(self):
+        """Format ISO 8601 pour JavaScript (ex: 2026-09-30T23:59:59)."""
+        if self.flash_sale_end_date:
+            return self.flash_sale_end_date.strftime("%Y-%m-%dT%H:%M:%S")
+        from django.utils import timezone
+        from datetime import timedelta
+        # Si date non renseignée, fin dans 3 jours à 23:59
+        now = timezone.now()
+        future = now + timedelta(days=3)
+        return future.strftime("%Y-%m-%dT23:59:59")

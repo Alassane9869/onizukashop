@@ -230,6 +230,50 @@
                     {{ form.whatsapp_notifications_active }}
                     <span class="font-medium text-slate-800">Activer le bouton de prise de contact rapide WhatsApp sur la boutique</span>
                 </label>
+        <!-- 5. CAMPAGNES COMMERCIALES, VENTES FLASH & COMPTE À REBOURS -->
+        <div class="bg-white/90 backdrop-blur-xl p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3.5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                    <h2 class="text-sm font-bold text-slate-900 font-heading">
+                        5. Ventes Flash & Compte à Rebours (Page d'accueil)
+                    </h2>
+                </div>
+                <span class="text-[11px] font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
+                    Contrôle en direct
+                </span>
+            </div>
+
+            <div class="pt-1 text-xs">
+                <label class="flex items-center gap-2 cursor-pointer font-bold text-slate-900">
+                    {{ form.flash_sale_active }}
+                    <span>Activer la section "Ventes Flash" avec compte à rebours sur la page d'accueil</span>
+                </label>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Titre de la Vente Flash
+                    </label>
+                    {{ form.flash_sale_title }}
+                    <span class="text-[10px] text-slate-400">Ex : Ventes Flash de la Semaine, Offres Tabaski, Promo Canicule</span>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                        Date & Heure de Fin du Compte à Rebours
+                    </label>
+                    {{ form.flash_sale_end_date }}
+                    <span class="text-[10px] text-slate-400">Le compte à rebours décompte en temps réel (jours, heures, minutes, secondes)</span>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-[11px] font-semibold text-slate-600 uppercase tracking-wider mb-1">
+                    Sous-titre / Message promotionnel
+                </label>
+                {{ form.flash_sale_subtitle }}
+                <span class="text-[10px] text-slate-400">Ex : Tarifs remisés disponibles immédiatement en stock à Bamako</span>
             </div>
         </div>
 
