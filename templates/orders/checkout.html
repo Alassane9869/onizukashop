@@ -182,80 +182,80 @@
         </div>
 
         <!-- Mode de Règlement -->
-        <div class="bg-white rounded-3xl border border-neutral-100 p-5 sm:p-7 shadow-sm space-y-4">
+        <div class="bg-white rounded-2xl sm:rounded-3xl border border-neutral-100 p-4 sm:p-7 shadow-sm space-y-4 w-full min-w-0 max-w-full overflow-hidden">
           <div class="flex items-center gap-2 pb-3 border-b border-neutral-100">
-            <svg class="w-5 h-5 text-amber-500 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-amber-500 stroke-[2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6H2.25m0 0v10.5m0-10.5h19.5m0 0v10.5m0 0a.75.75 0 01-.75.75H21m-18.75 0h18.75"/>
             </svg>
             <h2 class="font-bold text-sm sm:text-base text-neutral-900">Mode de Paiement</h2>
           </div>
 
-          <div class="space-y-3" x-data="{ method: 'orange_money' }">
+          <div class="space-y-3 w-full min-w-0" x-data="{ method: 'orange_money' }">
             
             <!-- Orange Money -->
             <label 
               @click="method = 'orange_money'"
-              class="flex items-center justify-between p-4 rounded-2xl border-2 cursor-pointer transition"
+              class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border-2 cursor-pointer transition gap-2 sm:gap-3 w-full min-w-0 overflow-hidden"
               :class="method === 'orange_money' ? 'border-amber-500 bg-amber-50/40' : 'border-neutral-100 hover:border-neutral-200'"
             >
-              <div class="flex items-center gap-3">
-                <input type="radio" name="payment_method" value="orange_money" x-model="method" class="text-amber-500 focus:ring-amber-500">
-                <div>
-                  <p class="font-bold text-neutral-900 text-sm">Orange Money Mali</p>
-                  <p class="text-xs text-neutral-500">Paiement instantané sécurisé par mobile</p>
+              <div class="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+                <input type="radio" name="payment_method" value="orange_money" x-model="method" class="text-amber-500 focus:ring-amber-500 shrink-0">
+                <div class="min-w-0 flex-1">
+                  <p class="font-bold text-neutral-900 text-xs sm:text-sm">Orange Money Mali</p>
+                  <p class="text-[11px] sm:text-xs text-neutral-500 leading-tight">Paiement instantané sécurisé par mobile</p>
                 </div>
               </div>
               <!-- Orange Money Official Vector Badge -->
-              <span class="h-8 px-2.5 rounded-xl bg-white border border-neutral-200 shadow-2xs flex items-center justify-center shrink-0">
-                <svg class="h-5 w-auto" viewBox="0 0 431 115" xmlns="http://www.w3.org/2000/svg"><path d="M90.154 11.052H24.335c-3.542 0-6.94 1.413-9.445 3.929a13.44 13.44 0 0 0-3.913 9.484c0 3.558 1.408 6.969 3.913 9.485a13.332 13.332 0 0 0 9.445 3.929h33.596L3.886 92.097a13.442 13.442 0 0 0-3.914 9.486c0 3.558 1.408 6.97 3.914 9.486a13.33 13.33 0 0 0 9.447 3.929c3.543 0 6.941-1.413 9.447-3.929l53.994-54.225v33.683c0 3.558 1.408 6.97 3.913 9.485a13.328 13.328 0 0 0 9.445 3.929c3.543 0 6.941-1.413 9.446-3.929a13.44 13.44 0 0 0 3.912-9.485V24.465c0-3.553-1.404-6.962-3.904-9.477a13.337 13.337 0 0 0-9.432-3.936Z" fill="#000000"/><path d="M130.236 103.948h65.79c3.542 0 6.94-1.413 9.445-3.929a13.44 13.44 0 0 0 3.913-9.484c0-3.558-1.408-6.969-3.913-9.485a13.328 13.328 0 0 0-9.445-3.929h-33.545l53.994-54.218a13.438 13.438 0 0 0 3.833-9.459 13.441 13.441 0 0 0-3.91-9.428 13.331 13.331 0 0 0-9.387-3.93 13.327 13.327 0 0 0-9.422 3.845l-53.995 54.225V24.465c0-3.557-1.407-6.969-3.913-9.484a13.326 13.326 0 0 0-9.445-3.929 13.329 13.329 0 0 0-9.446 3.929 13.44 13.44 0 0 0-3.912 9.484v66.062a13.48 13.48 0 0 0 1.014 5.136 13.412 13.412 0 0 0 2.896 4.354 13.343 13.343 0 0 0 9.448 3.931Z" fill="#ff7900"/><path d="M266.482 11.096c12.212 0 19.391 9.152 19.391 20.916 0 11.426-7.179 20.578-19.391 20.578-12.211 0-19.39-9.152-19.39-20.578 0-11.764 7.186-20.916 19.39-20.916Zm0 34.168c7.793 0 10.722-6.652 10.722-13.252 0-6.938-2.922-13.59-10.722-13.59-7.8 0-10.714 6.652-10.714 13.59 0 6.6 2.929 13.266 10.714 13.266v-.014ZM289.554 22.969h7.457v5.324h.117a10.121 10.121 0 0 1 3.657-4.399 10.048 10.048 0 0 1 5.45-1.702 5.744 5.744 0 0 1 1.716.278v7.334a14.043 14.043 0 0 0-2.819-.278c-5.74 0-7.734 4.158-7.734 9.211v12.922h-7.844v-28.69ZM309.324 31.784c.446-7.377 7.019-9.592 13.424-9.592 5.69 0 12.54 1.276 12.54 8.155v14.931c0 2.611.278 5.215.994 6.381h-7.954a11.865 11.865 0 0 1-.555-2.772c-2.483 2.603-6.128 3.549-9.611 3.549-5.412 0-9.721-2.721-9.721-8.595 0-6.49 4.864-8.067 9.721-8.713 4.856-.645 9.268-.564 9.268-3.784 0-3.388-2.323-3.887-5.113-3.887-2.98 0-4.915 1.225-5.192 4.327h-7.801Zm18.12 5.823c-1.329 1.166-4.09 1.225-6.522 1.665-2.432.44-4.637 1.335-4.637 4.217 0 2.882 2.264 3.667 4.805 3.667 6.135 0 6.354-4.877 6.354-6.601v-2.948ZM339.882 22.969h7.457v3.975h.168a10.239 10.239 0 0 1 3.765-3.528 10.186 10.186 0 0 1 4.999-1.239c8.341 0 10.437 4.716 10.437 11.815v17.637h-7.873V35.451c0-4.716-1.381-7.048-5.025-7.048-4.251 0-6.076 2.384-6.076 8.207v15.034h-7.844l-.008-28.675ZM398.274 49.811c0 4.715-1.658 12.702-14.804 12.702-5.631 0-12.205-2.663-12.592-9.204h7.786c.73 2.933 3.097 3.938 5.843 3.938 4.382 0 6.354-2.999 6.295-7.099v-3.77h-.109c-1.709 2.993-5.113 4.437-8.56 4.437-8.567 0-12.211-6.549-12.211-14.425 0-7.429 4.258-14.198 12.262-14.198 3.761 0 6.632 1.276 8.509 4.605h.109v-3.828h7.472v26.842Zm-7.457-12.864c0-4.664-1.6-8.8-6.683-8.8-4.382 0-6.354 3.887-6.354 8.155 0 4.107 1.548 8.595 6.354 8.595 4.448-.022 6.654-3.85 6.654-7.95h.029ZM409.353 39.221c.219 4.994 2.651 7.267 7.019 7.267 3.148 0 5.689-1.943 6.186-3.718h6.902c-2.191 6.769-6.902 9.651-13.366 9.651-9.005 0-14.607-6.211-14.607-15.085 0-8.602 5.909-15.144 14.607-15.144 9.721 0 14.417 8.206 13.877 17.029h-20.618Zm12.759-4.995c-.73-3.989-2.432-6.101-6.237-6.101-4.974 0-6.412 3.887-6.522 6.101h12.759ZM247.092 64.346h12.204l9.224 27.23h.11l8.764-27.23h12.211v39.602h-8.121V75.875h-.11l-9.699 28.073h-6.683l-9.662-27.787h-.11v27.787h-8.128V64.346ZM307.784 74.489c9.005 0 14.804 5.991 14.804 15.144 0 9.152-5.799 15.085-14.804 15.085-9.006 0-14.753-5.991-14.753-15.085 0-9.094 5.806-15.144 14.753-15.144Zm0 24.296c5.353 0 6.96-4.605 6.96-9.152 0-4.547-1.607-9.211-6.96-9.211-5.354 0-6.91 4.605-6.91 9.211 0 4.605 1.607 9.182 6.91 9.182v-.03ZM325.969 75.266h7.457v3.99h.168a10.228 10.228 0 0 1 3.749-3.52 10.189 10.189 0 0 1 4.979-1.247c8.34 0 10.436 4.715 10.436 11.814v17.645h-7.844V87.741c0-4.709-1.38-7.041-5.024-7.041-4.251 0-6.077 2.384-6.077 8.207v15.041h-7.844V75.266ZM363.604 91.517c.219 4.995 2.651 7.268 7.011 7.268 3.156 0 5.69-1.943 6.194-3.718h6.902c-2.191 6.769-6.902 9.651-13.366 9.651-9.005 0-14.607-6.211-14.607-15.085 0-8.603 5.909-15.144 14.607-15.144 9.721 0 14.417 8.206 13.877 17.028h-20.618Zm12.759-4.994c-.73-3.989-2.432-6.101-6.244-6.101-4.967 0-6.405 3.886-6.515 6.101h12.759Z" fill="#000000"/><path d="M400.917 107.549c-1.709 4.598-4.382 6.483-9.83 6.483-1.6 0-3.206-.11-4.806-.271v-6.491c1.523.175 3.054.268 4.587.279 2.702-.279 3.586-3.109 2.702-5.383l-10.049-26.9h8.391l6.464 19.632h.109l6.245-19.632h8.15l-11.963 32.283Z" fill="#000000"/></svg>
+              <span class="h-7 sm:h-8 px-2 sm:px-2.5 rounded-xl bg-white border border-neutral-200 shadow-2xs flex items-center justify-center shrink-0">
+                <svg class="h-4 sm:h-5 w-16 sm:w-20" viewBox="0 0 431 115" xmlns="http://www.w3.org/2000/svg"><path d="M90.154 11.052H24.335c-3.542 0-6.94 1.413-9.445 3.929a13.44 13.44 0 0 0-3.913 9.484c0 3.558 1.408 6.969 3.913 9.485a13.332 13.332 0 0 0 9.445 3.929h33.596L3.886 92.097a13.442 13.442 0 0 0-3.914 9.486c0 3.558 1.408 6.97 3.914 9.486a13.33 13.33 0 0 0 9.447 3.929c3.543 0 6.941-1.413 9.447-3.929l53.994-54.225v33.683c0 3.558 1.408 6.97 3.913 9.485a13.328 13.328 0 0 0 9.445 3.929c3.543 0 6.941-1.413 9.446-3.929a13.44 13.44 0 0 0 3.912-9.485V24.465c0-3.553-1.404-6.962-3.904-9.477a13.337 13.337 0 0 0-9.432-3.936Z" fill="#000000"/><path d="M130.236 103.948h65.79c3.542 0 6.94-1.413 9.445-3.929a13.44 13.44 0 0 0 3.913-9.484c0-3.558-1.408-6.969-3.913-9.485a13.328 13.328 0 0 0-9.445-3.929h-33.545l53.994-54.218a13.438 13.438 0 0 0 3.833-9.459 13.441 13.441 0 0 0-3.91-9.428 13.331 13.331 0 0 0-9.387-3.93 13.327 13.327 0 0 0-9.422 3.845l-53.995 54.225V24.465c0-3.557-1.407-6.969-3.913-9.484a13.326 13.326 0 0 0-9.445-3.929 13.329 13.329 0 0 0-9.446 3.929 13.44 13.44 0 0 0-3.912 9.484v66.062a13.48 13.48 0 0 0 1.014 5.136 13.412 13.412 0 0 0 2.896 4.354 13.343 13.343 0 0 0 9.448 3.931Z" fill="#ff7900"/><path d="M266.482 11.096c12.212 0 19.391 9.152 19.391 20.916 0 11.426-7.179 20.578-19.391 20.578-12.211 0-19.39-9.152-19.39-20.578 0-11.764 7.186-20.916 19.39-20.916Zm0 34.168c7.793 0 10.722-6.652 10.722-13.252 0-6.938-2.922-13.59-10.722-13.59-7.8 0-10.714 6.652-10.714 13.59 0 6.6 2.929 13.266 10.714 13.266v-.014ZM289.554 22.969h7.457v5.324h.117a10.121 10.121 0 0 1 3.657-4.399 10.048 10.048 0 0 1 5.45-1.702 5.744 5.744 0 0 1 1.716.278v7.334a14.043 14.043 0 0 0-2.819-.278c-5.74 0-7.734 4.158-7.734 9.211v12.922h-7.844v-28.69ZM309.324 31.784c.446-7.377 7.019-9.592 13.424-9.592 5.69 0 12.54 1.276 12.54 8.155v14.931c0 2.611.278 5.215.994 6.381h-7.954a11.865 11.865 0 0 1-.555-2.772c-2.483 2.603-6.128 3.549-9.611 3.549-5.412 0-9.721-2.721-9.721-8.595 0-6.49 4.864-8.067 9.721-8.713 4.856-.645 9.268-.564 9.268-3.784 0-3.388-2.323-3.887-5.113-3.887-2.98 0-4.915 1.225-5.192 4.327h-7.801Zm18.12 5.823c-1.329 1.166-4.09 1.225-6.522 1.665-2.432.44-4.637 1.335-4.637 4.217 0 2.882 2.264 3.667 4.805 3.667 6.135 0 6.354-4.877 6.354-6.601v-2.948ZM339.882 22.969h7.457v3.975h.168a10.239 10.239 0 0 1 3.765-3.528 10.186 10.186 0 0 1 4.999-1.239c8.341 0 10.437 4.716 10.437 11.815v17.637h-7.873V35.451c0-4.716-1.381-7.048-5.025-7.048-4.251 0-6.076 2.384-6.076 8.207v15.034h-7.844l-.008-28.675ZM398.274 49.811c0 4.715-1.658 12.702-14.804 12.702-5.631 0-12.205-2.663-12.592-9.204h7.786c.73 2.933 3.097 3.938 5.843 3.938 4.382 0 6.354-2.999 6.295-7.099v-3.77h-.109c-1.709 2.993-5.113 4.437-8.56 4.437-8.567 0-12.211-6.549-12.211-14.425 0-7.429 4.258-14.198 12.262-14.198 3.761 0 6.632 1.276 8.509 4.605h.109v-3.828h7.472v26.842Zm-7.457-12.864c0-4.664-1.6-8.8-6.683-8.8-4.382 0-6.354 3.887-6.354 8.155 0 4.107 1.548 8.595 6.354 8.595 4.448-.022 6.654-3.85 6.654-7.95h.029ZM409.353 39.221c.219 4.994 2.651 7.267 7.019 7.267 3.148 0 5.689-1.943 6.186-3.718h6.902c-2.191 6.769-6.902 9.651-13.366 9.651-9.005 0-14.607-6.211-14.607-15.085 0-8.602 5.909-15.144 14.607-15.144 9.721 0 14.417 8.206 13.877 17.029h-20.618Zm12.759-4.995c-.73-3.989-2.432-6.101-6.237-6.101-4.974 0-6.412 3.887-6.522 6.101h12.759ZM247.092 64.346h12.204l9.224 27.23h.11l8.764-27.23h12.211v39.602h-8.121V75.875h-.11l-9.699 28.073h-6.683l-9.662-27.787h-.11v27.787h-8.128V64.346ZM307.784 74.489c9.005 0 14.804 5.991 14.804 15.144 0 9.152-5.799 15.085-14.804 15.085-9.006 0-14.753-5.991-14.753-15.085 0-9.094 5.806-15.144 14.753-15.144Zm0 24.296c5.353 0 6.96-4.605 6.96-9.152 0-4.547-1.607-9.211-6.96-9.211-5.354 0-6.91 4.605-6.91 9.211 0 4.605 1.607 9.182 6.91 9.182v-.03ZM325.969 75.266h7.457v3.99h.168a10.228 10.228 0 0 1 3.749-3.52 10.189 10.189 0 0 1 4.979-1.247c8.34 0 10.436 4.715 10.436 11.814v17.645h-7.844V87.741c0-4.709-1.38-7.041-5.024-7.041-4.251 0-6.077 2.384-6.077 8.207v15.041h-7.844V75.266ZM363.604 91.517c.219 4.995 2.651 7.268 7.011 7.268 3.156 0 5.69-1.943 6.194-3.718h6.902c-2.191 6.769-6.902 9.651-13.366 9.651-9.005 0-14.607-6.211-14.607-15.085 0-8.603 5.909-15.144 14.607-15.144 9.721 0 14.417 8.206 13.877 17.028h-20.618Zm12.759-4.994c-.73-3.989-2.432-6.101-6.244-6.101-4.967 0-6.405 3.886-6.515 6.101h12.759Z" fill="#000000"/><path d="M400.917 107.549c-1.709 4.598-4.382 6.483-9.83 6.483-1.6 0-3.206-.11-4.806-.271v-6.491c1.523.175 3.054.268 4.587.279 2.702-.279 3.586-3.109 2.702-5.383l-10.049-26.9h8.391l6.464 19.632h.109l6.245-19.632h8.15l-11.963 32.283Z" fill="#000000"/></svg>
               </span>
             </label>
 
             <!-- Wave -->
             <label 
               @click="method = 'wave'"
-              class="flex items-center justify-between p-4 rounded-2xl border-2 cursor-pointer transition"
+              class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border-2 cursor-pointer transition gap-2 sm:gap-3 w-full min-w-0 overflow-hidden"
               :class="method === 'wave' ? 'border-sky-500 bg-sky-50/40' : 'border-neutral-100 hover:border-neutral-200'"
             >
-              <div class="flex items-center gap-3">
-                <input type="radio" name="payment_method" value="wave" x-model="method" class="text-sky-500 focus:ring-sky-500">
-                <div>
-                  <p class="font-bold text-neutral-900 text-sm">Wave Mobile Money</p>
-                  <p class="text-xs text-neutral-500">Paiement sans frais de transaction au Mali</p>
+              <div class="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+                <input type="radio" name="payment_method" value="wave" x-model="method" class="text-sky-500 focus:ring-sky-500 shrink-0">
+                <div class="min-w-0 flex-1">
+                  <p class="font-bold text-neutral-900 text-xs sm:text-sm">Wave Mobile Money</p>
+                  <p class="text-[11px] sm:text-xs text-neutral-500 leading-tight">Paiement sans frais de transaction au Mali</p>
                 </div>
               </div>
-              <span class="h-8 px-3 rounded-xl bg-[#1DC3F4] shadow-2xs flex items-center justify-center shrink-0">
-                <span class="text-white font-black text-sm tracking-tight font-sans">wave</span>
+              <span class="h-7 sm:h-8 px-2.5 sm:px-3 rounded-xl bg-[#1DC3F4] shadow-2xs flex items-center justify-center shrink-0">
+                <span class="text-white font-black text-xs sm:text-sm tracking-tight font-sans">wave</span>
               </span>
             </label>
 
             <!-- Espèces à la livraison -->
             <label 
               @click="method = 'cash_on_delivery'"
-              class="flex items-center justify-between p-4 rounded-2xl border-2 cursor-pointer transition"
+              class="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border-2 cursor-pointer transition gap-2 sm:gap-3 w-full min-w-0 overflow-hidden"
               :class="method === 'cash_on_delivery' ? 'border-emerald-500 bg-emerald-50/40' : 'border-neutral-100 hover:border-neutral-200'"
             >
-              <div class="flex items-center gap-3">
-                <input type="radio" name="payment_method" value="cash_on_delivery" x-model="method" class="text-emerald-500 focus:ring-emerald-500">
-                <div>
-                  <p class="font-bold text-neutral-900 text-sm">Paiement Main à Main à la Livraison</p>
-                  <p class="text-xs text-neutral-500">Règlement en espèces à notre livreur après vérification du produit</p>
+              <div class="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
+                <input type="radio" name="payment_method" value="cash_on_delivery" x-model="method" class="text-emerald-500 focus:ring-emerald-500 shrink-0">
+                <div class="min-w-0 flex-1">
+                  <p class="font-bold text-neutral-900 text-xs sm:text-sm">Paiement à la Livraison</p>
+                  <p class="text-[11px] sm:text-xs text-neutral-500 leading-tight">Règlement en espèces après vérification de l'appareil</p>
                 </div>
               </div>
-              <span class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 font-extrabold text-xs flex items-center gap-1.5">
-                <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              <span class="px-2 sm:px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 font-extrabold text-[11px] sm:text-xs flex items-center gap-1 shrink-0">
+                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                 <span>Espèces</span>
               </span>
             </label>
 
             <!-- Encadré Dépôt Mobile Money (Orange Money / Wave) -->
-            <div x-show="method === 'orange_money' || method === 'wave'" x-cloak class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-2.5 text-xs">
+            <div x-show="method === 'orange_money' || method === 'wave'" x-cloak class="p-3.5 sm:p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-2.5 text-xs w-full min-w-0 max-w-full overflow-hidden">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-2 border-b border-amber-200/60">
-                <span class="font-bold text-amber-950">Numéro de dépôt officiel Onizouka :</span>
-                <span class="font-mono font-bold text-slate-950 bg-white px-2.5 py-1 rounded-lg border border-amber-300 inline-block shadow-2xs">+223 92 67 37 99</span>
+                <span class="font-bold text-amber-950 text-xs">Numéro de dépôt officiel Onizouka :</span>
+                <span class="font-mono font-bold text-slate-950 bg-white px-2.5 py-1 rounded-lg border border-amber-300 inline-block shadow-2xs text-xs self-start sm:self-auto">+223 92 67 37 99</span>
               </div>
-              <p class="text-[11px] text-amber-900 leading-relaxed">
-                Effectuez votre transfert vers le numéro ci-dessus. Si vous disposez déjà du message SMS de confirmation, renseignez la référence ci-dessous (sinon, vous pourrez la fournir lors de la livraison ou par WhatsApp) :
+              <p class="text-[11px] text-amber-900 leading-relaxed break-words">
+                Effectuez votre transfert vers le numéro ci-dessus. Si vous disposez déjà du SMS de confirmation, renseignez la référence ci-dessous (sinon, vous pourrez la fournir lors de la livraison ou par WhatsApp) :
               </p>
               <div>
                 <label class="block text-[11px] font-bold text-slate-800 mb-1">
@@ -265,19 +265,19 @@
                   type="text" 
                   name="payment_reference" 
                   placeholder="Ex: CI2609... ou Réf Wave..."
-                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none text-xs bg-white font-mono"
+                  class="w-full min-w-0 max-w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none text-xs bg-white font-mono"
                 >
               </div>
             </div>
 
             <!-- Encadré Main à Main -->
-            <div x-show="method === 'cash_on_delivery'" x-cloak class="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200 text-xs text-emerald-900">
+            <div x-show="method === 'cash_on_delivery'" x-cloak class="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200 text-xs text-emerald-900 w-full min-w-0 max-w-full overflow-hidden">
               <p class="font-semibold flex items-center gap-1.5">
                 <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 Paiement direct en espèces à la remise du colis
               </p>
-              <p class="text-[11px] text-emerald-700 mt-1">
-                Notre coursier se déplacera à votre adresse à Bamako. Vous contrôlez l'état de l'appareil avant de régler la somme au livreur.
+              <p class="text-[11px] text-emerald-700 mt-1 leading-relaxed">
+                Notre coursier se déplace à votre adresse à Bamako. Vous contrôlez l'état de l'appareil avant de régler la somme au livreur.
               </p>
             </div>
 
@@ -287,20 +287,20 @@
       </div>
 
       <!-- ===== COLONNE DROITE : RÉCAPITULATIF COMMANDE (5 colonnes) ===== -->
-      <div class="lg:col-span-5 space-y-4">
+      <div class="lg:col-span-5 space-y-4 w-full min-w-0 max-w-full">
         
-        <div class="bg-white rounded-3xl border border-neutral-100 p-5 sm:p-6 shadow-sm sticky top-24 space-y-5">
+        <div class="bg-white rounded-2xl sm:rounded-3xl border border-neutral-100 p-4 sm:p-6 shadow-sm sticky top-24 space-y-4 w-full min-w-0 max-w-full overflow-hidden">
           
-          <h2 class="font-bold text-base text-neutral-900 pb-3 border-b border-neutral-100">
+          <h2 class="font-bold text-sm sm:text-base text-neutral-900 pb-3 border-b border-neutral-100">
             Appareils Commandés ({{ cart.get_items_count }})
           </h2>
 
-          <!-- Miniatures des articles -->
-          <div class="space-y-3 max-h-56 overflow-y-auto pr-1 divide-y divide-neutral-100">
+          <!-- Miniatures des articles avec protection anti-overflow -->
+          <div class="space-y-3 max-h-60 overflow-y-auto pr-0.5 divide-y divide-neutral-100 w-full min-w-0">
             {% for item in items %}
-            <div class="flex items-center justify-between gap-3 pt-2 first:pt-0">
-              <div class="flex items-center gap-3 min-w-0">
-                <div class="w-12 h-12 rounded-2xl bg-neutral-50 p-1 border border-neutral-100 shrink-0 flex items-center justify-center">
+            <div class="flex items-center justify-between gap-2 pt-2.5 first:pt-0 min-w-0 w-full">
+              <div class="flex items-center gap-2.5 min-w-0 flex-1">
+                <div class="w-11 h-11 rounded-xl bg-neutral-50 p-1 border border-neutral-100 shrink-0 flex items-center justify-center overflow-hidden">
                   {% if item.product.primary_image %}
                   <img src="{{ item.product.primary_image.image.url }}" alt="{{ item.product.name }}" class="max-w-full max-h-full object-contain">
                   {% else %}
@@ -309,40 +309,40 @@
                   </svg>
                   {% endif %}
                 </div>
-                <div class="min-w-0">
-                  <p class="font-semibold text-xs text-neutral-800 truncate">{{ item.product.name }}</p>
+                <div class="min-w-0 flex-1">
+                  <p class="font-semibold text-xs text-neutral-800 truncate" title="{{ item.product.name }}">{{ item.product.name }}</p>
                   <p class="text-[10px] text-neutral-400">Qté : {{ item.quantity }} × {{ item.product.get_formatted_price }}</p>
                 </div>
               </div>
-              <span class="font-bold text-xs text-neutral-900 shrink-0">{{ item.get_formatted_subtotal }}</span>
+              <span class="font-bold text-xs text-neutral-900 shrink-0 whitespace-nowrap ml-1.5">{{ item.get_formatted_subtotal }}</span>
             </div>
             {% endfor %}
           </div>
 
-          <!-- Lignes de Totaux -->
-          <div class="space-y-2.5 pt-4 border-t border-neutral-100 text-xs text-neutral-600">
-            <div class="flex justify-between items-center">
+          <!-- Lignes de Totaux avec protection de débordement -->
+          <div class="space-y-2.5 pt-3.5 border-t border-neutral-100 text-xs text-neutral-600 w-full min-w-0">
+            <div class="flex justify-between items-center gap-2">
               <span>Sous-total</span>
-              <span class="font-bold text-neutral-900 font-mono">{{ cart.get_formatted_total }}</span>
+              <span class="font-bold text-neutral-900 font-mono shrink-0">{{ cart.get_formatted_total }}</span>
             </div>
 
             {% if discount > 0 %}
-            <div class="flex justify-between items-center text-emerald-600 font-bold">
+            <div class="flex justify-between items-center text-emerald-600 font-bold gap-2">
               <span>Réduction code promo</span>
-              <span>-{{ discount|floatformat:0|intcomma }} FCFA</span>
+              <span class="shrink-0">-{{ discount|floatformat:0|intcomma }} FCFA</span>
             </div>
             {% endif %}
 
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center gap-2">
               <span>Frais de livraison</span>
-              <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-md">
+              <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-md shrink-0">
                 {% if shipping == 0 %}Gratuit{% else %}{{ shipping|floatformat:0|intcomma }} FCFA{% endif %}
               </span>
             </div>
 
-            <div class="pt-4 border-t border-neutral-200 flex justify-between items-baseline">
-              <span class="font-extrabold text-sm text-neutral-900 uppercase">Total Net</span>
-              <span class="font-black text-2xl text-neutral-900">
+            <div class="pt-3 border-t border-neutral-200 flex justify-between items-baseline gap-2 w-full min-w-0">
+              <span class="font-black text-xs sm:text-sm text-neutral-900 uppercase shrink-0">Total Net</span>
+              <span class="font-black text-xl sm:text-2xl text-neutral-900 text-right whitespace-nowrap shrink-0">
                 {{ total|floatformat:0|intcomma }} CFA
               </span>
             </div>
@@ -351,15 +351,15 @@
           <!-- Bouton de confirmation Orange Vif -->
           <button 
             type="submit"
-            class="w-full py-4 px-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 active:scale-[0.98] text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition cursor-pointer"
+            class="w-full py-3.5 sm:py-4 px-4 sm:px-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm rounded-2xl shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition cursor-pointer"
           >
-            <svg class="w-5 h-5 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>Confirmer & Valider la Commande</span>
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="truncate">Confirmer & Valider la Commande</span>
           </button>
 
           <!-- Réassurance de sécurité -->
-          <div class="pt-3 border-t border-neutral-100 flex items-center justify-center gap-2 text-neutral-400 text-[11px]">
-            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <div class="pt-2.5 border-t border-neutral-100 flex items-center justify-center gap-1.5 text-neutral-400 text-[10px] sm:text-[11px] text-center">
+            <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
             <span>Paiement 100% Chiffré & Facture Officielle</span>
           </div>
 
