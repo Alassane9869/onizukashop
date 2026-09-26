@@ -6,6 +6,51 @@
   <title>{% block title %}{{ page_title|default:"Onizouka • Électroménager & Froid au Mali" }}{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}{{ meta_description|default:"Onizouka Shop : Équipements électroménagers certifiés d'origine à Bamako. Climatisation, réfrigération, TV 4K avec garantie officielle et livraison express." }}{% endblock %}">
 
+  <!-- Code de vérification de domaine Meta (Facebook / Instagram Business) -->
+  {% if shop_settings.meta_domain_verification %}
+  <meta name="facebook-domain-verification" content="{{ shop_settings.meta_domain_verification }}">
+  {% endif %}
+
+  <!-- Balises Open Graph par défaut (Partage Facebook, WhatsApp, Réseaux) -->
+  <meta property="og:site_name" content="{{ shop_settings.site_name|default:'Onizouka Shop' }}">
+  <meta property="og:locale" content="fr_FR">
+  {% block open_graph %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title|default:'Onizouka Shop • Électroménager & Froid à Bamako' }}">
+  <meta property="og:description" content="{{ meta_description|default:'Boutique officielle au Grand Marché de Bamako (Dabanani). Frigos, Climatiseurs, Smart TV avec garantie officielle et livraison express.' }}">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/static/images/hero_banner_appliances.jpg">
+  {% endblock %}
+
+  <!-- Script Officiel Meta Pixel (Facebook Ads) -->
+  {% if shop_settings.meta_pixel_id %}
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{ shop_settings.meta_pixel_id }}');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id={{ shop_settings.meta_pixel_id }}&ev=PageView&noscript=1"/>
+  </noscript>
+  {% endif %}
+
+  <script>
+    // Helper global de tracking sécurisé (appelable en toute sécurité partout)
+    window.trackMetaEvent = function(eventName, params) {
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', eventName, params || {});
+      }
+    };
+  </script>
+
   <!-- Polices Outfit (titres/prix Apple style) & Inter (corps) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1250,5 +1295,6 @@
   {% endif %}
 
   {% block extra_scripts %}{% endblock %}
+  {% block extra_js %}{% endblock %}
 </body>
 </html>

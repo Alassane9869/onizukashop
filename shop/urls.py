@@ -21,4 +21,5 @@ urlpatterns = [
     path('confidentialite/', views.privacy_view, name='privacy'),
     path('mentions-legales/', views.legal_view, name='legal'),
     path('livraison-garantie/', views.shipping_warranty_view, name='shipping_warranty'),
+    path('facebook-catalog.xml', views.facebook_catalog_feed, name='facebook_catalog'),
 ]

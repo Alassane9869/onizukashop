@@ -139,7 +139,8 @@ class ShopSettingForm(forms.ModelForm):
             'orange_money_number', 'wave_number', 'cash_on_delivery_active',
             'default_min_stock_alert', 'block_order_on_out_of_stock',
             'email_notifications_active', 'whatsapp_notifications_active',
-            'flash_sale_active', 'flash_sale_title', 'flash_sale_subtitle', 'flash_sale_end_date'
+            'flash_sale_active', 'flash_sale_title', 'flash_sale_subtitle', 'flash_sale_end_date',
+            'meta_pixel_id', 'meta_domain_verification'
         ]
         widgets = {
             'site_name': forms.TextInput(attrs={'class': 'w-full px-3 py-1.5 rounded-md border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs text-slate-800 transition'}),
@@ -173,6 +174,14 @@ class ShopSettingForm(forms.ModelForm):
                     'class': 'w-full px-3 py-1.5 rounded-md border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs font-mono text-slate-800 transition'
                 }
             ),
+            'meta_pixel_id': forms.TextInput(attrs={
+                'class': 'w-full px-3 py-1.5 rounded-md border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs font-mono text-slate-800 transition',
+                'placeholder': 'Ex: 123456789012345'
+            }),
+            'meta_domain_verification': forms.TextInput(attrs={
+                'class': 'w-full px-3 py-1.5 rounded-md border border-slate-200 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none text-xs font-mono text-slate-800 transition',
+                'placeholder': 'Ex: 1a2b3c4d5e6f7g8h9i0j'
+            }),
         }
 
 

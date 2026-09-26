@@ -58,6 +58,22 @@ class ShopSetting(models.Model):
     flash_sale_subtitle = models.CharField("Sous-titre descriptif", max_length=255, default="Tarifs remisés disponibles immédiatement en stock à Bamako")
     flash_sale_end_date = models.DateTimeField("Date et heure de fin du compte à rebours", null=True, blank=True)
 
+    # Intégration Meta Business / Facebook Ads & Tracking
+    meta_pixel_id = models.CharField(
+        "ID Pixel Facebook (Meta)", 
+        max_length=50, 
+        blank=True, 
+        default="",
+        help_text="Identifiant numérique Meta Pixel à 15-16 chiffres fourni par Meta Events Manager"
+    )
+    meta_domain_verification = models.CharField(
+        "Code de vérification de domaine Meta", 
+        max_length=100, 
+        blank=True, 
+        default="",
+        help_text="Code meta name='facebook-domain-verification' fourni par Meta Business Suite"
+    )
+
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:

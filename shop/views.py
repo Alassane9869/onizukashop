@@ -616,4 +616,22 @@ def wishlist_view(request):
     return render(request, 'shop/wishlist.html', context)
 
 
+def facebook_catalog_feed(request):
+    """Génère le flux XML officiel du catalogue produits pour Meta Commerce Manager (Facebook/Instagram)."""
+    products = (
+        Product.objects
+        .filter(is_active=True)
+        .select_related('brand', 'category')
+        .prefetch_related('images')
+        .order_by('-created_at')
+    )
+    base_url = f"{request.scheme}://{request.get_host()}"
+    return render(
+        request, 
+        'shop/facebook_catalog.xml', 
+        {'products': products, 'base_url': base_url}, 
+        content_type='application/xml; charset=utf-8'
+    )
+
+
 

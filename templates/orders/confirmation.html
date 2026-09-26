@@ -193,3 +193,17 @@
   </div>
 </div>
 {% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    trackMetaEvent('Purchase', {
+      value: {{ order.total|floatformat:0 }},
+      currency: 'XOF',
+      content_type: 'product',
+      content_ids: [{% for item in items %}'{{ item.product_sku|default:item.product.id|default:item.id|escapejs }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+      num_items: {{ items|length }}
+    });
+  });
+</script>
+{% endblock %}

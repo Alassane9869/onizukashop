@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% load static humanize %}
 
+{% block title %}{{ product.name }} • Onizouka Shop{% endblock %}
+{% block meta_description %}{{ product.short_description|default:product.description|striptags|truncatewords:25 }}{% endblock %}
+
+{% block open_graph %}
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="{{ product.name }} • {{ product.current_price|floatformat:0|intcomma }} FCFA">
+  <meta property="og:description" content="{{ product.short_description|default:product.description|striptags|truncatewords:30 }} • Disponible immédiatement au Grand Marché de Bamako. Garantie constructeur 12 à 24 mois.">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+  {% if product.primary_image %}
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ product.primary_image.image.url }}">
+  {% endif %}
+  <meta property="product:price:amount" content="{{ product.current_price|floatformat:0 }}">
+  <meta property="product:price:currency" content="XOF">
+  <meta property="product:availability" content="{% if product.stock > 0 %}in stock{% else %}out of stock{% endif %}">
+  <meta property="product:brand" content="{{ product.brand.name|default:'Onizouka Shop' }}">
+{% endblock %}
+
 {% block content %}
 <div class="max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-8 pb-24 lg:pb-12"
      x-data="{
@@ -15,6 +32,15 @@
        formatPrice(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA'; },
        addingToCart: false,
        addedToCart: false,
+       init() {
+         trackMetaEvent('ViewContent', {
+           content_name: '{{ product.name|escapejs }}',
+           content_ids: ['{{ product.sku|default:product.id|escapejs }}'],
+           content_type: 'product',
+           value: {{ product.current_price|floatformat:0 }},
+           currency: 'XOF'
+         });
+       },
        addToCart(formEl) {
          if (this.addingToCart) return;
          this.addingToCart = true;
@@ -34,6 +60,12 @@
            this.addingToCart = false;
            if (data.success) {
              this.addedToCart = true;
+             trackMetaEvent('AddToCart', {
+               content_name: '{{ product.name|escapejs }}',
+               content_ids: ['{{ product.sku|default:product.id|escapejs }}'],
+               value: this.totalPrice,
+               currency: 'XOF'
+             });
              document.dispatchEvent(new CustomEvent('cartUpdated', { 
                detail: { count: data.cart_count, message: data.message } 
              }));
@@ -48,6 +80,12 @@
          });
        },
        openWhatsApp() {
+         trackMetaEvent('Contact', {
+           content_name: '{{ product.name|escapejs }}',
+           content_ids: ['{{ product.sku|default:product.id|escapejs }}'],
+           value: this.totalPrice,
+           currency: 'XOF'
+         });
          const dest = '{{ shop_settings.whatsapp_raw|default:'22392673799' }}';
          const msg = `*COMMANDE DIRECTE - ONIZOUKA SHOP (GRAND MARCHE)*\n` +
                      `----------------------------------------\n` +
